@@ -1,54 +1,88 @@
 <!DOCTYPE html>
-<html lang="ko"
-	  xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layouts/layout}">
-	  
-	<!-- head 영역 시작 -->
-	<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
-	<head>
-		<th:block layout:fragment="script">
-			<script th:inline="javascript">
-				$(function() {
-					
-				});
-			</script>
-		</th:block>
-		
-		<th:block layout:frament="css">
-			<style>
-				body {
-					height: 100%;
-				}
-			</style>
-		</th:block>
-	</head>
-	<!-- head 영역 끝 -->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			$(function () {
+
+			});
+		</script>
+	</th:block>
+
+	<th:block layout:frament="css">
+		<style>
+			body {
+				height: 100%;
+			}
+		</style>
+	</th:block>
 	
-	<body>
-		<div layout:fragment="content">
-			<div style="text-align: center;">
-				<h1>게시판 홈</h1>
-				<p>회원가입, 로그인, 게시판, 파일업로드 등을</p>
-				<p>구현할 예정</p>
+	<link rel="stylesheet" th:href="@{/css/play.css}"/>
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<div class="v19_9">
+			<div class="v21_25">
+				<div class="v21_26"></div>
+				<div class="v21_27"></div><span class="v21_28">놀아줘요</span>
+			</div>
+			<div class="v21_78"><span class="v21_80">심심한 동네 사람들 모두 여기에!</span><span class="v21_81">무료한 시간을 보내고 계시다구요 ?
+					이곳에서 무료한 시간을 즐거운 시간으로 탈바꿈해보세요!
+					이용료는 무료랍니다 ! </span></div>
+			<div class="v21_321">
+				<div class="v21_322"></div>
+				<div class="v21_323"></div>
+				<div class="v21_324"></div>
+			</div>
+			<div class="v21_9"></div>
+			<div class="v25_80"></div>
+			<div class="v89_482"></div>
+			<div class="v25_82">
+				<div class="v25_83"></div>
+				<div class="v25_84">
+					<div class="v25_85"></div>
+					<div class="v25_86"></div>
+				</div>
+			</div>
+			<div class="v25_97">
+				<div class="v25_87"></div>
+				<div class="v25_92">
+					<div class="v25_90"></div>
+					<div class="v25_91"></div>
+				</div>
+				<div class="v25_96">
+					<div class="v25_94"></div>
+					<div class="v25_95"></div>
+				</div>
+			</div><span class="v28_8">댓글순 | 조회수순 | 최신순</span>
+			<div class="v125_113">
+				<div class="v125_114"></div><span class="v125_115">이용하기</span>
 			</div>
 		</div>
-	</body>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	</div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </html>
