@@ -111,14 +111,14 @@
 	<!-- 신고게시판 -->
 	<select id="selectRep" parameterType="int" resultType="report">
 	SELECT *
-		FROM TB_QUESTION
-		WHERE Q_NO = #{qNo}
+		FROM TB_REP
+		WHERE REP_NO = #{repNo}
 	</select>
 
 	<select id="selectRepList" parameterType="map" resultType="report">
 		<![CDATA[
 		SELECT *
-			FROM TB_QUESTION
+			FROM TB_REP
 			
 	]]>
 		<if test="repSearch.searchKeyword != null and repSearch.searchKeyword != ''">
@@ -148,15 +148,15 @@
 				WHERE 1 = 0
 				   OR REP_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
 				   OR REP_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')
-				</if>
+			</if>
 			<if test="searchCondition != 'ALL'">
 				WHERE 1 = 1
 				<if test="searchCondition == 'TITLE'">
 						AND REP_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
-					</if>
+				</if>
 				<if test="searchCondition == 'CONTENT'">
 						AND REP_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')
-					</if>
+				</if>
 			</if>
 		</if>
 	</select>

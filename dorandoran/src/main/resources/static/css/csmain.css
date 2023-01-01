@@ -64,6 +64,31 @@ aside {
 }*/
 
 #boardTable {
-	font-size: 1.5em;
-	font-weight: 100;
+	font-size: 1.3em;
+	font-weight: 400;
+	text-align: center;
 }
+#boardTable td {
+	height : 45px;
+	background-color: #f0f6fe;
+	border : 2px solid white;
+}
+
+#tb1 td {
+	background-color: white;
+	text-align : center;
+	width : 150px;
+	height : 50px;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+#boardTable a:link { color: black; text-decoration: none;}
+#boardTable a:visited { color: black; text-decoration: none;}
+#boardTable a:hover { color : #1761A0; text-decoration: none;}
+
+#insertInp { width: 99%; height : 90%; border : 0px; font-size: 1.0em;}
+#qSelect {font-size: 1.0em; height : 95%; width: 30%; text-align: center;}
+
+#texta1 {font-size : 1.2em; border : 0px;}
+
+.pagination { list-style:none;}

@@ -10,7 +10,7 @@
 		<link rel="stylesheet" th:href="@{/css/csmain.css}" />
 	</th:block>
 	<th:block layout:fragment="script">
-
+		<script th:inline="javascript">
 		</script>
 	</th:block>
 </head>
@@ -42,7 +42,7 @@
 										제목
 									</td>
 									<td style="text-align: left;">
-										<input type="text" name="repTitle">
+										<input type="text" name="repTitle" id="insertInp">
 									</td>
 								</tr>
 								<tr>
@@ -51,7 +51,7 @@
 									</td>
 									<td style="text-align: left;">
 										<textarea name="repContent" cols="40" rows="10"
-											style="width:700px; height:400px;"></textarea>
+											style="width:700px; height:450px;" id="texta1"></textarea>
 									</td>
 								</tr>
 								<tr>

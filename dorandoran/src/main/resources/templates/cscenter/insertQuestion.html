@@ -10,7 +10,8 @@
 		<link rel="stylesheet" th:href="@{/css/csmain.css}" />
 	</th:block>
 	<th:block layout:fragment="script">
-
+		<script th:inline="javascript">
+		
 		</script>
 	</th:block>
 </head>
@@ -28,6 +29,7 @@
 				<div class="rectangle-23-xiJ">
 					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
 						<form action="/cscenter/question" method="post">
+							<input type="hidden" id="aYn" name="aYn" value="N">
 							<table border="1" style="border-collapse: collapse; margin-top: 100px;" id="tb1">
 								<tr>
 									<td>
@@ -42,7 +44,7 @@
 										카테고리
 									</td>
 									<td style="text-align: left;">
-										<select name="qCd">
+										<select name="qCd" id="qSelect">
 											<option value="IDS" th:selected="${qCd == 'IDS'}">계정문의</option>
 											<option value="USE" th:selected="${qCd == 'USE'}">이용문의</option>
 											<option value="OTH" th:selected="${qCd == 'OTH'}">기타</option>
@@ -54,7 +56,7 @@
 										제목
 									</td>
 									<td style="text-align: left;">
-										<input type="text" name="qTitle">
+										<input type="text" name="qTitle" id="insertInp">
 									</td>
 								</tr>
 								<tr>
@@ -63,7 +65,7 @@
 									</td>
 									<td style="text-align: left;">
 										<textarea name="qContent" cols="40" rows="10"
-											style="width:700px; height:400px;"></textarea>
+											style="width:700px; height:400px;" id="texta1"></textarea>
 									</td>
 								</tr>
 								<tr>

@@ -10,7 +10,22 @@
 		<link rel="stylesheet" th:href="@{/css/csmain.css}" />
 	</th:block>
 	<th:block layout:fragment="script">
+		<script th:src="@{/js/jquery-3.6.1.min.js}"></script>
+		<script th:inline="javascript">
+			$(function () {
+				$(".pagination a").on("click", function (e) {
+					e.preventDefault();
 
+					$("input[name='pageNum']").val($(this).attr("href"));
+					$("#searchForm").submit();
+				});
+
+				$("#btnSearch").on("click", function () {
+					$("input[name='pageNum']").val(1);
+
+					$("#searchForm").submit();
+				});
+			});
 		</script>
 	</th:block>
 </head>
@@ -29,9 +44,9 @@
 					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"
 						id="table1">
 						<form id="searchForm" action="/cscenter/repList" method="get">
-							<input type="hidden" name="pageNum" value="${pageDTO.cri.pageNum }">
-							<input type="hidden" name="amount" value="${pageDTO.cri.amount }">
-							<table style="width: 1000px; border-collapse: collapse; margin-top: 50px;">
+							<input type="hidden" name="pageNum" th:value="${pageDTO.cri.pageNum }">
+							<input type="hidden" name="amount" th:value="${pageDTO.cri.amount }">
+							<table style="width: 800px; border-collapse: collapse; margin-top: 70px;">
 								<tr>
 									<td align="right">
 										<select name="searchCondition">
@@ -50,13 +65,12 @@
 							</table>
 						</form>
 
-						<table id="boardTable" border="1"
-							style="width: 1000px; border-collapse: collapse; margin-top: 10px;">
+						<table id="boardTable" style="width: 800px; border-collapse: collapse; margin-top: 10px;">
 							<tr>
-								<th style="background-Color : white; width: 150px;">번호</th>
-								<th style="background-Color : white; width: 550px;">제목</th>
-								<th style="background-Color : white; width: 150px;">작성자</th>
-								<th style="background-Color : white; width: 150px;">등록일</th>
+								<th style="background-Color : #CFE1FC; width: 10%;">번호</th>
+								<th style="background-Color : #CFE1FC; width: 50%;">제목</th>
+								<th style="background-Color : #CFE1FC; width: 20%;">작성자</th>
+								<th style="background-Color : #CFE1FC; width: 20%;">등록일</th>
 							</tr>
 							<tr th:each="report : ${repList}">
 								<td th:text=${report.repNo}></td>
@@ -73,7 +87,7 @@
 						</table>
 						<br />
 						<div style="text-align:center;">
-							<!--<ul class="pagination">
+							<ul class="pagination">
 								<li th:if="${pageDTO.prev }" class="pagination_button">
 									<a th:href="${pageDTO.cri.pageNum - 1 }">이전</a>
 								</li>
@@ -87,7 +101,7 @@
 								<li th:if="${pageDTO.next }" class="pagination_button">
 									<a th:href="${pageDTO.cri.pageNum + 1 }">다음</a>
 								</li>
-							</ul>-->
+							</ul>
 						</div>
 						<br />
 						<a th:href="@{/cscenter/insertReport}">새 글 등록</a>
