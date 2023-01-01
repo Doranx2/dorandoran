@@ -21,51 +21,38 @@
 			}
 		</style>
 	</th:block>
-	
-	<link rel="stylesheet" th:href="@{/css/play.css}"/>
+
 </head>
 <!-- head 영역 끝 -->
 
 <body>
 	<div layout:fragment="content">
-		<div class="v19_9">
-			<div class="v21_25">
-				<div class="v21_26"></div>
-				<div class="v21_27"></div><span class="v21_28">놀아줘요</span>
+	
+		<link rel="stylesheet" th:href="@{/css/play.css}" />
+		
+		<form id="insertPlay" method="post" action="/play/insertPlay">
+			<div class="v89_238">
+				<div class="v89_239"></div>
+				<div class="v89_240"></div>
+				<span class="v89_241">놀아줘요</span>
 			</div>
-			<div class="v21_78"><span class="v21_80">심심한 동네 사람들 모두 여기에!</span><span class="v21_81">무료한 시간을 보내고 계시다구요 ?
-					이곳에서 무료한 시간을 즐거운 시간으로 탈바꿈해보세요!
-					이용료는 무료랍니다 ! </span></div>
-			<div class="v21_321">
-				<div class="v21_322"></div>
-				<div class="v21_323"></div>
-				<div class="v21_324"></div>
+			<span class="v112_784">놀아줘요 글쓰기</span>
+			<div class="v89_245">
+				<img class="backImg" th:src="@{/images/boardBack.png}" />
 			</div>
-			<div class="v21_9"></div>
-			<div class="v25_80"></div>
-			<div class="v89_482"></div>
-			<div class="v25_82">
-				<div class="v25_83"></div>
-				<div class="v25_84">
-					<div class="v25_85"></div>
-					<div class="v25_86"></div>
-				</div>
+			<div class="v89_249">
+				<img class="iconImg" th:src="@{/images/playIcon.png}" />
 			</div>
-			<div class="v25_97">
-				<div class="v25_87"></div>
-				<div class="v25_92">
-					<div class="v25_90"></div>
-					<div class="v25_91"></div>
-				</div>
-				<div class="v25_96">
-					<div class="v25_94"></div>
-					<div class="v25_95"></div>
-				</div>
-			</div><span class="v28_8">댓글순 | 조회수순 | 최신순</span>
-			<div class="v125_113">
-				<div class="v125_114"></div><span class="v125_115">이용하기</span>
+			<!-- 제목 -->
+				<input id="playTitle" class="playTitle" name="playTitle" placeholder="제목을 입력하세요.">
+			<!-- 내용 -->
+				<textarea id="playContent" class="playContent" name="playContent" placeholder="내용을 입력하세요."></textarea>
+			<div class="v112_53">
 			</div>
-		</div>
+			<button id="insertBtn" class="insertBtn" type="submit">등록</button>
+		</form>
+			<button id="cancelBtn" class="cancelBtn" onclick="location.href='/play/selectPlayList'">취소</button>
+		
 	</div>
 </body>
 
