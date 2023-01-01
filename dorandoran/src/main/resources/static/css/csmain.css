@@ -91,4 +91,9 @@ aside {
 
 #texta1 {font-size : 1.2em; border : 0px;}
 
-.pagination { list-style:none;}
+.pagination { list-style:none; font-size: 1.2em;}
+
+.pagination a:link { color: black; text-decoration: none;}
+.pagination a:visited { color: black; text-decoration: none;}
+.pagination a:hover { color : #1761A0; text-decoration: none;}
+

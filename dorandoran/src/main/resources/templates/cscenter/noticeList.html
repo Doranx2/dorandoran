@@ -46,7 +46,7 @@
 						<form id="searchForm" action="/cscenter/noticeList" method="get">
 							<input type="hidden" name="pageNum" th:value="${pageDTO.cri.pageNum }">
 							<input type="hidden" name="amount" th:value="${pageDTO.cri.amount }">
-							<table style="width: 800px; border-collapse: collapse; margin-top: 70px">
+							<table style="width: 800px; border-collapse: collapse; margin-top: 100px;">
 								<tr>
 									<td align="right">
 										<select name="searchCondition">
@@ -87,7 +87,7 @@
 							</tr>
 						</table>
 						<br />
-						<div style="text-align:center;">
+						<div>
 							<ul class="pagination">
 								<li th:if="${pageDTO.prev }" class="pagination_button">
 									<a th:href="${pageDTO.cri.pageNum - 1 }">이전</a>
