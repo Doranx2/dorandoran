@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout-cs}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" th:href="@{/css/csmain.css}" />
+	</th:block>
+	<th:block layout:fragment="script">
+
+		</script>
+	</th:block>
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<div class="item--68N">
+			<div class="auto-group-e12j-mkJ">
+				<img class="ellipse-3-VAW" src="/images/ellipse-3-fwC.png" />
+				<img class="customer-survey-amico-1-dGi" src="/images/customer-survey-amico-1-3La.png" />
+				<div class="item--kcE">고객센터</div>
+			</div>
+			<div class="auto-group-hv9g-23x">
+				<div class="rectangle-23-xiJ">
+					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"
+						id="table1">
+						<form id="searchForm" action="/cscenter/questionList" method="get">
+							<input type="hidden" name="pageNum" value="${pageDTO.cri.pageNum }">
+							<input type="hidden" name="amount" value="${pageDTO.cri.amount }">
+							<table style="width: 1000px; border-collapse: collapse;margin-top:50px;">
+								<tr>
+									<td align="right">
+										<select name="searchCondition">
+											<option value="ALL" th:selected="${searchCondition == 'ALL'}">전체</option>
+											<option value="TITLE" th:selected="${searchCondition == 'TITLE'}">제목
+											</option>
+											<option value="CONTENT" th:selected="${searchCondition == 'CONTENT'}">내용
+											</option>
+											<option value="WRITER" th:selected="${searchCondition == 'WRITER'}">작성자
+											</option>
+										</select>
+										<input type="text" name="searchKeyword" th:value="${searchKeyword}">
+										<button type="button" id="btnSearch">검색</button>
+									</td>
+								</tr>
+							</table>
+						</form>
+
+						<table id="boardTable" border="1"
+							style="width: 1000px; border-collapse: collapse; margin-top:10px;">
+							<tr>
+								<th style="background-Color : white; width: 150px;">번호</th>
+								<th style="background-Color : white; width: 550px;">제목</th>
+								<th style="background-Color : white; width: 150px;">작성자</th>
+								<th style="background-Color : white; width: 150px;">등록일</th>
+							</tr>
+							<tr th:each="question : ${questionList}">
+								<td th:text=${question.qNo}></td>
+								<td>
+									<a th:text="${question.qTitle}"
+										th:href="@{/cscenter/question/{qNo} (qNo=${question.qNo})}">
+									</a>
+								</td>
+								<td th:text="${question.userNo}"></td>
+								<td
+									th:text="${question.inputDtm eq null ? '' : #strings.substring(question.inputDtm, 0, 10)}">
+								</td>
+							</tr>
+						</table>
+						<br />
+						<div style="text-align:center;">
+							<!--<ul class="pagination">
+								<li th:if="${pageDTO.prev }" class="pagination_button">
+									<a th:href="${pageDTO.cri.pageNum - 1 }">이전</a>
+								</li>
+
+
+								<li th:each="num : ${#numbers.sequence(pageDTO.startPage, pageDTO.endPage)} "
+									class="pagination_button">
+									<a th:href="${num }" th:text="${num}"></a>
+								</li>
+
+								<li th:if="${pageDTO.next }" class="pagination_button">
+									<a th:href="${pageDTO.cri.pageNum + 1 }">다음</a>
+								</li>
+							</ul>-->
+						</div>
+						<br/>
+						<a th:href="@{/cscenter/insertQuestion}">새 글 등록</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
