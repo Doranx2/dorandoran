@@ -56,7 +56,7 @@
 							<tr th:each="notice : ${noticeList}">
 								<td th:text=${notice.noticeNo}></td>
 								<td>
-									<a th:text="${noitce.noticeTitle}"
+									<a th:text="${notice.noticeTitle}"
 										th:href="@{/cscenter/notice/{noticeNo} (noticeNo=${notice.noticeNo})}">
 									</a>
 								</td>
@@ -67,7 +67,7 @@
 						</table>
 						<br />
 						<div style="text-align:center;">
-							<!--<ul class="pagination">
+							<ul class="pagination">
 								<li th:if="${pageDTO.prev }" class="pagination_button">
 									<a th:href="${pageDTO.cri.pageNum - 1 }">이전</a>
 								</li>
@@ -81,7 +81,7 @@
 								<li th:if="${pageDTO.next }" class="pagination_button">
 									<a th:href="${pageDTO.cri.pageNum + 1 }">다음</a>
 								</li>
-							</ul>-->
+							</ul>
 						</div>
 					</div>
 				</div>

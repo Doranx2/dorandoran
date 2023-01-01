@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout-cs}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" th:href="@{/css/csmain.css}" />
+	</th:block>
+	<th:block layout:fragment="script">
+
+		</script>
+	</th:block>
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<div class="item--68N">
+			<div class="auto-group-e12j-mkJ">
+				<img class="ellipse-3-VAW" src="/images/ellipse-3-fwC.png" />
+				<img class="customer-survey-amico-1-dGi" src="/images/customer-survey-amico-1-3La.png" />
+				<div class="item--kcE">고객센터</div>
+			</div>
+			<div class="auto-group-hv9g-23x">
+				<div class="rectangle-23-xiJ">
+					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<form action="/cscenter/question" method="post">
+							<table border="1" style="border-collapse: collapse; margin-top: 100px;" id="tb1">
+								<tr>
+									<td>
+										회원번호
+									</td>
+									<td style="text-align: left;">
+										<!--<input type="text" name="userNo" th:value="${session.loginUser.userNo}"readonly>-->
+									</td>
+								</tr>
+								<tr>
+									<td>
+										카테고리
+									</td>
+									<td style="text-align: left;">
+										<select name="qCd">
+											<option value="IDS" th:selected="${qCd == 'IDS'}">계정문의</option>
+											<option value="USE" th:selected="${qCd == 'USE'}">이용문의</option>
+											<option value="OTH" th:selected="${qCd == 'OTH'}">기타</option>
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										제목
+									</td>
+									<td style="text-align: left;">
+										<input type="text" name="qTitle">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										내용
+									</td>
+									<td style="text-align: left;">
+										<textarea name="qContent" cols="40" rows="10"
+											style="width:700px; height:400px;"></textarea>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" align="right">
+										<a href="/cscenter/questionList">취소</a>
+										<button type="submit">등록</button>
+									</td>
+								</tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
