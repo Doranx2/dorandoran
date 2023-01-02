@@ -1,0 +1,148 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 192rem;
+}.findidcheck-22r {
+  width: 100%;
+  height: 80rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.findidcheck-22r .image-5-kjY {
+  width: 30.3rem;
+  height: 33.8rem;
+  position: absolute;
+  left: 108.3rem;
+  top: 26.4rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.findidcheck-22r .oh-no-amico-1-VSE {
+  width: 21rem;
+  height: 21.4rem;
+  position: absolute;
+  left: 85.5rem;
+  top: 11.9rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.findidcheck-22r .item--E8v {
+  width: 34.8rem;
+  height: 7rem;
+  position: absolute;
+  left: 78.55rem;
+  top: 33.3rem;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.75;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.findidcheck-22r .rectangle-35-6gv {
+  width: 40rem;
+  height: 23.7rem;
+  position: absolute;
+  left: 76rem;
+  top: 44.4rem;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.findidcheck-22r .rectangle-46-DWe {
+  width: 22rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 85rem;
+  top: 48.1rem;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.findidcheck-22r .rectangle-47-vfx {
+  width: 22rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 85rem;
+  top: 55.2rem;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.findidcheck-22r .rectangle-48-e6A {
+  width: 15rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 88.5rem;
+  top: 61.4rem;
+  background-color: #1761a0;
+  border-radius: 0.5rem;
+}
+.findidcheck-22r .item--B66 {
+  width: 3.5rem;
+  height: 7rem;
+  position: absolute;
+  left: 94.15rem;
+  top: 59.7rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 4.6666666667;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.findidcheck-22r .item--5hG {
+  width: 1.9rem;
+  height: 7rem;
+  position: absolute;
+  left: 85.95rem;
+  top: 43.7rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 4.6666666667;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.findidcheck-22r .item--zZL {
+  width: 2.8rem;
+  height: 7rem;
+  position: absolute;
+  left: 86.2rem;
+  top: 50.7rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 4.6666666667;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.findidcheck-22r .item-01-1-tuc {
+  width: 14.1351rem;
+  height: 14.1351rem;
+  position: absolute;
+  left: 122.1rem;
+  top: 30.8rem;
+  object-fit: cover;
+  vertical-align: top;
+}

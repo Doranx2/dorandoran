@@ -1,0 +1,261 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 192rem;
+}.share-e3Y {
+  box-sizing: border-box;
+  padding: 0rem 0rem 4.3rem 32.6rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.share-e3Y .auto-group-6lzn-MyY {
+  margin: 0rem 0rem 1.738rem 0.1rem;
+  width: 178.9475rem;
+  height: 106.3622rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.share-e3Y .auto-group-6lzn-MyY .title-HMQ {
+  width: 27.1768rem;
+  height: 12.9rem;
+  position: absolute;
+  left: 0;
+  top: 11.5rem;
+}
+.share-e3Y .auto-group-6lzn-MyY .title-HMQ .rectangle-19-CzA {
+  width: 8.7344rem;
+  height: 8.7567rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #8fb4d3;
+}
+.share-e3Y .auto-group-6lzn-MyY .title-HMQ .rectangle-20-McA {
+  width: 5.3768rem;
+  height: 5.3678rem;
+  position: absolute;
+  left: 21.8rem;
+  top: 7.5322rem;
+  background-color: #8fb4d3;
+}
+.share-e3Y .auto-group-6lzn-MyY .title-HMQ .item--Hki {
+  width: 20.8rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 1.9rem;
+  top: 3.8163rem;
+  font-size: 6.4rem;
+  font-weight: 400;
+  line-height: 1.125;
+  letter-spacing: 1.344rem;
+  color: #000000;
+  font-family: EF_AONE, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.share-e3Y .auto-group-6lzn-MyY .content-mft {
+  width: 64.3rem;
+  height: 25.8rem;
+  position: absolute;
+  left: 1.9rem;
+  top: 27.3rem;
+}
+.share-e3Y .auto-group-6lzn-MyY .content-mft .auto-group-wgwe-uXC {
+  margin-bottom: 1.4rem;
+  width: 100%;
+  height: 11.9rem;
+  position: relative;
+}
+.share-e3Y .auto-group-6lzn-MyY .content-mft .auto-group-wgwe-uXC .item--rBY {
+  width: 64.2rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 0.1rem;
+  top: 0;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.8;
+  letter-spacing: 0.22rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.share-e3Y .auto-group-6lzn-MyY .content-mft .auto-group-wgwe-uXC .item--WG6 {
+  width: 59.5rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 0;
+  top: 4.7rem;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.8;
+  letter-spacing: 0.22rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.share-e3Y .auto-group-6lzn-MyY .content-mft .item--yQa {
+  margin-left: 0.1rem;
+  max-width: 63.1rem;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.11rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+}
+.share-e3Y .auto-group-6lzn-MyY .group-9-dtS {
+  width: 127.1475rem;
+  height: 102.3rem;
+  position: absolute;
+  left: 51.8rem;
+  top: 0;
+  object-fit: contain;
+  vertical-align: top;
+}
+.share-e3Y .auto-group-6lzn-MyY .marketing-amico-1-ySW {
+  width: 55rem;
+  height: 55rem;
+  position: absolute;
+  left: 71.8rem;
+  top: 9.2rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.share-e3Y .auto-group-6lzn-MyY .search-VQr {
+  box-sizing: border-box;
+  padding: 0.2rem 1.342rem 0.207rem 23.5rem;
+  width: 28.2025rem;
+  height: 4.0622rem;
+  position: absolute;
+  left: 98.6rem;
+  top: 62.5rem;
+  background-color: #d9d9d9;
+  border-radius: 1rem;
+}
+.share-e3Y .auto-group-6lzn-MyY .search-VQr .icon-search-outline-nuk {
+  width: 3.3605rem;
+  height: 3.6557rem;
+  object-fit: contain;
+  vertical-align: top;
+}
+.share-e3Y .auto-group-6lzn-MyY .item--JNJ {
+  width: 17.9rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 77.5rem;
+  top: 63.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: 0.11rem;
+  color: #1761a0;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.share-e3Y .auto-group-6lzn-MyY .sharebtn-Nsx {
+  width: 21.2rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 1.9rem;
+  top: 56.55rem;
+  border-radius: 1rem;
+}
+.share-e3Y .auto-group-6lzn-MyY .sharebtn-Nsx .rectangle-21-ust {
+  width: 21.1rem;
+  height: 5rem;
+  position: absolute;
+  left: 0;
+  top: 1.05rem;
+  background-color: #1761a0;
+  border-radius: 1rem;
+}
+.share-e3Y .auto-group-6lzn-MyY .sharebtn-Nsx .item--FB4 {
+  width: 5.8rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 7.7rem;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3.6;
+  letter-spacing: 0.24rem;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.share-e3Y .rectangle-23-7DG {
+  margin: 0rem 32.6rem 1.8rem 0rem;
+  width: 126.8rem;
+  height: 52.8rem;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.share-e3Y .pagetion-2LE {
+  margin: 0rem 70.2rem 0rem 37.6rem;
+  width: calc(100% - 107.8rem);
+  display: flex;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.share-e3Y .pagetion-2LE .icon-arrow-ios-back-9Qr {
+  margin-top: 0.5829rem;
+  box-sizing: border-box;
+  padding: 1.246rem 2.064rem 1.246rem 1.832rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../assets/vector-oCi.png');
+  flex-shrink: 0;
+}
+.share-e3Y .pagetion-2LE .icon-arrow-ios-back-9Qr .vector-s5x {
+  width: 1.6039rem;
+  height: 3.4904rem;
+  object-fit: contain;
+  vertical-align: top;
+}
+.share-e3Y .pagetion-2LE .rectangle-63-Ppz {
+  width: 40.6rem;
+  height: 6.6rem;
+  background-color: #d9d9d9;
+  flex-shrink: 0;
+}
+.share-e3Y .pagetion-2LE .icon-arrow-ios-forward-9ZG {
+  margin-top: 0.5829rem;
+  box-sizing: border-box;
+  padding: 1.239rem 1.82rem 1.246rem 2.062rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url('../assets/vector-BoC.png');
+  flex-shrink: 0;
+}
+.share-e3Y .pagetion-2LE .icon-arrow-ios-forward-9ZG .vector-fXc {
+  width: 1.6178rem;
+  height: 3.4978rem;
+  object-fit: contain;
+  vertical-align: top;
+}

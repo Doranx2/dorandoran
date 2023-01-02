@@ -1,0 +1,331 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 192rem;
+}.faq--6vr {
+  box-sizing: border-box;
+  padding: 1.45rem 32.5rem 1rem 32.5rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+.faq--6vr .admin-page-p6A {
+  margin: 0rem 0rem 1.45rem 103.5rem;
+  text-align: right;
+  display: flex;
+  font-size: 3.6rem;
+  font-weight: 900;
+  line-height: 0.6944444444;
+  letter-spacing: 0.198rem;
+  color: #1761a0;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 {
+  box-sizing: border-box;
+  padding-right: 3.7rem;
+  width: 100%;
+  height: 95.6rem;
+  display: flex;
+  align-items: center;
+  border: solid 0.3rem #f5f5f5;
+  background-color: #ffffff;
+  border-radius: 1.6rem;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-1cdp-cni {
+  margin-right: 2.9rem;
+  box-sizing: border-box;
+  padding: 14.3rem 5.3rem 14.3rem 4.2rem;
+  width: 23rem;
+  height: 100%;
+  background-color: #f5f5f5;
+  border-radius: 1.6rem;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-1cdp-cni .menu-jMY {
+  width: 100%;
+  height: 100%;
+  row-gap: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-1cdp-cni .menu-jMY .item--g1t {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 2.3333333333;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-1cdp-cni .menu-jMY .faq-CF8 {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 2.3333333333;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-1cdp-cni .menu-jMY .item-1-1--8ea {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 2.3333333333;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-1cdp-cni .menu-jMY .item--4HL {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 2.3333333333;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-1cdp-cni .menu-jMY .item--Bsk {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 2.3333333333;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-1cdp-cni .menu-jMY .item--WQE {
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 2.3333333333;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG {
+  margin: 8.7rem 0rem 8.5rem 0rem;
+  width: 97.4rem;
+  height: calc(100% - 17.2rem);
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .faq--WoY {
+  margin-bottom: 7.3rem;
+  width: 100%;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 2.3333333333;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-xvbk-RQi {
+  margin: 0rem 0rem 2.5rem 2.7rem;
+  width: calc(100% - 2.7rem);
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-xvbk-RQi .item--wdx {
+  margin-right: 1.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 2.8;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-xvbk-RQi .rectangle-68-FPk {
+  margin: 0.8rem 0;
+  width: 89.7rem;
+  height: calc(100% - 1.6rem);
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .rectangle-67-xJA {
+  margin: 0rem 0rem 3.35rem 0.1rem;
+  width: calc(100% - 0.1rem);
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .rectangle-67-xJA .auto-group-rlyj-gV4 {
+  margin-right: 1.8rem;
+  box-sizing: border-box;
+  padding: 0.8rem 0rem 0rem 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 2.8;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .rectangle-67-xJA .rectangle-67-mmQ {
+  margin-top: 1.6rem;
+  width: 89.8rem;
+  height: 31.9rem;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-tkdt-VhQ {
+  margin-bottom: 3.7rem;
+  height: 7.05rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-tkdt-VhQ .frame-31-doc {
+  margin: 0rem 0.5rem 0.05rem 0rem;
+  width: 13.6rem;
+  height: 7rem;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 2.8;
+  letter-spacing: 0.1375rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-tkdt-VhQ .rectangle-69-W6i {
+  margin: 1.25rem 3.9rem 1.2rem 0rem;
+  width: 35.8rem;
+  height: calc(100% - 2.45rem);
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-tkdt-VhQ .frame-28-Dmp {
+  margin-top: 0.05rem;
+  width: 12.8rem;
+  height: 7rem;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 2.8;
+  letter-spacing: 0.1375rem;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eec400;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-6mwg-VzE {
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-6mwg-VzE .frame-26-3kr {
+  margin-right: 3.2rem;
+  width: 10.9rem;
+  height: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 2.8;
+  letter-spacing: 0.1375rem;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eec400;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-6mwg-VzE .frame-27-jdg {
+  margin-right: 3.3rem;
+  width: 11rem;
+  height: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 2.8;
+  letter-spacing: 0.1375rem;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eec400;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.faq--6vr .auto-group-lz7k-Vi6 .auto-group-nc7l-cTG .auto-group-6mwg-VzE .frame-28-dUA {
+  width: 11rem;
+  height: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 2.8;
+  letter-spacing: 0.1375rem;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eec400;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}

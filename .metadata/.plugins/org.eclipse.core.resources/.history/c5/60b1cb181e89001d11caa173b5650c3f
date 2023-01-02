@@ -1,0 +1,398 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 192rem;
+}.item-1-1--W9c {
+  display: flex;
+  padding: 1.45rem 32.5rem 1rem 32.5rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  background-color: #ffffff;
+
+  .admin-page-zqU {
+    font-weight: 900;
+    line-height: 0.6944444444;
+    letter-spacing: 0.198rem;
+    color: #1761a0;
+    font-family: Inter, 'Source Sans Pro';
+    margin: 0rem 0rem 1.45rem 103.5rem;
+    text-align: right;
+    font-size: 3.6rem;
+    display: flex;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .auto-group-xbhc-gTQ {
+    box-sizing: border-box;
+    padding-right: 3.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 95.6rem;
+    border: solid 0.3rem #f5f5f5;
+    background-color: #ffffff;
+    border-radius: 1.6rem;
+    flex-shrink: 0;
+
+    .auto-group-vvtz-QuC {
+      background-color: #f5f5f5;
+      border-radius: 1.6rem;
+      flex-shrink: 0;
+      margin-right: 2.55rem;
+      box-sizing: border-box;
+      padding: 14.3rem 5.3rem 14.3rem 4.2rem;
+      width: 23rem;
+      height: 100%;
+
+      .menu-8KQ {
+        width: 100%;
+        height: 100%;
+        row-gap: 5rem;
+        display: flex;
+        flex-direction: column;
+
+        .item--GRc {
+          text-align: center;
+          font-size: 3rem;
+          font-weight: 600;
+          line-height: 2.3333333333;
+          color: #000000;
+          width: 100%;
+          white-space: nowrap;
+          flex-shrink: 0;
+          font-family: Inter, 'Source Sans Pro';
+        }
+        .faq-yqp {
+          text-align: center;
+          font-weight: 600;
+          font-family: Inter, 'Source Sans Pro';
+          flex-shrink: 0;
+          width: 100%;
+          font-size: 3rem;
+          line-height: 2.3333333333;
+          color: #000000;
+          white-space: nowrap;
+        }
+        .item-1-1--iYW {
+          line-height: 2.3333333333;
+          text-align: center;
+          font-weight: 600;
+          color: #000000;
+          font-family: Inter, 'Source Sans Pro';
+          white-space: nowrap;
+          flex-shrink: 0;
+          width: 100%;
+          font-size: 3rem;
+        }
+        .item--3Kt {
+          color: #000000;
+          white-space: nowrap;
+          flex-shrink: 0;
+          width: 100%;
+          font-size: 3rem;
+          line-height: 2.3333333333;
+          text-align: center;
+          font-weight: 600;
+          font-family: Inter, 'Source Sans Pro';
+        }
+        .item--AQW {
+          text-align: center;
+          font-size: 3rem;
+          line-height: 2.3333333333;
+          color: #000000;
+          white-space: nowrap;
+          width: 100%;
+          font-weight: 600;
+          font-family: Inter, 'Source Sans Pro';
+          flex-shrink: 0;
+        }
+        .item--Hk2 {
+          text-align: center;
+          font-size: 3rem;
+          font-weight: 600;
+          color: #000000;
+          width: 100%;
+          line-height: 2.3333333333;
+          font-family: Inter, 'Source Sans Pro';
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+      }
+    }
+    .auto-group-5vxc-zeS {
+      height: calc(100% - 17.2rem);
+      flex-shrink: 0;
+      margin: 8.7rem 0rem 8.5rem 0rem;
+      width: 97.95rem;
+
+      .item-1-1--HtS {
+        text-align: center;
+        line-height: 2.3333333333;
+        font-family: Inter, 'Source Sans Pro';
+        margin-bottom: 7.3rem;
+        font-size: 3rem;
+        font-weight: 600;
+        color: #000000;
+        white-space: nowrap;
+        width: 100%;
+      }
+      .auto-group-okfk-Pga {
+        display: flex;
+        align-items: center;
+        margin: 0rem 0.2rem 0.6rem 0.75rem;
+        width: calc(100% - 0.95rem);
+
+        .item--K4S {
+          line-height: 2.8;
+          font-family: Inter, 'Source Sans Pro';
+          white-space: nowrap;
+          flex-shrink: 0;
+          margin: 0rem 4.2rem 0.2rem 0rem;
+          display: flex;
+          font-size: 2.5rem;
+          color: #000000;
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+        }
+        .rectangle-68-R7U {
+          display: flex;
+          line-height: 3.5;
+          flex-shrink: 0;
+          margin-top: 0.2rem;
+          width: 89.7rem;
+          white-space: nowrap;
+          font-size: 2rem;
+          font-family: Inter, 'Source Sans Pro';
+          border: solid 0.1rem #000000;
+          border-radius: 0.5rem;
+          padding: 0 1.9rem;
+          font-weight: 600;
+          box-sizing: border-box;
+          color: #000000;
+        }
+      }
+      .auto-group-eoe2-HvN {
+        margin: 0rem 64.1rem 0.9rem 1.1rem;
+        width: calc(100% - 65.2rem);
+        display: flex;
+        align-items: center;
+
+        .item--QVC {
+          display: flex;
+          align-items: center;
+          font-size: 2.5rem;
+          font-weight: 600;
+          line-height: 2.8;
+          white-space: nowrap;
+          margin: 0rem 2.35rem 0.2rem 0rem;
+          color: #000000;
+          font-family: Inter, 'Source Sans Pro';
+          flex-shrink: 0;
+          justify-content: center;
+        }
+        .rectangle-69-uRx {
+          width: 25.8rem;
+          font-size: 2rem;
+          margin-top: 0.2rem;
+          padding: 0 1.5rem;
+          display: flex;
+          font-weight: 600;
+          color: #000000;
+          font-family: Inter, 'Source Sans Pro';
+          border-radius: 0.5rem;
+          line-height: 3.5;
+          border: solid 0.1rem #000000;
+          box-sizing: border-box;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+      }
+      .auto-group-mu5g-mj4 {
+        margin: 0rem 0.1rem 2.2rem 0.55rem;
+        box-sizing: border-box;
+        padding-left: 0.2rem;
+        width: calc(100% - 0.65rem);
+        display: flex;
+        align-items: flex-start;
+
+        .item--gLE {
+          display: flex;
+          justify-content: center;
+          font-size: 2.5rem;
+          font-weight: 600;
+          color: #000000;
+          white-space: nowrap;
+          margin-right: 4.1739rem;
+          align-items: center;
+          line-height: 2.8;
+          font-family: Inter, 'Source Sans Pro';
+          flex-shrink: 0;
+        }
+        .auto-group-rngs-bCJ {
+          margin-top: 0.8rem;
+          width: 89.8261rem;
+          height: 15.6rem;
+          position: relative;
+          flex-shrink: 0;
+
+          .rectangle-67-Xbk {
+            position: absolute;
+            left: 0;
+            top: 0.4436rem;
+            border: solid 0.1rem #000000;
+            box-sizing: border-box;
+            border-radius: 0.5rem;
+            width: 89.8261rem;
+            height: 15.1564rem;
+          }
+          .item--egN {
+            top: 0;
+            font-size: 2rem;
+            font-weight: 600;
+            line-height: 3.5;
+            white-space: nowrap;
+            width: 46.4rem;
+            height: 7rem;
+            position: absolute;
+            left: 1.6261rem;
+            color: #000000;
+            font-family: Inter, 'Source Sans Pro';
+          }
+        }
+      }
+      .auto-group-itpt-gd4 {
+        align-items: flex-start;
+        margin: 0rem 0rem 6.2rem 0.65rem;
+        box-sizing: border-box;
+        padding-left: 0.2rem;
+        width: calc(100% - 0.65rem);
+        display: flex;
+
+        .item--bV8 {
+          align-items: center;
+          justify-content: center;
+          font-weight: 600;
+          display: flex;
+          font-size: 2.5rem;
+          line-height: 2.8;
+          color: #000000;
+          font-family: Inter, 'Source Sans Pro';
+          white-space: nowrap;
+          flex-shrink: 0;
+          margin-right: 4.1739rem;
+        }
+        .auto-group-nowr-uVp {
+          height: 15.6rem;
+          position: relative;
+          flex-shrink: 0;
+          margin-top: 0.8rem;
+          width: 89.8261rem;
+
+          .rectangle-67-qeN {
+            box-sizing: border-box;
+            border-radius: 0.5rem;
+            width: 89.8261rem;
+            height: 15.1564rem;
+            position: absolute;
+            left: 0;
+            top: 0.4436rem;
+            border: solid 0.1rem #000000;
+          }
+          .item--ZqG {
+            position: absolute;
+            font-size: 2rem;
+            color: #000000;
+            font-family: Inter, 'Source Sans Pro';
+            white-space: nowrap;
+            width: 50.5rem;
+            left: 1.6261rem;
+            top: 0;
+            font-weight: 600;
+            line-height: 3.5;
+            height: 7rem;
+          }
+        }
+      }
+      .auto-group-zwrg-bX4 {
+        margin-left: 58.35rem;
+        height: 7rem;
+        display: flex;
+        align-items: center;
+
+        .frame-26-jdG {
+          line-height: 2.8;
+          white-space: nowrap;
+          justify-content: center;
+          background-color: #eec400;
+          height: 100%;
+          text-align: center;
+          font-size: 2.5rem;
+          letter-spacing: 0.1375rem;
+          color: #ffffff;
+          font-family: Inter, 'Source Sans Pro';
+          border-radius: 1rem;
+          display: flex;
+          margin-right: 3.2rem;
+          width: 10.9rem;
+          font-weight: 600;
+          align-items: center;
+          flex-shrink: 0;
+        }
+        .frame-27-zJJ {
+          display: flex;
+          background-color: #eec400;
+          border-radius: 1rem;
+          flex-shrink: 0;
+          margin-right: 3.3rem;
+          text-align: center;
+          line-height: 2.8;
+          height: 100%;
+          justify-content: center;
+          align-items: center;
+          letter-spacing: 0.1375rem;
+          color: #ffffff;
+          font-family: Inter, 'Source Sans Pro';
+          white-space: nowrap;
+          width: 11rem;
+          font-size: 2.5rem;
+          font-weight: 600;
+        }
+        .frame-28-sN6 {
+          font-size: 2.5rem;
+          font-weight: 600;
+          font-family: Inter, 'Source Sans Pro';
+          align-items: center;
+          background-color: #eec400;
+          height: 100%;
+          color: #ffffff;
+          flex-shrink: 0;
+          width: 11rem;
+          text-align: center;
+          letter-spacing: 0.1375rem;
+          justify-content: center;
+          border-radius: 1rem;
+          line-height: 2.8;
+          white-space: nowrap;
+          display: flex;
+        }
+      }
+    }
+  }
+}

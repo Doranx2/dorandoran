@@ -1,0 +1,369 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 153.6rem;
+}.market-YDU {
+  padding: 0rem 0rem 49rem 12.8rem;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: center;
+  background-color: #ffffff;
+
+  .auto-group-otr2-4hc {
+    flex-shrink: 0;
+    margin: 0rem 0rem 5.9rem 0.2rem;
+    width: 175.7rem;
+    height: 96.4rem;
+    position: relative;
+
+    .group-6-PE6 {
+      left: 0;
+      top: 11.4rem;
+      width: 27.1768rem;
+      height: 12.8448rem;
+      position: absolute;
+
+      .rectangle-19-8Bg {
+        width: 8.7344rem;
+        height: 8.7192rem;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #fbf3ce;
+      }
+      .rectangle-20-4r2 {
+        height: 5.3448rem;
+        position: absolute;
+        left: 21.8rem;
+        top: 7.5rem;
+        background-color: #fbf3ce;
+        width: 5.3768rem;
+      }
+      .item--CBY {
+        left: 1.9rem;
+        top: 3.8rem;
+        font-weight: 400;
+        line-height: 1.125;
+        color: #000000;
+        font-family: EF_AONE, 'Source Sans Pro';
+        white-space: nowrap;
+        width: 20.8rem;
+        height: 7.2rem;
+        position: absolute;
+        font-size: 6.4rem;
+        letter-spacing: 1.344rem;
+      }
+    }
+    .image-2-epE {
+      object-fit: cover;
+      vertical-align: top;
+      width: 3.1rem;
+      height: 3rem;
+      position: absolute;
+      left: 128rem;
+      top: 69.1rem;
+    }
+    .group-7-mtr {
+      width: 153.6rem;
+      height: 17.5rem;
+      position: absolute;
+      left: 0.3rem;
+      top: 27.9rem;
+
+      .auto-group-pvni-W5k {
+        height: 11.9rem;
+        position: relative;
+        margin-bottom: 3.1rem;
+        width: 66.6rem;
+
+        .item--EnS {
+          line-height: 1.8;
+          letter-spacing: 0.22rem;
+          color: #000000;
+          font-family: Inter, 'Source Sans Pro';
+          width: 66.6rem;
+          height: 7.2rem;
+          font-weight: 600;
+          font-size: 4rem;
+          white-space: nowrap;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        .item--tMC {
+          font-size: 4rem;
+          font-weight: 600;
+          letter-spacing: 0.22rem;
+          font-family: Inter, 'Source Sans Pro';
+          white-space: nowrap;
+          width: 55.1rem;
+          position: absolute;
+          left: 0;
+          color: #000000;
+          height: 7.2rem;
+          top: 4.7rem;
+          line-height: 1.8;
+        }
+      }
+      .item--wKU {
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: 0.11rem;
+        color: #000000;
+        font-family: Inter, 'Source Sans Pro';
+        white-space: nowrap;
+        font-size: 2rem;
+      }
+    }
+    .rectangle-21-2VL {
+      background-color: #ffe77c;
+      border-radius: 1rem;
+      width: 21.1rem;
+      height: 5rem;
+      position: absolute;
+      left: 2.5rem;
+      top: 59.6rem;
+    }
+    .group-9-M1p {
+      height: 96.3762rem;
+      position: absolute;
+      left: 62.1rem;
+      top: 0;
+      object-fit: contain;
+      vertical-align: top;
+      width: 113.6rem;
+    }
+    .farmers-market-amico-1-sVx {
+      width: 60.1rem;
+      height: 60.1rem;
+      position: absolute;
+      left: 74rem;
+      top: 1.7rem;
+      object-fit: cover;
+      vertical-align: top;
+    }
+  }
+  .frame-14-BWe {
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 14rem;
+    height: 34.2rem;
+    display: flex;
+    column-gap: 10.9rem;
+
+    .group-10-imU {
+      flex-shrink: 0;
+      width: 35rem;
+      height: 100%;
+      position: relative;
+
+      .rectangle-22-sPU {
+        background-color: #f5f5f5;
+        border-radius: 1rem;
+        width: 35rem;
+        height: 33rem;
+        position: absolute;
+        left: 0;
+        top: 1.2rem;
+      }
+      .item-0-0-oY2 {
+        left: 21.3rem;
+        font-weight: 600;
+        letter-spacing: 0.15rem;
+        font-family: Inter, 'Source Sans Pro';
+        white-space: nowrap;
+        height: 7.2rem;
+        position: absolute;
+        font-size: 1.5rem;
+        line-height: 4.8;
+        color: #7e7e7e;
+        width: 12.3rem;
+        top: 0;
+      }
+      .item--gri {
+        width: 5.7rem;
+        height: 7.2rem;
+        left: 3.5rem;
+        top: 4.1rem;
+        font-weight: 600;
+        line-height: 1.8;
+        color: #7e7e7e;
+        position: absolute;
+        font-size: 4rem;
+        letter-spacing: 0.4rem;
+        font-family: Inter, 'Source Sans Pro';
+        white-space: nowrap;
+      }
+      .item--PFL {
+        white-space: nowrap;
+        width: 4.3rem;
+        position: absolute;
+        top: 8.4rem;
+        font-weight: 600;
+        letter-spacing: 0.2rem;
+        color: #7e7e7e;
+        font-family: Inter, 'Source Sans Pro';
+        height: 7.2rem;
+        left: 4.4rem;
+        font-size: 2rem;
+        line-height: 3.6;
+      }
+      .rectangle-28-UXg {
+        width: 28rem;
+        height: 16rem;
+        position: absolute;
+        left: 3.5rem;
+        top: 14.6rem;
+        background-color: #d9d9d9;
+      }
+    }
+    .group-11-QAS {
+      flex-shrink: 0;
+      width: 35rem;
+      height: 100%;
+      position: relative;
+
+      .rectangle-22-MbU {
+        left: 0;
+        top: 1.2rem;
+        background-color: #f5f5f5;
+        border-radius: 1rem;
+        width: 35rem;
+        height: 33rem;
+        position: absolute;
+      }
+      .item-0-0-trJ {
+        top: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 4.8;
+        color: #7e7e7e;
+        height: 7.2rem;
+        position: absolute;
+        left: 21.3rem;
+        font-family: Inter, 'Source Sans Pro';
+        width: 12.3rem;
+        letter-spacing: 0.15rem;
+        white-space: nowrap;
+      }
+      .item--az2 {
+        width: 5.7rem;
+        left: 3.5rem;
+        top: 4.1rem;
+        color: #7e7e7e;
+        font-family: Inter, 'Source Sans Pro';
+        white-space: nowrap;
+        height: 7.2rem;
+        position: absolute;
+        font-size: 4rem;
+        font-weight: 600;
+        line-height: 1.8;
+        letter-spacing: 0.4rem;
+      }
+      .item--fka {
+        top: 8.4rem;
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+        height: 7.2rem;
+        position: absolute;
+        left: 4.4rem;
+        color: #7e7e7e;
+        font-family: Inter, 'Source Sans Pro';
+        white-space: nowrap;
+        width: 4.3rem;
+        font-weight: 600;
+        line-height: 3.6;
+      }
+      .rectangle-28-Zqx {
+        width: 28rem;
+        height: 16rem;
+        position: absolute;
+        left: 3.5rem;
+        top: 14.6rem;
+        background-color: #d9d9d9;
+      }
+    }
+    .group-12-6qt {
+      flex-shrink: 0;
+      width: 35rem;
+      height: 100%;
+      position: relative;
+
+      .rectangle-22-f8J {
+        position: absolute;
+        left: 0;
+        top: 1.2rem;
+        background-color: #f5f5f5;
+        border-radius: 1rem;
+        width: 35rem;
+        height: 33rem;
+      }
+      .item-0-0-bXk {
+        color: #7e7e7e;
+        height: 7.2rem;
+        top: 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 4.8;
+        letter-spacing: 0.15rem;
+        font-family: Inter, 'Source Sans Pro';
+        white-space: nowrap;
+        width: 12.3rem;
+        position: absolute;
+        left: 21.3rem;
+      }
+      .item--gZC {
+        line-height: 1.8;
+        color: #7e7e7e;
+        font-family: Inter, 'Source Sans Pro';
+        white-space: nowrap;
+        width: 5.7rem;
+        position: absolute;
+        left: 3.5rem;
+        font-size: 4rem;
+        height: 7.2rem;
+        top: 4.1rem;
+        font-weight: 600;
+        letter-spacing: 0.4rem;
+      }
+      .item--o82 {
+        left: 4.4rem;
+        top: 8.4rem;
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+        white-space: nowrap;
+        width: 4.3rem;
+        position: absolute;
+        font-weight: 600;
+        line-height: 3.6;
+        color: #7e7e7e;
+        font-family: Inter, 'Source Sans Pro';
+        height: 7.2rem;
+      }
+      .rectangle-28-6N2 {
+        width: 28rem;
+        height: 16rem;
+        position: absolute;
+        left: 3.5rem;
+        top: 14.6rem;
+        background-color: #d9d9d9;
+      }
+    }
+  }
+}

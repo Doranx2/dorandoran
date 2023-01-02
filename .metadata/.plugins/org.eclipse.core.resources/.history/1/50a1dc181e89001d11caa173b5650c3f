@@ -1,0 +1,364 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 192rem;
+}.sharedetail-W7Y {
+  width: 100%;
+  height: 180rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.sharedetail-W7Y .auto-group-hcae-eUe {
+  width: 178.9475rem;
+  height: 104rem;
+  position: absolute;
+  left: 32.7rem;
+  top: 0;
+  display: flex;
+  align-items: center;
+}
+.sharedetail-W7Y .auto-group-hcae-eUe .title-nar {
+  margin: 51.3rem 24.623rem 39.8rem 0rem;
+  width: 27.1768rem;
+  height: calc(100% - 91.1rem);
+  position: relative;
+  flex-shrink: 0;
+}
+.sharedetail-W7Y .auto-group-hcae-eUe .title-nar .rectangle-19-ufU {
+  width: 8.7344rem;
+  height: 8.7567rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #8fb4d3;
+}
+.sharedetail-W7Y .auto-group-hcae-eUe .title-nar .rectangle-20-TBC {
+  width: 5.3768rem;
+  height: 5.3678rem;
+  position: absolute;
+  left: 21.8rem;
+  top: 7.5322rem;
+  background-color: #8fb4d3;
+}
+.sharedetail-W7Y .auto-group-hcae-eUe .title-nar .item--Bst {
+  width: 20.8rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 1.9rem;
+  top: 3.8163rem;
+  font-size: 6.4rem;
+  font-weight: 400;
+  line-height: 1.125;
+  letter-spacing: 1.344rem;
+  color: #000000;
+  font-family: EF_AONE, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.sharedetail-W7Y .auto-group-hcae-eUe .auto-group-agqz-4Az {
+  width: 127.1475rem;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+.sharedetail-W7Y .auto-group-hcae-eUe .auto-group-agqz-4Az .group-9-bgi {
+  width: 127.1475rem;
+  height: 102.3rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  object-fit: contain;
+  vertical-align: top;
+}
+.sharedetail-W7Y .auto-group-hcae-eUe .auto-group-agqz-4Az .marketing-amico-1-jH8 {
+  width: 55rem;
+  height: 55rem;
+  position: absolute;
+  left: 20rem;
+  top: 9.2rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.sharedetail-W7Y .auto-group-gitl-3oc {
+  width: 126.8rem;
+  height: 10rem;
+  position: absolute;
+  left: 35.4rem;
+  top: 150.5rem;
+  display: flex;
+  align-items: center;
+}
+.sharedetail-W7Y .auto-group-gitl-3oc .auto-group-ezfk-P6n {
+  margin-right: 1.3rem;
+  width: 117.5rem;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+.sharedetail-W7Y .auto-group-gitl-3oc .auto-group-ezfk-P6n .rectangle-88-8aA {
+  width: 117rem;
+  height: 10rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fbf3ce;
+  border-radius: 1rem;
+}
+.sharedetail-W7Y .auto-group-gitl-3oc .auto-group-ezfk-P6n .rectangle-90-sGr {
+  width: 117.5rem;
+  height: 10rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #cee0fb;
+  border-radius: 1rem;
+}
+.sharedetail-W7Y .auto-group-gitl-3oc .auto-group-nxqn-ogJ {
+  width: 8rem;
+  height: 100%;
+  position: relative;
+  background-color: #c9c3a5;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.sharedetail-W7Y .auto-group-gitl-3oc .auto-group-nxqn-ogJ .item--Z9g {
+  width: 4.1rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 1.4rem;
+  top: 1.4rem;
+  display: flex;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 2.88;
+  letter-spacing: 0.525rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.sharedetail-W7Y .auto-group-gitl-3oc .auto-group-nxqn-ogJ .rectangle-91-FHQ {
+  width: 8rem;
+  height: 10rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #a5b4c9;
+  border-radius: 1rem;
+}
+.sharedetail-W7Y .auto-group-gitl-3oc .auto-group-nxqn-ogJ .item--P8i {
+  width: 4.1rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 1.4rem;
+  top: 1.4rem;
+  display: flex;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 2.88;
+  letter-spacing: 0.525rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN {
+  width: 126.8rem;
+  height: 10.6rem;
+  position: absolute;
+  left: 35.4rem;
+  top: 139.9rem;
+  display: flex;
+  align-items: center;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-f62e-HtJ {
+  margin: 3.4rem 3rem 0rem 0rem;
+  width: 4.9rem;
+  height: 7.2rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-f62e-HtJ .item--zGv {
+  width: 4.9rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 2.4;
+  letter-spacing: 0.63rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-f62e-HtJ .item--qHY {
+  width: 4.9rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 2.4;
+  letter-spacing: 0.63rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-edd4-93L {
+  margin: 3.4rem 99.2rem 0rem 0rem;
+  width: 2.6rem;
+  height: 7.2rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-edd4-93L .item-2-fGa {
+  width: 2.6rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 2.4;
+  letter-spacing: 0.63rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-edd4-93L .item-2-Ngn {
+  width: 2.6rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 2.4;
+  letter-spacing: 0.63rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-tzb8-VWW {
+  margin: 0rem 1.1rem 3.4rem 0rem;
+  width: 8rem;
+  height: 7.2rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-tzb8-VWW .rectangle-103-cr2 {
+  width: 8rem;
+  height: 4rem;
+  position: absolute;
+  left: 0;
+  top: 1.6rem;
+  background-color: #b5b3b3;
+  border-radius: 1rem;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-tzb8-VWW .item--kBY {
+  width: 3.3rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 1.9rem;
+  top: 0;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3.6;
+  letter-spacing: 0.42rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-tgmy-SaA {
+  margin-bottom: 3.4rem;
+  width: 8rem;
+  height: 7.2rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-tgmy-SaA .rectangle-104-z5t {
+  width: 8rem;
+  height: 4rem;
+  position: absolute;
+  left: 0;
+  top: 1.6rem;
+  background-color: #b5b3b3;
+  border-radius: 1rem;
+}
+.sharedetail-W7Y .auto-group-nsin-cGN .auto-group-tgmy-SaA .item--ina {
+  width: 3.3rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 1.9rem;
+  top: 0;
+  display: flex;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 3.6;
+  letter-spacing: 0.42rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.sharedetail-W7Y .auto-group-z9un-csx {
+  box-sizing: border-box;
+  padding: 2rem 3.1rem;
+  width: 126.8rem;
+  height: 65.5rem;
+  position: absolute;
+  left: 35.4rem;
+  top: 74.4rem;
+  display: flex;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 2.4;
+  letter-spacing: 0.63rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+  border: solid 1rem rgba(206, 224, 251, 0.200000003);
+  filter: blur(0.2rem);
+  background-color: rgba(206, 224, 251, 0.200000003);
+  border-radius: 1rem;
+}
+.sharedetail-W7Y .rectangle-99-2Rt {
+  width: 126.8rem;
+  height: 3rem;
+  position: absolute;
+  left: 35.4rem;
+  top: 71.4rem;
+  background-color: #cee0fb;
+  border-radius: 1rem;
+}
+.sharedetail-W7Y .item--9WW {
+  width: 36rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 38.5rem;
+  top: 64.2rem;
+  display: flex;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.6;
+  letter-spacing: 0.945rem;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
