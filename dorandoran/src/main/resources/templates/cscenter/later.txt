@@ -1,0 +1,24 @@
+				로그인 기능 완료 -> 나중에 추가
+				
+				const loginUserId = /*[[${#authentication.principal.username}]]*/;
+				const userNm = /*[[${qDetail.userNm}]]*/;
+
+				if (loginUserId != userNm) {
+					$("#btnWrap").hide();
+					$("#deleteBtn").hide();
+					$("#qTitle").attr("readonly", true);
+					$("#qContent").attr("readonly", true);
+				}
+				
+				
+				const loginUserId = /*[[${#authentication.principal.username}]]*/;
+				const userNm = /*[[${rDetail.userNm}]]*/;
+
+				if (loginUserId != userNm) {
+					$("#btnWrap").hide();
+					$("#deleteBtn").hide();
+					$("#repTitle").attr("readonly", true);
+					$("#repContent").attr("readonly", true);
+				}
+				
+				insert 페이지 주석 풀기

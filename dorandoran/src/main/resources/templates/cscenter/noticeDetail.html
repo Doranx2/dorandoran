@@ -51,13 +51,14 @@
 									</td>
 								</tr>
 								<tr>
-									<td style="background: white;">
+									<td>
 										작성일
 									</td>
-									<td style="text-align: left">
-										<fmt:formatDate th:value="${nDetail.inputDtm }" pattern="yyyy-MM-dd" />
+									<td style="text-align: left" id="inputDtmText"
+										th:text="${nDetail.inputDtm eq null ? '' : #strings.substring(nDetail.inputDtm, 0, 10)}">
 									</td>
 								</tr>
+								<a href="/cscenter/noticeList">뒤로가기</a>
 							</table>
 						</form>
 					</div>

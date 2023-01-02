@@ -79,7 +79,7 @@
 										th:href="@{/cscenter/report/{repNo} (repNo=${report.repNo})}">
 									</a>
 								</td>
-								<td th:text="${report.userNo}"></td>
+								<td th:text="${report.userNm}"></td>
 								<td
 									th:text="${report.inputDtm eq null ? '' : #strings.substring(report.inputDtm, 0, 10)}">
 								</td>

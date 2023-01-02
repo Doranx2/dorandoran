@@ -9,7 +9,7 @@
 	</select>
 
 	<select id="selectNoticeList" parameterType="map" resultType="notice">
-		<![CDATA[
+	<![CDATA[
 		SELECT *
 			FROM TB_NOTICE
 			
@@ -58,14 +58,14 @@
 
 	<select id="selectQuestion" parameterType="int" resultType="question">
 	SELECT *
-		FROM TB_QUESTION
+		FROM TB_QUESTION JOIN TB_USER USING(USER_NO)
 		WHERE Q_NO = #{qNo}
 	</select>
 
 	<select id="selectQuestionList" parameterType="map" resultType="question">
 		<![CDATA[
 		SELECT *
-			FROM TB_QUESTION
+			FROM TB_QUESTION JOIN TB_USER USING(USER_NO)
 			
 	]]>
 		<if test="questionSearch.searchKeyword != null and questionSearch.searchKeyword != ''">
@@ -116,8 +116,7 @@
 					Q_TITLE,
 					Q_CONTENT,
 					INPUT_DTM,
-					A_YN,
-					USER_ID
+					A_YN
 		) VALUES (
 					(SELECT IFNULL(MAX(A.Q_NO), 0) + 1 FROM TB_QUESTION A),
 					1,
@@ -125,27 +124,39 @@
 					#{qTitle},
 					#{qContent},
 					now(),
-					#{aYn},
-					'aa' 
+					#{aYn}
 			   )
 	</insert>
+	
+	<update id="updateQuestion" parameterType="question">
+		UPDATE TB_QUESTION
+			SET Q_TITLE = #{qTitle}
+			  , Q_CONTENT = #{qContent}
+			WHERE Q_NO = #{qNo}
+	</update>
 
 	<delete id="deleteQuestion" parameterType="int">
 		DELETE FROM TB_QUESTION
 			WHERE Q_NO = #{qNo}
 	</delete>
+	
+	<select id="selectAnswer" parameterType="int" resultType="answer">
+	SELECT *
+		FROM TB_ANSWER
+		WHERE Q_NO = #{qNo}
+	</select>
 
 	<!-- 신고게시판 -->
 	<select id="selectRep" parameterType="int" resultType="report">
 	SELECT *
-		FROM TB_REP
+		FROM TB_REP JOIN TB_USER USING(USER_NO)
 		WHERE REP_NO = #{repNo}
 	</select>
 
 	<select id="selectRepList" parameterType="map" resultType="report">
 		<![CDATA[
 		SELECT *
-			FROM TB_REP
+			FROM TB_REP JOIN TB_USER USING(USER_NO)
 			
 	]]>
 		<if test="repSearch.searchKeyword != null and repSearch.searchKeyword != ''">
@@ -187,6 +198,31 @@
 			</if>
 		</if>
 	</select>
+	
+	<insert id="insertRep" parameterType="report">
+		INSERT INTO TB_REP (
+					REP_NO,
+					USER_NO,
+					REP_TITLE,
+					REP_CONTENT,
+					INPUT_DTM,
+					COMP_YN
+		) VALUES (
+					(SELECT IFNULL(MAX(A.REP_NO), 0) + 1 FROM TB_REP A),
+					1,
+					#{repTitle},
+					#{repContent},
+					now(),
+					#{compYn}
+			   )
+	</insert>
+	
+	<update id="updateRep" parameterType="report">
+		UPDATE TB_REP
+			SET REP_TITLE = #{repTitle}
+			  , REP_CONTENT = #{repContent}
+			WHERE REP_NO = #{repNo}
+	</update>
 
 	<delete id="deleteRep" parameterType="int">
 		DELETE FROM TB_REP

@@ -79,7 +79,7 @@
 										th:href="@{/cscenter/question/{qNo} (qNo=${question.qNo})}">
 									</a>
 								</td>
-								<td th:text="${question.userNo}"></td>
+								<td th:text="${question.userNm}"></td>
 								<td
 									th:text="${question.inputDtm eq null ? '' : #strings.substring(question.inputDtm, 0, 10)}">
 								</td>

@@ -189,7 +189,7 @@ public class CsController {
 	public ModelAndView selectRep(@PathVariable int repNo) {
 		RepDTO rDetail = csService.selectRep(repNo);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/cscenter/");
+		mv.setViewName("/cscenter/repDetail.html");
 		mv.addObject("rDetail", rDetail);
 		return mv;
 	}
