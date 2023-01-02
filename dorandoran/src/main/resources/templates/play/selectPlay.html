@@ -29,21 +29,20 @@
 			<div class="v89_249">
 				<img class="iconImg" th:src="@{/images/playIcon.png}" />
 			</div>
-
-			<div class="v112_665"></div>
-			<div class="v112_666"></div><span class="v112_667">댓글</span><span class="v112_668">2</span><span
-				class="v112_669">등록</span>
-			<div class="v112_670"></div>
-			<div class="v112_712"></div>
-			<div class="v112_751"></div>
-			<div class="v112_750"></div>
-			<div class="v112_671"></div><span class="v112_672">댓글</span><span class="v112_673">2</span><span
-				class="v112_674">등록</span>
-			<div class="v112_675"></div><span class="v112_710">저랑 가위바위보 하실 분 구해요~</span><span class="v112_711">참고로 전 가위
-				낼
-				거예요.</span>
-			<div class="v112_769"></div>
-			<div class="v112_770"></div><span class="v112_771">수정</span><span class="v112_772">삭제</span>
+			<button class="backBtn">목록으로</button>
+			<div class="bar1"></div>
+			<div class="bar2"></div>
+			<span class="playTitle" id="playTitle" th:text="${play.playTitle}"></span>
+			<div class="playContentContainer">
+			<span class="playContent" id="playContent" th:text="${play.playContent}"></span></div>
+			<div class="replyInputContainer">
+				<span>작성자 이름</span>
+				<textarea class="replyInput"></textarea>
+			</div>
+			<button class="replyInsertBtn">등록</button>
+			<span class="v112_672">댓글</span>
+			<button class="updateBtn">수정</button>
+			<button class="deleteBtn">삭제</button>
 		</div>
 
 	</div>

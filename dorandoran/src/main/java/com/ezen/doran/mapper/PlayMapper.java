@@ -34,4 +34,7 @@ public interface PlayMapper {
 	
 	@Select("SELECT COUNT(*) FROM TB_PLAY")
 	int selectPlayCnt();
+	
+	@Select("SELECT * FROM TB_PLAY WHERE PLAY_NO = #{playNo}")
+	PlayDTO selectPlay(int playNo);
 }

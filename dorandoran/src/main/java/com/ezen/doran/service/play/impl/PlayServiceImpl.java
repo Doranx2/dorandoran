@@ -31,4 +31,9 @@ public class PlayServiceImpl implements PlayService {
 		return mapper.selectPlayCnt();
 	}
 
+	@Override
+	public PlayDTO selectPlay(int playNo) {
+		return mapper.selectPlay(playNo);
+	}
+
 }

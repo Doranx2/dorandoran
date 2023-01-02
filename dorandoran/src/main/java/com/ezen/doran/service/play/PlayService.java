@@ -11,4 +11,6 @@ public interface PlayService {
 	List<PlayDTO> selectPlayList(Pagination pagination);
 	
 	int selectPlayCnt();
+	
+	PlayDTO selectPlay(int playNo);
 }

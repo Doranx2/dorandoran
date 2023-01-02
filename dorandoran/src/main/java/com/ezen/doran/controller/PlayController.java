@@ -49,8 +49,6 @@ public class PlayController {
 
 		List<PlayDTO> selectPlayList = playService.selectPlayList(pagination);
 
-		System.out.println(pagination.getStartIndex() + " / " + pagination.getPageSize());
-
 		System.out.println(selectPlayList);
 		mv.addObject("selectPlayList", selectPlayList);
 		mv.addObject("pagination", pagination);
@@ -60,8 +58,11 @@ public class PlayController {
 	}
 	
 	@RequestMapping("/selectPlay")
-	public ModelAndView selectPlay() {
+	public ModelAndView selectPlay(@RequestParam int playNo) {
 		ModelAndView mv = new ModelAndView();
+		
+		mv.addObject("play", playService.selectPlay(playNo));
+		
 		mv.setViewName("play/selectPlay.html");
 		return mv;
 	}
