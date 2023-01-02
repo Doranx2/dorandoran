@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout-cs}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" th:href="@{/css/csmain.css}" />
+		<link rel="stylesheet" th:href="@{/css/faq.css}" />
+	</th:block>
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			class Details {
+				constructor(el, settings) {
+					this.group = el;
+					this.details = this.group.getElementsByClassName("details");
+					this.toggles = this.group.getElementsByClassName("details__summary");
+					this.contents = this.group.getElementsByClassName("details__content");
+
+					this.settings = Object.assign({
+						speed: 300,
+						one_visible: false
+					}, settings);
+
+
+					for (let i = 0; i < this.details.length; i++) {
+						const detail = this.details[i];
+						const toggle = this.toggles[i];
+						const content = this.contents[i];
+
+
+						detail.style.transitionDuration = this.settings.speed + "ms";
+
+						if (!detail.hasAttribute("open")) {
+							detail.style.height = toggle.clientHeight + "px";
+						} else {
+							detail.style.height = toggle.clientHeight + content.clientHeight + "px";
+						}
+					}
+
+					this.group.addEventListener("click", (e) => {
+						if (e.target.classList.contains("details__summary")) {
+							e.preventDefault();
+
+							let num = 0;
+							for (let i = 0; i < this.toggles.length; i++) {
+								if (this.toggles[i] === e.target) {
+									num = i;
+									break;
+								}
+							}
+
+							if (!e.target.parentNode.hasAttribute("open")) {
+								this.open(num);
+							} else {
+								this.close(num);
+							}
+						}
+					});
+				}
+
+				open(i) {
+					const detail = this.details[i];
+					const toggle = this.toggles[i];
+					const content = this.contents[i];
+
+					if (this.settings.one_visible) {
+						for (let a = 0; a < this.toggles.length; a++) {
+							if (i !== a) this.close(a);
+						}
+					}
+
+
+					detail.classList.remove("is-closing");
+
+					const toggle_height = toggle.clientHeight;
+
+
+					detail.setAttribute("open", true);
+					const content_height = content.clientHeight;
+					detail.removeAttribute("open");
+
+					detail.style.height = toggle_height + content_height + "px";
+
+					detail.setAttribute("open", true);
+				}
+
+				close(i) {
+					const detail = this.details[i];
+					const toggle = this.toggles[i];
+
+					detail.classList.add("is-closing");
+
+					const toggle_height = toggle.clientHeight;
+
+					detail.style.height = toggle_height + "px";
+
+					setTimeout(() => {
+						if (detail.classList.contains("is-closing"))
+							detail.removeAttribute("open");
+						detail.classList.remove("is-closing");
+					}, this.settings.speed);
+				}
+			}
+
+			(() => {
+				const els = document.getElementsByClassName("details-group");
+
+				for (let i = 0; i < els.length; i++) {
+					const details = new Details(els[i], {
+						speed: 500,
+						one_visible: true
+					});
+				}
+			})();
+		</script>
+	</th:block>
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<div class="item--68N">
+			<div class="auto-group-e12j-mkJ">
+				<img class="ellipse-3-VAW" src="/images/ellipse-3-fwC.png" />
+				<img class="customer-survey-amico-1-dGi" src="/images/customer-survey-amico-1-3La.png" />
+				<div class="item--kcE">고객센터</div>
+			</div>
+			<div class="auto-group-hv9g-23x">
+				<div class="rectangle-23-xiJ">
+					<div class="wrapper">
+						<img class="vector-rpe" src="/images/vector-FsU.png" /><br>
+						<b id="bTag1">자주 묻는 질문</b>
+						<section class="details-group">
+							<details class="details" open>
+								<summary class="details__summary">
+									&lt;details&gt; and &lt;summary&gt;
+								</summary>
+								<div class="details__content">
+									<p>The &lt;details&gt; and &lt;summary&gt; elements are used to allow common
+										accordion-style
+										functionality without relying on JavaScript.</p>
+								</div>
+							</details>
+
+							<details class="details">
+								<summary class="details__summary">Making it better</summary>
+								<div class="details__content">
+									<p>With a little help from JavaScript, we can supplement the default behavior to
+										make an
+										accordion
+										that is super smooth and nicely-styled, but still degrades gracefully.</p>
+									<p>This accordion uses JS to calculate heights so we can use CSS transitions without
+										any
+										max-height
+										hacks. It also sets a timeout before removing the <code>open</code> attribute,
+										so the
+										content of
+										the <code>&lt;details&gt;</code> element will stay visible until the height
+										transition is
+										finished.</p>
+									<p>The cool part is that since we&rsquo;re using these modern HTML5 elements, the
+										accordion
+										should
+										work just fine even with JavaScript disabled. <strong><em>Gasp!</em> A simple
+											web component
+											in
+											2018 that doesn&rsquo;t completely fail without JS?! Sound the
+											alarm!</strong>
+								</div>
+							</details>
+
+							<details class="details">
+								<summary class="details__summary">Settings</summary>
+								<div class="details__content">
+									<ul>
+										<li>
+											<strong><code>speed</code></strong> <em>(default: <code>300</code>)</em>
+											Speed of the
+											transition in milliseconds. Setting this in the plugin will override the
+											value specified
+											in
+											the CSS.
+										</li>
+										<li>
+											<strong><code>one_visible</code></strong> <em>(default:
+												<code>false</code>)</em>
+											Determines
+											whether details can be toggled independently, or if only one can be visible
+											at a time.
+										</li>
+									</ul>
+								</div>
+							</details>
+
+							<details class="details">
+								<summary class="details__summary">Shameless Plug</summary>
+								<div class="details__content">
+									<p>If you liked this pen, check out <a target="_blank"
+											href="https://keithpickering.github.io">my
+											portfolio site</a>. I&rsquo;m accepting new projects all the time, so drop
+										me a line.
+									</p>
+								</div>
+							</details>
+							<details class="details">
+								<summary class="details__summary">Shameless Plug</summary>
+								<div class="details__content">
+									<p>If you liked this pen, check out <a target="_blank"
+											href="https://keithpickering.github.io">my
+											portfolio site</a>. I&rsquo;m accepting new projects all the time, so drop
+										me a line.
+									</p>
+								</div>
+							</details>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
