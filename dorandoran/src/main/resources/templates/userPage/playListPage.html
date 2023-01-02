@@ -21,7 +21,6 @@
 <body>
 <div class="item--YUv">
 
-
   <div class="auto-group-slf4-4TG">
     <div class="frame-1144-Zup">
       <div class="auto-group-ddcn-gDk">
@@ -64,7 +63,6 @@
     
   </div>
   
-  
   <div class="my-doran-QoG">MY DORAN</div>
   <div class="auto-group-dzia-7xa">
     <div class="auto-group-qadg-fDQ">
@@ -78,21 +76,23 @@
       </div>
       <div class="rectangle-87-gXp">
       </div>
+
       <div class="frame-1147-D1x">
-        <div class="item--X2e">개인 정보 확인      </div>
-        <div class="item--pnS">모임 목록</div>
-        <div class="item--vqU">장터 목록</div>
-        <div class="item--ErA">작성한 글 목록</div>
-        <div class="item--x1U">고객센터 글 목록</div>
+        <div th:href="@{/userPage/userUpdate?page=1}" class="item--X2e">개인 정보 확인      </div>
+        <div th:href="@{/userPage/playListPage?page=1}" class="item--pnS">모임 목록</div>
+        <div th:href="@{/userPage/marketListPage?page=1}" class="item--vqU">장터 목록</div>
+        <div th:href="@{/userPage/writingListPage?page=1}" class="item--ErA">작성한 글 목록</div>
+        <div th:href="@{/userPage/questionListPage?page=1}" class="item--x1U">고객센터 글 목록</div>
       </div>
+
       <div class="icon-media-play-3Yi">
-        <img class="icon-media-play-ANS" src="./assets/icon-media-play-2FY.png"/>
-        <img class="vector-6Wz" src="./assets/vector-4ox.png"/>
+        <img class="icon-media-play-ANS" th:src="@{/images/mediaPlayIcon.png}"/>
+        <img class="vector-6Wz" th:src="@{/images/mediaPlayIcon.png}"/>
         <div class="icon-media-play-dmp">
-          <img class="vector-C4E" src="./assets/vector-Azr.png"/>
+          <img class="vector-C4E" th:src="@{/images/mediaPlayIcon.png}"/>
           <div class="icon-media-play-jpr">
-            <img class="vector-6QW" src="./assets/vector-7xA.png"/>
-            <img class="icon-media-play-2ox" src="./assets/icon-media-play.png"/>
+            <img class="vector-6QW" th:src="@{/images/mediaPlayIcon.png}"/>
+            <img class="icon-media-play-2ox" th:src="@{/images/mediaPlayIcon.png}"/>
           </div>
         </div>
       </div>
@@ -107,6 +107,7 @@
       <div class="auto-group-nuxn-EHk">
         <div class="group-31-ABQ">
           <div class="item--hSE">‘도란이’님의 모임 목록</div>
+
           <div class="list-kfQ">
             <div class="frame-1134-gox">
               <div class="auto-group-fur8-D3C">
@@ -123,18 +124,21 @@
                   <div class="item--kcn">완료</div>
                 </div>
                 <div class="auto-group-ozvx-gFY">
-                  <img class="btn1-o5G" src="./assets/btn1-V2W.png"/>
+                  <img class="btn1-o5G" th:src="@{/images/btn1-5LA.png}"/>
                   <div class="item-1-Lqt">1</div>
-                  <img class="btn1-USJ" src="./assets/btn1.png"/>
+                  <img class="btn1-USJ" th:src="@{/images/btn1-mHp.png}"/>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="item--Apv">
             <div class="btn-6ia">취소</div>
             <div class="btn-ko8">삭제</div>
           </div>
+
         </div>
+
         <div class="group-32-c4e">
           <div class="item--Mnv">‘도란이’님의 모임 신청 목록</div>
           <div class="list-DaE">
@@ -153,17 +157,19 @@
                   <div class="item--FKt">진행 중</div>
                 </div>
                 <div class="auto-group-lcft-mZ8">
-                  <img class="btn1-HGa" src="./assets/btn1-wHQ.png"/>
+                  <img class="btn1-HGa" th:src="@{/images/btn1-5LA.png}"/>
                   <div class="item-1-2V4">1</div>
-                  <img class="btn1-N38" src="./assets/btn1-ZyG.png"/>
+                  <img class="btn1-N38" th:src="@{/images/btn1-mHp.png}"/>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="item--TaN">
             <div class="btn-nMk">취소</div>
             <div class="btn-qL2">삭제</div>
           </div>
+
         </div>
       </div>
     </div>

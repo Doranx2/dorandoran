@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
 
 <!-- head -->
 <head>
@@ -17,7 +18,6 @@
 
 <body>
 <div class="item--nzi">
-
 
   <div class="auto-group-eusc-V8S">
     <div class="frame-1144-zL6">
@@ -75,20 +75,20 @@
       <div class="rectangle-87-RzN">
       </div>
       <div class="frame-1147-ASA">
-        <div class="item--sLa">개인 정보 확인      </div>
-        <div class="item--aEz">모임 목록</div>
-        <div class="item--szn">장터 목록</div>
-        <div class="item--auC">작성한 글 목록</div>
-        <div class="item--hD8">고객센터 글 목록</div>
+        <div th:href="@{/userPage/userUpdate?page=1}" class="item--sLa">개인 정보 확인      </div>
+        <div th:href="@{/userPage/playListPage?page=1}" class="item--aEz">모임 목록</div>
+        <div th:href="@{/userPage/marketListPage?page=1}" class="item--szn">장터 목록</div>
+        <div th:href="@{/userPage/writingListPage?page=1}" class="item--auC">작성한 글 목록</div>
+        <div th:href="@{/userPage/questionListPage?page=1}" class="item--hD8">고객센터 글 목록</div>
       </div>
       <div class="icon-media-play-Pbk">
-        <img class="icon-media-play-i8E" src="./assets/icon-media-play-97L.png"/>
-        <img class="vector-Sa2" src="./assets/vector-Wbg.png"/>
+        <img class="icon-media-play-i8E" th:src="@{/images/mediaPlayIcon.png}"/>
+        <img class="vector-Sa2" th:src="@{/images/mediaPlayIcon.png}"/>
         <div class="icon-media-play-nNz">
-          <img class="vector-9DY" src="./assets/vector-dzn.png"/>
+          <img class="vector-9DY" th:src="@{/images/mediaPlayIcon.png}"/>
           <div class="icon-media-play-V2W">
-            <img class="vector-qMG" src="./assets/vector-ycz.png"/>
-            <img class="icon-media-play-mki" src="./assets/icon-media-play-ChL.png"/>
+            <img class="vector-qMG" th:src="@{/images/mediaPlayIcon.png}"/>
+            <img class="icon-media-play-mki" th:src="@{/images/mediaPlayIcon.png}"/>
           </div>
         </div>
       </div>
@@ -117,17 +117,19 @@
                   <div class="item-0000-00-00-yr6">0000/00/00</div>
                 </div>
                 <div class="auto-group-vdfy-hXC">
-                  <img class="btn1-bsU" src="./assets/btn1-yKC.png"/>
+                  <img class="btn1-bsU" th:src="@{/images/btn1-5LA.png}"/>
                   <div class="item-1-wgS">1</div>
-                  <img class="btn1-GTp" src="./assets/btn1-KYr.png"/>
+                  <img class="btn1-GTp" th:src="@{/images/btn1-mHp.png}"/>
                 </div>
               </div>
             </div>
           </div>
+
           <div class="item--xLe">
             <div class="btn-ezA">취소</div>
             <div class="btn-uQJ">삭제</div>
           </div>
+
           <div class="group-31-LkW">
             <div class="item--gZU">‘도란이’님의 신고 목록</div>
             <div class="list-Z7U">
@@ -144,9 +146,9 @@
                     <div class="item-0000-00-00-KRQ">0000/00/00</div>
                   </div>
                   <div class="auto-group-thkg-36W">
-                    <img class="btn1-9fL" src="./assets/btn1-mTk.png"/>
+                    <img class="btn1-9fL" th:src="@{/images/btn1-5LA.png}"/>
                     <div class="item-1-HWe">1</div>
-                    <img class="btn1-pWa" src="./assets/btn1-6Hk.png"/>
+                    <img class="btn1-pWa" th:src="@{/images/btn1-mHp.png}"/>
                   </div>
                 </div>
               </div>
