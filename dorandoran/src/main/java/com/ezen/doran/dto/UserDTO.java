@@ -1,5 +1,7 @@
 package com.ezen.doran.dto;
 
+import java.sql.Date;
+
 import lombok.Data;
 
 @Data
@@ -14,5 +16,7 @@ public class UserDTO {
 	private String userLoc;
 	private String userNick;
 	private String userRole;
+	private Date inputDTM;
+	
 	
 }

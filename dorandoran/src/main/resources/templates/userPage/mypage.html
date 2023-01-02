@@ -24,11 +24,11 @@
         <div class="auto-group-a1cw-bkr">
           <p class="item--js4">
             <span class="item--js4-sub-0">활동 지역은 </span>
-            <span class="item--js4-sub-1">‘도란시’</span>
+            <span class="item--js4-sub-1" th:text="${user.userLoc}"></span>
             <span class="item--js4-sub-2"> 입니다.</span>
           </p>
-          <p class="item--rTp" sec:authentication="principal.username"> 님</p>
-          <p class="nnnn-nn-nn-Ltn">nnnn. nn. nn</p>
+          <p class="item--rTp" th:text="${user.userLick}"> 님</p>
+          <p class="nnnn-nn-nn-Ltn" th:text="${user.inputDTM}"></p>
         </div>
       </div>
       <div class="auto-group-wh4e-3oC">
