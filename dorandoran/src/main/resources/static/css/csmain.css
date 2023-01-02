@@ -1,0 +1,99 @@
+main {
+	display:flex;
+	width : 1920px;
+	height : 1389px;
+}
+
+aside {
+	width :576px;
+}
+#sideCon {
+	margin-top : 445px;
+	margin-left: 350px;
+	text-align : center;
+	width : 250px;
+	height : 407px;
+	background-color: #F5F5F5;
+	font-size: 1.6em;
+	border-radius: 10px;
+}
+
+#nav1 li {
+	line-height : 100px;
+	margin-left: -135px;
+	list-style:none;
+	font-weight: bold;
+}
+#nav1 a:link { color: black; text-decoration: none;}
+#nav1 a:visited { color: black; text-decoration: none;}
+#nav1 a:hover { color : #1761A0; text-decoration: none;}
+	
+
+
+.ellipse-3-VAW {
+	width : 800px;
+	height : 150px;
+}
+.customer-survey-amico-1-dGi {
+	display : block;
+	margin-left: 250px;
+	margin-top: -150px;
+	width : 300px;
+	height : 300px;
+}
+.item--kcE {
+	margin-left: 255px;
+	margin-top : -55px;
+	font-size: 4.5em;
+	font-weight: bold;
+	color : #1761A0;
+}
+.auto-group-hv9g-23x {
+	width : 1120px;
+	height : 846px;
+	background-color: #F5F5F5;
+	margin-top : 100px;
+	margin-left: -67px;
+	border-radius: 10px;;
+}
+/*.rectangle-23-xiJ {
+	margin-left: 90px;
+	width : 940px;
+	height : 700px;
+	background-color: #C3C3C3;
+}*/
+
+#boardTable {
+	font-size: 1.3em;
+	font-weight: 400;
+	text-align: center;
+}
+#boardTable td {
+	height : 45px;
+	background-color: #f0f6fe;
+	border : 2px solid white;
+}
+
+#tb1 td {
+	background-color: white;
+	text-align : center;
+	width : 150px;
+	height : 50px;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+#boardTable a:link { color: black; text-decoration: none;}
+#boardTable a:visited { color: black; text-decoration: none;}
+#boardTable a:hover { color : #1761A0; text-decoration: none;}
+
+#insertInp { width: 99%; height : 90%; border : 0px; font-size: 1.0em;}
+#qSelect {font-size: 1.0em; height : 95%; width: 30%; text-align: center;}
+
+#texta1 {font-size : 1.2em; border : 0px;}
+
+.pagination { list-style:none; font-size: 1.2em;}
+
+.pagination a:link { color: black; text-decoration: none;}
+.pagination a:visited { color: black; text-decoration: none;}
+.pagination a:hover { color : #1761A0; text-decoration: none;}
+

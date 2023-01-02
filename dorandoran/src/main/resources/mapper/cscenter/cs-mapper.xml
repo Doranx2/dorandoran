@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/dtd/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.doran.mapper.CsMapper">
+	<!-- 공지사항 -->
+	<select id="selectNotice" parameterType="int" resultType="notice">
+	SELECT *
+		FROM TB_NOTICE
+		WHERE NOTICE_NO = #{noticeNo}
+	</select>
+
+	<select id="selectNoticeList" parameterType="map" resultType="notice">
+		<![CDATA[
+		SELECT *
+			FROM TB_NOTICE
+			
+	]]>
+		<if test="noticeSearch.searchKeyword != null and noticeSearch.searchKeyword != ''">
+			<if test="noticeSearch.searchCondition == 'ALL'">
+				WHERE 1 = 0
+				   OR NOTICE_TITLE LIKE CONCAT('%', #{noticeSearch.searchKeyword}, '%')
+				   OR NOTICE_CONTENT LIKE CONCAT('%', #{noticeSearch.searchKeyword}, '%')
+			</if>
+			<if test="noticeSearch.searchCondition != 'ALL'">
+				WHERE 1 = 1
+				<if test="noticeSearch.searchCondition == 'TITLE'">
+						AND NOTICE_TITLE LIKE CONCAT('%', #{noticeSearch.searchKeyword}, '%')
+				</if>
+				<if test="noticeSearch.searchCondition == 'CONTENT'">
+						AND NOTICE_CONTENT LIKE CONCAT('%', #{noticeSearch.searchKeyword}, '%')
+				</if>
+			</if>
+		</if>
+		LIMIT #{cri.amount} OFFSET #{cri.startNum}
+	</select>
+
+	<select id="getNoticeTotalCnt" parameterType="map" resultType="int">
+		SELECT COUNT(*)
+			FROM TB_NOTICE
+		<if test="searchKeyword != null and searchKeyword != ''">
+			<if test="searchCondition == 'ALL'">
+				WHERE 1 = 0
+				   OR NOTICE_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+				   OR NOTICE_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')
+			</if>
+			<if test="searchCondition != 'ALL'">
+				WHERE 1 = 1
+				<if test="searchCondition == 'TITLE'">
+						AND NOTICE_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+				</if>
+				<if test="searchCondition == 'CONTENT'">
+						AND NOTICE_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')
+				</if>
+			</if>
+		</if>
+	</select>
+
+	<!-- 1:1 문의 -->
+
+	<select id="selectQuestion" parameterType="int" resultType="question">
+	SELECT *
+		FROM TB_QUESTION
+		WHERE Q_NO = #{qNo}
+	</select>
+
+	<select id="selectQuestionList" parameterType="map" resultType="question">
+		<![CDATA[
+		SELECT *
+			FROM TB_QUESTION
+			
+	]]>
+		<if test="questionSearch.searchKeyword != null and questionSearch.searchKeyword != ''">
+			<if test="questionSearch.searchCondition == 'ALL'">
+				WHERE 1 = 0
+				   OR Q_TITLE LIKE CONCAT('%', #{questionSearch.searchKeyword}, '%')
+				   OR Q_CONTENT LIKE CONCAT('%', #{questionSearch.searchKeyword}, '%')
+			</if>
+			<if test="questionSearch.searchCondition != 'ALL'">
+				WHERE 1 = 1
+				<if test="questionSearch.searchCondition == 'TITLE'">
+						AND Q_TITLE LIKE CONCAT('%', #{questionSearch.searchKeyword}, '%')
+				</if>
+				<if test="questionSearch.searchCondition == 'CONTENT'">
+						AND Q_CONTENT LIKE CONCAT('%', #{questionSearch.searchKeyword}, '%')
+				</if>
+			</if>
+		</if>
+		LIMIT #{cri.amount} OFFSET #{cri.startNum}
+	</select>
+
+	<select id="getQuestionTotalCnt" parameterType="map" resultType="int">
+		SELECT COUNT(*)
+			FROM TB_QUESTION
+		<if test="searchKeyword != null and searchKeyword != ''">
+			<if test="searchCondition == 'ALL'">
+				WHERE 1 = 0
+				   OR Q_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+				   OR Q_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')
+			</if>
+			<if test="searchCondition != 'ALL'">
+				WHERE 1 = 1
+				<if test="searchCondition == 'TITLE'">
+						AND Q_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+				</if>
+				<if test="searchCondition == 'CONTENT'">
+						AND Q_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')
+				</if>
+			</if>
+		</if>
+	</select>
+
+	<!-- 신고게시판 -->
+	<select id="selectRep" parameterType="int" resultType="report">
+	SELECT *
+		FROM TB_REP
+		WHERE REP_NO = #{repNo}
+	</select>
+
+	<select id="selectRepList" parameterType="map" resultType="report">
+		<![CDATA[
+		SELECT *
+			FROM TB_REP
+			
+	]]>
+		<if test="repSearch.searchKeyword != null and repSearch.searchKeyword != ''">
+			<if test="repSearch.searchCondition == 'ALL'">
+				WHERE 1 = 0
+				   OR REP_TITLE LIKE CONCAT('%', #{repSearch.searchKeyword}, '%')
+				   OR REP_CONTENT LIKE CONCAT('%', #{repSearch.searchKeyword}, '%')
+			</if>
+			<if test="repSearch.searchCondition != 'ALL'">
+				WHERE 1 = 1
+				<if test="repSearch.searchCondition == 'TITLE'">
+						AND REP_TITLE LIKE CONCAT('%', #{repSearch.searchKeyword}, '%')
+				</if>
+				<if test="repSearch.searchCondition == 'CONTENT'">
+						AND REP_CONTENT LIKE CONCAT('%', #{repSearch.searchKeyword}, '%')
+				</if>
+			</if>
+		</if>
+		LIMIT #{cri.amount} OFFSET #{cri.startNum}
+	</select>
+
+	<select id="getRepTotalCnt" parameterType="map" resultType="int">
+		SELECT COUNT(*)
+			FROM TB_REP
+		<if test="searchKeyword != null and searchKeyword != ''">
+			<if test="searchCondition == 'ALL'">
+				WHERE 1 = 0
+				   OR REP_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+				   OR REP_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')
+			</if>
+			<if test="searchCondition != 'ALL'">
+				WHERE 1 = 1
+				<if test="searchCondition == 'TITLE'">
+						AND REP_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+				</if>
+				<if test="searchCondition == 'CONTENT'">
+						AND REP_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')
+				</if>
+			</if>
+		</if>
+	</select>
+</mapper>

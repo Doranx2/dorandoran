@@ -9,6 +9,8 @@
 	
 	<!-- alias 추가 -->
 	<typeAliases>
-		
+		<typeAlias type="com.ezen.doran.dto.NoticeDTO" alias="notice"/>
+		<typeAlias type="com.ezen.doran.dto.QuestionDTO" alias="question"/>
+		<typeAlias type="com.ezen.doran.dto.RepDTO" alias="report"/>
 	</typeAliases>
 </configuration>
