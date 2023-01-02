@@ -58,5 +58,12 @@ public class PlayController {
 
 		return mv;
 	}
+	
+	@RequestMapping("/selectPlay")
+	public ModelAndView selectPlay() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("play/selectPlay.html");
+		return mv;
+	}
 
 }

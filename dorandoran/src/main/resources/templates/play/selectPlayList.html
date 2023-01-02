@@ -49,7 +49,7 @@
 					<tr th:each="play : ${selectPlayList}">
 						<td th:text=${play.playNo}></td>
 						<td>
-							<a th:text="${play.playTitle}">
+							<a th:text="${play.playTitle}" th:href="@{/play/selectPlay}">
 							</a>
 						</td>
 						<td th:text="${play.userNm}"></td>
