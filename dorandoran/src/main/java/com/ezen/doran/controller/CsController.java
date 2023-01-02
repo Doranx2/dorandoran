@@ -63,7 +63,7 @@ public class CsController {
 	public ModelAndView selectNotice(@PathVariable int noticeNo) {
 		NoticeDTO nDetail = csService.selectNotice(noticeNo);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/cscenter/");
+		mv.setViewName("/cscenter/noticeDetail.html");
 		mv.addObject("nDetail", nDetail);
 		return mv;
 	}
@@ -106,7 +106,7 @@ public class CsController {
 		QuestionDTO qDetail = csService.selectQuestion(qNo);
 		AnswerDTO answer = csService.selectAnswer(qNo);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/cscenter/");
+		mv.setViewName("/cscenter/questionDetail.html");
 		mv.addObject("qDetail", qDetail);
 		mv.addObject("answer", answer);
 		return mv;
