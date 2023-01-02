@@ -108,6 +108,33 @@
 		</if>
 	</select>
 
+	<insert id="insertQuestion" parameterType="question">
+		INSERT INTO TB_QUESTION (
+					Q_NO,
+					USER_NO,
+					Q_CD,
+					Q_TITLE,
+					Q_CONTENT,
+					INPUT_DTM,
+					A_YN,
+					USER_ID
+		) VALUES (
+					(SELECT IFNULL(MAX(A.Q_NO), 0) + 1 FROM TB_QUESTION A),
+					1,
+					#{qCd},
+					#{qTitle},
+					#{qContent},
+					now(),
+					#{aYn},
+					'aa' 
+			   )
+	</insert>
+
+	<delete id="deleteQuestion" parameterType="int">
+		DELETE FROM TB_QUESTION
+			WHERE Q_NO = #{qNo}
+	</delete>
+
 	<!-- 신고게시판 -->
 	<select id="selectRep" parameterType="int" resultType="report">
 	SELECT *
@@ -160,4 +187,9 @@
 			</if>
 		</if>
 	</select>
+
+	<delete id="deleteRep" parameterType="int">
+		DELETE FROM TB_REP
+			WHERE REP_NO = #{repNo}
+	</delete>
 </mapper>
