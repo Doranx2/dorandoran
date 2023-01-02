@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+D:\aws220726\PJ\Doran\dorandoran\.metadata\.plugins\org.eclipse.jdt.core
-1037121465.index
-4001868731.index
-1865797976.index
