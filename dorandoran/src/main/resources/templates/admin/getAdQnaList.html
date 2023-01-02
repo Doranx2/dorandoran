@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<title>admin page</title>
+		<link rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Jua%3A400" />
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Inter%3A600%2C900" />
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C600%2C900" />
+		<link rel="stylesheet" th:href="@{/css/getAdQnaList.css}" />
+	</head>
+	<body>
+		<div class="admin-page-iGN">
+			<div class="admin-page-d8S">Admin Page</div>
+			<div class="auto-group-rzws-hPC">
+				<div class="auto-group-agdg-E8E">
+					<div class="menu-YPp">
+						<a href="/admin/getAdNoticeList" class="item--gW2">공지사항</a> <a
+							href="/admin/getAdFaqList" class="item-1-1--Kot">FAQ</a> <a
+							href="/admin/getAdQnaList" class="item--gW2">1 : 1 문의</a> <a
+							href="/admin/getAdReportList" class="item--S7p">신고관리</a>
+						<!-- <a href="/admin/getAdMain" class="item--THp">게시글 관리</a> -->
+						<a href="/admin/getAdUserList" class="item--Axv">회원관리</a>
+					</div>
+				</div>
+				<div class="auto-group-ns3g-5KC">
+					<div class="auto-group-hjpi-mhp">
+						<div class="auto-group-uxyp-5yQ">
+							<p class="item--1s4">1:1 문의 관리</p>
+						</div>
+						
+						<table class="table text-center table-hover">
+							<thead class="thead-white">
+								<tr>
+									<th>번호</th>
+									<th>제목</th>
+									<th>작성자</th>
+									<th>작성날짜</th>
+									<th>상태</th>
+								</tr>
+							</thead>
+							<tbody>
+								<!-- board : => 1줄씩 출력할때 -->
+								<tr th:each="board : ${getAdQnaList}">
+									<td th:text="${board.qNo}"></td>
+									<td th:data-question-title="${board.qTitle}"
+										th:data-question-no="${board.qNo}"
+										name="qTitleTd">
+										<a th:text="${board.qTitle}"
+											href="#" th:href="@{/admin/@@@@@@@@@@@@@(qNo=${board.qNo})}"></a>
+									</td>
+									<td th:text="${board.userId}"></td>
+									<td th:text="${board.inputDtm}"></td>
+									<td th:text="${board.aYn}"></td>
+								</tr>
+							</tbody>
+						</table>
+
+	
+ 				<!-- 		<div style="text-align: center;" id="numPage">
+							<ul class="pagination">
+								<th:if test="${PageDTO.prev}">
+									<li class="pagination_button"><a
+										href="${PageDTO.cri.pageNum - 1}"><img
+											th:src="@{/assets/btn1-5LA.png}" style="width: 20px" /></a></li>
+								</c:if>
+	
+								<c:forEach var="num" begin="${PageDTO.startPage}"
+									end="${PageDTO.endPage}">
+									<li class="pagination_button"><a href="${num}">${num}</a>
+									</li>
+								</c:forEach>
+	
+								<c:if test="${PageDTO.next }">
+									<li class="pagination_button"><a
+										href="${PageDTO.cri.pageNum + 1 }"> <img class="btn2"
+											th:src="@{/assets/btn1-mHp.png}" style="width: 20px" /></a></li>
+								</c:if>
+							</ul>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
