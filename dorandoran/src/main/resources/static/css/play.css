@@ -371,6 +371,28 @@
 	  border-bottom-right-radius: 10px;
 	  overflow: hidden;
 	}
+	
+	.insertPageBtn{
+		width: 230px;
+	    height: 45px;
+	    opacity: 1;
+	    position: absolute;
+	    top: 492px;
+	    left: 351px;
+	    overflow: hidden;
+	    background: #EEC400;
+	    color:#FFFFFF;
+	    border-radius: 10px;
+	    border : 0px;
+	    font-size: 1.4em;
+	    font-weight: bolder;
+	}
+	
+	.insertPageBtn:hover {
+		background: #CFE1FC;
+		color : #1761A0;
+	}
+	
 	.searchInput {
 	  width: 282px;
 	  height: 40px;
@@ -395,7 +417,25 @@
 	  top: 3px;
 	  left: 238px;
 	  overflow: hidden;
+	  border:0px;
 	}
+	
+	.searchIcon:hover{
+		cursor : pointer;
+	}
+	
+	#searchKeyword {
+		padding: 10px;
+    	border: 0px;
+    	background: none;
+    	margin-top:1px;
+    	font-size: 1.2em;
+	}
+	
+	#searchKeyword:focus{
+		outline:none;
+	}
+	
 	.pagation {
 	  text-align: center;
 	  width: 516px;
@@ -570,7 +610,7 @@
 
   .replyInputContainer {
     width: 70%;
-    height: 100px;
+    height: 50px;
     background: rgba(251, 243, 206, 1);
     opacity: 1;
     position: absolute;
@@ -580,15 +620,21 @@
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    padding: 15px;
     overflow: hidden;
   }
   
   .replyInput{
-	margin: 10px;
     background: none;
     border: 0px;
     width: 93%;
-    height: 49px;
+    height: 25px;
+    padding: 0px;
+    font-size: 1.3em;
+  }
+  
+  .replyInput:focus{
+	  outline:none;
   }
 
   .bar1 {
@@ -623,7 +669,7 @@
 
   .replyInsertBtn {
     width: 80px;
-    height: 100px;
+    height: 50px;
     background:#EEC400;
     opacity: 1;
     position: absolute;
@@ -636,6 +682,7 @@
     font-size: 1.2em;
     font-weight: bold;
     color:#fbf3ce;
+    z-index: 1;
   }
 
   .v112_672 {

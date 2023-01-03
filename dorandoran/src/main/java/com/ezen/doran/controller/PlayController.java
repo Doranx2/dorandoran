@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,20 +24,48 @@ public class PlayController {
 	@Autowired
 	PlayService playService;
 
+	@GetMapping("/insertPlayPage")
+	public ModelAndView insertPlayPage() {
+		ModelAndView mv = new ModelAndView();
+		PlayDTO testDTO = new PlayDTO();
+		mv.addObject("play", testDTO);
+		mv.addObject("update",false);
+		mv.setViewName("play/insertPlay.html");
+		
+		return mv;
+	}
+	
+	@GetMapping("/updatePlayPage")
+	public ModelAndView updatePlayPage(@RequestParam int playNo) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("play", playService.selectPlay(playNo));
+		mv.addObject("update",true);
+		mv.setViewName("play/insertPlay.html");
+		
+		return mv;
+	}
+	
+	@RequestMapping("/updatePlay")
+	public void updatePlay(PlayDTO playDTO, HttpServletResponse response) throws Exception {
+		playService.updatePlay(playDTO);
+		response.sendRedirect("/play/selectPlay?playNo=" + playDTO.getPlayNo());
+	}
+	
 	@PostMapping("/insertPlay")
-	public void insertPlay(PlayDTO playDTO, HttpServletResponse response) throws IOException {
+	public void insertPlay(PlayDTO playDTO, HttpServletResponse response) throws Exception {
 		playDTO.setUserNo(1);
 
 		playService.insertPlay(playDTO);
-		response.sendRedirect("/");
+		response.sendRedirect("/play/selectPlayList");
 	}
 
 	@RequestMapping("/selectPlayList")
-	public ModelAndView selectPlayList(@RequestParam(defaultValue = "1") int page) {
+	public ModelAndView selectPlayList(@RequestParam(defaultValue = "1") int page,
+										@RequestParam(defaultValue = "") String searchKeyword) {
 		ModelAndView mv = new ModelAndView();
 
 		// 총 게시글 수
-		int totalListCnt = playService.selectPlayCnt();
+		int totalListCnt = playService.selectPlayCnt(searchKeyword);
 
 		if (page == 0) {
 			page = 1;
@@ -46,10 +75,10 @@ public class PlayController {
 
 		// 생성인자로 총 게시글 수, 현재 페이지 전달
 		Pagination pagination = new Pagination(totalListCnt, page);
+		pagination.setSearchKeyword(searchKeyword);
 
 		List<PlayDTO> selectPlayList = playService.selectPlayList(pagination);
 
-		System.out.println(selectPlayList);
 		mv.addObject("selectPlayList", selectPlayList);
 		mv.addObject("pagination", pagination);
 		mv.setViewName("play/selectPlayList.html");
@@ -65,6 +94,18 @@ public class PlayController {
 		
 		mv.setViewName("play/selectPlay.html");
 		return mv;
+	}
+	
+	@RequestMapping("/updatePlayCnt")
+	public void updatePlayCnt(@RequestParam int playNo, HttpServletResponse response) throws Exception {
+		playService.updatePlayCnt(playNo);
+		response.sendRedirect("/play/selectPlay?playNo="+playNo);
+	}
+	
+	@GetMapping("/deletePlay")
+	public void deletePlay(@RequestParam int playNo, HttpServletResponse response) throws Exception {
+		playService.deletePlay(playNo);
+		response.sendRedirect("/play/selectPlayList");
 	}
 
 }

@@ -6,7 +6,19 @@
 <!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
 
 <head>
-
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			function search(){
+				let searchKeyword = $('#searchKeyword').val();
+				console.log(searchKeyword);
+				if(!searchKeyword){
+					alert("검색어를 입력해주세요.");
+				} else {
+					location.href="/play/selectPlayList?searchKeyword="+searchKeyword;
+				}
+			}
+		</script>
+	</th:block>
 </head>
 <!-- head 영역 끝 -->
 
@@ -49,7 +61,7 @@
 					<tr th:each="play : ${selectPlayList}">
 						<td th:text=${play.playNo}></td>
 						<td>
-							<a th:text="${play.playTitle}" th:href="@{/play/selectPlay?playNo={playNo} (playNo = ${play.playNo})}">
+							<a th:text="${play.playTitle}" th:href="@{/play/updatePlayCnt?playNo={playNo} (playNo = ${play.playNo})}">
 							</a>
 						</td>
 						<td th:text="${play.userNm}"></td>
@@ -58,37 +70,39 @@
 					</tr>
 				</table>
 			</div>
+			<button class="insertPageBtn" onclick="location.href='/play/insertPlayPage'">이용하기</button>
 			<div class="searchInput">
-				<div class="searchIcon"></div>
+				<input id="searchKeyword" name="searchKeyword" >
+				<button class="searchIcon" onclick="search();"></button>
 			</div>
 
 			<div class="pagation">
 				<div class="page">
 					<ul class="pagination modal">
 						<li class="page-item">
-							<a class="first" th:href="@{/play/selectPlayList?page=1}">
+							<a class="first" th:href="@{/play/selectPlayList?page=1&searchKeyword={keyword} (keyword = ${pagination.searchKeyword})}">
 								처음
 							</a>
 						</li>
 						<li class="page-item">
-							<a class="arrow left" th:href="@{/play/selectPlayList?page={page} (page = ${pagination.page}-1)}">
+							<a class="arrow left" th:href="@{/play/selectPlayList?page={page}&searchKeyword={keyword} (page = ${pagination.page}-1, keyword = ${pagination.searchKeyword}) }">
 								<<
 							</a>
 						</li>
 						<th:block th:with="start = ${pagination.startPage}, end = ${pagination.endPage}">
 							<li class="page-item" th:with="start = ${pagination.startPage}, end = ${pagination.endPage}"
 								th:each="pageButton : ${#numbers.sequence(start, end)}">
-								<a class="num" th:href="@{/play/selectPlayList?page={page} (page = ${pageButton})}"
+								<a class="num" th:href="@{/play/selectPlayList?page={page}&searchKeyword={keyword} (page = ${pageButton}, keyword = ${pagination.searchKeyword} )}"
 									th:text=${pageButton}></a>
 							</li>
 						</th:block>
 						<li class="page-item">
-							<a class="arrow right" th:href="@{/play/selectPlayList?page={page} (page = ${pagination.page}+1)}">
+							<a class="arrow right" th:href="@{/play/selectPlayList?page={page}&searchKeyword={keyword} (page = ${pagination.page}+1, keyword = ${pagination.searchKeyword})}">
 								>>
 							</a>
 						</li>
 						<li class="page-item">
-							<a class="last" th:href="@{/play/selectPlayList?page={page} (page = ${pagination.totalPageCnt})}">
+							<a class="last" th:href="@{/play/selectPlayList?page={page}&searchKeyword={keyword} (page = ${pagination.totalPageCnt}, keyword = ${pagination.searchKeyword} )}">
 								<span aria-hidden="true">끝</span>
 							</a>
 						</li>

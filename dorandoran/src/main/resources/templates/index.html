@@ -28,30 +28,7 @@
 <body>
 	<div layout:fragment="content">
 	
-		<link rel="stylesheet" th:href="@{/css/play.css}" />
-		
-		<form id="insertPlay" method="post" action="/play/insertPlay">
-			<div class="v89_238">
-				<div class="v89_239"></div>
-				<div class="v89_240"></div>
-				<span class="v89_241">놀아줘요</span>
-			</div>
-			<span class="v112_784">놀아줘요 글쓰기</span>
-			<div class="v89_245">
-				<img class="backImg" th:src="@{/images/boardBack.png}" />
-			</div>
-			<div class="v89_249">
-				<img class="iconImg" th:src="@{/images/playIcon.png}" />
-			</div>
-			<!-- 제목 -->
-				<input id="playTitleInput" class="playTitleInput" name="playTitle" placeholder="제목을 입력하세요.">
-			<!-- 내용 -->
-				<textarea id="playContentInput" class="playContentInput" name="playContent" placeholder="내용을 입력하세요."></textarea>
-			<div class="v112_53">
-			</div>
-			<button id="insertBtn" class="insertBtn" type="submit">등록</button>
-		</form>
-			<button id="cancelBtn" class="cancelBtn" onclick="location.href='/play/selectPlayList'">취소</button>
+		<h3>메인 페이지 입니다.</h3>
 		
 	</div>
 </body>

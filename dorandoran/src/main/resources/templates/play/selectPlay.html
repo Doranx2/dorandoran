@@ -29,20 +29,19 @@
 			<div class="v89_249">
 				<img class="iconImg" th:src="@{/images/playIcon.png}" />
 			</div>
-			<button class="backBtn">목록으로</button>
+			<button class="backBtn" onclick="location.href='/play/selectPlayList'">목록으로</button>
 			<div class="bar1"></div>
 			<div class="bar2"></div>
 			<span class="playTitle" id="playTitle" th:text="${play.playTitle}"></span>
 			<div class="playContentContainer">
 			<span class="playContent" id="playContent" th:text="${play.playContent}"></span></div>
-			<div class="replyInputContainer">
-				<span>작성자 이름</span>
-				<textarea class="replyInput"></textarea>
-			</div>
 			<button class="replyInsertBtn">등록</button>
 			<span class="v112_672">댓글</span>
-			<button class="updateBtn">수정</button>
-			<button class="deleteBtn">삭제</button>
+			<div class="replyInputContainer">
+				<input class="replyInput"></input>
+			</div>
+			<button class="updateBtn" th:onclick="|location.href='@{/play/updatePlayPage?playNo={playNo} (playNo = ${play.playNo})}'|">수정</button>
+			<button class="deleteBtn" th:onclick="|location.href='@{/play/deletePlay?playNo={playNo} (playNo = ${play.playNo})}'|">삭제</button>
 		</div>
 
 	</div>
