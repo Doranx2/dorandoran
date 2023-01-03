@@ -221,7 +221,7 @@ public class CsController {
 		response.sendRedirect("/cscenter/repList");
 	}
 	
-	// 1:1 문의글 수정 페이지 이동
+	// 신고글 수정 페이지 이동
 	@GetMapping("/repUdt/{repNo}")
 	public ModelAndView repUdtView(@PathVariable int repNo) {
 		RepDTO rDetail = csService.selectRep(repNo);
