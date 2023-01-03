@@ -91,9 +91,21 @@ aside {
 
 #texta1 {font-size : 1.2em; border : 0px;}
 
-.pagination { list-style:none; font-size: 1.2em;}
+.pagination { list-style:none; font-size: 1.2em; margin-left: -50px; margin-top: -10px;}
+.pagination li { display: inline-block; }
 
 .pagination a:link { color: black; text-decoration: none;}
 .pagination a:visited { color: black; text-decoration: none;}
 .pagination a:hover { color : #1761A0; text-decoration: none;}
+
+#aBack {
+	border : 1px solid black;
+}
+#updateForm{
+	font-size: 1.3em;
+	font-weight: 400;
+	text-align: center;
+	
+}
+#updateForm input { width : 99%; height : 50px; border : 0px; font-size: 1.0em;}
 

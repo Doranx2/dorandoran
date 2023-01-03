@@ -13,7 +13,14 @@
 		<script th:src="@{/js/jquery-3.6.1.min.js}"></script>
 		<script th:inline="javascript">
 			$(function () {
-			
+				$("#updateBtn").on('click', function (e) {
+					const answer = /*[[${answer}]]*/;
+					if (answer != null) {
+						alert("이미 답변이 달린 게시글은 수정이 불가합니다.");
+						e.preventDefault();
+					}
+				});
+
 				$("#deleteBtn").on('click', function (e) {
 					e.preventDefault();
 
@@ -26,35 +33,13 @@
 							window.location.href = "/cscenter/questionList";
 						},
 						error: function (e) {
-							console.log(e);
+							alert("이미 답변이 달린 게시글은 삭제가 불가합니다.");
 						}
 					});
 				});
 			});
 
-			function fnUpdateBoard() {
-				$.ajax({
-					url: '/cscenter/question',
-					type: 'put',
-					data: $("#updateForm").serialize(),
-					success: function (obj) {
-						console.log(obj);
-						alert("수정되었습니다.");
-						$("#qNo").val(obj.item.qNo);
-						$("#qTitle").val(obj.item.qTitle);
-						$("#userNo").val(obj.item.userNo);
-						$("#qContent").text(obj.item.qContent);
-						$("#userNm").val(obj.item.userNm);
-						$("#inputDtmText").text(obj.item.inputDtm == null ?
-							'' :
-							obj.item.inputDtm.substring(0, 10));
-						$("#inputDtm").val(obj.item.inputDtm);
-					},
-					error: function (e) {
-						console.log(e);
-					}
-				});
-			}
+
 		</script>
 	</th:block>
 </head>
@@ -71,52 +56,107 @@
 			<div class="auto-group-hv9g-23x">
 				<div class="rectangle-23-xiJ">
 					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-						<form id="updateForm">
+						<form id="detailForm">
 							<input type="hidden" name="qNo" id="qNo" th:value="${qDetail.qNo}">
 							<input type="hidden" name="inputDtm" id="inputDtm" th:value="${qDetail.inputDtm}">
-							<table border="1" style="border-collapse: collapse;">
+							<table border="1" style="border-collapse: collapse; margin-top : 100px;">
 								<tr>
-									<td style="background:  white; width: 70px">
+									<td style="width: 150px; height: 50px;">
 										제목
 									</td>
-									<td style="text-align: left">
-										<input type="text" name="qTitle" id="qTitle" th:value="${qDetail.qTitle}">
+									<td style="text-align: left" colspan='3'>
+										[[${qDetail.qTitle}]]
 									</td>
 								</tr>
 								<tr>
-									<td style="background:  white;">
+									<td>
 										작성자
 									</td>
-									<td style="text-align: left">
-										<input type="text" name="userNm" id="userNm" th:value="${qDetail.userNm}"readonly>
+									<td style="text-align: left;width : 245px;">
+										[[${qDetail.userNm}]]
+									</td>
+									<td style="width: 150px; height: 50px;">
+										답변여부
+									</td>
+									<td style="text-align: left; width : 245px;">
+										[[${qDetail.aYn}]]
 									</td>
 								</tr>
 								<tr>
-									<td style="background:  white;">
-										내용
-									</td>
-									<td style="text-align: left">
-										<textarea name="qContent" id="qContent" cols="40" rows="10"
-											th:text="${qDetail.qContent}"></textarea>
-									</td>
-								</tr>
-								<tr>
-									<td style="background:  white;">
+									<td style="width: 150px; height: 50px;">
 										작성일
 									</td>
 									<td style="text-align: left" id="inputDtmText"
-										th:text="${qDetail.inputDtm eq null ? '' : #strings.substring(qDetail.inputDtm, 0, 10)}">
+										th:text="${qDetail.inputDtm eq null ? '' : #strings.substring(qDetail.inputDtm, 0, 10)}"
+										colspan='3'>
 									</td>
 								</tr>
-								<tr id="btnWrap">
-									<td colspan="2" align="center">
-										<button type="button" id="btnUpdate"
-											th:onclick="fnUpdateBoard(); return false;">수정</button>
+								<tr>
+									<td style="text-align: left; width: 800px; height: 200px; background: white; vertical-align:top;"
+										colspan='4'>
+										[[${qDetail.qContent}]]
 									</td>
 								</tr>
 							</table>
+							<th:block th:if="${answer != null}">
+								<table border="1" style="border-collapse: collapse;">
+									<tr>
+										<td style="width: 150px; height: 50px;">
+											작성자
+										</td>
+										<td style="text-align: left;">
+											도란도란
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 150px; height: 50px;">
+											작성일
+										</td>
+										<td style="text-align: left" id="inputDtmText"
+											th:text="${answer.inputDtm eq null ? '' : #strings.substring(answer.inputDtm, 0, 10)}"
+											colspan='3'>
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: left; width:800px; height: 150px; background: white; vertical-align:top;"
+											colspan='2'>
+											[[${answer.aContent}]]
+										</td>
+									</tr>
+								</table>
+							</th:block>
+							
+							<th:block th:if="${answer  == null}">
+								<table border="1" style="border-collapse: collapse;">
+									<tr>
+										<td style="width: 150px; height: 50px;">
+											작성자
+										</td>
+										<td style="text-align: left;">
+											     
+										</td>
+									</tr>
+									<tr>
+										<td style="width: 150px; height: 50px;">
+											작성일
+										</td>
+										<td>
+										 	     
+										</td>
+									</tr>
+									<tr>
+										<td style="text-align: left; width:800px; height: 150px; background: white; vertical-align:top;"
+											colspan='2'>
+											아직 등록된 답변이 없습니다.
+										</td>
+									</tr>
+								</table>
+							</th:block>
+
 						</form>
 						<hr />
+						<a name="qNo" id="updateBtn"
+							th:href="@{/cscenter/questionUdt/{qNo} (qNo=${qDetail.qNo})}">수정</a>
 						<a href="#" id="deleteBtn">삭제</a>
 						<a href="/cscenter/questionList">뒤로가기</a>
 					</div>

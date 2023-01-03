@@ -13,51 +13,36 @@
 		<script th:src="@{/js/jquery-3.6.1.min.js}"></script>
 		<script th:inline="javascript">
 			$(function () {
-
-
-
+				const compYn = /*[[${rDetail.compYn}]]*/;
+				$("#updateBtn").on('click', function (e) {
+					if (compYn == "Y") {
+						alert("이미 처리가 된 게시글은 수정이 불가합니다.");
+						e.preventDefault();
+					}
+				});
 
 				$("#deleteBtn").on('click', function (e) {
-					e.preventDefault();
+					if (compYn == "Y") {
+						alert("이미 처리가 된 게시글은 삭제가 불가합니다.");
+						e.preventDefault();
+					} else {
+						$.ajax({
+							url: '/cscenter/report',
+							type: 'delete',
+							data: {repNo: $("#repNo").val()},
+							success: function () {
+								alert("삭제되었습니다.");
+								window.location.href = "/cscenter/repList";
+							},
+							error: function (e) {
+								console.log(e);
+							}
+						});
+					}
 
-					$.ajax({
-						url: '/cscenter/report',
-						type: 'delete',
-						data: {repNo: $("#repNo").val()},
-						success: function () {
-							alert("삭제되었습니다.");
-							window.location.href = "/cscenter/repList";
-						},
-						error: function (e) {
-							console.log(e);
-						}
-					});
 				});
 			});
 
-			function fnUpdateBoard() {
-				$.ajax({
-					url: '/cscenter/report',
-					type: 'put',
-					data: $("#updateForm").serialize(),
-					success: function (obj) {
-						console.log(obj);
-						alert("수정되었습니다.");
-						$("#repNo").val(obj.item.repNo);
-						$("#repTitle").val(obj.item.repTitle);
-						$("#userNo").val(obj.item.userNo);
-						$("#repContent").text(obj.item.repContent);
-						$("#userNm").val(obj.item.userNm);
-						$("#inputDtmText").text(obj.item.inputDtm == null ?
-							'' :
-							obj.item.inputDtm.substring(0, 10));
-						$("#inputDtm").val(obj.item.inputDtm);
-					},
-					error: function (e) {
-						console.log(e);
-					}
-				});
-			}
 		</script>
 	</th:block>
 </head>
@@ -74,52 +59,52 @@
 			<div class="auto-group-hv9g-23x">
 				<div class="rectangle-23-xiJ">
 					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-						<form id="updateForm">
+						<form id="detailForm">
 							<input type="hidden" name="repNo" id="repNo" th:value="${rDetail.repNo}">
 							<input type="hidden" name="inputDtm" id="inputDtm" th:value="${rDetail.inputDtm}">
-							<table border="1" style="border-collapse: collapse;">
+							<table border="1" style="border-collapse: collapse; margin-top : 100px;">
 								<tr>
-									<td style="background: white; width: 70px">
+									<td style="width: 150px; height: 50px;">
 										제목
 									</td>
-									<td style="text-align: left">
-										<input type="text" name="repTitle" id="repTitle" th:value="${rDetail.repTitle}">
+									<td style="text-align: left" colspan='3'>
+										[[${rDetail.repTitle}]]
 									</td>
 								</tr>
 								<tr>
-									<td style="background:  white;">
+									<td>
 										작성자
 									</td>
-									<td style="text-align: left">
-										<input type="text" name="userNm" id="userNm" th:value="${rDetail.userNm}" readonly>
+									<td style="text-align: left;width : 245px;">
+										[[${rDetail.userNm}]]
+									</td>
+									<td style="width: 150px; height: 50px;">
+										처리여부
+									</td>
+									<td style="text-align: left; width : 245px;">
+										[[${rDetail.compYn}]]
 									</td>
 								</tr>
 								<tr>
-									<td style="background:  white;">
-										내용
-									</td>
-									<td style="text-align: left">
-										<textarea name="repContent" id="repContent" cols="40" rows="10"
-											th:text="${rDetail.repContent}"></textarea>
-									</td>
-								</tr>
-								<tr>
-									<td style="background:  white;">
+									<td style="width: 150px; height: 50px;">
 										작성일
 									</td>
 									<td style="text-align: left" id="inputDtmText"
-										th:text="${rDetail.inputDtm eq null ? '' : #strings.substring(rDetail.inputDtm, 0, 10)}">
+										th:text="${rDetail.inputDtm eq null ? '' : #strings.substring(rDetail.inputDtm, 0, 10)}"
+										colspan='3'>
 									</td>
 								</tr>
-								<tr id="btnWrap">
-									<td colspan="2" align="center">
-										<button type="button" id="btnUpdate"
-											th:onclick="fnUpdateBoard(); return false;">수정</button>
+								<tr>
+									<td style="text-align: left; width: 800px; height: 450px; background: white; vertical-align:top;"
+										colspan='4'>
+										[[${rDetail.repContent}]]
 									</td>
 								</tr>
 							</table>
 						</form>
 						<hr />
+						<a name="repNo" id="updateBtn"
+							th:href="@{/cscenter/repUdt/{repNo} (repNo=${rDetail.repNo})}">수정</a>
 						<a href="#" id="deleteBtn">삭제</a>
 						<a href="/cscenter/repList">뒤로가기</a>
 					</div>

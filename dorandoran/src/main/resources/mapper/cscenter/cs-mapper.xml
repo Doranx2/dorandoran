@@ -4,14 +4,14 @@
 	<!-- 공지사항 -->
 	<select id="selectNotice" parameterType="int" resultType="notice">
 	SELECT *
-		FROM TB_NOTICE
+		FROM TB_NOTICE JOIN TB_USER USING(USER_ID)
 		WHERE NOTICE_NO = #{noticeNo}
 	</select>
 
 	<select id="selectNoticeList" parameterType="map" resultType="notice">
 	<![CDATA[
 		SELECT *
-			FROM TB_NOTICE
+			FROM TB_NOTICE JOIN TB_USER USING(USER_ID)
 			
 	]]>
 		<if test="noticeSearch.searchKeyword != null and noticeSearch.searchKeyword != ''">
