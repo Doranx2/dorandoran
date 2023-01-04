@@ -719,6 +719,10 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
     border-radius: 10px;
 }
 
+.headerBtn:hover{
+	cursor : pointer;
+}
+
 .likeIcon {
 	width: 30px;
     padding-left: 10px;
