@@ -9,6 +9,9 @@
 	
 	<!-- alias 추가 -->
 	<typeAliases>
+<!--		<typeAlias type="com.ezen.doran.UserDTO" alias="user"/>
+		
+		<typeAlias type="com.ezen.doran.ResponseDTO" alias="response"/>-->
 		
 	</typeAliases>
 </configuration>
