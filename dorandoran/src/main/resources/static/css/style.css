@@ -165,6 +165,11 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   vertical-align: top;
   flex-shrink: 0;
 }
+
+.header-oqG{
+	padding: 35px;
+	display:inline-flex;
+}
 .header-oqG .auto-group-1eug-1yG .group-2-7B4 {
   margin-right: 1.75rem;
   display: flex;
@@ -336,10 +341,6 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   box-sizing: border-box;
   padding: 2rem 0.85rem 0.008rem 0.8rem;
   width: calc(100% - 24.5rem);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url('../assets/iconsax-bold-messagequestion.png');
   flex-shrink: 0;
 }
 .main-R2e .group-15-QhC .auto-group-necz-LKx .vector-3kA {
@@ -527,4 +528,200 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   box-sizing: border-box;
   background-color: #ffffff;
   flex-shrink: 0;
+}
+
+.nav, .nav li{
+	list-style: none;
+    display: inline-block;
+    padding: 30px;
+    /* top: 10%; */
+}
+
+
+
+.v4_7 {
+  width: 100%;
+  height: 195px;
+  background: rgba(255,255,255,1);
+  padding: 10px 10px;
+  opacity: 1;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v9_2 {
+  width: 122px;
+  height: 161px;
+  background: url("../images/-ib8.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 20px;
+  left: 899px;
+  overflow: hidden;
+}
+.v9_3 {
+  width: 372px;
+  height: 40px;
+  margin: 50px;
+  opacity: 1;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.v9_3 a {
+  text-decoration: none;
+}
+
+.v9_4 {
+  width: 84px;
+  color: rgba(23,97,160,1);
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v9_5 {
+  width: 84px;
+  color: rgba(23,97,160,1);
+  position: absolute;
+  top: 0px;
+  left: 144px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v9_6 {
+  width: 84px;
+  color: rgba(23,97,160,1);
+  position: absolute;
+  top: 0px;
+  left: 278px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v9_7 {
+  width: 372px;
+  height: 40px;
+  margin: 50px;
+  opacity: 1;
+  position: absolute;
+  top: 20%;
+  left: 55%;
+  overflow: hidden;
+  font-weight: bold;
+}
+.v9_7 a{
+  text-decoration: none;
+}
+.v9_8 {
+  width: 84px;
+  color: rgba(23,97,160,1);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v9_9 {
+  width: 84px;
+  color: rgba(23,97,160,1);
+  position: absolute;
+  top: 0px;
+  left: 134px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v9_10 {
+  width: 84px;
+  color: rgba(23,97,160,1);
+  position: absolute;
+  top: 0px;
+  left: 268px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-weight: Semi Bold;
+  font-size: 20px;
+  opacity: 1;
+  text-align: center;
+}
+.v9_14 {
+    width: 300px;
+    height: 40px;
+    margin: 20px;
+    opacity: 1;
+    position: absolute;
+    top: 1%;
+    left: 65%;
+}
+.name {
+  color: #fff;
+}
+.name {
+  color: #fff;
+}
+.v9_17 {
+  width: 28px;
+  height: 25px;
+  background: rgba(255,255,255,1);
+  padding: 2px 1px;
+  margin: 10px;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 222px;
+  overflow: hidden;
+}
+.v9_18 {
+  width: 26px;
+  height: 21px;
+  background: rgba(244,67,54,1);
+  opacity: 1;
+  position: absolute;
+  top: 2px;
+  left: 1px;
+}
+
+.headerBtn {
+	height: 20px;
+    width: 90px;
+    margin: auto 10px;
+    background-color: #eec400;
+    color : #FFFFFF;
+    font-size: 1.2em;
+    border : 0px;
+    border-radius: 10px;
+}
+
+.likeIcon {
+	width: 30px;
+    padding-left: 10px;
+    top: -5%;
+    position: absolute;
 }

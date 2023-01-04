@@ -262,6 +262,7 @@
 	  top: 0px;
 	  left: 0px;
 	  overflow: hidden;
+	  position: relative;
 	}
 	.v21_25 {
 	  width: 432px;
