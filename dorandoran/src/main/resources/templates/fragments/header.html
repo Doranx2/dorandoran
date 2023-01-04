@@ -1,60 +1,28 @@
 <!DOCTYPE html>
-<html lang="ko"
-	  xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-	<body>
-		<header th:fragment="header">
-			<h1>
-			<!-- /를 붙이면 무조건 루트주소 뒤에 붙는다. -->
-			<!-- localhost:8090/user/login.do -->
-			<!-- localhost:8090/hello.do -->
-				<a th:href="@{/}">홈</a>
-			</h1>
-			<nav>
-				<ul class="main-nav">
-					<li>
-						<a th:href="@{/admin/getAdNoticeList}">게시글 목록</a>
-					</li>			
-				</ul>
-			</nav>
-			<nav>
-				<ul class="user-nav">
-					<div th:if="${session.loginUser eq null}" th:remove="tag">
-						<li>
-							<a th:href="@{/user/login}">로그인</a>
-						</li>
-						<li>
-							<a th:href="@{/user/join}">회원가입</a>
-						</li>
-					</div>
-					
-					<div th:if="${session.loginUser ne null}" th:remove="tag">
-						<li>
-							<a th:href="@{/mypage/mypage}" th:text="${session.loginUser.userId}"></a>
-						</li>
-						<li>
-							<a th:href="@{/user/logout}">로그아웃</a>
-						</li>
-					</div>
-				</ul>	
-			</nav>
-		</header>
-	</body>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+<body>
+	<header th:fragment="header">
+		<div class="v4_7">
+			<div class="v9_2"></div>
+			<div class="v9_3">
+				<a class="v9_4">함께해요</a>
+				<a class="v9_5">공유해요</a>
+				<a class="v9_6">도와줘요</a>
+			</div>
+			<div class="v9_7">
+				<a class="v9_8" th:href="@{/play/selectPlayList}">놀아줘요</a>
+				<a class="v9_9">도란장터</a>
+				<a class="v9_10">고객센터</a>
+			</div>
+			<div class="v9_14">
+				<button class="headerBtn" id="login">LOGIN</button>
+				<button class="headerBtn" id="join">JOIN</button>
+				<img class="likeIcon" th:src="@{/images/flat-color-icons-like.png}" />
+			</div>
+		</div>
+	</header>
+</body>
+
 </html>

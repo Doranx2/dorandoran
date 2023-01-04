@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout-cs}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" th:href="@{/css/csmain.css}" />
+	</th:block>
+	<th:block layout:fragment="script">
+		<script th:src="@{/js/jquery-3.6.1.min.js}"></script>
+		<script th:inline="javascript">
+			$(function () {
+				const compYn = /*[[${rDetail.compYn}]]*/;
+				$("#updateBtn").on('click', function (e) {
+					if (compYn == "Y") {
+						alert("이미 처리가 된 게시글은 수정이 불가합니다.");
+						e.preventDefault();
+					}
+				});
+
+				$("#deleteBtn").on('click', function (e) {
+					if (compYn == "Y") {
+						alert("이미 처리가 된 게시글은 삭제가 불가합니다.");
+						e.preventDefault();
+					} else {
+						$.ajax({
+							url: '/cscenter/report',
+							type: 'delete',
+							data: {repNo: $("#repNo").val()},
+							success: function () {
+								alert("삭제되었습니다.");
+								window.location.href = "/cscenter/repList";
+							},
+							error: function (e) {
+								console.log(e);
+							}
+						});
+					}
+
+				});
+			});
+
+		</script>
+	</th:block>
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<div class="item--68N">
+			<div class="auto-group-e12j-mkJ">
+				<img class="ellipse-3-VAW" src="/images/ellipse-3-fwC.png" />
+				<img class="customer-survey-amico-1-dGi" src="/images/customer-survey-amico-1-3La.png" />
+				<div class="item--kcE">고객센터</div>
+			</div>
+			<div class="auto-group-hv9g-23x">
+				<div class="rectangle-23-xiJ">
+					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<form id="detailForm">
+							<input type="hidden" name="repNo" id="repNo" th:value="${rDetail.repNo}">
+							<input type="hidden" name="inputDtm" id="inputDtm" th:value="${rDetail.inputDtm}">
+							<table border="1" style="border-collapse: collapse; margin-top : 100px;">
+								<tr>
+									<td style="width: 150px; height: 50px;">
+										제목
+									</td>
+									<td style="text-align: left" colspan='3'>
+										[[${rDetail.repTitle}]]
+									</td>
+								</tr>
+								<tr>
+									<td>
+										작성자
+									</td>
+									<td style="text-align: left;width : 245px;">
+										[[${rDetail.userNm}]]
+									</td>
+									<td style="width: 150px; height: 50px;">
+										처리여부
+									</td>
+									<td style="text-align: left; width : 245px;">
+										[[${rDetail.compYn}]]
+									</td>
+								</tr>
+								<tr>
+									<td style="width: 150px; height: 50px;">
+										작성일
+									</td>
+									<td style="text-align: left" id="inputDtmText"
+										th:text="${rDetail.inputDtm eq null ? '' : #strings.substring(rDetail.inputDtm, 0, 10)}"
+										colspan='3'>
+									</td>
+								</tr>
+								<tr>
+									<td style="text-align: left; width: 800px; height: 450px; background: white; vertical-align:top;"
+										colspan='4'>
+										[[${rDetail.repContent}]]
+									</td>
+								</tr>
+							</table>
+						</form>
+						<hr />
+						<a name="repNo" id="updateBtn"
+							th:href="@{/cscenter/repUdt/{repNo} (repNo=${rDetail.repNo})}">수정</a>
+						<a href="#" id="deleteBtn">삭제</a>
+						<a href="/cscenter/repList">뒤로가기</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
