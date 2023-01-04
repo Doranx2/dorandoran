@@ -1,4 +1,4 @@
-				로그인 기능 완료 -> 나중에 추가
+				로그인 기능 완료 시 -> 나중에 추가
 				
 				const loginUserId = /*[[${#authentication.principal.username}]]*/;
 				const userNm = /*[[${qDetail.userNm}]]*/;
@@ -22,3 +22,5 @@
 				}
 				
 				insert 페이지 주석 풀기
+				
+				mapper 값 수정

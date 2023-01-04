@@ -109,3 +109,53 @@ aside {
 }
 #updateForm input { width : 99%; height : 50px; border : 0px; font-size: 1.0em;}
 
+
+
+
+
+.pagination a:link {
+     background-color: #CFE1FC;
+     color: black;
+     padding: 7px 15px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     border-radius: 10px;
+}
+.pagination img {
+	 width : 15px;
+	 height : 15px;
+}
+
+#ntcForm a:link {
+     background-color: #CFE1FC;
+     color: black;
+   	 font-weight : 900;
+     padding: 7px 15px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     border-radius: 5px;
+}
+
+.ntcFrom a:link { color: black; text-decoration: none;}
+.ntcFrom a:visited { color: black; text-decoration: none;}
+.ntcFrom a:hover { color : #1761A0; text-decoration: none;}
+
+#writeTag a:link {
+	 margin-top : 10px;
+	 margin-left : 700px;
+     background-color: #CFE1FC;
+     color: black;
+   	 font-weight : 900;
+     padding: 7px 15px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     border-radius: 5px;
+}
+
+#writeTag a:link { color: black; text-decoration: none;}
+#writeTag a:visited { color: black; text-decoration: none;}
+#writeTag a:hover { color : #1761A0; text-decoration: none;}
+	
