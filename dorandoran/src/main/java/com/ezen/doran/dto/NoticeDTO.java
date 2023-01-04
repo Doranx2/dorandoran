@@ -15,4 +15,5 @@ public class NoticeDTO {
 	private String noticeContent;
 	private String userId;
 	private String inputDtm;
+	private String userNm;
 }

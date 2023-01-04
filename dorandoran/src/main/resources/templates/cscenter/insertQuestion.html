@@ -33,10 +33,10 @@
 							<table border="1" style="border-collapse: collapse; margin-top: 100px;" id="tb1">
 								<tr>
 									<td>
-										회원번호
+										작성자
 									</td>
 									<td style="text-align: left;">
-										<!--<input type="text" name="userNo" th:value="${session.loginUser.userNo}"readonly>-->
+										<!--<input type="text" name="userNm" th:value="${#authentication.principal.username}" readonly>-->
 									</td>
 								</tr>
 								<tr>
