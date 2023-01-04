@@ -32,14 +32,6 @@
 		</script>
 	</th:block>
 
-	<th:block layout:frament="css">
-		<style>
-			body {
-				height: 100%;
-			}
-		</style>
-	</th:block>
-
 </head>
 <!-- head 영역 끝 -->
 
@@ -47,6 +39,7 @@
 	<div layout:fragment="content">
 	
 		<link rel="stylesheet" th:href="@{/css/play.css}" />
+		<div class="v112_539" style="position: relative;">
 		
 		<div id="insertForm">
 		<form id="insertPlay" method="post" action="/play/insertPlay">
@@ -98,7 +91,7 @@
 		</div>
 		
 			<button id="cancelBtn" class="cancelBtn" onclick="location.href='/play/selectPlayList'">취소</button>
-		
+		</div>
 	</div>
 </body>
 

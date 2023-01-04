@@ -1,11 +1,17 @@
 * {
 		box-sizing: border-box;
+		position: relative;
 	}
 
 	body {
 		font-size: 14px;
 	}
 
+	a{
+		text-decoration: none;	
+		color : black;
+	}
+	
 	.v89_237 {
 		width: 100%;
 		height: 1700px;
@@ -438,14 +444,14 @@
 	}
 	
 	.pagation {
-	  text-align: center;
-	  width: 516px;
-	  height: 66px;
-	  opacity: 1;
-	  position: absolute;
-	  top: 1229px;
-	  left: 826px;
-	  overflow: hidden;
+		text-align: center;
+	    width: 516px;
+	    height: 66px;
+	    opacity: 1;
+	    position: absolute;
+	    top: 95%;
+	    left: 38%;
+	    overflow: hidden;
 	}
 	
 	.v25_92 {
