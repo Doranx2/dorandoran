@@ -1,0 +1,584 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 192rem;
+}
+.login-r4v {
+  width: 100%;
+  height: 80rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.login-r4v .background-oF4 {
+  width: 142.8rem;
+  height: 64.6rem;
+  position: absolute;
+  left: 26.8rem;
+  top: 10.7rem;
+  display: flex;
+  align-items: center;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp {
+  box-sizing: border-box;
+  padding-top: 2.6rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-c1sq-4wg {
+  width: 35.1rem;
+  height: 100%;
+  flex-shrink: 0;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-c1sq-4wg .auto-group-ouc6-cTQ {
+  margin-bottom: 21.2rem;
+  width: 25rem;
+  height: 22.7rem;
+  position: relative;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-c1sq-4wg .auto-group-ouc6-cTQ .rectangle-37-MA6 {
+  width: 13rem;
+  height: 13rem;
+  position: absolute;
+  left: 12rem;
+  top: 9.7rem;
+  background-color: #8fb4d3;
+  border-radius: 1rem;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-c1sq-4wg .auto-group-ouc6-cTQ .rectangle-36-su8 {
+  width: 18.5rem;
+  height: 17.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #cee0fb;
+  border-radius: 1rem;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-c1sq-4wg .auto-group-ouc6-cTQ .item-01-1-cbp {
+  width: 15.4rem;
+  height: 15.4rem;
+  position: absolute;
+  left: 1.5rem;
+  top: 1.1rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-c1sq-4wg .auto-group-6rwe-iPx {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-c1sq-4wg .auto-group-6rwe-iPx .rectangle-45-UP8 {
+  margin-right: 11.5rem;
+  width: 7rem;
+  height: 6.5rem;
+  background-color: #fbf3ce;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-c1sq-4wg .auto-group-6rwe-iPx .rectangle-41-zsG {
+  margin-top: 2.6rem;
+  width: 16.6rem;
+  height: 15.5rem;
+  background-color: #cee0fb;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG {
+  margin: 8rem 0rem 9.1rem 0rem;
+  width: 78.2rem;
+  height: calc(100% - 17.1rem);
+  position: relative;
+  flex-shrink: 0;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .rectangle-39-dQS {
+  width: 6.8rem;
+  height: 6.8rem;
+  position: absolute;
+  left: 60.8rem;
+  top: 20.8rem;
+  background-color: #8fb4d3;
+  border-radius: 1rem;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .rectangle-38-wvv {
+  width: 21.2rem;
+  height: 19.8rem;
+  position: absolute;
+  left: 57rem;
+  top: 25.1rem;
+  background-color: #cee0fb;
+  border-radius: 1rem;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .rectangle-43-g7p {
+  width: 7rem;
+  height: 6.5rem;
+  position: absolute;
+  left: 0;
+  top: 9.2rem;
+  background-color: #fbf3ce;
+  border-radius: 1rem;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .rectangle-30-DNe {
+  width: 60rem;
+  height: 35rem;
+  position: absolute;
+  left: 4.1rem;
+  top: 0;
+  border: solid 0.1rem #1761a0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .kakaologinmediumwide-1-vnr {
+  width: 30rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 19.3rem;
+  top: 24.8rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .pwinput-SWJ {
+  box-sizing: border-box;
+  padding: 1.1rem 1.36rem 1rem 1.36rem;
+  width: 34rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 17.1rem;
+  top: 12.5rem;
+  border: solid 0.2rem #000000;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .pwinput-SWJ .image-3-kWz {
+  width: 1.785rem;
+  height: 2.4rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .idinput-4Gn {
+  box-sizing: border-box;
+  padding: 1rem 1.19rem;
+  width: 34rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 17.1rem;
+  top: 6.6rem;
+  border: solid 0.2rem #000000;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .idinput-4Gn .image-4-P4A {
+  width: 2.125rem;
+  height: 2.5rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .item--u2W {
+  width: 33.1rem;
+  height: 7rem;
+  position: absolute;
+  left: 17.3rem;
+  top: 35rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 3.8888888889;
+  letter-spacing: 0.18rem;
+  color: #1761a0;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .loginbtn-Xpa {
+  width: 30rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 19.3rem;
+  top: 18.4rem;
+  border-radius: 0.5rem;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .loginbtn-Xpa .rectangle-33-UE2 {
+  width: 30rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 0;
+  top: 1.3rem;
+  background-color: #1761a0;
+  border-radius: 0.5rem;
+}
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .loginbtn-Xpa .item--QNa {
+  width: 2.9rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 13.55rem;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 4;
+  letter-spacing: -0.126rem;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.login-r4v .background-oF4 .auto-group-rsaa-5Dp {
+  height: 100%;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.login-r4v .background-oF4 .auto-group-rsaa-5Dp .auto-group-s1aa-1NN {
+  margin: 0rem 5.2rem 30.9rem 0rem;
+  width: 24.3rem;
+  height: 27.2rem;
+  position: relative;
+  flex-shrink: 0;
+}
+.login-r4v .background-oF4 .auto-group-rsaa-5Dp .auto-group-s1aa-1NN .rectangle-40-8C6 {
+  width: 24.3rem;
+  height: 22.7rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #cee0fb;
+  border-radius: 1rem;
+}
+.login-r4v .background-oF4 .auto-group-rsaa-5Dp .auto-group-s1aa-1NN .rectangle-42-FnW {
+  width: 7rem;
+  height: 6.5rem;
+  position: absolute;
+  left: 14.2rem;
+  top: 20.7rem;
+  background-color: #fbf3ce;
+  border-radius: 1rem;
+}
+.login-r4v .background-oF4 .auto-group-rsaa-5Dp .rectangle-44-PNv {
+  width: 7rem;
+  height: 6.5rem;
+  background-color: #fbf3ce;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+.login-r4v .login-XV8 {
+  width: 18.5rem;
+  height: 7rem;
+  position: absolute;
+  left: 86.8rem;
+  top: 9.8rem;
+  text-align: center;
+  font-size: 6rem;
+  font-weight: 600;
+  line-height: 1.1666666667;
+  color: #1761a0;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+
+body {
+  width: 192rem;
+}
+.loginGroup {
+  width: 100%;
+  height: 80rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+/*.loginGroup*/ .background {
+  width: 142.8rem;
+  height: 64.6rem;
+  position: absolute;
+  left: 26.8rem;
+  top: 10.7rem;
+  display: flex;
+  align-items: center;
+}
+/*.loginGroup*/ .background .group {
+  box-sizing: border-box;
+  padding-top: 2.6rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+/*.loginGroup*/ .background .group .leftGroup {
+  width: 35.1rem;
+  height: 100%;
+  flex-shrink: 0;
+}
+/*.loginGroup*/ .background .group .leftGroup  {
+  margin-bottom: 21.2rem;
+  width: 25rem;
+  height: 22.7rem;
+  position: relative;
+}
+/*.loginGroup*/ .background .group .leftGroup  .icon1 {
+  width: 13rem;
+  height: 13rem;
+  position: absolute;
+  left: 12rem;
+  top: 9.7rem;
+  background-color: #8fb4d3;
+  border-radius: 1rem;
+}
+/*.loginGroup*/ .background .group .leftGroup  .icon2 {
+  width: 18.5rem;
+  height: 17.5rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #cee0fb;
+  border-radius: 1rem;
+}
+/*.loginGroup*/ .background .group .leftGroup  .iconImg {
+  width: 15.4rem;
+  height: 15.4rem;
+  position: absolute;
+  left: 1.5rem;
+  top: 1.1rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+/*.loginGroup*/ .background .group .leftGroup  {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+/*.loginGroup*/ .background .group .leftGroup  .icon3 {
+  margin-right: 11.5rem;
+  width: 7rem;
+  height: 6.5rem;
+  background-color: #fbf3ce;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+/*.loginGroup*/ .background .group .leftGroup  .icon4 {
+  margin-top: 2.6rem;
+  width: 16.6rem;
+  height: 15.5rem;
+  background-color: #cee0fb;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+/*.loginGroup*/ .background .group .loginMiddle {
+  margin: 8rem 0rem 9.1rem 0rem;
+  width: 78.2rem;
+  height: calc(100% - 17.1rem);
+  position: relative;
+  flex-shrink: 0;
+}
+/*.loginGroup*/ .background .group .loginMiddle .icon8 {
+  width: 6.8rem;
+  height: 6.8rem;
+  position: absolute;
+  left: 60.8rem;
+  top: 20.8rem;
+  background-color: #8fb4d3;
+  border-radius: 1rem;
+}
+/*.loginGroup*/ .background .group .loginMiddle .icon9 {
+  width: 21.2rem;
+  height: 19.8rem;
+  position: absolute;
+  left: 57rem;
+  top: 25.1rem;
+  background-color: #cee0fb;
+  border-radius: 1rem;
+}
+/*.loginGroup*/ .background .group .loginMiddle .icon10 {
+  width: 7rem;
+  height: 6.5rem;
+  position: absolute;
+  left: 0;
+  top: 9.2rem;
+  background-color: #fbf3ce;
+  border-radius: 1rem;
+}
+/*.loginGroup*/ .background .group .loginMiddle .loginPopup {
+  width: 60rem;
+  height: 35rem;
+  position: absolute;
+  left: 4.1rem;
+  top: 0;
+  border: solid 0.1rem #1761a0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+/*.loginGroup*/ .background .group .loginMiddle .kakaoImg {
+  width: 30rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 19.3rem;
+  top: 24.8rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+/*.loginGroup*/ .background .group .loginMiddle .pwSub {
+  box-sizing: border-box;
+  padding: 1.1rem 1.36rem 1rem 1.36rem;
+  width: 34rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 17.1rem;
+  top: 12.5rem;
+  border: solid 0.2rem #000000;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+/*.loginGroup*/ .background .group .loginMiddle .pwSub .pwImg {
+  width: 1.785rem;
+  height: 2.4rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+/*.loginGroup*/ .background .group .loginMiddle .idSub {
+  box-sizing: border-box;
+  padding: 1rem 1.19rem;
+  width: 34rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 17.1rem;
+  top: 6.6rem;
+  border: solid 0.2rem #000000;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+/*.loginGroup*/ .background .group .loginMiddle .idSub .idImg {
+  width: 2.125rem;
+  height: 2.5rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+/*.loginGroup*/ .background .group .loginMiddle .loginOption {
+  width: 33.1rem;
+  height: 7rem;
+  position: absolute;
+  left: 17.3rem;
+  top: 35rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 3.8888888889;
+  letter-spacing: 0.18rem;
+  color: #1761a0;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+/*.loginGroup*/ .background .group .loginMiddle .loginBtn {
+  width: 30rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 19.3rem;
+  top: 18.4rem;
+  border-radius: 0.5rem;
+}
+/*.loginGroup*/ .background .group .loginMiddle .loginBtn .loginBtnBack {
+  width: 30rem;
+  height: 4.5rem;
+  position: absolute;
+  left: 0;
+  top: 1.3rem;
+  background-color: #1761a0;
+  border-radius: 0.5rem;
+}
+/*.loginGroup*/ .background .group .loginMiddle .loginBtn .loginBtnTitle {
+  width: 2.9rem;
+  height: 7.2rem;
+  position: absolute;
+  left: 13.55rem;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 4;
+  letter-spacing: -0.126rem;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+/*.loginGroup*/ .background  {
+  height: 100%;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+/*.loginGroup*/ .background   {
+  margin: 0rem 5.2rem 30.9rem 0rem;
+  width: 24.3rem;
+  height: 27.2rem;
+  position: relative;
+  flex-shrink: 0;
+}
+/*.loginGroup*/ .background   .icon5 {
+  width: 24.3rem;
+  height: 22.7rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #cee0fb;
+  border-radius: 1rem;
+}
+/*.loginGroup*/ .background   .icon6 {
+  width: 7rem;
+  height: 6.5rem;
+  position: absolute;
+  left: 14.2rem;
+  top: 20.7rem;
+  background-color: #fbf3ce;
+  border-radius: 1rem;
+}
+/*.loginGroup*/ .background  .icon7 {
+  width: 7rem;
+  height: 6.5rem;
+  background-color: #fbf3ce;
+  border-radius: 1rem;
+  flex-shrink: 0;
+}
+/*.loginGroup*/ .loginTitle {
+  width: 18.5rem;
+  height: 7rem;
+  position: absolute;
+  left: 86.8rem;
+  top: 9.8rem;
+  text-align: center;
+  font-size: 6rem;
+  font-weight: 600;
+  line-height: 1.1666666667;
+  color: #1761a0;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}

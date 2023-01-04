@@ -33,7 +33,7 @@ public class DataConfiguration {
 	public HikariConfig hikariConfig() {
 		return new HikariConfig();
 	}
-	
+
 	@Bean
 	public DataSource dataSource() throws Exception {
 		DataSource dataSource = new HikariDataSource(hikariConfig());
@@ -65,9 +65,7 @@ public class DataConfiguration {
 		return new Properties();
 	}
 	
-	
-	
-	
+
 	
 	
 	

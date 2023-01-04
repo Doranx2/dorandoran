@@ -1,0 +1,149 @@
+
+html {
+	font-size:62.5%;
+}
+* {
+	margin: 0;
+	padding: 0;
+}
+ul, li {
+	list-style: none;
+}
+input {
+	border: none;
+}
+body {
+  width: 192rem;
+}
+.findpwcheck-Myg {
+  width: 100%;
+  height: 80rem;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.findpwcheck-Myg .questions-pana-1-JP8 {
+  width: 29.9rem;
+  height: 29rem;
+  position: absolute;
+  left: 81rem;
+  top: 5.1rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.findpwcheck-Myg .image-6-2K8 {
+  width: 30.3rem;
+  height: 33.8rem;
+  position: absolute;
+  left: 108.3rem;
+  top: 26.4rem;
+  object-fit: cover;
+  vertical-align: top;
+}
+.findpwcheck-Myg .item--xTg {
+  width: 32.4rem;
+  height: 7rem;
+  position: absolute;
+  left: 79.8rem;
+  top: 34.2rem;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1.75;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.findpwcheck-Myg .rectangle-49-2yL {
+  width: 40rem;
+  height: 23.7rem;
+  position: absolute;
+  left: 76rem;
+  top: 44.4rem;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.findpwcheck-Myg .rectangle-50-waW {
+  width: 22rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 85rem;
+  top: 48.1rem;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.findpwcheck-Myg .rectangle-51-Fr6 {
+  width: 22rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 85rem;
+  top: 55.2rem;
+  border: solid 0.1rem #000000;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 1rem;
+}
+.findpwcheck-Myg .rectangle-52-y1Q {
+  width: 15rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 88.5rem;
+  top: 61.4rem;
+  background-color: #1761a0;
+  border-radius: 0.5rem;
+}
+.findpwcheck-Myg .item--JJa {
+  width: 3.5rem;
+  height: 7rem;
+  position: absolute;
+  left: 94.15rem;
+  top: 59.7rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 4.6666666667;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.findpwcheck-Myg .item--Cuk {
+  width: 2.8rem;
+  height: 7rem;
+  position: absolute;
+  left: 86.2rem;
+  top: 43.7rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 4.6666666667;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.findpwcheck-Myg .item--Jht {
+  width: 2.8rem;
+  height: 7rem;
+  position: absolute;
+  left: 86.2rem;
+  top: 50.7rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 4.6666666667;
+  color: #000000;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+.findpwcheck-Myg .item-01-1-1cJ {
+  width: 14.1351rem;
+  height: 14.1351rem;
+  position: absolute;
+  left: 122.1rem;
+  top: 30.8rem;
+  object-fit: cover;
+  vertical-align: top;
+}
