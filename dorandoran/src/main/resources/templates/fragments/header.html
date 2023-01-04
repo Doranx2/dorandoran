@@ -2,59 +2,45 @@
 <html lang="ko"
 	  xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-	<body>
-		<header th:fragment="header">
-			<h1>
-			<!-- /를 붙이면 무조건 루트주소 뒤에 붙는다. -->
-			<!-- localhost:8090/user/login.do -->
-			<!-- localhost:8090/hello.do -->
-				<a th:href="@{/}">홈</a>
-			</h1>
-			<nav>
-				<ul class="main-nav">
-					<li>
-						<a th:href="@{/admin/getAdNoticeList}">게시글 목록</a>
-					</li>			
-				</ul>
-			</nav>
-			<nav>
-				<ul class="user-nav">
-					<div th:if="${session.loginUser eq null}" th:remove="tag">
-						<li>
-							<a th:href="@{/user/login}">로그인</a>
-						</li>
-						<li>
-							<a th:href="@{/user/join}">회원가입</a>
-						</li>
-					</div>
-					
-					<div th:if="${session.loginUser ne null}" th:remove="tag">
-						<li>
-							<a th:href="@{/mypage/mypage}" th:text="${session.loginUser.userId}"></a>
-						</li>
-						<li>
-							<a th:href="@{/user/logout}">로그아웃</a>
-						</li>
-					</div>
-				</ul>	
-			</nav>
-		</header>
-	</body>
+	  
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+  	<body>
+	  <header th:fragment = "header">
+		<div style="text-align: center;">
+ 		<div class="header-oqG">
+		  <div class="frame-1-L4W">
+		    <a th:href="@{/}" class="item--FhG">함께해요</a>
+		    <a th:href="@{/}" class="item--xra">공유해요</a>
+		    <a th:href="@{/}" class="item--VLi">도와줘요</a>
+		  </div>
+	<img class="item-01-3-1-1pr" src="./assets/-ib8.png" width="200px" height="200px">
+	  <div class="auto-group-1eug-1yG">
+	    <div class="frame-3-A5U">
+	      <div class="mainbtn-GPQ">
+	        <div class="rectangle-CH4">
+	        </div>
+	        <a th:href="@{/user/login}" class="login-imC">LOGIN</a>
+	      </div>
+	      <div class="mainbtn-pJS">
+	        <div class="rectangle-M3U">
+	        </div>
+	        <a th:href="@{/user/join}" class="login-5EN">JOIN</a>
+	      </div>
+	      <img class="flat-color-icons-like-BYJ" src="./assets/flat-color-icons-like.png">
+	    </div>
+	    <div class="group-2-7B4">
+	      <a th:href="@{/}" class="item--TEv">놀아줘요</a>
+	      <a th:href="@{/}" class="item--mWW">도란장터</a>
+	      <a th:href="@{/}" class="item--gNa">고객센터</a>
+	    </div>
+	  </div>
+		</div>  
+  	</header>  
+  </body>
 </html>
+
+
+
+
+
+
