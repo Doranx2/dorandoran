@@ -48,7 +48,7 @@
 							<input type="hidden" name="amount" th:value="${pageDTO.cri.amount }">
 							<table style="width: 800px; border-collapse: collapse; margin-top:100px;">
 								<tr>
-									<td align="right">
+									<td align="right" style="display:none;">
 										<select name="searchCondition">
 											<option value="ALL" th:selected="${searchCondition == 'ALL'}">전체</option>
 											<option value="TITLE" th:selected="${searchCondition == 'TITLE'}">제목
@@ -79,17 +79,20 @@
 										th:href="@{/cscenter/question/{qNo} (qNo=${question.qNo})}">
 									</a>
 								</td>
-								<td th:text="${question.userNo}"></td>
+								<td th:text="${question.userNm}"></td>
 								<td
 									th:text="${question.inputDtm eq null ? '' : #strings.substring(question.inputDtm, 0, 10)}">
 								</td>
 							</tr>
 						</table>
+						<div id="writeTag">
+							<a th:href="@{/cscenter/insertQuestion}">문의하기</a>
+						</div>
 						<br />
 						<div>
 							<ul class="pagination">
 								<li th:if="${pageDTO.prev }" class="pagination_button">
-									<a th:href="${pageDTO.cri.pageNum - 1 }">이전</a>
+									<a th:href="${pageDTO.cri.pageNum - 1 }"><img th:src="@{/images/leftArrow.png}"></a>
 								</li>
 
 
@@ -99,12 +102,11 @@
 								</li>
 
 								<li th:if="${pageDTO.next }" class="pagination_button">
-									<a th:href="${pageDTO.cri.pageNum + 1 }">다음</a>
+									<a th:href="${pageDTO.cri.pageNum + 1 }"><img
+											th:src="@{/images/rightArrow.png}"></a>
 								</li>
 							</ul>
 						</div>
-						<br />
-						<a th:href="@{/cscenter/insertQuestion}">문의하기</a>
 					</div>
 				</div>
 			</div>

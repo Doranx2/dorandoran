@@ -14,7 +14,8 @@ public class QuestionDTO {
 	private String qTitle;
 	private String qContent;
 	private int userNo;
-	private String userId;
-	private String inputDtm;
+	private String qCd;
+	private String userNm;
+	private String inputDtm; 
 	private String aYn;
 }

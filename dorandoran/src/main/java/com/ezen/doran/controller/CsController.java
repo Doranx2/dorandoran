@@ -128,6 +128,16 @@ public class CsController {
 		csService.insertQuestion(questionDTO);
 		response.sendRedirect("/cscenter/questionList");
 	}
+	
+	// 1:1 문의글 수정 페이지 이동
+	@GetMapping("/questionUdt/{qNo}")
+	public ModelAndView questionUdtView(@PathVariable int qNo) throws IOException {
+		QuestionDTO qDetail = csService.selectQuestion(qNo);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/cscenter/questionUdt.html");
+		mv.addObject("qDetail", qDetail);
+		return mv;
+	}
 
 	// 1:1 문의글 수정
 	@Transactional
@@ -189,7 +199,7 @@ public class CsController {
 	public ModelAndView selectRep(@PathVariable int repNo) {
 		RepDTO rDetail = csService.selectRep(repNo);
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/cscenter/");
+		mv.setViewName("/cscenter/repDetail.html");
 		mv.addObject("rDetail", rDetail);
 		return mv;
 	}
@@ -209,6 +219,16 @@ public class CsController {
 		
 		csService.insertRep(repDTO);
 		response.sendRedirect("/cscenter/repList");
+	}
+	
+	// 신고글 수정 페이지 이동
+	@GetMapping("/repUdt/{repNo}")
+	public ModelAndView repUdtView(@PathVariable int repNo) {
+		RepDTO rDetail = csService.selectRep(repNo);
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/cscenter/repUdt.html");
+		mv.addObject("rDetail", rDetail);
+		return mv;
 	}
 	
 	// 신고글 수정
