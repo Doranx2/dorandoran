@@ -13,4 +13,6 @@ public class PlayDTO {
 	private Date inputDtm;
 	private int userNo;
 	private String userNm;
+	
+	private String searchKeyword;
 }

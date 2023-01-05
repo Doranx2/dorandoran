@@ -10,5 +10,13 @@ public interface PlayService {
 	
 	List<PlayDTO> selectPlayList(Pagination pagination);
 	
-	int selectPlayCnt();
+	int selectPlayCnt(String searchKeyword);
+	
+	PlayDTO selectPlay(int playNo);
+	
+	void updatePlay(PlayDTO playDTO);
+	
+	void deletePlay(int playNo);
+	
+	void updatePlayCnt(int playNo);
 }

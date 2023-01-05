@@ -5,7 +5,7 @@
 <body>
 	<header th:fragment="header">
 		<div class="v4_7">
-			<div class="v9_2"></div>
+			<div class="v9_2" onclick="location.href='/'" style="cursor:pointer;"></div>
 			<div class="v9_3">
 				<a class="v9_4">함께해요</a>
 				<a class="v9_5">공유해요</a>
@@ -17,9 +17,17 @@
 				<a class="v9_10">고객센터</a>
 			</div>
 			<div class="v9_14">
-				<button class="headerBtn" id="login">LOGIN</button>
+			
+			<div th:if="${session.loginUser eq null}" th:remove="tag">
+				<button class="headerBtn" id="login" onclick="location.href='/temp/loginPage'">LOGIN</button>
 				<button class="headerBtn" id="join">JOIN</button>
-				<img class="likeIcon" th:src="@{/images/flat-color-icons-like.png}" />
+			</div>
+			
+			<div th:if="${session.loginUser ne null}" th:remove="tag">
+				<button class="headerBtn" id="userName"><a th:text="${session.loginUser.userId}"></a></button>
+				<button class="headerBtn" id="logout" onclick="location.href='/temp/logout'">LOGOUT</button>
+			</div>
+				<img class="likeIcon" th:src="@{/images/flat-color-icons-like.png}"/>
 			</div>
 		</div>
 	</header>

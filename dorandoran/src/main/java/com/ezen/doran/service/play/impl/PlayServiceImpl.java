@@ -27,8 +27,28 @@ public class PlayServiceImpl implements PlayService {
 	}
 
 	@Override
-	public int selectPlayCnt() {
-		return mapper.selectPlayCnt();
+	public int selectPlayCnt(String searchKeyword) {
+		return mapper.selectPlayCnt(searchKeyword);
+	}
+
+	@Override
+	public PlayDTO selectPlay(int playNo) {
+		return mapper.selectPlay(playNo);
+	}
+
+	@Override
+	public void updatePlay(PlayDTO playDTO) {
+		mapper.updatePlay(playDTO);
+	}
+
+	@Override
+	public void deletePlay(int playNo) {
+		mapper.deletePlay(playNo);
+	}
+
+	@Override
+	public void updatePlayCnt(int playNo) {
+		mapper.updatePlayCnt(playNo);
 	}
 
 }
