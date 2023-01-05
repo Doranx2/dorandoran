@@ -24,7 +24,7 @@
 			</div>
 			
 			<div th:if="${session.loginUser ne null}" th:remove="tag">
-				<button class="headerBtn" id="userName"><a th:text="${session.loginUser.userId}"></a></button>
+				<button class="headerBtn" id="mypage" onclick="location.href='./userPage/mypage'"><a th:text="${session.loginUser.userId}"></a></button>
 				<button class="headerBtn" id="logout" onclick="location.href='/temp/logout'">LOGOUT</button>
 			</div>
 				<img class="likeIcon" th:src="@{/images/flat-color-icons-like.png}"/>
