@@ -6,7 +6,14 @@
 <!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
 
 <head>
-
+<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			$(function(){
+				const session = /*[[${session.loginUser}]]*/;
+				console.log(session);
+			});
+		</script>
+</th:block>
 </head>
 <!-- head 영역 끝 -->
 
@@ -40,8 +47,7 @@
 			<div class="replyInputContainer">
 				<input class="replyInput"></input>
 			</div>
-			<button class="updateBtn" th:onclick="|location.href='@{/play/updatePlayPage?playNo={playNo} (playNo = ${play.playNo})}'|">수정</button>
-			<button class="deleteBtn" th:onclick="|location.href='@{/play/deletePlay?playNo={playNo} (playNo = ${play.playNo})}'|">삭제</button>
+			
 		</div>
 
 	</div>
