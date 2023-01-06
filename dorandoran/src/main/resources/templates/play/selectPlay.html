@@ -6,14 +6,131 @@
 <!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
 
 <head>
-<th:block layout:fragment="script">
+	<th:block layout:fragment="script">
 		<script th:inline="javascript">
-			$(function(){
-				const session = /*[[${session.loginUser}]]*/;
-				console.log(session);
-			});
+			let pNo = 0;
+			let reReUserNick = "";
+			let reReContent = "";
+
+			function reply() {
+				let replyContent = $("#replyInput").val();
+				console.log(replyContent);
+
+				$.ajax({
+					url: '/re/insertRe',
+					type: 'post',
+					data: {
+						boardNo: $("#playNo").val(),
+						boardCd: "PLY",
+						userNo: $("#userNo").val(),
+						reContent: $("#replyInput").val(),
+					},
+					success: function () {
+						alert("댓글이 등록되었습니다.");
+						location.reload();
+					},
+					error: function (e) {
+						console.log(e);
+					}
+				});
+			};
+
+			function reReplyInput(reNo) {
+				console.log(reNo);
+				let inputId = "re" + reNo;
+				let btnId = "reBtn" + reNo;
+				if ($("#" + btnId).text() == "답글") {
+					$("#" + inputId).css("display", "block");
+					$("#" + btnId).text("답글 닫기");
+				} else if ($("#" + btnId).text() == "답글 닫기") {
+					$("#" + inputId).css("display", "none");
+					$("#" + btnId).text("답글");
+				}
+			};
+
+			function reReply(reNo) {
+				let replyContent = $("#reReplyInput" + reNo).val();
+				console.log(replyContent);
+				$.ajax({
+					url: '/re/insertRe',
+					type: 'post',
+					data: {
+						boardNo: $("#playNo").val(),
+						boardCd: "PLY",
+						userNo: $("#userNo").val(),
+						reContent: replyContent,
+						parentReNo: reNo,
+					},
+					success: function () {
+						alert("대댓글이 등록되었습니다.");
+						location.reload();
+					},
+					error: function (e) {
+						console.log(e);
+					}
+				});
+			};
+			
+			function updateBtn(reNo){
+				if($("#reUpdateBtn" + reNo).text() == "수정"){
+					$("#reContent" + reNo).attr("disabled", false); 
+					$("#reContent" + reNo).focus();
+					$("#reUpdateBtn" + reNo).html("수정<br>완료");
+					$("#reDeleteBtn" + reNo).hide();
+					$("#reBtn" + reNo).hide();
+				} else {
+					updateReply(reNo);
+					$("#reContent" + reNo).attr("disabled", true); 
+					$("#reUpdateBtn" + reNo).text("수정");
+					$("#reDeleteBtn" + reNo).show();
+					$("#reBtn" + reNo).show();
+				}
+			}
+			
+			function updateReply(reNo){
+				let reContent = $("#reContent" + reNo).val();
+				
+				$.ajax({
+					url: '/re/updateRe',
+					type: 'post',
+					data: {
+						reContent: reContent,
+						reNo: reNo,
+					},
+					success: function () {
+						alert("대댓글이 수정되었습니다.");
+						location.reload();
+					},
+					error: function (e) {
+						console.log(e);
+					}
+				});
+			};
+			
+			function deleteReply(reNo,pNo){
+				console.log($("#reReUl"+reNo).length);
+				if($("#reReUl"+reNo).length!=0 && pNo==0){
+					alert("대댓글이 존재하는 댓글은 삭제할 수 없습니다.");
+				} else {
+					$.ajax({
+					url: '/re/deleteRe',
+					type: 'post',
+					data: {
+						reNo: reNo,
+					},
+					success: function () {
+						alert("댓글이 성공적으로 삭제되었습니다.");
+						location.reload();
+					},
+					error: function (e) {
+						console.log(e);
+					}
+				});
+				}
+			};
+
 		</script>
-</th:block>
+	</th:block>
 </head>
 <!-- head 영역 끝 -->
 
@@ -39,15 +156,97 @@
 			<button class="backBtn" onclick="location.href='/play/selectPlayList'">목록으로</button>
 			<div class="bar1"></div>
 			<div class="bar2"></div>
+			<input id="playNo" type="hidden" th:value="${play.playNo}">
 			<span class="playTitle" id="playTitle" th:text="${play.playTitle}"></span>
 			<div class="playContentContainer">
-			<span class="playContent" id="playContent" th:text="${play.playContent}"></span></div>
-			<button class="replyInsertBtn">등록</button>
-			<span class="v112_672">댓글</span>
-			<div class="replyInputContainer">
-				<input class="replyInput"></input>
+				<span class="playContent" id="playContent" th:text="${play.playContent}"></span>
 			</div>
+			<span class="v112_672">댓글</span>
+			<!--<div class="replyListContainer">
 			
+				<div class="replyList">
+				<ul class ="replyUl" th:each="reList : ${reList}">
+					<li class="replyUserNm" th:text="${reList.userNick}"></li>
+					<li class="replyContent" th:text="${reList.reContent}"></li>
+				</ul>
+				</div>
+				
+			</div>-->
+
+
+			<div th:if="${session.loginUser eq null}" th:remove="tag">
+				<div class="replyInputContainer">
+					<input class="replyInput" placeholder="로그인 후 이용 가능 합니다." readonly></input>
+				</div>
+				<button class="replyInsertBtn">등록</button>
+			</div>
+
+			<div th:if="${session.loginUser ne null}" th:remove="tag">
+				<!-- 로그인 정보가 있을 때 -->
+				<div class="replyInputContainer">
+					<input id="replyInput" class="replyInput" placeholder="댓글을 입력해주세요."></input>
+				</div>
+				<button class="replyInsertBtn" onclick="reply();">등록</button>
+				<input id="userNo" type="hideen" th:value="${session.loginUser.userNo}">
+
+				<!-- 로그인 정보와 글 작성 정보가 같을 때 -->
+				<div th:if="${session.loginUser.userNo eq play.userNo}" th:remove="tag">
+					<button class="updateBtn"
+						th:onclick="|location.href='@{/play/updatePlayPage?playNo={playNo} (playNo = ${play.playNo})}'|">수정</button>
+					<button class="deleteBtn"
+						th:onclick="|location.href='@{/play/deletePlay?playNo={playNo} (playNo = ${play.playNo})}'|">삭제</button>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="plus">
+			<div class="replyListContainer">
+
+				<div class="replyList">
+					<div class="replyListDiv" th:each="reList : ${reList}">
+						<ul class="replyUl">
+							<li class="replyUserNm" th:text="${reList.userNick}"></li>
+							<li ><input th:id="'reContent'+${reList.reNo}" class="replyContent" disabled th:value="${reList.reContent}"></li>
+
+							<li class="replyBtns">
+								<div th:if="${session.loginUser ne null}" th:remove="tag">
+									<button th:id="'reBtn'+${reList.reNo}"
+										th:onclick="'reReplyInput('+${reList.reNo}+');'">답글</button>
+									<div th:if="${session.loginUser.userNo eq reList.userNo}" th:remove="tag">
+										<button th:id="'reUpdateBtn'+${reList.reNo}" th:onclick="'updateBtn('+${reList.reNo}+');'">수정</button>
+										<button th:id="'reDeleteBtn'+${reList.reNo}" class="deleteReBtn" th:onclick="'deleteReply('+${reList.reNo}+',0);'">삭제</button>
+									</div>
+								</div>
+							</li>
+						</ul>
+						
+						<div class="reReplyInputContainer" th:id="'re'+${reList.reNo}" style="display : none;">
+							<input class="replyInput" th:id="'reReplyInput'+${reList.reNo}"
+								placeholder="대댓글을 입력해주세요."></input>
+							<button class="reReplyInsertBtn" th:onclick="'reReply('+${reList.reNo}+');'">등록</button>
+						</div>
+
+						<div th:each="reReList : ${reReList}" th:if="${reList.reNo == reReList.parentReNo}">
+							<ul class="reReplyUl" th:id="'reReUl'+${reReList.parentReNo}">
+							<li class="replyUserNm" th:text="${reReList.userNick}"></li>
+							<li ><input th:id="'reContent'+${reReList.reNo}" class="replyContent" disabled th:value="${reReList.reContent}"></li>
+
+							<li class="reReplyBtns">
+								<div th:if="${session.loginUser ne null}" th:remove="tag">
+									<div th:if="${session.loginUser.userNo eq reReList.userNo}" th:remove="tag">
+										<button th:id="'reUpdateBtn'+${reReList.reNo}" class="updateReBtn" th:onclick="'updateBtn('+${reReList.reNo}+');'">수정</button>
+										<button th:id="'reDeleteBtn'+${reReList.reNo}" class="deleteReBtn" th:onclick="'deleteReply('+${reReList.reNo}+',1);'">삭제</button>
+									</div>
+								</div>
+							</li>
+						</ul>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
 		</div>
 
 	</div>

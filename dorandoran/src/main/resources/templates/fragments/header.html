@@ -19,13 +19,13 @@
 			<div class="v9_14">
 			
 			<div th:if="${session.loginUser eq null}" th:remove="tag">
-				<button class="headerBtn" id="login" onclick="location.href='/temp/loginPage'">LOGIN</button>
-				<button class="headerBtn" id="join">JOIN</button>
+				<button class="headerBtn" id="login" onclick="location.href='/temp/loginPage'" style="color:#FFFFFF; font-size:13px;">LOGIN</button>
+				<button class="headerBtn" id="join" style="color:#FFFFFF; font-size:13px;">JOIN</button>
 			</div>
 			
-			<div th:if="${session.loginUser ne null}" th:remove="tag">
-				<button class="headerBtn" id="userName"><a th:text="${session.loginUser.userId}"></a></button>
-				<button class="headerBtn" id="logout" onclick="location.href='/temp/logout'">LOGOUT</button>
+			<div th:if="${session.loginUser ne null}" th:remove="tag" >
+				<button class="headerBtn" id="userName"><a th:text="${session.loginUser.userId}" style="color:#FFFFFF; font-size:13px;"></a></button>
+				<button class="headerBtn" id="logout" onclick="location.href='/temp/logout'" style="color:#FFFFFF; font-size:13px;">LOGOUT</button>
 			</div>
 				<img class="likeIcon" th:src="@{/images/flat-color-icons-like.png}"/>
 			</div>

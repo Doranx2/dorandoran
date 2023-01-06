@@ -1,9 +1,11 @@
 package com.ezen.doran.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +17,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.doran.dto.Pagination;
 import com.ezen.doran.dto.PlayDTO;
+import com.ezen.doran.dto.ReDTO;
 import com.ezen.doran.service.play.PlayService;
+import com.ezen.doran.service.re.ReService;
 
 @RestController
 @RequestMapping("/play")
@@ -23,6 +27,9 @@ public class PlayController {
 
 	@Autowired
 	PlayService playService;
+	
+	@Autowired
+	ReService reService;
 
 	@GetMapping("/insertPlayPage")
 	public ModelAndView insertPlayPage() {
@@ -53,8 +60,6 @@ public class PlayController {
 	
 	@PostMapping("/insertPlay")
 	public void insertPlay(PlayDTO playDTO, HttpServletResponse response) throws Exception {
-		playDTO.setUserNo(1);
-
 		playService.insertPlay(playDTO);
 		response.sendRedirect("/play/selectPlayList");
 	}
@@ -90,6 +95,29 @@ public class PlayController {
 	public ModelAndView selectPlay(@RequestParam int playNo) {
 		ModelAndView mv = new ModelAndView();
 		
+		ReDTO reDTO = new ReDTO();
+		reDTO.setBoardCd("PLY");
+		reDTO.setBoardNo(playNo);
+		
+		List<ReDTO> list = reService.selectReList(reDTO);
+		List<ReDTO> reList = new ArrayList<>();
+		List<ReDTO> reReList = new ArrayList<>();
+		
+		
+		for(ReDTO re : list) {
+			if(re.getParentReNo() != 0) {
+				reReList.add(re);
+			} else if(re.getParentReNo()==0) {
+				reList.add(re);
+			}
+		}
+		
+		System.out.println("reList => " +reList);
+		System.out.println("reReList => " +reReList);
+
+		mv.addObject("reList", reList);
+		mv.addObject("reReList", reReList);
+		
 		mv.addObject("play", playService.selectPlay(playNo));
 		
 		mv.setViewName("play/selectPlay.html");
@@ -107,5 +135,6 @@ public class PlayController {
 		playService.deletePlay(playNo);
 		response.sendRedirect("/play/selectPlayList");
 	}
+	
 
 }
