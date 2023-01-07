@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+
+			$(function () {
+
+				const inputImage = document.getElementById("input-image")
+				inputImage.addEventListener("change", e => {
+					readImage(e.target)
+				})
+			});
+
+			function readImage(input) {
+				// 인풋 태그에 파일이 있는 경우
+				if (input.files && input.files[0]) {
+					// 이미지 파일인지 검사 (생략)
+					// FileReader 인스턴스 생성
+					const reader = new FileReader()
+					// 이미지가 로드가 된 경우
+					reader.onload = e => {
+						const previewImage = document.getElementById("preview-image")
+						previewImage.src = e.target.result
+					}
+					// reader가 이미지 읽도록 하기
+					reader.readAsDataURL(input.files[0])
+				}
+			};
+
+
+
+		</script>
+	</th:block>
+
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<link rel="stylesheet" th:href="@{/css/boardTitle.css}" />
+		<link rel="stylesheet" th:href="@{/css/market.css}" />
+
+		<div class="v89_351" style="position: relative;">
+			<!-- 화면 윗 부분 -->
+			<div class="v89_238">
+				<div class="v89_239"></div>
+				<div class="v89_240"></div>
+				<span class="v89_241">도란장터</span>
+			</div>
+			<div class="v89_245">
+				<img class="backImg" th:src="@{/images/boardBack.png}" />
+			</div>
+			<div class="v89_249">
+				<img class="iconImg" th:src="@{/images/marketIcon.png}" />
+			</div>
+
+			<div class="v21_78"><span class="v21_80">활발한 거래를 도모하는 도란도란 도란장터 게시판입니다.</span>
+				<span class="v21_81">이 곳에서는 개인 간의 거래가 진행됩니다.<br>
+					구매하고자하는 물건은 누구보다 빨리 낚아채세요~!<br>
+					모두 단 하나뿐인 물건들이랍니다.</span>
+			</div>
+			<!-- 윗 부분 끝 -->
+
+
+			<span class="subTitle">도란장터 글쓰기</span>
+
+			<form id="insertForm" method="post" action="/market/insertMarket" enctype="multipart/form-data">
+				<span class="v89_472">상품명</span>
+				<div class="v89_463">
+					<input class="MarketInput" name="prodNm" placeholder="상품명을 입력하세요.">
+				</div>
+				<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
+				<span class="v89_467">판매가격</span>
+				<div class="v89_465">
+					<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요.">
+				</div>
+				<span class="v89_475">원</span>
+
+				<span class="v89_468">거래상태</span>
+				<div class="conditionBtns">
+					<input type="radio" id="condition1" name="status" value="SAE" checked><label
+						for="condition1">판매중</label>
+					<input type="radio" id="condition2" name="status" value="RES"><label for="condition2">예약중</label>
+					<input type="radio" id="condition3" name="status" value="SDO"><label for="condition3">판매완료</label>
+				</div>
+
+				<span class="v89_444">상품 사진</span>
+				<div class="filebox">
+					<img style="width: 196px;" id="preview-image"
+						src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
+					<label for="input-image">업로드</label>
+					<input type="file" id="input-image" name="file">
+				</div>
+
+				<div class="v89_462">
+					<textarea id="marketContent" class="marketContent" name="marketContent"
+						placeholder="내용을 입력하세요."></textarea>
+				</div>
+
+				<button class="insertBtn" onclick="submit">등록</button>
+			</form>
+
+			<button class="cancelBtn">취소</button>
+		</div>
+
+
+	</div>
+</body>
+
+
+
+</html>

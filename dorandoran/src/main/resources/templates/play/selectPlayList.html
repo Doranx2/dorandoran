@@ -11,11 +11,7 @@
 			function search() {
 				let searchKeyword = $('#searchKeyword').val();
 				console.log(searchKeyword);
-				if (!searchKeyword) {
-					alert("검색어를 입력해주세요.");
-				} else {
-					location.href = "/play/selectPlayList?searchKeyword=" + searchKeyword;
-				}
+				location.href = "/play/selectPlayList?searchKeyword=" + searchKeyword;
 			}
 		</script>
 	</th:block>
@@ -24,7 +20,7 @@
 
 <body>
 	<div layout:fragment="content">
-
+		<link rel="stylesheet" th:href="@{/css/boardTitle.css}" />
 		<link rel="stylesheet" th:href="@{/css/play.css}" />
 
 

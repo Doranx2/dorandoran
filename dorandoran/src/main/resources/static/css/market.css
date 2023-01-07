@@ -1,0 +1,493 @@
+.container{
+	  width: 100%;
+	  height: 1317px;
+	  opacity: 1;
+	  position: absolute;
+	  top: 0px;
+	  left: 0px;
+	  overflow: hidden;
+	  position: relative;
+	  display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.marketListContainer{
+	width: 295px;
+    height: 295px;
+    background: rgba(245,245,245,1);
+    opacity: 1;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    margin : 20px;
+    position: relative;
+}
+
+.boardContainer{
+	height: 50%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    /* padding: 20px; */
+}
+
+
+/* insertMArket */
+
+* {
+		box-sizing: border-box;
+	}
+
+	body {
+		font-size: 14px;
+	}
+
+	.v89_351 {
+		width: 100%;
+		height: 2000px;
+		background: rgba(255, 255, 255, 1);
+		opacity: 1;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		overflow: hidden;
+	}
+	
+	.subTitle {
+		width: 570px;
+		color: #EEC400;
+		position: absolute;
+		top: 620px;
+		left: 330px;
+		font-family: EF_AONE;
+		font-weight: lighter;
+		font-size: 50px;
+		opacity: 1;
+		text-align: left;
+	}
+	
+	/* insertMarket 타이틀 글자 css */
+	.v89_472 {
+	    width: 96px;
+	    color: #EEC400;
+	    position: absolute;
+	    top: 722px;
+	    left: 327px;
+	    font-family: Inter;
+	    font-weight: Regular;
+	    font-size: 30px;
+	    opacity: 1;
+	    text-align: left;
+	}
+	.v89_467 {
+		width: 130px;
+		color: #EEC400;
+	    position: absolute;
+		top: 852px;
+		left: 327px;
+		font-family: Inter;
+		font-weight: Regular;
+		font-size: 30px;
+		opacity: 1;
+		text-align: left;
+	}
+	.v89_475 {
+		width: 28px;
+		color: #EEC400;
+	    position: absolute;
+		top: 912px;
+		left: 675px;
+		font-family: Inter;
+		font-weight: Regular;
+		font-size: 30px;
+		opacity: 1;
+		text-align: left;
+	}
+	.v89_468 {
+		width: 130px;
+		color: #EEC400;
+	    position: absolute;
+		top: 989px;
+		left: 327px;
+		font-family: Inter;
+		font-weight: Regular;
+		font-size: 30px;
+		opacity: 1;
+		text-align: left;
+	}
+	
+	.v89_444 {
+		width: 165px;
+	    color: #EEC400;
+	    position: absolute;
+	    top: 1123px;
+	    left: 327px;
+	    font-family: Inter;
+	    font-weight: Regular;
+	    font-size: 30px;
+	    opacity: 1;
+	    text-align: left;
+	}
+	
+	
+	/**/
+	
+	.v89_462 {
+		width: 70%;
+	    height: 408px;
+	    background: rgba(245, 245, 245, 1);
+	    opacity: 1;
+	    position: absolute;
+	    top: 1396px;
+	    left: 327px;
+	    border-top-left-radius: 10px;
+	    border-top-right-radius: 10px;
+	    border-bottom-left-radius: 10px;
+	    border-bottom-right-radius: 10px;
+	    overflow: hidden;
+	}
+
+	.v89_463 {
+		width: 40%;
+		height: 60px;
+		background: rgba(245, 245, 245, 1);
+		opacity: 1;
+		position: absolute;
+		top: 770px;
+		left: 327px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		overflow: hidden;
+	}
+	
+	.MarketInput{
+		width: 100%;
+	    height: 100%;
+	    background: none;
+	    padding: 20px;
+	    font-size: 1.4em;
+	}
+	.MarketInput:focus{
+		outline : none;
+	}
+
+	.v89_465 {
+		width: 330px;
+		height: 60px;
+		background: rgba(245, 245, 245, 1);
+		opacity: 1;
+		position: absolute;
+		top: 900px;
+		left: 327px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		overflow: hidden;
+	}
+
+	.conditionBtns {
+		height: 60px;
+		opacity: 1;
+		position: absolute;
+		top: 1042px;
+		left:325px;
+		margin : 20px;
+	}
+
+	.conditionBtns input[type=radio]{
+	    display: none;
+	}
+	.conditionBtns input[type=radio] + label {
+	    color: #000000;
+	    background: rgba(245, 245, 245, 1);
+	    border-radius: 100px;
+	    font-size: 1.5em;
+	    padding: 15px;
+	    margin: 10px;
+	}
+	.conditionBtns input[type=radio]:checked + label {
+	    background: #EEC400;
+	    color:#FFFFFF;
+	}
+
+	.marketContent{
+		width: 100%;
+	    height: 100%;
+	    background: none;
+	    padding: 30px;
+	    font-size: 1.4em;
+	    border:0px;
+	    line-height: 35px;
+	}
+	.marketContent:focus{
+		outline:none;
+	}
+	
+	.cancelBtn {
+		width: 120px;
+		height: 60px;
+		background: rgba(181, 179, 179, 1);
+		opacity: 1;
+		position: absolute;
+		top: 1822px;
+		left: 1366px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		overflow: hidden;
+		border:0px;
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+
+	.insertBtn {
+		width: 120px;
+		height: 60px;
+		background: rgba(251, 243, 206, 1);
+		opacity: 1;
+		position: absolute;
+		top: 1822px;
+		left: 1511px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		overflow: hidden;
+		border:0px;
+		font-size: 1.5em;
+		font-weight: bold;
+		color:#EEC400;
+	}
+	
+	.cancelBtn:hover, .insertBtn:hover{
+		background-color: #CFE1FC ;
+		color : #1761A0;
+		cursor : pointer;
+	}
+
+	.filebox{
+		top: 1175px;
+	    left: 338px;
+	    position: absolute;
+	}
+	
+	.filebox label {
+	  display: inline-block;
+	  padding: .5em .75em;
+	  color: #EEC400;
+	  font-size: 1.2em;
+	  font-weight: bold;
+	  line-height: normal;
+	  vertical-align: middle;
+	  background-color: #fdfdfd;
+	  cursor: pointer;
+	  border: 1px solid #ebebeb;
+	  border-bottom-color: #e2e2e2;
+	  border-radius: .25em;
+	}
+	
+	.filebox input[type="file"] {  /* 파일 필드 숨기기 */
+	  position: absolute;
+	  width: 1px;
+	  height: 1px;
+	  padding: 0;
+	  margin: -1px;
+	  overflow: hidden;
+	  clip:rect(0,0,0,0);
+	  border: 0;
+	}
+
+
+	/* selectMarketList */
+	
+	.title{
+		font-size: 1.9em;
+	    display: flex;
+	    padding-top: 50px;
+	    font-weight: bold;
+	    justify-content: center;
+	    align-items: center;
+	    height: 40%;
+	    align-content: center;	
+	}
+	
+	.price {
+		width: 100%;
+	    display: flex;
+	    color: #EEC400;
+	    padding-bottom: 4px;
+	    font-size: 1.8em;
+	    font-weight: bold;
+	    flex-direction: row-reverse;
+	    justify-content: center;
+	}
+
+	.prodImage{
+		width: 295px;
+	    height: 295px;
+	    border-radius: 25px;
+	    display: flex;
+	    margin: 0px auto;
+	}
+	
+	.status{
+		padding: 20px;
+	    display: flex;
+	    justify-content: center;
+	    background: #EEC400;
+	    width: 96px;
+	    height: 15px;
+	    border-radius: 63px;
+	    color: #ffffff;
+	    font-weight: bold;
+	    text-align: center;
+	    align-items: center;
+	    margin:20px auto;
+	}
+	
+	.text{
+		z-index: 1;
+	    background: #7199bbd4;
+	   	height: 295px;
+	    position: absolute;
+	    width: 295px;
+	    transform: translate(0px, -295px);
+	}
+
+
+.searchInput {
+	  width: 282px;
+	  height: 40px;
+	  opacity: 1;
+	  position: absolute;
+	  top: 614px;
+	  left: 1360px;
+	  overflow: hidden;
+	  background: rgba(217,217,217,1);
+	  border-radius: 10px;
+	}
+	
+	.searchIcon {
+	  width: 33px;
+	  height: 33px;
+	  background: url("../images/searchIcon.png");
+	  background-repeat: no-repeat;
+	  background-position: center center;
+	  background-size: cover;
+	  opacity: 1;
+	  position: absolute;
+	  top: 3px;
+	  left: 238px;
+	  overflow: hidden;
+	  border:0px;
+	}
+	
+	.searchIcon:hover{
+		cursor : pointer;
+	}
+	
+	#searchKeyword {
+		padding: 10px;
+    	border: 0px;
+    	background: none;
+    	margin-top:1px;
+    	font-size: 1.2em;
+	}
+	
+	#searchKeyword:focus{
+		outline:none;
+	}
+	
+	
+	/* paging */
+	
+	.page {
+		text-align: center;
+		width:100%;
+	}
+	
+	.pagination {
+		list-style: none;
+		display : inline-block;
+		padding : 0 ;
+		margin : 20px auto;
+	}
+	
+	.pagination li {
+		display : inline;
+		text-align: center;
+	}
+	
+	.pagination a {
+		float:left;
+		display : block;
+		font-size: 16px;
+		text-decoration: none;
+		padding : 5px 12px;
+		color : #9f9f9f;
+		line-height: 1.5;
+	}
+	
+	.first {
+		margin-left: 15px;
+	}
+	
+	.last {
+		margin-right : 15px;
+	}
+	
+	.first:hover, .last:hover, .left:hover, .right:hover {
+		color :#EEC400;
+	}
+	
+	.pagination a:active {
+		cursor : default;
+		color : #ffffff;
+	}
+	
+	.pagination a:active {
+		outline : none;
+	}
+	
+	.modal .num {
+		margin-left : 3px;
+		padding : 0;
+		width : 30px;
+		height : 30px;
+		line-height: 30px;
+		-moz-border-radius : 100%;
+		-webkit-border-radius : 100%;
+		border-radius: 100%;
+	}
+	
+	.modal .num:hover {
+		background-color : #EEC400;
+		cursor : pointer;
+	}
+	
+	.modal .num.active, .modal .num:active {
+		background-color : #EEC400;
+		cursor : pointer;
+	}
+	
+	.arrow-left {
+		width:0;
+		height : 0 ;
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent;
+		border-right: 10px solid blue;
+	}
+	
