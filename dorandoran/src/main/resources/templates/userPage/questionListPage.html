@@ -9,11 +9,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <title>고객센터 글 목록</title>
-  <link rel="stylesheet" th:href="@{/css/questionListPage.css}"/>
 </head>
 <!-- head 끝 -->
 
 <body>
+<div layout:fragment="content">
+
+<link rel="stylesheet" th:href="@{/css/questionListPage.css}"/>
+
 <div class="item--nzi">
 
   <div class="auto-group-eusc-V8S">
@@ -23,18 +26,20 @@
         <div class="auto-group-qetj-pyL">
           <p class="item--xpe">
             <span class="item--xpe-sub-0">활동 지역은 </span>
-            <span class="item--xpe-sub-1">‘도란시’</span>
+            <span class="item--xpe-sub-1">‘<a th:text="${session.loginUser.userLoc}"></a>’</span>
             <span class="item--xpe-sub-2"> 입니다.</span>
           </p>
-          <p class="item--Qq4">도란이 님</p>
-          <p class="nnnn-nn-nn-uWv">nnnn. nn. nn</p>
+          <p class="item--Qq4"><a th:text="${session.loginUser.userNm}"></a> 님</p>
+          <p class="nnnn-nn-nn-uWv"><a th:text="${session.loginUser.inputDtm}"></a></p>
         </div>
       </div>
       <div class="auto-group-7thx-cRL">
         <p class="nnnn--jF4">
         오늘은 도란도란과 함께한 지
-        <br/>
-        + nnnn 일 되는 날입니다!
+        <br>
+        + nnnn 일 
+        <br>
+        되는 날입니다!
         </p>
       </div>
       <div class="rectangle-104-RNn">
@@ -50,7 +55,7 @@
         <div class="group-33-21C">
           <div class="rectangle-106-At6">
           </div>
-          <p class="item--7HY">공지 확인하기</p>
+          <a class="item--7HY" href="/admin/getAdNoticeList" style="cursor: pointer;">공지 확인하기</a>
         </div>
       </div>
     </div>
@@ -72,11 +77,11 @@
       <div class="rectangle-87-RzN">
       </div>
       <div class="frame-1147-ASA">
-        <div th:href="@{/userPage/userUpdate?page=1}" class="item--sLa">개인 정보 확인      </div>
-        <div th:href="@{/userPage/playListPage?page=1}" class="item--aEz">모임 목록</div>
-        <div th:href="@{/userPage/marketListPage?page=1}" class="item--szn">장터 목록</div>
-        <div th:href="@{/userPage/writingListPage?page=1}" class="item--auC">작성한 글 목록</div>
-        <div th:href="@{/userPage/questionListPage?page=1}" class="item--hD8">고객센터 글 목록</div>
+        <div class="item--sLa" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인</div>
+        <div class="item--aEz" onclick="location.href='/userPage/playListPage'" style="cursor:pointer;">모임 목록</div>
+        <div class="item--szn" onclick="location.href='/userPage/marketListPage'" style="cursor:pointer;">장터 목록</div>
+        <div class="item--auC" onclick="location.href='/userPage/writingListPage'" style="cursor:pointer;">작성한 글 목록</div>
+        <div class="item--hD8" onclick="location.href='/userPage/questionListPage'" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
       <div class="icon-media-play-Pbk">
         <img class="icon-media-play-i8E" th:src="@{/images/mediaPlayIcon.png}"/>
@@ -99,7 +104,7 @@
       </div>
       <div class="auto-group-ugjn-L54">
         <div class="group-31-TQa">
-          <div class="item-1-1--oUS">‘도란이’님의 1:1 문의 목록</div>
+          <div class="item-1-1--oUS">‘<a th:text="${session.loginUser.userNick}"></a>’님의 1:1 문의 목록</div>
           <div class="list-ezr">
             <div class="frame-1134-yXL">
               <div class="auto-group-ywae-WGN">
@@ -128,7 +133,7 @@
           </div>
 
           <div class="group-31-LkW">
-            <div class="item--gZU">‘도란이’님의 신고 목록</div>
+            <div class="item--gZU">‘<a th:text="${session.loginUser.userNick}"></a>’님의 신고 목록</div>
             <div class="list-Z7U">
               <div class="frame-1134-H3U">
                 <div class="auto-group-cpsz-cLe">
@@ -161,5 +166,7 @@
     <!-- 상세창 내부 끝 -->
 
   </div>
+</div>
+
 </div>
 </body>

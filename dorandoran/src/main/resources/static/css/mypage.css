@@ -56,7 +56,7 @@ body {
 .mypage-gbx .auto-group-vcwe-RZY .frame-1144-8yk .auto-group-qu3g-3av .group-34-ZpA {
   margin: 0.2rem 1.95rem 0rem 0rem;
   box-sizing: border-box;
-  padding: 1.2rem 2.388rem 0.3rem 2.413rem;
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
@@ -475,7 +475,7 @@ body {
 .mypage-gbx .auto-group-2pyg-MMx .auto-group-da3u-eLN .rectangle-102-mSv {
   width: 100%;
   height: 87.9rem;
-  border: solid 0.1rem #1761a0;
+  border-top: double 6px #1761a0;
   box-sizing: border-box;
   background-color: #ffffff;
 }

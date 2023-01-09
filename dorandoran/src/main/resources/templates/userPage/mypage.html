@@ -30,7 +30,7 @@
           </p>
           <p class="item--rTp"><a th:text="${session.loginUser.userNm}"></a> 님</p>
           <input type="hidden">
-          <p class="nnnn-nn-nn-Ltn"><!-- <a th:text="${session.loginUser.input_DTM}"></a>--></p>
+          <p class="nnnn-nn-nn-Ltn"><a th:text="${session.loginUser.inputDtm}"></a></p>
         </div>
       </div>
       <div class="auto-group-wh4e-3oC">
@@ -53,7 +53,7 @@
       <div class="frame-1143-gUn">
         <p class="item--22r">도란도란을 누구보다 잘 이용하고 싶다면? </p>
         <div class="group-33-JFG">
-          <button class="rectangle-106-4ES">
+          <button class="rectangle-106-4ES" onclick="location.href=''" style="cursor:pointer;">
           <p class="item--z86">공지 확인하기</p>
           </button>
         </div>
@@ -66,25 +66,24 @@
   <div class="my-doran-qeW">MY DORAN</div>
   <div class="auto-group-2pyg-MMx">
     <div class="auto-group-94sc-hRp">
-      <div class="rectangle-84-2iz">
-      </div>
-      <div class="rectangle-88-AKQ">
-      </div>
-      <div class="rectangle-85-GtE">
-      </div>
-      <div class="rectangle-86-cBQ">
-      </div>
-      <div class="rectangle-87-8fY">
-      </div>
-      <div class="frame-1147-s7L">
-        <a th:href="@{/userPage/userUpdate?page=1}" class="item--B82">개인 정보 확인</a>
-        <a th:href="@{/userPage/playListPage?page=1}" class="item--Hgr">모임 목록</a>
-        <a th:href="@{/userPage/marketListPage?page=1}" class="item--CYv">장터 목록</a>
-        <a th:href="@{/userPage/writingListPage?page=1}" class="item--WpW">작성한 글 목록</a>
-        <a th:href="@{/userPage/questionListPage?page=1}" class="item--Div">고객센터 글 목록</a>
-      </div>
-
-      <div class="icon-media-play-85C">
+	   <div class="frame-1147-s7L">
+	      <button class="rectangle-84-2iz" style="cursor:pointer;">
+	      <a href="/userPage/updateUserPage" class="item--B82">개인 정보 확인</a>
+	      </button>
+	      <button class="rectangle-88-AKQ">
+	       <a href="/userPage/playListPage" class="item--Hgr">모임 목록</a>
+	      </button>
+	      <button class="rectangle-85-GtE">
+	       <a href="/userPage/marketListPage" class="item--CYv">장터 목록</a>
+	      </button>
+	      <button class="rectangle-86-cBQ">
+	      <a href="/userPage/writingListPage" class="item--WpW">작성한 글 목록</a>
+	      </button>
+	      <button class="rectangle-87-8fY">
+	      <a href="/userPage/questionListPage" class="item--Div">고객센터 글 목록</a>
+	      </button>
+	      
+	      <div class="icon-media-play-85C">
         <img class="icon-media-play-r1C" th:src="@{/images/mediaPlayIcon.png}"/>
         <img class="vector-NkE" th:src="@{/images/mediaPlayIcon.png}"/>
         <div class="icon-media-play-KfU">
@@ -95,6 +94,10 @@
           </div>
         </div>
       </div>
+	      
+	    </div>
+
+      
 
     </div>
 

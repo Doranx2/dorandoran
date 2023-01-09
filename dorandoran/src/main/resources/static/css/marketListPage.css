@@ -56,7 +56,7 @@ body {
 .item--L6J .auto-group-hrkg-2jp .frame-1144-M1Q .auto-group-b642-4Ai .group-34-x1C {
   margin: 0.2rem 1.95rem 0rem 0rem;
   box-sizing: border-box;
-  padding: 1.2rem 2.388rem 0.3rem 2.413rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
@@ -131,14 +131,13 @@ body {
 }
 .item--L6J .auto-group-hrkg-2jp .frame-1144-M1Q .auto-group-9fml-uW6 {
   box-sizing: border-box;
-  padding: 7.8rem 9.85rem 7.9rem 9.95rem;
+  padding: 5.5rem 5rem 5.2rem 5rem;
   width: 53.5rem;
   height: 100%;
   background-color: #ffffff;
   flex-shrink: 0;
 }
 .item--L6J .auto-group-hrkg-2jp .frame-1144-M1Q .auto-group-9fml-uW6 .nnnn--qPk {
-  max-width: 33.7rem;
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
@@ -206,7 +205,7 @@ body {
   width: 10.4rem;
   height: 7rem;
   position: absolute;
-  left: 4.25rem;
+  left: 2.8rem;
   top: 0;
   text-align: center;
   font-size: 2.2rem;
@@ -479,12 +478,12 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  border: solid 0.1rem #1761a0;
+  border-top: double 6px #1761a0;
+  border-bottom: double 6px #1761a0;
   background-color: #ffffff;
 }
 .item--L6J .auto-group-ge7u-CJA .auto-group-xkcs-zUE .auto-group-v2ve-F2n .item--mG2 {
   margin: 0rem 2.8rem 4.1rem 0rem;
-  max-width: 29.4rem;
   text-align: right;
   display: flex;
   font-size: 3rem;

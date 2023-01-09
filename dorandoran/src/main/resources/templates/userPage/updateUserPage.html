@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko"
-    xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
 	  
 <!-- head -->
 <head>
@@ -11,11 +9,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <title>개인정보변경</title>
-  <link rel="stylesheet" th:href="@{/css/updateUserPage.css}"/>
 </head>
 <!-- head -->
 
 <body>
+
+<div layout:fragment="content">
+
+<link rel="stylesheet" th:href="@{/css/updateUserPage.css}"/>
+
 <div class="item--yEn">
 
   <div class="auto-group-9rl6-UxE">
@@ -25,18 +27,20 @@
         <div class="auto-group-jkv6-4ox">
           <p class="item--DB4">
             <span class="item--DB4-sub-0">활동 지역은 </span>
-            <span class="item--DB4-sub-1">‘도란시’</span>
+            <span class="item--DB4-sub-1">‘<a th:text="${session.loginUser.userLoc}"></a>’</span>
             <span class="item--DB4-sub-2"> 입니다.</span>
           </p>
-          <p class="item--fSN">도란이 님</p>
-          <p class="nnnn-nn-nn-7ZG">nnnn. nn. nn</p>
+          <p class="item--fSN"><a th:text="${session.loginUser.userNm}"></a> 님</p>
+          <p class="nnnn-nn-nn-7ZG"><a th:text="${session.loginUser.inputDtm}"></a></p>
         </div>
       </div>
       <div class="auto-group-wdiz-ybU">
         <p class="nnnn--6AJ">
         오늘은 도란도란과 함께한 지
-        <br/>
-        + nnnn 일 되는 날입니다!
+        <br>
+        + nnnn 일 
+        <br>
+        되는 날입니다!
         </p>
       </div>
       <div class="rectangle-104-P9Q">
@@ -52,7 +56,7 @@
         <div class="group-33-FjL">
           <div class="rectangle-106-cJz">
           </div>
-          <p class="item--juQ">공지 확인하기</p>
+          <a class="item--juQ" href="/admin/getAdNoticeList" style="cursor: pointer;">공지 확인하기</a>
         </div>
       </div>
       <!-- 공지로 넘어가기 -->
@@ -74,11 +78,11 @@
       <div class="rectangle-87-sAN">
       </div>
       <div class="frame-1146-bMG">
-        <div class="item--uMx">개인 정보 확인      </div>
-        <div class="item--1A6">모임 목록</div>
-        <div class="item--hoc">장터 목록</div>
-        <div class="item--zXp">작성한 글 목록</div>
-        <div class="item--GkE">고객센터 글 목록</div>
+        <div class="item--uMx" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인</div>
+        <div class="item--1A6" onclick="location.href='/userPage/playListPage'" style="cursor:pointer;">모임 목록</div>
+        <div class="item--hoc" onclick="location.href='/userPage/marketListPage'" style="cursor:pointer;">장터 목록</div>
+        <div class="item--zXp" onclick="location.href='/userPage/writingListPage'" style="cursor:pointer;">작성한 글 목록</div>
+        <div class="item--GkE" onclick="location.href='/userPage/questionListPage'" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
       <div class="icon-media-play-yuY">
         <img class="icon-media-play-WPg" th:src="@{/images/mediaPlayIcon.png}"/>
@@ -100,45 +104,42 @@
         <div class="item--c7G">개인 정보를 확인하고 수정할 수 있습니다.</div>
       </div>
       <div class="auto-group-u4yi-gN2">
-        <div class="item--Bpa">‘도란이’님의 개인 정보</div>
+        <div class="item--Bpa">‘<a th:text="${session.loginUser.userNm}"></a>’님의 개인 정보</div>
         <div class="auto-group-yafu-3Lz">
           <div class="item--8NS">아이디</div>
-          <div class="dorandoran-d4J">dorandoran</div>
+          <div class="dorandoran-d4J"><a th:text="${session.loginUser.userId}"></div>
         </div>
         <div class="auto-group-25ml-92e">
-          <div class="item--5S6">생년월일</div>
-          <div class="item-0000-00-00-xEz">0000/00/00</div>
+          <div class="item--5S6">가입일자</div>
+          <div class="item-0000-00-00-xEz"><a th:text="${session.loginUser.inputDtm}"></div>
         </div>
         <div class="auto-group-wata-4J2">
           <div class="item--b34">성별</div>
-          <div class="item--t2A">여성</div>
+          <div class="item--t2A"><a th:text="${session.loginUser.userGen}"></div>
         </div>
         <div class="auto-group-2gm8-B1G">
           <div class="item--Hpz">이메일</div>
-          <div class="group-19-zzJ">
-            <div class="dorandorannaverc-8ai">dorandoran@naver.c</div>
-            <div class="line-6-2vz">
-            </div>
-          </div>
+          <input class="group-19-zzJ" id="userEmail" placeholder="이메일을 입력해주세요.">
         </div>
         <div class="auto-group-g9vc-YPY">
           <div class="item--G4e">전화번호</div>
-          <div class="group-20-7b4">010-1234-5678</div>
+          <input class="group-20-7b4" id="userTel" placeholder="전화번호를 입력해주세요.">c
         </div>
         <div class="auto-group-9ehg-ajY">
           <div class="item--6xn">닉네임</div>
-          <div class="group-21-D1p">도란이</div>
+          <input class="group-21-D1p" id="userNick" placeholder="닉네임을 입력해주세요.">
         </div>
         <div class="auto-group-d9p8-65c">
           <div class="item--p1c">지역</div>
-          <div class="group-22-tGN">oo시 oooo</div>
+          <input class="group-22-tGN" id="userLoc" placeholder="지역을 입력해주세요.">
         </div>
-        <div class="group-23-Ybp">ooo ooo</div>
-        <div class="auto-group-8eqa-aoQ">정보 변경하기</div>
+        <button class="auto-group-8eqa-aoQ" style="cursor:pointer;">정보 변경하기</div>
       </div>
     </div>
     <!-- 상세창 내부 끝 -->
     
   </div>
+</div>
+
 </div>
 </body>

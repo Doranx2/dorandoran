@@ -9,11 +9,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <title>작성한 글 목록</title>
-  <link rel="stylesheet" th:href="@{/writingListPage/mypage.css}"/>
 </head>
 <!-- head 끝 -->
 
 <body>
+<div layout:fragment="content">
+
+<link rel="stylesheet" th:href="@{/css/writingListPage.css}"/>
+
 <div class="item--T9Y">
 
   <div class="auto-group-6xuv-y7t">
@@ -23,18 +26,20 @@
         <div class="auto-group-nvqa-vKx">
           <p class="item--4h4">
             <span class="item--4h4-sub-0">활동 지역은 </span>
-            <span class="item--4h4-sub-1">‘도란시’</span>
+            <span class="item--4h4-sub-1">‘<a th:text="${session.loginUser.userLoc}"></a>’</span>
             <span class="item--4h4-sub-2"> 입니다.</span>
           </p>
-          <p class="item--84e">도란이 님</p>
-          <p class="nnnn-nn-nn-Drn">nnnn. nn. nn</p>
+          <p class="item--84e"><a th:text="${session.loginUser.userNm}"></a> 님</p>
+          <p class="nnnn-nn-nn-Drn"><a th:text="${session.loginUser.inputDtm}"></a></p>
         </div>
       </div>
       <div class="auto-group-hazv-j4S">
         <p class="nnnn--3L2">
         오늘은 도란도란과 함께한 지
-        <br/>
-        + nnnn 일 되는 날입니다!
+        <br>
+        + nnnn 일 
+        <br>
+        되는 날입니다!
         </p>
       </div>
       <div class="rectangle-104-iwx">
@@ -50,7 +55,7 @@
         <div class="group-33-M7k">
           <div class="rectangle-106-u9G">
           </div>
-          <p class="item--q2v">공지 확인하기</p>
+          <a class="item--q2v" href="/admin/getAdNoticeList" style="cursor: pointer;">공지 확인하기</a>
         </div>
       </div>
     </div>
@@ -72,18 +77,18 @@
       <div class="rectangle-87-zbx">
       </div>
       <div class="frame-1147-vkW">
-        <div th:href="@{/userPage/userUpdate?page=1}" class="item--eAi">개인 정보 확인      </div>
-        <div th:href="@{/userPage/playListPage?page=1}" class="item--jhx">모임 목록</div>
-        <div th:href="@{/userPage/marketListPage?page=1}" class="item--ScN">장터 목록</div>
-        <div th:href="@{/userPage/writingListPage?page=1}" class="item--9Ft">작성한 글 목록</div>
-        <div th:href="@{/userPage/questionListPage?page=1}" class="item--Skn">고객센터 글 목록</div>
+        <div class="item--eAi" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인      </div>
+        <div class="item--jhx" onclick="location.href='/userPage/playListPage'" style="cursor:pointer;">모임 목록</div>
+        <div class="item--ScN" onclick="location.href='/userPage/marketListPage'" style="cursor:pointer;">장터 목록</div>
+        <div class="item--9Ft" onclick="location.href='/userPage/writingListPage'" style="cursor:pointer;">작성한 글 목록</div>
+        <div class="item--Skn" onclick="location.href='/userPage/questionListPage'" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
       <div class="icon-media-play-M74">
         <img class="icon-media-play-534" th:src="@{/images/mediaPlayIcon.png}"/>
         <img class="vector-zfp" th:src="@{/images/mediaPlayIcon.png}"/>
         <div class="icon-media-play-8n2">
           <img class="vector-VMg" th:src="@{/images/mediaPlayIcon.png}"/>
-          <div class="./assets/mediaPlayIcon.png">
+          <div class="icon-media-play-38J">
             <img class="vector-zpE" th:src="@{/images/mediaPlayIcon.png}"/>
             <img class="icon-media-play-k2i" th:src="@{/images/mediaPlayIcon.png}"/>
           </div>
@@ -121,15 +126,10 @@
               <div class="item--2GN">예쁜 카페 가요~</div>
               <div class="item-0000-00-00-KWN">0000/00/00</div>
             </div>
-            <div class="group-25-qjc">
-              <div class="item--B2n">예쁜 카페 가요~</div>
-              <div class="item-0000-00-00-SjQ">0000/00/00</div>
-              <div class="item-1-Lpn">1</div>
-              <div class="group-24-eKg">
-                <div class="item-3-az2">3</div>
-                <div class="item--hYr">예쁜 카페 가요~</div>
-                <div class="item-0000-00-00-obt">0000/00/00</div>
-              </div>
+            <div class="group-27-WmC">
+                <div class="item-4-3m8">3</div>
+                <div class="item--xdC">예쁜 카페 가요~</div>
+                <div class="item-0000-00-00-Tpr">0000/00/00</div>
             </div>
             <div class="group-27-WmC">
               <div class="item-4-3m8">4</div>
@@ -159,5 +159,7 @@
     <!-- 상세창 내부 -->
 
   </div>
+</div>
+
 </div>
 </body>

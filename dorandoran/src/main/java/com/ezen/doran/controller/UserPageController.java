@@ -28,29 +28,51 @@ public class UserPageController {
 		return mv;
 	}
 	
-	// selectUser
-//	@RequestMapping("/selectUser")
-//	public ModelAndView selectUser(@RequestParam int joinNo) {
-//		ModelAndView mv = new ModelAndView();
-//		
-//	}
 	
+	@RequestMapping("/updateUserPage")
+	public ModelAndView updateUser() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/userPage/updateUserPage.html");
+		return mv;
+	}
+	
+	@RequestMapping("/playListPage")
+	public ModelAndView myPlayList() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/userPage/playListPage.html");
+		return mv;
+	}
+	
+	@RequestMapping("/marketListPage")
+	public ModelAndView myMarketList() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/userPage/marketListPage.html");
+		return mv;
+	}
+	
+	@RequestMapping("/writingListPage")
+	public ModelAndView myWritingList() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/userPage/writingListPage.html");
+		return mv;
+	}
+	
+	@RequestMapping("/questionListPage")
+	public ModelAndView myQuestionList() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/userPage/questionListPage.html");
+		return mv;
+	}
+	
+	
+	// selectUser
 	
 	// updateUser(UserDTO)
-//	@RequestMapping("/updateUser")
-//	public ModelAndView selectUser(@RequestParam int joinNo) {
-//		ModelAndView mv = new ModelAndView();
-//		
-//	}
-	
-	
-	// deleteUser(int)
-//	@RequestMapping("/deletetUser")
-//	public ModelAndView selectUser(@RequestParam int joinNo) {
-//		ModelAndView mv = new ModelAndView();
-//		
-//	}
-	
 	
 	// selectMyMarketList(int, String)
 	

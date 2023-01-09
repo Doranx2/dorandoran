@@ -1,8 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko"
-    xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
 
 <!-- head -->
 <head>
@@ -11,11 +9,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <title>모임목록</title>
-  <link rel="stylesheet" th:href="@{/css/playListPage.css}"/>
 </head>
 <!-- head 끝 -->
 
 <body>
+<div layout:fragment="content">
+
+<link rel="stylesheet" th:href="@{/css/playListPage.css}"/>
+
 <div class="item--YUv">
 
   <div class="auto-group-slf4-4TG">
@@ -25,21 +26,21 @@
         <div class="auto-group-58us-doC">
           <p class="item--muQ">
             <span class="item--muQ-sub-0">활동 지역은 </span>
-            <span class="item--muQ-sub-1">‘도란시’</span>
+            <span class="item--muQ-sub-1">‘<a th:text="${session.loginUser.userLoc}"></a>’</span>
             <span class="item--muQ-sub-2"> 입니다.</span>
           </p>
-          <p class="item--1xA">도란이 님</p>
-          <p class="nnnn-nn-nn-iLn">nnnn. nn. nn</p>
+          <p class="item--1xA"><a th:text="${session.loginUser.userNm}"></a> 님</p>
+          <p class="nnnn-nn-nn-iLn"><a th:text="${session.loginUser.inputDtm}"></a></p>
         </div>
       </div>
       <div class="auto-group-ezwe-QUW">
         <p class="nnnn--vxe">
         오늘은 도란도란과 함께한 지
-        <br/>
-        + nnnn 일 되는 날입니다!
+        <br>
+        + nnnn 일 
+        <br>
+        되는 날입니다!
         </p>
-      </div>
-      <div class="rectangle-104-ECe">
       </div>
     </div>
     
@@ -52,7 +53,7 @@
         <div class="group-33-Tjc">
           <div class="rectangle-106-1WE">
           </div>
-          <p class="item--YWA">공지 확인하기</p>
+          <a class="item--YWA" href="/admin/getAdNoticeList" style="cursor: pointer;">공지 확인하기</a>
         </div>
       </div>
     </div>
@@ -75,11 +76,11 @@
       </div>
 
       <div class="frame-1147-D1x">
-        <div th:href="@{/userPage/userUpdate?page=1}" class="item--X2e">개인 정보 확인      </div>
-        <div th:href="@{/userPage/playListPage?page=1}" class="item--pnS">모임 목록</div>
-        <div th:href="@{/userPage/marketListPage?page=1}" class="item--vqU">장터 목록</div>
-        <div th:href="@{/userPage/writingListPage?page=1}" class="item--ErA">작성한 글 목록</div>
-        <div th:href="@{/userPage/questionListPage?page=1}" class="item--x1U">고객센터 글 목록</div>
+        <div class="item--X2e" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인      </div>
+        <div class="item--pnS" onclick="location.href='/userPage/playListPage'" style="cursor:pointer;">모임 목록</div>
+        <div class="item--vqU" onclick="location.href='/userPage/marketListPage'" style="cursor:pointer;">장터 목록</div>
+        <div class="item--ErA" onclick="location.href='/userPage/writingListPage'" style="cursor:pointer;">작성한 글 목록</div>
+        <div class="item--x1U" onclick="location.href='/userPage/questionListPage'" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
 
       <div class="icon-media-play-3Yi">
@@ -103,7 +104,7 @@
       </div>
       <div class="auto-group-nuxn-EHk">
         <div class="group-31-ABQ">
-          <div class="item--hSE">‘도란이’님의 모임 목록</div>
+          <div class="item--hSE">‘<a th:text="${session.loginUser.userNm}"></a>’님의 모임 목록</div>
 
           <div class="list-kfQ">
             <div class="frame-1134-gox">
@@ -137,7 +138,7 @@
         </div>
 
         <div class="group-32-c4e">
-          <div class="item--Mnv">‘도란이’님의 모임 신청 목록</div>
+          <div class="item--Mnv">‘<a th:text="${session.loginUser.userNm}"></a>’님의 모임 신청 목록</div>
           <div class="list-DaE">
             <div class="frame-1134-wWE">
               <div class="auto-group-pgqx-UFG">
@@ -173,5 +174,7 @@
     <!-- 상세창 내부 끝 -->
 
   </div>
+</div>
+
 </div>
 </body>
