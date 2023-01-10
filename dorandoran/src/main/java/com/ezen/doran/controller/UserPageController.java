@@ -1,11 +1,17 @@
 package com.ezen.doran.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ezen.doran.dto.PlayDTO;
+import com.ezen.doran.dto.UserDTO;
 import com.ezen.doran.service.userPage.UserPageService;
 
 @RestController
@@ -70,9 +76,26 @@ public class UserPageController {
 	}
 	
 	
-	// selectUser
-	
 	// updateUser(UserDTO)
+	@RequestMapping("/updateUser")
+	public void updateUser(UserDTO UserDTO, HttpServletResponse response) throws Exception {
+		UserPageService.updateUser(UserDTO);
+		
+		response.sendRedirect("/userPage/updateUserPage");
+	}
+	
+	
+	// selectMyPlayList(int)
+	@RequestMapping("/selectMyPlayList")
+	public String selectMyPlayList(Model model) {
+		
+		List<PlayDTO> selectMyPlayList = UserPageService.selectMyPlayList();
+		
+		model.addAttribute("selectMyPlayList" , selectMyPlayList);
+		
+		return "/userPage/playListPage.html";
+	}
+	
 	
 	// selectMyMarketList(int, String)
 	
@@ -83,11 +106,8 @@ public class UserPageController {
 	// selectMyShareList(int)
 	
 	
-	// selectMyPlayList(int)
+	// selectMyRepList(int)
 	
 	
 	// selectMyQuestionList(int)
-	
-	
-	// selectMyRepList(int)
 }

@@ -30,6 +30,7 @@
             <span class="item--muQ-sub-2"> 입니다.</span>
           </p>
           <p class="item--1xA"><a th:text="${session.loginUser.userNm}"></a> 님</p>
+          <input type="hidden" id="userNo" th:value="${session.loginUser.userNo}">
           <p class="nnnn-nn-nn-iLn"><a th:text="${session.loginUser.inputDtm}"></a></p>
         </div>
       </div>
@@ -105,22 +106,24 @@
       <div class="auto-group-nuxn-EHk">
         <div class="group-31-ABQ">
           <div class="item--hSE">‘<a th:text="${session.loginUser.userNm}"></a>’님의 모임 목록</div>
-
+			
           <div class="list-kfQ">
             <div class="frame-1134-gox">
               <div class="auto-group-fur8-D3C">
-                <div class="auto-group-cedg-viJ">
-                  <div class="item--fA6">번호</div>
-                  <div class="item--NKQ">제목</div>
-                  <div class="item--HSN">날짜</div>
-                  <div class="item--CZL">상태</div>
-                </div>
-                <div class="auto-group-qihy-7gJ">
-                  <div class="item-1-qMQ">1</div>
-                  <div class="item--jxa">예쁜 카페 가요~</div>
-                  <div class="item-0000-00-00-do4">0000/00/00</div>
-                  <div class="item--kcn">완료</div>
-                </div>
+              <table id="myPlayTable">
+                <tr class="auto-group-cedg-viJ">
+                  <td class="item--fA6">번호</td>
+                  <td class="item--NKQ">제목</td>
+                  <td class="item--HSN">작성일자</td>
+                  <td class="item--CZL">상태</td>
+                </tr>
+                <tr class="auto-group-qihy-7gJ" th:each="play : ${selectMyPlayList}">
+                  <td class="item-1-qMQ" th:text="${play.playNo}"></td>
+                  <td class="item--jxa" th:text="${play.playTitle}"></td>
+                  <td class="item-0000-00-00-do4" th:text="${play.inputDtm eq null ? '' : #strings.substring(play.inputDtm, 0, 10)}"></td>
+                  <td class="item--kcn"></td>
+                </tr>
+              </table>
                 <div class="auto-group-ozvx-gFY">
                   <img class="btn1-o5G" th:src="@{/images/btn1-5LA.png}"/>
                   <div class="item-1-Lqt">1</div>
@@ -142,18 +145,20 @@
           <div class="list-DaE">
             <div class="frame-1134-wWE">
               <div class="auto-group-pgqx-UFG">
-                <div class="auto-group-urfp-bKt">
-                  <div class="item--XDY">번호</div>
-                  <div class="item--SLW">제목</div>
-                  <div class="item--YuL">날짜</div>
-                  <div class="item--U2J">상태</div>
-                </div>
-                <div class="auto-group-r78e-BhQ">
-                  <div class="item-1-Wza">1</div>
-                  <div class="item--Rre">오버워치 하실 분</div>
-                  <div class="item-0000-00-00-8WA">0000/00/00</div>
-                  <div class="item--FKt">진행 중</div>
-                </div>
+                <table id="joinPlayTable">
+                <tr class="auto-group-urfp-bKt">
+                  <td class="item--XDY">번호</td>
+                  <td class="item--SLW">제목</td>
+                  <td class="item--YuL">날짜</td>
+                  <td class="item--U2J">상태</td>
+                </tr>
+                <tr class="auto-group-r78e-BhQ">
+                  <td class="item-1-Wza">1</td>
+                  <td class="item--Rre">오버워치 하실 분</td>
+                  <td class="item-0000-00-00-8WA">0000/00/00</td>
+                  <td class="item--FKt">진행 중</td>
+                </tr>
+                </table>
                 <div class="auto-group-lcft-mZ8">
                   <img class="btn1-HGa" th:src="@{/images/btn1-5LA.png}"/>
                   <div class="item-1-2V4">1</div>
