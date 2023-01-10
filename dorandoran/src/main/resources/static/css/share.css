@@ -68,7 +68,7 @@
 	}
 */
 
-	.playContentInput {
+	.shareContentInput {
 		width: 70%;
 		height: 620px;
 		background: rgba(245, 245, 245, 1);
@@ -83,7 +83,7 @@
 		font-size : 1.5em;
 	}
 
-	.playTitleInput {
+	.shareTitleInput {
 		width: 70%;
 		height: 70px;
 		background: rgba(245, 245, 245, 1);
@@ -120,7 +120,7 @@
 	.insertBtn {
 		width: 120px;
 		height: 60px;
-		background: rgba(251, 243, 206, 1);
+		background: #cfe1fc;
 		opacity: 1;
 		position: absolute;
 		top: 1489px;
@@ -130,12 +130,12 @@
 		overflow: hidden;
 		font-size: 1.5em;
 		font-weight: bold;
-		color :#EEC400;
+		color :#1761A0;
 	}
 	
 	.insertBtn:hover {
-		background: #CFE1FC;
-		color : #1761A0;
+		background: #fefdf5;
+		color : #ecc200;
 	}
 
 	.v112_55 {
@@ -192,9 +192,9 @@
 
 	.v112_784 {
 		width: 570px;
-		color: #EEC400;
+		color: #1761A0;
 		position: absolute;
-		top: 620px;
+		top: 457px;
 		left: 330px;
 		font-family: EF_AONE;
 		font-weight: lighter;
@@ -202,6 +202,48 @@
 		opacity: 1;
 		text-align: left;
 	}
+	
+	.v89_468 {
+		width: 130px;
+	    color: #1761A0;
+	    position: absolute;
+	    top: 570px;
+	    left: 335px;
+	    font-family: Inter;
+	    font-weight: bold;
+	    font-size: 30px;
+	    opacity: 1;
+	    text-align: left;
+	}
+	
+	.conditionBtns {
+		height: 60px;
+		opacity: 1;
+		position: absolute;
+		top: 622px;
+		left:325px;
+		margin : 20px;
+	}
+
+	.conditionBtns input[type=radio]{
+	    display: none;
+	}
+	.conditionBtns input[type=radio] + label {
+	    color: #000000;
+	    background: rgba(245, 245, 245, 1);
+	    border-radius: 100px;
+	    font-size: 1.5em;
+	    padding-top: 15px;
+	    padding-bottom: 15px;
+	    padding-left: 25px;
+	    padding-right: 25px;
+	    margin: 10px;
+	}
+	.conditionBtns input[type=radio]:checked + label {
+	    background: #1761A0;
+	    color:#FFFFFF;
+	}
+	
 	
 	/* getPlayList */
 	
@@ -300,8 +342,8 @@
 	  text-align: left;
 	} */
 	
-	/*
-	.playListContainer {
+	
+	.shareListContainer {
 	  width: 70%;
 	  height: 528px;
 	  background: rgba(245,245,245,1);
@@ -314,7 +356,7 @@
 	  border-bottom-left-radius: 10px;
 	  border-bottom-right-radius: 10px;
 	  overflow: hidden;
-	} */
+	} 
 	
 	.v89_482 {
 	  width: 100%;
@@ -464,7 +506,7 @@
 	  text-align: center;
 	}
 	
-	#playTable{
+	#shareTable{
 	  width: 100%;
       margin: 10px auto;
       color: #9f9f9f;
@@ -514,7 +556,7 @@
 	}
 	
 	.first:hover, .last:hover, .left:hover, .right:hover {
-		color :#EEC400;
+		color :#1761A0;
 	}
 	
 	.pagination a:active {
@@ -538,12 +580,14 @@
 	}
 	
 	.modal .num:hover {
-		background-color : #EEC400;
+		background-color : #1761A0;
+		color:#FFFFFF;
 		cursor : pointer;
 	}
 	
 	.modal .num.active, .modal .num:active {
-		background-color : #EEC400;
+		background-color : #1761A0;
+		color:#FFFFFF;
 		cursor : pointer;
 	}
 	
@@ -606,7 +650,7 @@
   .replyInputContainer {
     width: 70%;
     height: 50px;
-    background: rgba(251, 243, 206, 1);
+    background: #CFE1FC;
     opacity: 1;
     position: absolute;
     top: 97%;
@@ -635,10 +679,10 @@
   .bar1 {
     width: 70%;
     height: 12px;
-    background: rgba(251, 243, 206, 1);
+    background: #CFE1FC;
     opacity: 1;
     position: absolute;
-    top: 778px;
+    top: 783px;
     left: 327px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -650,7 +694,7 @@
   .bar2 {
     width: 70%;
     height: 12px;
-    background: rgba(251, 243, 206, 1);
+    background: #CFE1FC;
     opacity: 1;
     position: absolute;
     top: 1393px;
@@ -665,7 +709,7 @@
   .replyInsertBtn {
     width: 80px;
     height: 50px;
-    background:#EEC400;
+    background:#1761A0;
     opacity: 1;
     position: absolute;
     top: 97%;
@@ -676,7 +720,7 @@
     overflow: hidden;
     font-size: 1.2em;
     font-weight: bold;
-    color:#fbf3ce;
+    color:#CFE1FC;
     z-index: 1;
   }
 
@@ -693,10 +737,10 @@
     text-align: left;
   }
 
-  .playContentContainer {
+  .shareContentContainer {
     width: 70%;
     height: 600px;
-    background:#fefdf5;
+    background:#edf4ff;
     position: absolute;
     top: 793px;
     left: 327px;
@@ -705,7 +749,7 @@
     padding:15px;
   }
 
-  .playTitle {
+  .shareTitle {
     color: rgba(0, 0, 0, 1);
     position: absolute;
     top: 36%;
@@ -715,11 +759,11 @@
     font-size: 40px;
     opacity: 1;
     text-align: left;
-    border-bottom : 10px dotted #fbf3ce;
+    border-bottom : 10px dotted #CFE1FC;
     padding-bottom: 10px;
   }
 
-  .playContent {
+  .shareContent {
     width: 401px;
     font-family: Inter;
     font-weight: Bold;
@@ -763,8 +807,8 @@
   .backBtn {
 	width: 110px;
     height: 40px;
-    background: #EEC400;
-    color : #fbf3ce;
+    background: #1761A0;
+    color : #CFE1FC;
     opacity: 1;
     position: absolute;
     top: 44%;
@@ -777,8 +821,8 @@
   }
   
   .updateBtn:hover, .deleteBtn:hover, .replyInsertBtn:hover, .backBtn:hover, .reReplyInsertBtn:hover {
-	  background-color: #CFE1FC ;
-	  color : #1761A0;
+	  background-color: #fbf3ce ;
+	  color : #EEC400;
 	  cursor : pointer;
   }
   
@@ -797,7 +841,7 @@
   }
   
   .replyUl{
-	background: rgba(251, 243, 206, 1);
+	background: #CFE1FC;
 	border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -806,7 +850,7 @@
   }
   
   .replyUserNm{
-	background: #ecc200;
+	background: #1761A0;
     border-radius: 20px;
     color: white;
     height: 28px;
@@ -826,14 +870,14 @@
   
   .replyContent:focus{
 	  outline:none;
-	  color : #1761A0;
+	  color : #ecc200;
 	  font-weight: bold;
   }
   
   .reReplyInputContainer{
 	width: 80%;
     height: 50px;
-    background: rgba(251, 243, 206, 1);
+    background: #CFE1FC;
     opacity: 1;
     left: 5%;
     border-top-left-radius: 10px;
@@ -845,7 +889,7 @@
  .reReplyInsertBtn{
 	width: 79px;
     height: 50px;
-    background: #EEC400;
+    background: #1761A0;
     opacity: 1;
     border: 0px;
     border-top-right-radius: 10px;
@@ -853,17 +897,31 @@
     overflow: hidden;
     font-size: 1.2em;
     font-weight: bold;
-    color: #fbf3ce;
+    color: #CFE1FC;
     z-index: 1;
  }
  
  .reReplyUl{
 	left: 5%;
-    border: 3px dotted #EEC400;
+    border: 3px dotted #1761A0;
 	border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin:20px auto;
     padding : 5px;
+ }
+ 
+ .shareCat{
+	top: 499px;
+    left: 345px;
+    background: #ecc200;
+    font-size: 1.6em;
+    border-radius: 199px;
+    padding-top: 15px;
+	padding-bottom: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+    font-weight: bold;
+    color: #ffffff;
  }

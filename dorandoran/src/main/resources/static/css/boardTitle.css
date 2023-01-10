@@ -145,3 +145,24 @@
 		background: #CFE1FC;
 		color : #1761A0;
 	}
+	
+	.insertPageBtn_b{
+		width: 230px;
+	    height: 45px;
+	    opacity: 1;
+	    position: absolute;
+	    top: 492px;
+	    left: 351px;
+	    overflow: hidden;
+	    background: #1761A0;
+	    color:#FFFFFF;
+	    border-radius: 10px;
+	    border : 0px;
+	    font-size: 1.4em;
+	    font-weight: bolder;
+	}
+	
+	.insertPageBtn_b:hover {
+		background: #EEC400;
+		color : rgb(255, 251, 232) ;
+	}
