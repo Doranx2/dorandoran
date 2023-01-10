@@ -8,24 +8,24 @@
 			<div class="v9_2" onclick="location.href='/'" style="cursor:pointer;"></div>
 			<div class="v9_3">
 				<a class="v9_4">함께해요</a>
-				<a class="v9_5">공유해요</a>
+				<a class="v9_5"  th:href="@{/share/selectShareList}">공유해요</a>
 				<a class="v9_6">도와줘요</a>
 			</div>
 			<div class="v9_7">
 				<a class="v9_8" th:href="@{/play/selectPlayList}">놀아줘요</a>
-				<a class="v9_9">도란장터</a>
+				<a class="v9_9" th:href="@{/market/selectMarketList}">도란장터</a>
 				<a class="v9_10">고객센터</a>
 			</div>
 			<div class="v9_14">
 			
 			<div th:if="${session.loginUser eq null}" th:remove="tag">
-				<button class="headerBtn" id="login" onclick="location.href='/temp/loginPage'">LOGIN</button>
-				<button class="headerBtn" id="join">JOIN</button>
+				<button class="headerBtn" id="login" onclick="location.href='/temp/loginPage'" style="color:#FFFFFF; font-size:13px;">LOGIN</button>
+				<button class="headerBtn" id="join" style="color:#FFFFFF; font-size:13px;">JOIN</button>
 			</div>
 			
-			<div th:if="${session.loginUser ne null}" th:remove="tag">
-				<button class="headerBtn" id="userId" onclick="location.href='./userPage/updateUserPage'"><a th:text="${session.loginUser.userId}"></a></button>
-				<button class="headerBtn" id="logout" onclick="location.href='/temp/logout'">LOGOUT</button>
+			<div th:if="${session.loginUser ne null}" th:remove="tag" >
+				<button class="headerBtn" id="userName"><a th:text="${session.loginUser.userId}" style="color:#FFFFFF; font-size:13px;"></a></button>
+				<button class="headerBtn" id="logout" onclick="location.href='/temp/logout'" style="color:#FFFFFF; font-size:13px;">LOGOUT</button>
 			</div>
 				<img class="likeIcon" th:src="@{/images/flat-color-icons-like.png}"/>
 			</div>

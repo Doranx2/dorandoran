@@ -23,62 +23,6 @@
 		overflow: hidden;
 	}
 
-	.v89_238 {
-		width: 432px;
-		height: 129px;
-		opacity: 1;
-		position: absolute;
-		top: 115px;
-		left: 327px;
-		overflow: hidden;
-	}
-
-	.v89_239 {
-		width: 63px;
-		height: 60px;
-		background: rgba(251, 243, 206, 1);
-		opacity: 1;
-		position: absolute;
-		top: 0px;
-		left: 4px;
-		overflow: hidden;
-	}
-
-	.v89_240 {
-		width: 36px;
-		height: 39px;
-		background: rgba(251, 243, 206, 1);
-		opacity: 1;
-		position: absolute;
-		top: 75px;
-		left: 247px;
-		overflow: hidden;
-	}
-
-	.v89_241 {
-		width: 414px;
-		color: rgba(0, 0, 0, 1);
-		position: absolute;
-		top: 38px;
-		left: 19px;
-		text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.30000001192092896);
-		font-family: EF_AONE;
-		font-weight: Regular;
-		font-size: 64px;
-		opacity: 1;
-		text-align: left;
-	}
-
-	.v89_245 {
-		width: 100%;
-		height: 1023px;
-		opacity: 1;
-		position: absolute;
-		/*top: 398px;*/
-		left: 845px;
-		overflow: hidden;
-	}
-
 	.v89_246 {
 		width: 776px;
 		height: 699px;
@@ -112,15 +56,17 @@
 		overflow: hidden;
 	}
 
+/*
 	.v89_249 {
 		width: 550px;
-		height: 550px;
-		opacity: 1;
-		position: absolute;
-		top: 92px;
-		left: 1045px;
-		overflow: hidden;
+	    height: 550px;
+	    opacity: 1;
+	    position: absolute;
+	    top: 5%;
+	    left: 55%;
+	    overflow: hidden;
 	}
+*/
 
 	.playContentInput {
 		width: 70%;
@@ -259,6 +205,7 @@
 	
 	/* getPlayList */
 	
+	/*
 	.v19_9 {
 	  width: 100%;
 	  height: 1317px;
@@ -269,7 +216,8 @@
 	  left: 0px;
 	  overflow: hidden;
 	  position: relative;
-	}
+	} */
+	
 	.v21_25 {
 	  width: 432px;
 	  height: 129px;
@@ -316,6 +264,8 @@
 	  opacity: 1;
 	  text-align: left;
 	}
+	
+	/*
 	.v21_78 {
 	  width: 618px;
 	  height: 198px;
@@ -348,8 +298,9 @@
 	  font-size: 20px;
 	  opacity: 1;
 	  text-align: left;
-	}
+	} */
 	
+	/*
 	.playListContainer {
 	  width: 70%;
 	  height: 528px;
@@ -363,7 +314,8 @@
 	  border-bottom-left-radius: 10px;
 	  border-bottom-right-radius: 10px;
 	  overflow: hidden;
-	}
+	} */
+	
 	.v89_482 {
 	  width: 100%;
 	  height: 528px;
@@ -379,6 +331,7 @@
 	  overflow: hidden;
 	}
 	
+	/*
 	.insertPageBtn{
 		width: 230px;
 	    height: 45px;
@@ -399,6 +352,7 @@
 		background: #CFE1FC;
 		color : #1761A0;
 	}
+	*/
 	
 	.searchInput {
 	  width: 282px;
@@ -518,7 +472,7 @@
 	}
 	
 	tr{
-   	  height: 45px;
+   	  height: 54px;
    	  font-size: 1.2em;
 	}
 	
@@ -604,15 +558,49 @@
 	
 	/* selectPlay */
 	
+	.replyBtns{
+		display: flex;
+	    justify-content: flex-end;
+	    padding: 10px;
+	}
+	
+	.replyBtns button{
+		width: 5.9%;
+	    font-size: 1em;
+	    background: none;
+	    border: 0px;
+	    color: #1761a0;
+	    font-weight: bolder;
+	}
+	
+	.reReplyBtns{
+		display: flex;
+	    justify-content: flex-end;
+	    padding: 10px;
+	}
+	
+	.reReplyBtns button{
+		width: 49px;
+	    font-size: 1em;
+	    background: none;
+	    border: 0px;
+	    color: #1761a0;
+	    font-weight: bolder;
+	}
+	
+	.replyBtns button:hover, .reReplyBtns button:hover{
+		cursor:pointer;
+		color:#EEC400;
+	}
+	
 	.v112_539 {
     width: 100%;
-    height: 1800px;
+    height: 1586px;
     background: rgba(255, 255, 255, 1);
     opacity: 1;
     position: absolute;
     top: 0px;
     left: 0px;
-    overflow: hidden;
   }
 
   .replyInputContainer {
@@ -621,7 +609,7 @@
     background: rgba(251, 243, 206, 1);
     opacity: 1;
     position: absolute;
-    top: 84%;
+    top: 97%;
     left: 17%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -634,9 +622,9 @@
   .replyInput{
     background: none;
     border: 0px;
-    width: 93%;
+    width: 90%;
     height: 25px;
-    padding: 0px;
+    padding: 10px;
     font-size: 1.3em;
   }
   
@@ -680,7 +668,7 @@
     background:#EEC400;
     opacity: 1;
     position: absolute;
-    top: 84%;
+    top: 97%;
     left: 83%;
     border : 0px;
     border-top-right-radius: 10px;
@@ -696,7 +684,7 @@
     width: 62px;
     color: rgba(0, 0, 0, 1);
     position: absolute;
-    top: 1441px;
+    top: 1480px;
     left: 327px;
     font-family: Inter;
     font-weight: Bold;
@@ -720,7 +708,7 @@
   .playTitle {
     color: rgba(0, 0, 0, 1);
     position: absolute;
-    top: 35%;
+    top: 36%;
     left: 18%;
     font-family: Inter;
     font-weight: Bold;
@@ -748,7 +736,7 @@
     background: rgba(181, 179, 179, 1);
     opacity: 1;
     position: absolute;
-    top: 79%;
+    top: 90%;
     left: 76%;
     border : 0px;
     border-radius: 10px;
@@ -763,7 +751,7 @@
     background: rgba(181, 179, 179, 1);
     opacity: 1;
     position: absolute;
-    top: 79%;
+    top: 90%;
     left: 82%;
     border : 0px;
     border-radius: 10px;
@@ -779,7 +767,7 @@
     color : #fbf3ce;
     opacity: 1;
     position: absolute;
-    top: 40%;
+    top: 44%;
     left: 80%;
     border: 0px;
     border-radius: 10px;
@@ -788,8 +776,94 @@
     font-weight: bold;
   }
   
-  .updateBtn:hover, .deleteBtn:hover, .replyInsertBtn:hover, .backBtn:hover {
+  .updateBtn:hover, .deleteBtn:hover, .replyInsertBtn:hover, .backBtn:hover, .reReplyInsertBtn:hover {
 	  background-color: #CFE1FC ;
 	  color : #1761A0;
 	  cursor : pointer;
   }
+  
+  .replyListContainer {
+	width: 70%;
+    top: 87%;
+    left: 17%;
+    padding: 15px;
+  }
+  
+  .replyList{
+	width:80%;
+    opacity: 1;
+    /* padding: 15px; */
+    /* overflow: hidden; */
+  }
+  
+  .replyUl{
+	background: rgba(251, 243, 206, 1);
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin:20px auto;
+  }
+  
+  .replyUserNm{
+	background: #ecc200;
+    border-radius: 20px;
+    color: white;
+    height: 28px;
+    text-align: center;
+    line-height: 1.7;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 11%;
+  }
+  
+  .replyContent{
+	padding: 20px;
+    font-size: 1.3em;
+    width: 1078px;
+    background: none;
+  }
+  
+  .replyContent:focus{
+	  outline:none;
+	  color : #1761A0;
+	  font-weight: bold;
+  }
+  
+  .reReplyInputContainer{
+	width: 80%;
+    height: 50px;
+    background: rgba(251, 243, 206, 1);
+    opacity: 1;
+    left: 5%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+ .reReplyInsertBtn{
+	width: 79px;
+    height: 50px;
+    background: #EEC400;
+    opacity: 1;
+    border: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fbf3ce;
+    z-index: 1;
+ }
+ 
+ .reReplyUl{
+	left: 5%;
+    border: 3px dotted #EEC400;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin:20px auto;
+    padding : 5px;
+ }

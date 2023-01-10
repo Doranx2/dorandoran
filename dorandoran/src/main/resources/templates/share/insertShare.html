@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			$(function () {
+
+				$("#updateForm").hide();
+				let updateCheck = /*[[${update}]]*/;
+
+				if (!updateCheck) {
+					console.log("INSERT!");
+				} else {
+					console.log("UPDATE!");
+					$("#insertForm").hide();
+					$("#updateForm").show();
+
+					const shareTitle = /*[[${share.shareTitle}]]*/;
+					const shareContent = /*[[${share.shareContent}]]*/;
+					const shareNo = /*[[${share.shareNo}]]*/;
+					const shareCat = /*[[${share.shareCat}]]*/;
+
+					$('input[name=shareTitle]').attr('value', shareTitle);
+					$('input[name=shareNo]').attr('value', shareNo);
+					$("#shareContent").append(shareContent);
+					$("input:radio[name='shareCat']:radio[value=" + shareCat + "]").prop("checked", true);
+
+				}
+			});
+		</script>
+	</th:block>
+
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<link rel="stylesheet" th:href="@{/css/boardTitle.css}" />
+		<link rel="stylesheet" th:href="@{/css/share.css}" />
+		<div class="v112_539" style="position: relative;">
+
+			<div id="insertForm">
+				<form id="insertShare" method="post" action="/share/insertShare">
+					<div class="v89_238">
+						<div class="v89_239" style="background-color: #cfe1fc;"></div>
+						<div class="v89_240" style="background-color: #cfe1fc;"></div>
+						<span class="v89_241">공유해요</span>
+					</div>
+					<span class="v112_784">공유해요 글쓰기</span>
+					<div class="v89_245">
+						<img class="backImg" th:src="@{/images/boardBack_b.png}" />
+					</div>
+					<div class="v89_249">
+						<img class="iconImg" th:src="@{/images/shareIcon.png}" />
+					</div>
+					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
+					<span class="v89_468">카테고리</span>
+					<div class="conditionBtns">
+						<input type="radio" id="condition1" name="shareCat" value="맛집" checked><label
+							for="condition1">맛집</label>
+						<input type="radio" id="condition2" name="shareCat" value="병원"><label
+							for="condition2">병원</label>
+						<input type="radio" id="condition3" name="shareCat" value="홍보"><label
+							for="condition3">홍보</label>
+					</div>
+					<!-- 제목 -->
+					<input id="shareTitleInput" class="shareTitleInput" name="shareTitle" placeholder="제목을 입력하세요.">
+					<!-- 내용 -->
+					<textarea id="shareContentInput" class="shareContentInput" name="shareContent"
+						placeholder="내용을 입력하세요."></textarea>
+					<div class="v112_53">
+					</div>
+					<button id="insertBtn" class="insertBtn" type="submit">등록</button>
+				</form>
+			</div>
+
+			<div id="updateForm">
+				<form id="updateShare" method="post" action="/share/updateShare">
+					<div class="v89_238">
+						<div class="v89_239" style="background-color: #cfe1fc;"></div>
+						<div class="v89_240" style="background-color: #cfe1fc;"></div>
+						<span class="v89_241">공유해요</span>
+					</div>
+					<span class="v112_784">공유해요 글 수정하기</span>
+					<input id="shareNo" name="shareNo" type="hidden">
+					<div class="v89_245">
+						<img class="backImg" th:src="@{/images/boardBack_b.png}" />
+					</div>
+					<div class="v89_249">
+						<img class="iconImg" th:src="@{/images/shareIcon.png}" />
+					</div>
+					<span class="v89_468">카테고리</span>
+					<div class="conditionBtns">
+						<input type="radio" id="condition4" name="shareCat" value="맛집" checked><label
+							for="condition4">맛집</label>
+						<input type="radio" id="condition5" name="shareCat" value="병원"><label
+							for="condition5">병원</label>
+						<input type="radio" id="condition6" name="shareCat" value="홍보"><label
+							for="condition6">홍보</label>
+					</div>
+					<input id="shareTitle" class="shareTitleInput" name="shareTitle" placeholder="제목을 입력하세요.">
+					<textarea id="shareContent" class="shareContentInput" name="shareContent"
+						placeholder="내용을 입력하세요."></textarea>
+					<div class="v112_53">
+					</div>
+					<button id="insertBtn" class="insertBtn" type="submit">등록</button>
+				</form>
+			</div>
+
+			<button id="cancelBtn" class="cancelBtn" onclick="location.href='/share/selectShareList'">취소</button>
+		</div>
+	</div>
+</body>
+
+
+
+</html>
