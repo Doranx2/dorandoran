@@ -480,6 +480,7 @@ body {
   display: flex;
   flex-direction: column;
   border-top: double 6px #1761a0;
+  border-bottom: double 6px #1761a0;
   background-color: #ffffff;
 }
 .item--YUv .auto-group-dzia-7xa .auto-group-8guq-xxW .auto-group-nuxn-EHk .group-31-ABQ {
