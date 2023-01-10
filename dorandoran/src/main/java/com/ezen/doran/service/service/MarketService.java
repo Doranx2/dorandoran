@@ -11,4 +11,10 @@ public interface MarketService {
 	List<MarketDTO> selectMarketList(Pagination pagination);
 	
 	int selectMarketCnt(String searchKeyword);
+	
+	MarketDTO selectMarket(int marketNo);
+	
+	void updateMarket(MarketDTO marketDTO);
+	
+	void deleteMarket(int marketNo);
 }

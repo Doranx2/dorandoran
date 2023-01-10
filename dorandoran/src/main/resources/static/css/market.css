@@ -45,6 +45,8 @@
 
 * {
 		box-sizing: border-box;
+	    position: relative;
+		
 	}
 
 	body {
@@ -364,6 +366,7 @@
 	   	height: 295px;
 	    position: absolute;
 	    width: 295px;
+	    cursor : pointer;
 	    transform: translate(0px, -295px);
 	}
 
@@ -491,3 +494,319 @@
 		border-right: 10px solid blue;
 	}
 	
+	
+	/* selectMarket */
+	
+	.replyBtns{
+		display: flex;
+	    justify-content: flex-end;
+	    padding: 10px;
+	}
+	
+	.replyBtns button{
+		width: 5.9%;
+	    font-size: 1em;
+	    background: none;
+	    border: 0px;
+	    color: #1761a0;
+	    font-weight: bolder;
+	}
+	
+	.reReplyBtns{
+		display: flex;
+	    justify-content: flex-end;
+	    padding: 10px;
+	}
+	
+	.reReplyBtns button{
+		width: 49px;
+	    font-size: 1em;
+	    background: none;
+	    border: 0px;
+	    color: #1761a0;
+	    font-weight: bolder;
+	}
+	
+	.replyBtns button:hover, .reReplyBtns button:hover{
+		cursor:pointer;
+		color:#EEC400;
+	}
+	
+	.v112_539 {
+    width: 100%;
+    height: 1586px;
+    background: rgba(255, 255, 255, 1);
+    opacity: 1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+  .replyInputContainer {
+    width: 70%;
+    height: 50px;
+    background: rgba(251, 243, 206, 1);
+    opacity: 1;
+    position: absolute;
+    top: 97%;
+    left: 17%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 15px;
+    overflow: hidden;
+  }
+  
+  .replyInput{
+    background: none;
+    border: 0px;
+    width: 90%;
+    height: 25px;
+    padding: 10px;
+    font-size: 1.3em;
+  }
+  
+  .replyInput:focus{
+	  outline:none;
+  }
+
+  .replyInsertBtn {
+    width: 80px;
+    height: 50px;
+    background:#EEC400;
+    opacity: 1;
+    position: absolute;
+    top: 97%;
+    left: 83%;
+    border : 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    font-size: 1.2em;
+    font-weight: bold;
+    color:#fbf3ce;
+    z-index: 1;
+  }
+
+  .v112_672 {
+    width: 62px;
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 1480px;
+    left: 327px;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 30px;
+    opacity: 1;
+    text-align: left;
+  }
+
+  .marketContentContainer {
+	width: 70%;
+    height: 300px;
+    background: #fefdf5;
+    position: absolute;
+    top: 1103px;
+    left: 327px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 30px;
+  }
+
+  .marketTitle {
+    color: rgba(0, 0, 0, 1);
+    position: absolute;
+    top: 771px;
+    left: 867px;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 40px;
+    opacity: 1;
+    text-align: left;
+    padding-bottom: 10px;
+  }
+
+  .marketContent {
+    width: 100%;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 30px;
+    text-align: left;
+    color : black;
+    opacity: 1;
+    padding : 20px;
+  }
+
+  .updateBtn {
+    width: 98px;
+    height: 40px;
+    background: rgba(181, 179, 179, 1);
+    opacity: 1;
+    position: absolute;
+    top: 90%;
+    left: 76%;
+    border : 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size : 1.2em;
+    font-weight: bold;
+  }
+
+  .deleteBtn {
+    width: 98px;
+    height: 40px;
+    background: rgba(181, 179, 179, 1);
+    opacity: 1;
+    position: absolute;
+    top: 90%;
+    left: 82%;
+    border : 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size : 1.2em;
+    font-weight: bold;
+  }
+  
+  .backBtn {
+	width: 110px;
+    height: 40px;
+    background: #EEC400;
+    color : #fbf3ce;
+    opacity: 1;
+    position: absolute;
+    top:  687px;
+    left: 80%;
+    border: 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .updateBtn:hover, .deleteBtn:hover, .replyInsertBtn:hover, .backBtn:hover, .reReplyInsertBtn:hover {
+	  background-color: #CFE1FC ;
+	  color : #1761A0;
+	  cursor : pointer;
+  }
+  
+  .replyListContainer {
+	width: 70%;
+    top: 87%;
+    left: 17%;
+    padding: 15px;
+  }
+  
+  .replyList{
+	width:80%;
+    opacity: 1;
+    /* padding: 15px; */
+    /* overflow: hidden; */
+  }
+  
+  .replyUl{
+	background: rgba(251, 243, 206, 1);
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin:20px auto;
+  }
+  
+  .replyUserNm{
+	background: #ecc200;
+    border-radius: 20px;
+    color: white;
+    height: 28px;
+    text-align: center;
+    line-height: 1.7;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 11%;
+  }
+  
+  .replyContent{
+	padding: 20px;
+    font-size: 1.3em;
+    width: 1078px;
+    background: none;
+  }
+  
+  .replyContent:focus{
+	  outline:none;
+	  color : #1761A0;
+	  font-weight: bold;
+  }
+  
+  .reReplyInputContainer{
+	width: 80%;
+    height: 50px;
+    background: rgba(251, 243, 206, 1);
+    opacity: 1;
+    left: 5%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  
+ .reReplyInsertBtn{
+	width: 79px;
+    height: 50px;
+    background: #EEC400;
+    opacity: 1;
+    border: 0px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fbf3ce;
+    z-index: 1;
+ }
+ 
+ .reReplyUl{
+	left: 5%;
+    border: 3px dotted #EEC400;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin:20px auto;
+    padding : 5px;
+ }
+ 
+ .selectImg{
+	top: 687px;
+    left: 351px;
+    width: 338px;
+    height: 400px;
+ }
+ 
+ .marketStatus{
+	color: #EEC400;
+    position: absolute;
+    top: 778px;
+    left: 736px;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 20px;
+    opacity: 1;
+    text-align: center;
+    width: 110px;
+    height: 41px;
+    border: 5px solid;
+ }
+ 
+ .marketPrice{
+	color: #1761A0;
+    position: absolute;
+    top: 888px;
+    left: 867px;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 40px;
+    opacity: 1;
+    text-align: left;
+    padding-bottom: 10px;
+ }

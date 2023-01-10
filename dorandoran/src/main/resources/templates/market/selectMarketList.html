@@ -10,14 +10,12 @@
 		<script th:inline="javascript">
 			function textOver(marketNo) {
 				$("#text" + marketNo).css("display", "block");
-				console.log("!!!!");
 			};
 
 			function textOut(marketNo) {
 				$("#text" + marketNo).css("display", "none");
-				console.log("!!!!");
 			};
-			
+
 			function search() {
 				let searchKeyword = $('#searchKeyword').val();
 				console.log(searchKeyword);
@@ -74,17 +72,36 @@
 						<div th:if="${list.imageNm ne null}" th:remove="tag">
 							<img th:src="@{'/upload/' + ${list.imageNm}}" th:id="'prodImg'+${list.marketNo}"
 								class="prodImage">
-							<div th:id="'text'+${list.marketNo}" class="text" style="display:none;">
+							<div th:id="'text'+${list.marketNo}" class="text" style="display:none;"
+								th:onclick="|location.href='@{/market/selectMarket?marketNo={marketNo} (marketNo = ${list.marketNo})}'|">
 								<a class="title" th:text="${list.prodNm}"></a><br>
 								<a class="price" th:text="${list.price} +' 원'"></a>
-								<a class="status" th:text="${list.status}"></a>
+
+								<div th:if="${list.status eq '거래완료'}" th:remove="tag">
+									<a class="status" th:text="${list.status}" style="background: red;"></a>
+								</div>
+
+								<div th:if="${list.status ne '거래완료'}" th:remove="tag">
+									<a class="status" th:text="${list.status}"></a>
+								</div>
+
+
 							</div>
 						</div>
 
 						<div th:if="${list.imageNm eq null}" th:remove="tag">
-							<a class="title" th:text="${list.prodNm}"></a><br>
-							<a class="price" th:text="${list.price} +' 원'"></a>
-							<a class="status" th:text="${list.status}"></a>
+							<div style="height:100%; cursor:pointer;"
+								th:onclick="|location.href='@{/market/selectMarket?marketNo={marketNo} (marketNo = ${list.marketNo})}'|">
+								<a class="title" th:text="${list.prodNm}"></a><br>
+								<a class="price" th:text="${list.price} +' 원'"></a>
+								<div th:if="${list.status eq '거래완료'}" th:remove="tag">
+									<a class="status" th:text="${list.status}" style="background: red;"></a>
+								</div>
+
+								<div th:if="${list.status ne '거래완료'}" th:remove="tag">
+									<a class="status" th:text="${list.status}"></a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -97,7 +114,7 @@
 			</div>
 
 
-<div class="pagation">
+			<div class="pagation">
 				<div class="page">
 					<ul class="pagination modal">
 						<li class="page-item">

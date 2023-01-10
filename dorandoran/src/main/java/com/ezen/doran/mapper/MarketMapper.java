@@ -2,9 +2,11 @@ package com.ezen.doran.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.ezen.doran.dto.MarketDTO;
 import com.ezen.doran.dto.Pagination;
@@ -21,15 +23,30 @@ public interface MarketMapper {
 			+ ", now()"
 			+ ", #{status}"
 			+ ", #{imageNm})")
-	public void insertMarket(MarketDTO marketDTO);
+	void insertMarket(MarketDTO marketDTO);
 	
 	@Select("SELECT * FROM TB_MARKET"
 			+ " WHERE PROD_NM LIKE CONCAT('%', #{searchKeyword}, '%')"
 			+ " ORDER BY INPUT_DTM DESC"
 			+ " LIMIT #{pageSize} OFFSET #{startIndex}")
-	public List<MarketDTO> selectMarketList(Pagination pagination);
+	List<MarketDTO> selectMarketList(Pagination pagination);
 	
 	@Select("SELECT COUNT(*) FROM TB_MARKET"
 			+" WHERE PROD_NM LIKE CONCAT('%', #{searchKeyword}, '%')")
 	int selectPlayCnt(String searchKeyword);
+	
+	@Select("SELECT * FROM TB_MARKET WHERE MARKET_NO = #{marketNo}")
+	MarketDTO selectMarket(int marketNo);
+	
+	@Update("UPDATE TB_MARKET SET"
+			+ "  PROD_NM = #{prodNm}"
+			+ ", MARKET_CONTENT = #{marketContent}"
+			+ ", PRICE = #{price}"
+			+ ", STATUS = #{status}"
+			+ ", IMAGE_NM = #{imageNm}"
+			+ " WHERE MARKET_NO = #{marketNo}")
+	void updateMarket(MarketDTO marketDTO);
+	
+	@Delete("DELETE FROM TB_MARKET WHERE MARKET_NO = #{marketNo}")
+	void deleteMarket(int marketNo);
 }

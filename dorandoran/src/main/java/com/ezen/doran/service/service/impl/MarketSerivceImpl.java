@@ -31,4 +31,19 @@ public class MarketSerivceImpl implements MarketService{
 		return mapper.selectPlayCnt(searchKeyword);
 	}
 
+	@Override
+	public MarketDTO selectMarket(int marketNo) {
+		return mapper.selectMarket(marketNo);
+	}
+
+	@Override
+	public void updateMarket(MarketDTO marketDTO) {
+		mapper.updateMarket(marketDTO);
+	}
+
+	@Override
+	public void deleteMarket(int marketNo) {
+		mapper.deleteMarket(marketNo);
+	}
+
 }

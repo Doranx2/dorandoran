@@ -11,14 +11,47 @@
 
 			$(function () {
 
-				const inputImage = document.getElementById("input-image")
-				inputImage.addEventListener("change", e => {
-					readImage(e.target)
-				})
+				$("#updateMarket").hide();
+				let updateCheck = /*[[${update}]]*/;
+
+
+				if (!updateCheck) {
+					console.log("INSERT!");
+
+					const inputImage = document.getElementById("input-image")
+					inputImage.addEventListener("change", e => {
+						readImage(e.target)
+					});
+
+				} else {
+					console.log("UPDATE!");
+					$("#insertMarket").hide();
+					$("#updateMarket").show();
+
+					const prodNm = /*[[${market.prodNm}]]*/;
+					const marketContent = /*[[${market.marketContent}]]*/;
+					const marketNo = /*[[${market.marketNo}]]*/;
+					const imageNm = /*[[${market.imageNm}]]*/;
+					const price = /*[[${market.price}]]*/;
+					const status = /*[[${market.status}]]*/;
+
+					$('input[name=prodNm]').attr('value', prodNm);
+					$('input[name=marketNo]').attr('value', marketNo);
+					$('input[name=imageNm]').attr('value', imageNm);
+					$("#marketContent").append(marketContent);
+					$('input[name=price]').attr('value', price);
+					$("input:radio[name='status']:radio[value=" + status + "]").prop("checked", true);
+
+					const inputImage = document.getElementById("update-image")
+					inputImage.addEventListener("change", e => {
+						readUpdateImage(e.target)
+					});
+				};
+
 			});
 
 			function readImage(input) {
-				// 인풋 태그에 파일이 있는 경우
+				// 인풋 태그에 파일이 있는 경우 
 				if (input.files && input.files[0]) {
 					// 이미지 파일인지 검사 (생략)
 					// FileReader 인스턴스 생성
@@ -26,6 +59,22 @@
 					// 이미지가 로드가 된 경우
 					reader.onload = e => {
 						const previewImage = document.getElementById("preview-image")
+						previewImage.src = e.target.result
+					}
+					// reader가 이미지 읽도록 하기
+					reader.readAsDataURL(input.files[0])
+				}
+			};
+
+			function readUpdateImage(input) {
+				// 인풋 태그에 파일이 있는 경우 
+				if (input.files && input.files[0]) {
+					// 이미지 파일인지 검사 (생략)
+					// FileReader 인스턴스 생성
+					const reader = new FileReader()
+					// 이미지가 로드가 된 경우
+					reader.onload = e => {
+						const previewImage = document.getElementById("update-preview-image")
 						previewImage.src = e.target.result
 					}
 					// reader가 이미지 읽도록 하기
@@ -67,46 +116,98 @@
 			</div>
 			<!-- 윗 부분 끝 -->
 
+			<div id="insertMarket">
+				<span class="subTitle">도란장터 글쓰기</span>
 
-			<span class="subTitle">도란장터 글쓰기</span>
+				<form id="insertForm" method="post" action="/market/insertMarket" enctype="multipart/form-data">
+					<span class="v89_472">상품명</span>
+					<div class="v89_463">
+						<input class="MarketInput" name="prodNm" placeholder="상품명을 입력하세요.">
+					</div>
+					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
+					<span class="v89_467">판매가격</span>
+					<div class="v89_465">
+						<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요.">
+					</div>
+					<span class="v89_475">원</span>
 
-			<form id="insertForm" method="post" action="/market/insertMarket" enctype="multipart/form-data">
-				<span class="v89_472">상품명</span>
-				<div class="v89_463">
-					<input class="MarketInput" name="prodNm" placeholder="상품명을 입력하세요.">
-				</div>
-				<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
-				<span class="v89_467">판매가격</span>
-				<div class="v89_465">
-					<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요.">
-				</div>
-				<span class="v89_475">원</span>
+					<span class="v89_468">거래상태</span>
+					<div class="conditionBtns">
+						<input type="radio" id="condition1" name="status" value="SAE" checked><label
+							for="condition1">판매중</label>
+						<input type="radio" id="condition2" name="status" value="RES"><label
+							for="condition2">예약중</label>
+						<input type="radio" id="condition3" name="status" value="SDO"><label
+							for="condition3">판매완료</label>
+					</div>
 
-				<span class="v89_468">거래상태</span>
-				<div class="conditionBtns">
-					<input type="radio" id="condition1" name="status" value="SAE" checked><label
-						for="condition1">판매중</label>
-					<input type="radio" id="condition2" name="status" value="RES"><label for="condition2">예약중</label>
-					<input type="radio" id="condition3" name="status" value="SDO"><label for="condition3">판매완료</label>
-				</div>
+					<span class="v89_444">상품 사진</span>
+					<div class="filebox">
+						<img style="width: 196px;" id="preview-image"
+							src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
+						<label for="input-image">업로드</label>
+						<input type="file" id="input-image" name="file">
+					</div>
 
-				<span class="v89_444">상품 사진</span>
-				<div class="filebox">
-					<img style="width: 196px;" id="preview-image"
-						src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
-					<label for="input-image">업로드</label>
-					<input type="file" id="input-image" name="file">
-				</div>
+					<div class="v89_462">
+						<textarea id="marketContentInput" class="marketContent" name="marketContent"
+							placeholder="내용을 입력하세요."></textarea>
+					</div>
 
-				<div class="v89_462">
-					<textarea id="marketContent" class="marketContent" name="marketContent"
-						placeholder="내용을 입력하세요."></textarea>
-				</div>
+					<button class="insertBtn" onclick="submit">등록</button>
+				</form>
+			</div>
 
-				<button class="insertBtn" onclick="submit">등록</button>
-			</form>
+			<div id="updateMarket">
+				<span class="subTitle">도란장터 글 수정하기</span>
 
-			<button class="cancelBtn">취소</button>
+				<form id="updateForm" method="post" action="/market/updateMarket" enctype="multipart/form-data">
+					<span class="v89_472">상품명</span>
+					<div class="v89_463">
+						<input id="MarketInput" class="MarketInput" name="prodNm" placeholder="상품명을 입력하세요.">
+					</div>
+					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
+					<input id="marketNo" name="marketNo" type="hidden">
+					<input id="imageNm" name="imageNm" type="hidden">
+					<span class="v89_467">판매가격</span>
+					<div class="v89_465">
+						<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요.">
+					</div>
+					<span class="v89_475">원</span>
+
+					<span class="v89_468">거래상태</span>
+					<div class="conditionBtns">
+						<input type="radio" id="condition4" name="status" value="SAE" checked><label
+							for="condition4">판매중</label>
+						<input type="radio" id="condition5" name="status" value="RES"><label
+							for="condition5">예약중</label>
+						<input type="radio" id="condition6" name="status" value="SDO"><label
+							for="condition6">판매완료</label>
+					</div>
+
+					<span class="v89_444">상품 사진</span>
+					<div class="filebox">
+						<div th:if="${market.imageNm eq null}" th:remove="tag">
+							<img style="width: 196px;" id="update-preview-image"src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
+						</div>
+						<div th:if="${market.imageNm ne null}" th:remove="tag">
+							<img style="width: 196px;" id="update-preview-image"
+								th:src="@{'/upload/' + ${market.imageNm}}">
+						</div>
+						<label for="update-image">업로드</label>
+						<input type="file" id="update-image" name="file">
+					</div>
+
+					<div class="v89_462">
+						<textarea id="marketContent" class="marketContent" name="marketContent"
+							placeholder="내용을 입력하세요."></textarea>
+					</div>
+
+					<button class="insertBtn" onclick="submit">등록</button>
+				</form>
+			</div>
+
+			<button class="cancelBtn" onclick="location.href='/market/selectMarketList'">취소</button>
 		</div>
 
 

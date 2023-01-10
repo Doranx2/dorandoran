@@ -187,7 +187,7 @@
 					<input id="replyInput" class="replyInput" placeholder="댓글을 입력해주세요."></input>
 				</div>
 				<button class="replyInsertBtn" onclick="reply();">등록</button>
-				<input id="userNo" type="hideen" th:value="${session.loginUser.userNo}">
+				<input id="userNo" type="hidden" th:value="${session.loginUser.userNo}">
 
 				<!-- 로그인 정보와 글 작성 정보가 같을 때 -->
 				<div th:if="${session.loginUser.userNo eq play.userNo}" th:remove="tag">
