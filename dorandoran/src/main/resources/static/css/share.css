@@ -244,22 +244,36 @@
 	    color:#FFFFFF;
 	}
 	
+	.selectBtns {
+		height: 60px;
+		opacity: 1;
+		position: absolute;
+		top: 622px;
+		left:325px;
+		margin : 20px;
+	}
+
+	.selectBtns input[type=radio]{
+	    display: none;
+	}
 	
-	/* getPlayList */
+	.selectBtns input[type=radio] + label{
+		color: #000000;
+	    background: rgba(245, 245, 245, 1);
+	    border-radius: 100px;
+	    font-size: 1.1em;
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	    padding-left: 25px;
+	    padding-right: 25px;
+	}
 	
-	/*
-	.v19_9 {
-	  width: 100%;
-	  height: 1317px;
-	  background: rgba(255,255,255,1);
-	  opacity: 1;
-	  position: absolute;
-	  top: 0px;
-	  left: 0px;
-	  overflow: hidden;
-	  position: relative;
-	} */
+	.selectBtns input[type=radio]:checked + label {
+	    background: #1761A0;
+	    color:#FFFFFF;
+	}
 	
+	/* getShaerList */
 	.v21_25 {
 	  width: 432px;
 	  height: 129px;

@@ -29,7 +29,8 @@ public class ShareController {
 	
 	@RequestMapping("/selectShareList")
 	public ModelAndView selectShareList(@RequestParam(defaultValue = "1") int page,
-										@RequestParam(defaultValue = "") String searchKeyword) {
+										@RequestParam(defaultValue = "") String searchKeyword,
+										@RequestParam(defaultValue = "") String shareCat) {
 		ModelAndView mv = new ModelAndView();
 
 		// 총 게시글 수
@@ -44,6 +45,7 @@ public class ShareController {
 		// 생성인자로 총 게시글 수, 현재 페이지 전달
 		Pagination pagination = new Pagination(totalListCnt, page);
 		pagination.setSearchKeyword(searchKeyword);
+		pagination.setShareCat(shareCat);
 
 		List<ShareDTO> selectShareList = shareService.selectShareList(pagination);
 

@@ -24,8 +24,9 @@ public interface ShareMapper {
 	void insertShare(ShareDTO shareDTO);
 	
 	@Select("SELECT A.SHARE_NO, A.SHARE_TITLE, A.SHARE_CONTENT, A.INPUT_DTM, B.USER_NM FROM TB_SHARE A INNER JOIN TB_USER B ON A.USER_NO = B.USER_NO"
-			+" WHERE SHARE_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')"
-			+" OR SHARE_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" WHERE SHARE_CAT LIKE CONCAT('%', #{shareCat}, '%') AND"
+			+" ( SHARE_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" OR SHARE_TITLE LIKE CONCAT('%', #{searchKeyword}, '%') )"
 			+" ORDER BY A.INPUT_DTM DESC"
 			+" LIMIT #{pageSize} OFFSET #{startIndex}")
 	List<ShareDTO> selectShareList(Pagination pagination);

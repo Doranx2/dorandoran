@@ -10,9 +10,20 @@
 		<script th:inline="javascript">
 			function search() {
 				let searchKeyword = $('#searchKeyword').val();
+				let shareCat = $("input:radio[name=shareCat]:checked").val();
 				console.log(searchKeyword);
-				location.href = "/share/selectShareList?searchKeyword=" + searchKeyword;
+				location.href = "/share/selectShareList?searchKeyword=" + searchKeyword + "&shareCat=" + shareCat;
 			}
+
+			$(function () {
+				$("input:radio[name=shareCat]").click(function () {
+					search();
+				});
+				
+				const shareCat = /*[[${pagination.shareCat}]]*/;
+
+				$("input:radio[name='shareCat']:radio[value=" + shareCat + "]").prop("checked", true);
+			});
 		</script>
 	</th:block>
 </head>
@@ -43,6 +54,13 @@
 				<span class="v21_81">동네에 소문이 난다면 핫플이 되는 건 순식간이랍니다.<br>
 					하지만 꼭 기억하세요 !<br>
 					핫플이 되는 순간, 여유로운 이용은 어려워질 거에요!</span>
+			</div>
+
+			<div class="selectBtns">
+				<input type="radio" id="select1" name="shareCat" value="" checked><label for="select1">전체</label>
+				<input type="radio" id="select2" name="shareCat" value="맛집"><label for="select2">맛집</label>
+				<input type="radio" id="select3" name="shareCat" value="병원"><label for="select3">병원</label>
+				<input type="radio" id="select4" name="shareCat" value="홍보"><label for="select4">홍보</label>
 			</div>
 
 			<div class="shareListContainer">
