@@ -75,7 +75,7 @@ public class HelpController {
 		HelpDTO testDTO = new HelpDTO();
 		mv.addObject("help", testDTO);
 		mv.addObject("update", false);
-		mv.setViewName("/help/insertHelp.html");
+		mv.setViewName("help/insertHelp.html");
 
 		return mv;
 	}

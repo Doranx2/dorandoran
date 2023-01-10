@@ -147,7 +147,7 @@
 			</div>
 
 			<div id="updateHelp">
-				<span class="subTitle">도란장터 글 수정하기</span>
+				<span class="subTitle">도움 요청 수정하기</span>
 
 				<form id="updateForm" method="post" action="/help/updateHelp" enctype="multipart/form-data">
 					<span class="v89_472">제목</span>
@@ -170,7 +170,7 @@
 
 					<span class="v89_444">상품 사진</span>
 					<div class="filebox">
-						<div th:if="${help.imageNm eq null or help.imageNm.length < 1}}" th:remove="tag">
+						<div th:if="${help.imageNm eq null or help.imageNm.length < 1}" th:remove="tag">
 							<img style="width: 196px;" id="update-preview-image"src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
 						</div>
 						<div th:if="${help.imageNm ne null and help.imageNm.length > 0}" th:remove="tag">
