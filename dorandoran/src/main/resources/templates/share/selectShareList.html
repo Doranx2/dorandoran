@@ -69,11 +69,11 @@
 			</div>
 
 			<div th:if="${session.loginUser ne null}" th:remove="tag">
-				<button class="insertPageBtn_b" onclick="location.href='/share/insertSharePage'">이용하기</button>
+				<button class="insertPageBtn_b" onclick="location.href='/share/insertSharePage'">공유하기</button>
 			</div>
 
 			<div th:if="${session.loginUser eq null}" th:remove="tag">
-				<button class="insertPageBtn_b" onclick="location.href='/temp/loginPage'">로그인 후 이용하기</button>
+				<button class="insertPageBtn_b" onclick="location.href='/temp/loginPage'">로그인 후 공유하기</button>
 			</div>
 
 			<div class="searchInput">

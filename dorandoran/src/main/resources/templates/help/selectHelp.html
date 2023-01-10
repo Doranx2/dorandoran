@@ -20,8 +20,8 @@
 					url: '/re/insertRe',
 					type: 'post',
 					data: {
-						boardNo: $("#marketNo").val(),
-						boardCd: "MAR",
+						boardNo: $("#helpNo").val(),
+						boardCd: "HEP",
 						userNo: $("#userNo").val(),
 						reContent: $("#replyInput").val(),
 					},
@@ -55,8 +55,8 @@
 					url: '/re/insertRe',
 					type: 'post',
 					data: {
-						boardNo: $("#marketNo").val(),
-						boardCd: "MAR",
+						boardNo: $("#helpNo").val(),
+						boardCd: "HEP",
 						userNo: $("#userNo").val(),
 						reContent: replyContent,
 						parentReNo: reNo,
@@ -137,44 +137,44 @@
 <body>
 	<div layout:fragment="content">
 		<link rel="stylesheet" th:href="@{/css/boardTitle.css}" />
-		<link rel="stylesheet" th:href="@{/css/market.css}" />
+		<link rel="stylesheet" th:href="@{/css/help.css}" />
 
 		<div class="v112_539" style="position: relative;">
 
 			<div class="v89_238">
-				<div class="v89_239"></div>
-				<div class="v89_240"></div>
-				<span class="v89_241">도란장터</span>
+				<div class="v89_239" style="background-color: #cfe1fc;"></div>
+				<div class="v89_240" style="background-color: #cfe1fc;"></div>
+				<span class="v89_241">도와줘요</span>
 			</div>
 
 			<div class="v89_245">
-				<img class="backImg" th:src="@{/images/boardBack.png}" />
+				<img class="backImg" th:src="@{/images/boardBack_b.png}" />
 			</div>
 			<div class="v89_249">
-				<img class="iconImg" th:src="@{/images/marketIcon.png}" />
+				<img class="iconImg" th:src="@{/images/helpIcon.png}" />
 			</div>
-			<button class="backBtn" onclick="location.href='/market/selectMarketList'">목록으로</button>
-			<input id="marketNo" type="hidden" th:value="${market.marketNo}">
+			<button class="backBtn" onclick="location.href='/help/selectHelpList'">목록으로</button>
+			<input id="helpNo" type="hidden" th:value="${help.helpNo}">
 			
-			<div th:if="${market.status eq '거래완료'}" th:remove="tag">
-			<span class="marketStatus" th:text="${market.status}" style="color: red;"></span>
-			</div>
-			
-			<div th:if="${market.status ne '거래완료'}" th:remove="tag">
-			<span class="marketStatus" th:text="${market.status}"></span>
+			<div th:if="${help.doneYn eq '요청중'}" th:remove="tag">
+			<span class="helpStatus" th:text="${help.doneYn}" style="color: red;"></span>
 			</div>
 			
-			<span class="marketTitle" id="marketTitle" th:text="${market.prodNm}"></span>
-			<span class="marketPrice" th:text="${market.price}+' 원'"></span>
-			
-			<div th:if="${market.imageNm ne null and market.imageNm.length > 0}" th:remove="tag">
-				<img th:src="@{'/upload/' + ${market.imageNm}}" class="selectImg">
+			<div th:if="${help.doneYn ne '요청중'}" th:remove="tag">
+			<span class="helpStatus" th:text="${help.doneYn}"></span>
 			</div>
-			<div th:if="${market.imageNm eq null or market.imageNm.length < 1}" th:remove="tag">
+			
+			<span class="helpTitle" id="helpTitle" th:text="${help.helpTitle}"></span>
+			<span class="helpPlace" th:text="'• 요청 주소 : '+${help.helpPlace}"></span>
+			
+			<div th:if="${help.imageNm ne null and help.imageNm.length > 0}" th:remove="tag">
+				<img th:src="@{'/helpImg/' + ${help.imageNm}}" class="selectImg">
+			</div>
+			<div th:if="${help.imageNm eq null or help.imageNm.length < 1}" th:remove="tag">
 				<img th:src="@{'/upload/temp.png'}" class="selectImg">
 			</div>
-				<div class="marketContentContainer">
-					<span class="marketContent" id="marketContent" th:text="${market.marketContent}"></span>
+				<div class="helpContentContainer">
+					<span class="helpContent" id="helpContent" th:text="${help.helpContent}"></span>
 				</div>
 				<span class="v112_672">댓글</span>
 				<!--<div class="replyListContainer">
@@ -205,11 +205,11 @@
 					<input id="userNo" type="hidden" th:value="${session.loginUser.userNo}">
 
 					<!-- 로그인 정보와 글 작성 정보가 같을 때 -->
-					<div th:if="${session.loginUser.userNo eq market.userNo}" th:remove="tag">
+					<div th:if="${session.loginUser.userNo eq help.userNo}" th:remove="tag">
 						<button class="updateBtn"
-							th:onclick="|location.href='@{/market/updateMarketPage?marketNo={marketNo} (marketNo = ${market.marketNo})}'|">수정</button>
+							th:onclick="|location.href='@{/help/updateHelpPage?helpNo={helpNo} (helpNo = ${help.helpNo})}'|">수정</button>
 						<button class="deleteBtn"
-							th:onclick="|location.href='@{/market/deleteMarket?marketNo={marketNo} (marketNo = ${market.marketNo})}'|">삭제</button>
+							th:onclick="|location.href='@{/help/deleteHelp?helpNo={helpNo} (helpNo = ${help.helpNo})}'|">삭제</button>
 					</div>
 				</div>
 

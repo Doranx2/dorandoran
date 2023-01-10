@@ -11,7 +11,7 @@
 
 			$(function () {
 
-				$("#updateMarket").hide();
+				$("#updateHelp").hide();
 				let updateCheck = /*[[${update}]]*/;
 
 
@@ -25,27 +25,28 @@
 
 				} else {
 					console.log("UPDATE!");
-					$("#insertMarket").hide();
-					$("#updateMarket").show();
+					$("#insertHelp").hide();
+					$("#updateHelp").show();
 
-					const prodNm = /*[[${market.prodNm}]]*/;
-					const marketContent = /*[[${market.marketContent}]]*/;
-					const marketNo = /*[[${market.marketNo}]]*/;
-					const imageNm = /*[[${market.imageNm}]]*/;
-					const price = /*[[${market.price}]]*/;
-					const status = /*[[${market.status}]]*/;
+					const helpTitle = /*[[${help.helpTitle}]]*/;
+					const helpContent = /*[[${help.helpContent}]]*/;
+					const helpNo = /*[[${help.helpNo}]]*/;
+					const imageNm = /*[[${help.imageNm}]]*/;
+					const doneYn = /*[[${help.doneYn}]]*/;
+					const helpPlace = /*[[${help.helpPlace}]]*/;
 
-					$('input[name=prodNm]').attr('value', prodNm);
-					$('input[name=marketNo]').attr('value', marketNo);
+					$('input[name=helpTitle]').attr('value', helpTitle);
+					$('input[name=helpNo]').attr('value', helpNo);
 					$('input[name=imageNm]').attr('value', imageNm);
-					$("#marketContent").append(marketContent);
-					$('input[name=price]').attr('value', price);
-					$("input:radio[name='status']:radio[value=" + status + "]").prop("checked", true);
+					$("#helpContent").append(helpContent);
+					$('input[name=helpPlace]').attr('value', helpPlace);
+					$("input:radio[name='doneYn']:radio[value=" + doneYn + "]").prop("checked", true);
 
 					const inputImage = document.getElementById("update-image")
 					inputImage.addEventListener("change", e => {
 						readUpdateImage(e.target)
 					});
+					
 				};
 
 			});
@@ -81,9 +82,6 @@
 					reader.readAsDataURL(input.files[0])
 				}
 			};
-
-
-
 		</script>
 	</th:block>
 
@@ -93,51 +91,45 @@
 <body>
 	<div layout:fragment="content">
 		<link rel="stylesheet" th:href="@{/css/boardTitle.css}" />
-		<link rel="stylesheet" th:href="@{/css/market.css}" />
+		<link rel="stylesheet" th:href="@{/css/help.css}" />
 
 		<div class="v89_351" style="position: relative;">
 			<!-- 화면 윗 부분 -->
 			<div class="v89_238">
-				<div class="v89_239"></div>
-				<div class="v89_240"></div>
-				<span class="v89_241">도란장터</span>
+				<div class="v89_239" style="background-color: #cfe1fc;"></div>
+				<div class="v89_240" style="background-color: #cfe1fc;"></div>
+				<span class="v89_241">도와줘요</span>
 			</div>
 			<div class="v89_245">
-				<img class="backImg" th:src="@{/images/boardBack.png}" />
+				<img class="backImg" th:src="@{/images/boardBack_b.png}" />
 			</div>
 			<div class="v89_249">
-				<img class="iconImg" th:src="@{/images/marketIcon.png}" />
+				<img class="iconImg" th:src="@{/images/helpIcon.png}" />
 			</div>
 
-			
 			<!-- 윗 부분 끝 -->
 
-			<div id="insertMarket">
-				<span class="subTitle">도란장터 글쓰기</span>
+			<div id="insertHelp">
+				<span class="subTitle">도움 청하기</span>
 
-				<form id="insertForm" method="post" action="/market/insertMarket" enctype="multipart/form-data">
-					<span class="v89_472">상품명</span>
+				<form id="insertForm" method="post" action="/help/insertHelp" enctype="multipart/form-data">
+					<span class="v89_472">제목</span>
 					<div class="v89_463">
-						<input class="MarketInput" name="prodNm" placeholder="상품명을 입력하세요.">
+						<input type="text" maxlength="27" class="HelpInput" name="helpTitle" placeholder="제목을 입력하세요.">
 					</div>
 					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
-					<span class="v89_467">판매가격</span>
+					<span class="v89_467">상세 주소</span>
 					<div class="v89_465">
-						<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요.">
+						<input type="text" class="HelpInput" name="helpPlace" placeholder="상세주소를 입력하세요.">
 					</div>
-					<span class="v89_475">원</span>
 
-					<span class="v89_468">거래상태</span>
+					<span class="v89_468">진행 상태</span>
 					<div class="conditionBtns">
-						<input type="radio" id="condition1" name="status" value="SAE" checked><label
-							for="condition1">판매중</label>
-						<input type="radio" id="condition2" name="status" value="RES"><label
-							for="condition2">예약중</label>
-						<input type="radio" id="condition3" name="status" value="SDO"><label
-							for="condition3">판매완료</label>
+						<input type="radio" id="condition1" name="doneYn" value="N" checked><label for="condition1">요청중</label>
+						<input type="radio" id="condition2" name="doneYn" value="Y"><label for="condition2">해결완료</label>
 					</div>
 
-					<span class="v89_444">상품 사진</span>
+					<span class="v89_444">첨부 사진</span>
 					<div class="filebox">
 						<img style="width: 196px;" id="preview-image"
 							src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
@@ -146,7 +138,7 @@
 					</div>
 
 					<div class="v89_462">
-						<textarea id="marketContentInput" class="marketContent" name="marketContent"
+						<textarea id="helpContentInput" class="helpContent" name="helpContent"
 							placeholder="내용을 입력하세요."></textarea>
 					</div>
 
@@ -154,56 +146,51 @@
 				</form>
 			</div>
 
-			<div id="updateMarket">
+			<div id="updateHelp">
 				<span class="subTitle">도란장터 글 수정하기</span>
 
-				<form id="updateForm" method="post" action="/market/updateMarket" enctype="multipart/form-data">
-					<span class="v89_472">상품명</span>
+				<form id="updateForm" method="post" action="/help/updateHelp" enctype="multipart/form-data">
+					<span class="v89_472">제목</span>
 					<div class="v89_463">
-						<input id="MarketInput" class="MarketInput" name="prodNm" placeholder="상품명을 입력하세요.">
+						<input type="text" maxlength="27" class="HelpInput" name="helpTitle" placeholder="제목을 입력하세요.">
 					</div>
 					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
-					<input id="marketNo" name="marketNo" type="hidden">
+					<input id="helpNo" name="helpNo" type="hidden">
 					<input id="imageNm" name="imageNm" type="hidden">
-					<span class="v89_467">판매가격</span>
+					<span class="v89_467">상세 주소</span>
 					<div class="v89_465">
-						<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요.">
+						<input type="text" class="HelpInput" name="helpPlace" placeholder="상세주소를 입력하세요.">
 					</div>
-					<span class="v89_475">원</span>
 
-					<span class="v89_468">거래상태</span>
+					<span class="v89_468">진행 상태</span>
 					<div class="conditionBtns">
-						<input type="radio" id="condition4" name="status" value="SAE" checked><label
-							for="condition4">판매중</label>
-						<input type="radio" id="condition5" name="status" value="RES"><label
-							for="condition5">예약중</label>
-						<input type="radio" id="condition6" name="status" value="SDO"><label
-							for="condition6">판매완료</label>
+						<input type="radio" id="condition3" name="doneYn" value="N" checked><label for="condition3">요청중</label>
+						<input type="radio" id="condition4" name="doneYn" value="Y"><label for="condition4">해결완료</label>
 					</div>
 
 					<span class="v89_444">상품 사진</span>
 					<div class="filebox">
-						<div th:if="${market.imageNm eq null or market.imageNm.length < 1}" th:remove="tag">
+						<div th:if="${help.imageNm eq null or help.imageNm.length < 1}}" th:remove="tag">
 							<img style="width: 196px;" id="update-preview-image"src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
 						</div>
-						<div th:if="${market.imageNm ne null and market.imageNm.length > 0}" th:remove="tag">
+						<div th:if="${help.imageNm ne null and help.imageNm.length > 0}" th:remove="tag">
 							<img style="width: 196px;" id="update-preview-image"
-								th:src="@{'/upload/' + ${market.imageNm}}">
+								th:src="@{'/helpImg/' + ${help.imageNm}}">
 						</div>
 						<label for="update-image">업로드</label>
 						<input type="file" id="update-image" name="file">
 					</div>
 
 					<div class="v89_462">
-						<textarea id="marketContent" class="marketContent" name="marketContent"
+						<textarea id="helpContent" class="helpContent" name="helpContent"
 							placeholder="내용을 입력하세요."></textarea>
 					</div>
 
 					<button class="insertBtn" onclick="submit">등록</button>
 				</form>
-			</div>
+			</div> 
 
-			<button class="cancelBtn" onclick="location.href='/market/selectMarketList'">취소</button>
+			<button class="cancelBtn" onclick="location.href='/help/selectHelpList'">취소</button>
 		</div>
 
 

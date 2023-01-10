@@ -1,12 +1,10 @@
 package com.ezen.doran.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.util.modeler.modules.ModelerSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.doran.dto.Pagination;
-import com.ezen.doran.dto.PlayDTO;
 import com.ezen.doran.dto.ReDTO;
 import com.ezen.doran.dto.ShareDTO;
 import com.ezen.doran.service.re.ReService;
