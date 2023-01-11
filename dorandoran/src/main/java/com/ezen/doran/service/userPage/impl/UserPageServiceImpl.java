@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.doran.dto.MarketDTO;
 import com.ezen.doran.dto.PlayDTO;
+import com.ezen.doran.dto.QuestionDTO;
+import com.ezen.doran.dto.RepDTO;
 import com.ezen.doran.dto.UserDTO;
 import com.ezen.doran.mapper.UserPageMapper;
 import com.ezen.doran.service.userPage.UserPageService;
@@ -33,6 +35,18 @@ public class UserPageServiceImpl implements UserPageService {
 	public List<MarketDTO> selectMyMarketList(int userNo) {
 		// TODO Auto-generated method stub
 		return mapper.selectMyMarketList(userNo);
+	}
+
+	@Override
+	public List<QuestionDTO> selectMyQuestionList(int userNo) {
+		// TODO Auto-generated method stub
+		return mapper.selectMyQuestionList(userNo);
+	}
+
+	@Override
+	public List<RepDTO> selectMyRepList(int userNo) {
+		// TODO Auto-generated method stub
+		return mapper.selectMyRepList(userNo);
 	}
 
 }

@@ -14,6 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.doran.dto.MarketDTO;
 import com.ezen.doran.dto.PlayDTO;
+import com.ezen.doran.dto.QuestionDTO;
+import com.ezen.doran.dto.RepDTO;
 import com.ezen.doran.dto.UserDTO;
 import com.ezen.doran.service.userPage.UserPageService;
 
@@ -29,15 +31,6 @@ public class UserPageController {
 //		return "/userPage/mypage";
 //	}
 	
-	@RequestMapping("/mypage")
-	public ModelAndView mypage() {
-		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("/userPage/mypage.html");
-		return mv;
-	}
-	
-	
 	@RequestMapping("/updateUserPage")
 	public ModelAndView updateUser() {
 		ModelAndView mv = new ModelAndView();
@@ -46,19 +39,11 @@ public class UserPageController {
 		return mv;
 	}
 	
-	@RequestMapping("/playListPage")
-	public ModelAndView myPlayList() {
-		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("/userPage/playListPage.html");
-		return mv;
-	}
-	
-//	@RequestMapping("/marketListPage")
-//	public ModelAndView myMarketList() {
+//	@RequestMapping("/playListPage")
+//	public ModelAndView myPlayList() {
 //		ModelAndView mv = new ModelAndView();
 //		
-//		mv.setViewName("/userPage/marketListPage.html");
+//		mv.setViewName("/userPage/playListPage.html");
 //		return mv;
 //	}
 	
@@ -70,15 +55,6 @@ public class UserPageController {
 		return mv;
 	}
 	
-	@RequestMapping("/questionListPage")
-	public ModelAndView myQuestionList() {
-		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("/userPage/questionListPage.html");
-		return mv;
-	}
-	
-	
 	// updateUser(UserDTO)
 	@PostMapping("/updateUser")
 	public void updateUser(UserDTO UserDTO, HttpServletResponse response) throws Exception {
@@ -89,15 +65,17 @@ public class UserPageController {
 	
 	
 	// selectMyJoinList(int)
-	@RequestMapping("/selectMyJoinList")
-	public String selectMyPlayList(Model model) {
-		
-		List<PlayDTO> selectMyPlayList = UserPageService.selectMyPlayList();
-		
-		model.addAttribute("selectMyPlayList" , selectMyPlayList);
-		
-		return "/userPage/playListPage.html";
-	}
+//	@RequestMapping("/playListPage")
+//	public ModelAndView selectMyPlayList(@RequestParam("userNo") int userNo) {
+//		ModelAndView mv = new ModelAndView();
+//		
+//		List<JoinDTO> selectMyJoinList = UserPageService.selectMyJoinList(userNo);
+//		
+//		mv.addObject("myJoin", selectMyJoinList);
+//		mv.setViewName("/userPage/marketListPage.html");
+//		
+//		return mv;
+//	}
 	
 	
 	// selectMyMarketList(int, String)
@@ -111,10 +89,31 @@ public class UserPageController {
 		mv.addObject("myMarket", selectMyMarketList);
 		mv.setViewName("/userPage/marketListPage.html");
 		
-		System.out.println(selectMyMarketList);
 		
 		return mv;
 	}
+	
+	// selectMyQuestionList(int)
+	// selectMyRepList(int)
+	@RequestMapping("/questionListPage")
+	public ModelAndView selectMyQuestionList(@RequestParam("userNo") int userNo) {
+		ModelAndView mv = new ModelAndView();
+		
+		List<QuestionDTO> selectMyQuestionList = UserPageService.selectMyQuestionList(userNo);
+		List<RepDTO> selectMyRepList = UserPageService.selectMyRepList(userNo);
+		
+		
+		mv.addObject("myQuestion", selectMyQuestionList);
+		mv.addObject("myRep", selectMyRepList);
+		mv.setViewName("/userPage/questionListPage.html");
+		
+		System.out.println(selectMyQuestionList);
+		
+		return mv;
+		
+		
+	}
+	
 	
 	
 	// selectMyHelpList(int, String)
@@ -123,8 +122,5 @@ public class UserPageController {
 	// selectMyShareList(int)
 	
 	
-	// selectMyRepList(int)
-	
-	
-	// selectMyQuestionList(int)
+
 }

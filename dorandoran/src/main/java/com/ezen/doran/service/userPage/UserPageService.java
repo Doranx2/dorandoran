@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.ezen.doran.dto.MarketDTO;
 import com.ezen.doran.dto.PlayDTO;
+import com.ezen.doran.dto.QuestionDTO;
+import com.ezen.doran.dto.RepDTO;
 import com.ezen.doran.dto.UserDTO;
 
 public interface UserPageService {
@@ -13,6 +15,10 @@ public interface UserPageService {
 	List<PlayDTO> selectMyPlayList();
 
 	public List<MarketDTO> selectMyMarketList(int userNo);
+
+	public List<QuestionDTO> selectMyQuestionList(int userNo);
+
+	public List<RepDTO> selectMyRepList(int userNo);
 
 
 }
