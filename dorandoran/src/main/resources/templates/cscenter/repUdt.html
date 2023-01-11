@@ -14,6 +14,16 @@
 		<script th:inline="javascript">
 
 			function fnUpdateBoard() {
+				if ($("#repTitle").val().length == 0) {
+					alert("제목을 입력해주세요.");
+					$("#insertInp").focus();
+					return false;
+				}
+				if ($("#texta1").val().length == 0) {
+					alert("내용을 입력해주세요.");
+					$("#texta1").focus();
+					return false;
+				}
 				$.ajax({
 					url: '/cscenter/report',
 					type: 'put',
@@ -28,6 +38,21 @@
 					}
 				});
 			}
+			$(document).ready(function () {
+				$('#texta1').on('keyup', function () {
+					$('#text_cnt').html($(this).val().length + " / 500");
+
+					if ($(this).val().length > 500) {
+						$(this).val($(this).val().substring(0, 500));
+						$('#text_cnt').html("500 / 500");
+					}
+				});
+				$('#repTitle').on('keyup', function () {
+					if ($(this).val().length > 20) {
+						$(this).val($(this).val().substring(0, 20));
+					}
+				});
+			});
 		</script>
 	</th:block>
 </head>
@@ -44,52 +69,69 @@
 			<div class="auto-group-hv9g-23x">
 				<div class="rectangle-23-xiJ">
 					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<div id="tpImg2">
+							<div>
+								<img th:src="@{/images/-ib8.png}" style="width : 80px; height : 80px;">
+							</div>
+							<div>
+								<span id="listTtl2">수정하기</span>
+							</div>
+						</div>
 						<form id="updateForm">
 							<input type="hidden" name="repNo" id="repNo" th:value="${rDetail.repNo}">
 							<input type="hidden" name="inputDtm" id="inputDtm" th:value="${rDetail.inputDtm}">
-							<table border="1" style="border-collapse: collapse; margin-top : 100px;">
+							<table style="border-collapse: collapse; margin-top : 10px;">
 								<tr>
-									<td style="width: 150px; height: 50px; background:  white;">
+									<td id="udtQTag">
 										제목
 									</td>
-									<td style="text-align: left; background:  white;">
-										<input type="text" name="repTitle" id="repTitle" th:value="${rDetail.repTitle}">
+									<td id="udtQTag2">
+										<input type="text" name="repTitle" id="repTitle" th:value="${rDetail.repTitle}"
+											style="outline:none;">
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 150px; height: 50px; background:  white;">
+									<td id="udtQTag">
 										작성자
 									</td>
-									<td style="text-align: left; background:  white;">
+									<td id="udtQTag2">
 										[[${rDetail.userNm}]]
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 150px; height: 50px; background: white;">
+									<td id="udtQTag">
 										작성일
 									</td>
-									<td style="text-align: left; background:  white;" id="inputDtmText"
+									<td style="text-align: left; background:  white;" id="inputDtmText" class="udtQTag3"
 										th:text="${rDetail.inputDtm eq null ? '' : #strings.substring(rDetail.inputDtm, 0, 10)}">
 									</td>
 								</tr>
 								<tr>
-									<td style="background: white;">
+									<td id="udtQTag">
 										내용
 									</td>
-									<td style="text-align: left;">
+									<td id="udtQTag2">
 										<textarea name="repContent" id="texta1" cols="40" rows="10"
-											th:text="${rDetail.repContent}" style="width:700px; height:400px;"></textarea>
+											th:text="${rDetail.repContent}"
+											style="width:575px; height:340px; outline:none;"></textarea>
 									</td>
 								</tr>
-								<tr id="btnWrap">
-									<td colspan="2" align="center" style="height: 50px; background: white;">
-										<a name="qNo" id="updateBtn"
-											th:href="@{/cscenter/report/{repNo} (repNo=${rDetail.repNo})}">취소</a>
-										<button type="button" id="btnUpdate"
-											th:onclick="fnUpdateBoard(); return false;">수정</button>
+								<tr>
+									<td id="udtQTag">
+										글자수 제한
+									</td>
+									<td style="text-align: right;" id="udtQTag2">
+										<div id="text_cnt" style="background : white;">0 / 500</div>
 									</td>
 								</tr>
 							</table>
+							<div id="istTagB">
+								<a name="qNo" id="updateBtn"
+									th:href="@{/cscenter/report/{repNo} (repNo=${rDetail.repNo})}"
+									onclick="alert('작성 중인 글은 삭제됩니다.')">취소</a>
+								<button type="button" id="btnUpdate"
+									th:onclick="fnUpdateBoard(); return false;">수정</button>
+							</div>
 						</form>
 					</div>
 				</div>

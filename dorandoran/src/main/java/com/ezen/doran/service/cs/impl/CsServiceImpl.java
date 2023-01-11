@@ -42,6 +42,27 @@ public class CsServiceImpl implements CsService {
 		return csMapper.getNoticeTotalCnt(paramMap);
 	}
 	
+	@Override
+	public int prevNoticeNo(int noticeNo) {
+		return csMapper.prevNoticeNo(noticeNo);
+	}
+
+	@Override
+	public int nextNoticeNo(int noticeNo) {
+		return csMapper.nextNoticeNo(noticeNo);
+	}
+	
+	@Override
+	public NoticeDTO prevNotice(int nPrevNo) {
+		return csMapper.prevNotice(nPrevNo);
+	}
+
+	@Override
+	public NoticeDTO nextNotice(int nNextNo) {
+		return csMapper.nextNotice(nNextNo);
+	}
+
+	
 	//----------------------------------------------------------------------------------
 
 	@Override
@@ -130,5 +151,6 @@ public class CsServiceImpl implements CsService {
 	public void deleteRep(int repNo) {
 		csMapper.deleteRep(repNo);
 	}
+
 	
 }

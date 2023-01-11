@@ -56,109 +56,117 @@
 			<div class="auto-group-hv9g-23x">
 				<div class="rectangle-23-xiJ">
 					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<div id="tpImg2">
+							<div>
+								<img th:src="@{/images/Logo2.png}" style="width : 80px; height : 80px;">
+							</div>
+							<div>
+								<span id="listTtl2">문의내용</span>
+							</div>
+						</div>
 						<form id="detailForm">
 							<input type="hidden" name="qNo" id="qNo" th:value="${qDetail.qNo}">
 							<input type="hidden" name="inputDtm" id="inputDtm" th:value="${qDetail.inputDtm}">
-							<table border="1" style="border-collapse: collapse; margin-top : 100px;">
+							<table style="border-collapse: collapse; margin-top : 10px;table-layout:fixed">
 								<tr>
-									<td style="width: 150px; height: 50px;">
+									<td id="ntcTag1">
 										제목
 									</td>
-									<td style="text-align: left" colspan='3'>
+									<td id="ntcTag2" colspan='3'>
 										[[${qDetail.qTitle}]]
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td id="ntcTag1">
 										작성자
 									</td>
-									<td style="text-align: left;width : 245px;">
+									<td id="ntcTag2">
 										[[${qDetail.userNm}]]
 									</td>
-									<td style="width: 150px; height: 50px;">
+									<td id="ntcTag1">
 										답변여부
 									</td>
-									<td style="text-align: left; width : 245px;">
+									<td style="text-align: left; width : 160px;" id="ntcTag2">
 										[[${qDetail.aYn}]]
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 150px; height: 50px;">
-										작성일
+									<td id="ntcTag1">
+										문의일시
 									</td>
-									<td style="text-align: left" id="inputDtmText"
+									<td style="text-align: left" id="ntcTag2"
 										th:text="${qDetail.inputDtm eq null ? '' : #strings.substring(qDetail.inputDtm, 0, 10)}"
 										colspan='3'>
 									</td>
 								</tr>
 								<tr>
-									<td style="text-align: left; width: 800px; height: 200px; background: white; vertical-align:top;"
-										colspan='4'>
-										[[${qDetail.qContent}]]
-									</td>
+									<td id="qTag1" colspan='4' style="white-space : pre-wrap; word-break:break-all;overflow:scroll;" ><div style="height: 50px;">[[${qDetail.qContent}]]</div></td>
 								</tr>
 							</table>
 							<th:block th:if="${answer != null}">
-								<table border="1" style="border-collapse: collapse;">
+								<table style="border-collapse: collapse;">
 									<tr>
-										<td style="width: 150px; height: 50px;">
-											작성자
+										<td id="qTag2" style="border-top : 3px solid #eeeeef;">
+											답변자
 										</td>
-										<td style="text-align: left;">
+										<td style="text-align: left; border-top : 3px solid #eeeeef;" id="ntcTag2">
 											도란도란
 										</td>
 									</tr>
 									<tr>
-										<td style="width: 150px; height: 50px;">
-											작성일
+										<td id="qTag2">
+											답변일시
 										</td>
-										<td style="text-align: left" id="inputDtmText"
+										<td style="text-align: left;" id="ntcTag2"
 											th:text="${answer.inputDtm eq null ? '' : #strings.substring(answer.inputDtm, 0, 10)}"
 											colspan='3'>
 										</td>
 									</tr>
-									<tr>
-										<td style="text-align: left; width:800px; height: 150px; background: white; vertical-align:top;"
-											colspan='2'>
-											[[${answer.aContent}]]
-										</td>
+									<tr class="txtHeight">
+										<td id="qTag3" colspan='2' style="white-space : pre-wrap; word-break:break-all;overflow:scroll;"><div style="height: 50px;">[[${answer.aContent}]]</div></td>
 									</tr>
 								</table>
 							</th:block>
-							
+
 							<th:block th:if="${answer  == null}">
-								<table border="1" style="border-collapse: collapse;">
+								<table style="border-collapse: collapse;">
 									<tr>
-										<td style="width: 150px; height: 50px;">
-											작성자
+										<td id="qTag2">
+											답변자
 										</td>
-										<td style="text-align: left;">
-											     
+										<td style="text-align: left; border-top : 3px solid #eeeeef;" id="ntcTag2">
+
 										</td>
 									</tr>
 									<tr>
-										<td style="width: 150px; height: 50px;">
-											작성일
+										<td id="qTag2">
+											답변일시
 										</td>
-										<td>
-										 	     
+										<td style="text-align: left; border-top : 3px solid #eeeeef;" id="ntcTag2">
+
 										</td>
 									</tr>
 									<tr>
-										<td style="text-align: left; width:800px; height: 150px; background: white; vertical-align:top;"
-											colspan='2'>
+										<td id="qTag3" colspan='2'>
 											아직 등록된 답변이 없습니다.
 										</td>
 									</tr>
 								</table>
 							</th:block>
-
 						</form>
 						<hr />
-						<a name="qNo" id="updateBtn"
-							th:href="@{/cscenter/questionUdt/{qNo} (qNo=${qDetail.qNo})}">수정</a>
-						<a href="#" id="deleteBtn">삭제</a>
-						<a href="/cscenter/questionList">뒤로가기</a>
+						<div id="qDetDiv">
+							<div>
+								<a name="qNo" id="updateBtn"
+									th:href="@{/cscenter/questionUdt/{qNo} (qNo=${qDetail.qNo})}">수정</a>
+							</div>
+							<div>
+								<a href="#" id="deleteBtn">삭제</a>
+							</div>
+							<div>
+								<a href="/cscenter/questionList" style="background-color: #1761A0!important;">목록</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

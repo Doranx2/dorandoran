@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Happiness-Sans-Title';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Happiness-Sans-Title.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 main {
 	display:flex;
 	width : 1920px;
@@ -8,27 +16,33 @@ aside {
 	width :576px;
 }
 #sideCon {
-	margin-top : 445px;
+	margin-top : 427px;
 	margin-left: 350px;
 	text-align : center;
 	width : 250px;
 	height : 407px;
-	background-color: #F5F5F5;
+	background-color: #eeeeef;
 	font-size: 1.6em;
+	font-family: 'Happiness-Sans-Title';
 	border-radius: 10px;
 }
 
 #nav1 li {
 	line-height : 100px;
-	margin-left: -135px;
+	margin-left: -90px;
 	list-style:none;
 	font-weight: bold;
+	font-size : 1.5em;
 }
-#nav1 a:link { color: black; text-decoration: none;}
-#nav1 a:visited { color: black; text-decoration: none;}
-#nav1 a:hover { color : #1761A0; text-decoration: none;}
+#nav1 a {
+	transition: all 0.3s 0s ease-in-out;
+}
+#nav1 a:link { color: #1761A0; text-decoration: none;}
+#nav1 a:visited { color: #1761A0; text-decoration: none;}
+#nav1 a:hover { color : #EEC400; text-decoration: none;}
 	
 
+/*content 상단*/
 
 .ellipse-3-VAW {
 	width : 800px;
@@ -36,87 +50,109 @@ aside {
 }
 .customer-survey-amico-1-dGi {
 	display : block;
-	margin-left: 250px;
+	margin-left: 240px;
 	margin-top: -150px;
 	width : 300px;
 	height : 300px;
 }
 .item--kcE {
-	margin-left: 255px;
+	margin-left: 270px;
 	margin-top : -55px;
-	font-size: 4.5em;
+	font-size: 6em;
 	font-weight: bold;
 	color : #1761A0;
 }
+
+/*content 내용*/
+
 .auto-group-hv9g-23x {
 	width : 1120px;
 	height : 846px;
-	background-color: #F5F5F5;
+	background-color: #eeeeef;
 	margin-top : 100px;
 	margin-left: -67px;
 	border-radius: 10px;;
 }
-/*.rectangle-23-xiJ {
-	margin-left: 90px;
-	width : 940px;
-	height : 700px;
-	background-color: #C3C3C3;
-}*/
 
 #boardTable {
-	font-size: 1.3em;
+	font-size: 2.0em;
 	font-weight: 400;
 	text-align: center;
 }
+#eachList {
+	transition: all 0.3s 0s ease-in-out;
+}
+#eachList:hover {
+	opacity : 0.5;
+	
+}
 #boardTable td {
-	height : 45px;
-	background-color: #f0f6fe;
-	border : 2px solid white;
+	height : 50px;
+	background-color: white;
+	border-bottom : 2px solid #e7eff5;
 }
 
 #tb1 td {
-	background-color: white;
-	text-align : center;
 	width : 150px;
 	height : 50px;
-	font-size: 1.2em;
+	font-size: 1.5em;
 	font-weight: 500;
+}
+
+#tbHead {
+	color : white;
+}
+#boardTable a {
+	transition: all 0.3s 0s ease-in-out;
 }
 #boardTable a:link { color: black; text-decoration: none;}
 #boardTable a:visited { color: black; text-decoration: none;}
 #boardTable a:hover { color : #1761A0; text-decoration: none;}
 
 #insertInp { width: 99%; height : 90%; border : 0px; font-size: 1.0em;}
-#qSelect {font-size: 1.0em; height : 95%; width: 30%; text-align: center;}
+#qSelect {font-size: 1.0em; height : 70%; width: 30%; text-align: center; border: 2px solid #D3D3D3;}
 
-#texta1 {font-size : 1.2em; border : 0px;}
+#texta1 {
+	font-size : 1.3em; 
+	border : 0px; 
+	border-bottom-right-radius: 10px; 
+	border-top-right-radius: 10px; 
+	padding: 15px 0 15px 0!important;
+	resize: none;
+}
 
-.pagination { list-style:none; font-size: 1.2em; margin-left: -50px; margin-top: -10px;}
+.pagination { list-style:none; font-size: 1.2em; text-align: center; margin-top: 0px;}
 .pagination li { display: inline-block; }
 
 .pagination a:link { color: black; text-decoration: none;}
 .pagination a:visited { color: black; text-decoration: none;}
 .pagination a:hover { color : #1761A0; text-decoration: none;}
 
-#aBack {
-	border : 1px solid black;
-}
-#updateForm{
-	font-size: 1.3em;
-	font-weight: 400;
-	text-align: center;
-	
-}
 #updateForm input { width : 99%; height : 50px; border : 0px; font-size: 1.0em;}
 
+#detailForm { font-size : 1.5em;}
+#detailForm td{
+	padding: 0 25px 0 25px;
+}
 
-
-
-
-.pagination a:link {
-     background-color: #CFE1FC;
+.pagination_num a:link {
+	 background-color: white;
+	 font-size : 1.0em;
+	 font-weight: bold;
+	 line-height : 6px;
      color: black;
-     padding: 7px 15px;
+     padding: 7px 20px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     border-radius: 10px;
+}
+.pagination_button a:link {
+	 background-color: #1761A0;
+	 font-size : 1.8em;
+	 line-height : 4px;
+     color: black;
+     padding: 4px 18px;
      text-align: center;
      text-decoration: none;
      display: inline-block;
@@ -124,38 +160,357 @@ aside {
 }
 .pagination img {
 	 width : 15px;
-	 height : 15px;
+	 height : 10px;
 }
 
-#ntcForm a:link {
-     background-color: #CFE1FC;
-     color: black;
+#ntcForm {
+	font-size : 1.5em;
+}
+#ntcForm td{
+	padding: 0 25px 0 25px;
+}
+
+
+.aBack a:link {
+     margin-top : 7px;
+	 margin-left : 765px;
+     background-color: #EEC400;
+     font-size: 1.5em;
+     color: white;
    	 font-weight : 900;
-     padding: 7px 15px;
+     padding: 5px 15px;
      text-align: center;
      text-decoration: none;
      display: inline-block;
      border-radius: 5px;
 }
-
-.ntcFrom a:link { color: black; text-decoration: none;}
-.ntcFrom a:visited { color: black; text-decoration: none;}
-.ntcFrom a:hover { color : #1761A0; text-decoration: none;}
+.aBack  a:link { color: white; text-decoration: none;}
+.aBack  a:visited { color: white; text-decoration: none;}
+.aBack  a:hover { color : white; text-decoration: none;}
 
 #writeTag a:link {
-	 margin-top : 10px;
-	 margin-left : 700px;
-     background-color: #CFE1FC;
-     color: black;
+	 margin-top : 8px;
+	 margin-left : 860px;
+     background-color: #EEC400;
+     font-size: 1.5em;
    	 font-weight : 900;
-     padding: 7px 15px;
+     padding: 5px 15px;
      text-align: center;
      text-decoration: none;
      display: inline-block;
      border-radius: 5px;
 }
 
-#writeTag a:link { color: black; text-decoration: none;}
-#writeTag a:visited { color: black; text-decoration: none;}
-#writeTag a:hover { color : #1761A0; text-decoration: none;}
-	
+#writeTag a:link { color: white; text-decoration: none;}
+#writeTag a:visited { color: white; text-decoration: none;}
+#writeTag a:hover { color : white; text-decoration: none;}
+
+#listTtl {font-size: 3.5em; color: #1761A0; font-weight: bold; line-height: 70px; margin-left: -390px; font-family: 'Happiness-Sans-Title';}
+#tpImg img {margin-left: -480px;}
+#tpImg div {float:left; margin-top : 55px;}
+
+#listTtl2 {font-size: 3.5em; color: #EEC400; font-weight: bold; line-height: 70px; margin-left: -330px; font-family: 'Happiness-Sans-Title';}
+#tpImg2 img {margin-left: -420px;}
+#tpImg2 div {float:left; margin-top : 55px;}
+
+#ntcTag1 {
+	width: 150px; 
+	height: 50px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: #EEC400;
+	color : white;
+	font-weight: bold;
+	border-bottom: 3px solid #eeeeef;
+}
+#ntcTag2, #inputDtmText {
+	text-align: left; 
+	background: white;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom: 3px solid #eeeeef;
+}
+#ntcTag3 {
+	text-align: left; 
+	width :775px; 
+	height: 350px; 
+	background: white; 
+	vertical-align:top;
+	padding: 15px 25px 0 25px!important; 
+	border-radius: 10px;
+}
+
+#ntcTag4 {
+	text-align: left; 
+	width :775px; 
+	height: 400px; 
+	background: white; 
+	vertical-align:top;
+	padding: 15px 25px 0 25px!important; 
+	border-radius: 10px;
+}
+#nPrev {
+	display:inline-block;
+}
+#nPrevT {
+	width: 70px; 
+	height: 30px;
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+	background-color: #a0a0a0;
+	color : white;
+	font-size: 1.3em;
+	font-weight: bold;
+	border-bottom: 3px solid #eeeeef;
+	line-height: 30px;
+	text-align: center;
+	float:left;
+}
+#nPrevC {
+	width : 824px;
+	height: 30px;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	background-color: white;
+	color : black;
+	font-size: 1.3em;
+	border-bottom: 3px solid #eeeeef;
+	line-height: 30px;
+}
+#nPrev a {
+	padding: 0 10px 0 10px;
+}
+#nNextT {
+	width: 70px; 
+	height: 30px;
+	border-top-left-radius: 7px;
+	border-bottom-left-radius: 7px;
+	background-color: #a0a0a0;
+	color : white;
+	font-size: 1.3em;
+	font-weight: bold;
+	border-bottom: 3px solid #eeeeef;
+	line-height: 30px;
+	text-align: center;
+	float:left;
+}
+#nNextC {
+	width : 754px;
+	height: 30px;
+	border-top-right-radius: 7px;
+	border-bottom-right-radius: 7px;
+	background-color: white;
+	color : black;
+	font-size: 1.3em;
+	border-bottom: 3px solid #eeeeef;
+	line-height: 30px;
+	float:left;
+}
+#nNext a {
+	padding: 0 10px 0 10px;
+}
+
+#nDetPN {
+	margin-left: 5px;
+	margin-top: 20px;
+}
+#nNext a:link, #nPrev a:link  { color: black; text-decoration: none;}
+#nNext a:visited, #nPrev a:visited { color: black; text-decoration: none;}
+#nNext a:hover, #nPrev  a:hover { color : black; text-decoration : underline;}
+#qTag1{
+	text-align: left; 
+	width: 775px; 
+	height: 150px;
+	vertical-align:top;
+	padding: 15px 25px 0 25px!important; 
+	border-radius: 10px;
+	background: white;
+}
+
+#qTag2 {
+	width: 150px; 
+	height: 50px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: #1761A0;
+	color : white;
+	font-weight: bold;
+	border-bottom: 3px solid #eeeeef;
+}
+
+#qTag3 {
+	text-align: left; 
+	width:775px; 
+	height: 150px; 
+	background: white; 
+	vertical-align:top;
+	border-radius: 10px;
+	padding: 15px 25px 0 25px!important; 
+}
+
+#qDetDiv {
+	margin-left : 630px;
+}
+#qDetDiv a:link {
+     margin-top : 7px;
+     margin-left: 15px;
+	 width : 30px;
+     background-color: #a0a0a0;
+     font-size: 1.5em;
+     color: white;
+   	 font-weight : 900;
+     padding: 5px 15px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     border-radius: 5px;
+}
+
+
+#qDetDiv a:link { color: white; text-decoration: none;}
+#qDetDiv a:visited { color: white; text-decoration: none;}
+#qDetDiv a:hover { color : white; text-decoration: none;}
+
+#qDetDiv div {
+	float : left;
+	width : 30%;
+}
+
+#intQTag {
+	width: 150px; 
+	height: 50px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: #EEC400;
+	color : white;
+	font-weight: bold;
+	border-bottom: 3px solid #eeeeef;
+	padding: 0 25px 0 25px;
+} 
+#intQTag2 {
+	text-align: left; 
+	background: white;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom: 3px solid #eeeeef;
+	padding: 0 25px 0 25px;
+}
+
+#test_cnt {
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+
+}
+
+#istTagA {margin-top : -3px;}
+#istTagA a:link{
+	 margin-top : 8px;
+	 margin-left : 700px;
+     background-color: #a0a0a0;
+     font-size: 1.5em;
+   	 font-weight : 900;
+     padding: 5px 15px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     border-radius: 5px;
+}
+#istTagA a:link { color: white; text-decoration: none;}
+#istTagA a:visited { color: white; text-decoration: none;}
+#istTagA a:hover { color : white; text-decoration: none;}
+
+#istTagA button {
+	margin-left: 3px;
+	border : 0px;
+	font-size: 1.5em;
+   	font-weight : 900;
+	background: #EEC400;
+	color : white;
+	width: 60px;
+	height: 30px;
+	border-radius: 5px;
+}
+
+#istTagB button {
+	margin-left: 3px;
+	border : 0px;
+	font-size: 1.5em;
+   	font-weight : 900;
+	background: #1761A0;
+	color : white;
+	width: 60px;
+	height: 30px;
+	border-radius: 5px;
+}
+#udtQTag {
+	width: 150px; 
+	height: 50px;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: #1761A0;
+	color : white;
+	font-weight: bold;
+	border-bottom: 3px solid #eeeeef;
+	padding: 0 25px 0 25px;
+	font-size: 1.5em;
+}
+
+#udtQTag2, .udtQTag3 {
+	text-align: left; 
+	background: white;
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom: 3px solid #eeeeef;
+	padding: 0 25px 0 25px;
+	font-size: 1.5em;
+}
+
+#udtQTag4 {
+	width: 150px; 
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background-color: #1761A0;
+	color : white;
+	font-weight: bold;
+	border-bottom: 3px solid #eeeeef;
+	padding: 0 25px 0 25px;
+	font-size: 1.5em;
+}
+
+#istTagB a:link{
+	 margin-top : 8px;
+	 margin-left : 700px;
+     background-color: #a0a0a0;
+     font-size: 1.5em;
+   	 font-weight : 900;
+     padding: 5px 15px;
+     text-align: center;
+     text-decoration: none;
+     display: inline-block;
+     border-radius: 5px;
+}
+
+#istTagB a:link { color: white; text-decoration: none;}
+#istTagB a:visited { color: white; text-decoration: none;}
+#istTagB a:hover { color : white; text-decoration: none;}
+
+#texta2 {
+	font-size : 2em; 
+	border : 0px; 
+	border-bottom-right-radius: 10px; 
+	border-top-right-radius: 10px; 
+	padding: 15px 25px 25px!important;
+	resize: none;
+}
+
+	::-webkit-scrollbar {
+    	width: 10px;
+	}	
+
+	::-webkit-scrollbar-thumb {
+	    background-color: #a0a0a0;
+	    border-radius: 10px;
+	}
+	::-webkit-scrollbar-track {
+	    border-radius: 10px;
+	}
