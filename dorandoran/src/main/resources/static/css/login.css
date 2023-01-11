@@ -201,11 +201,44 @@ body {
   object-fit: cover;
   vertical-align: top;
 }
+/* 아이디 찾기 */
 .login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .item--u2W {
   width: 33.1rem;
   height: 7rem;
   position: absolute;
-  left: 17.3rem;
+  left: 3rem;
+  top: 35rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 3.8888888889;
+  letter-spacing: 0.18rem;
+  color: #1761a0;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+/* 비밀번호 찾기 */
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .item--u3W {
+  width: 33.1rem;
+  height: 7rem;
+  position: absolute;
+  left: 18.6rem;
+  top: 35rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 3.8888888889;
+  letter-spacing: 0.18rem;
+  color: #1761a0;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+/* 회원가입 */
+.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .item--u4W {
+  width: 33.1rem;
+  height: 7rem;
+  position: absolute;
+  left: 32rem;
   top: 35rem;
   text-align: center;
   font-size: 1.8rem;

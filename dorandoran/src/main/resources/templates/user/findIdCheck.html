@@ -2,42 +2,74 @@
 <html lang="ko"
 	  xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layouts/layout}">
-	  
-	<!-- head 영역 시작 -->
-	<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+  	  layout:decorate="~{layouts/layout}">
 <head>
-		<th:block layout:fragment="script">
-			<script th:inline="javascript">
-				$(function() {
-					
-				});
-			</script>
-		</th:block>
-		
-		<th:block layout:frament="css">
-			<style>
-				body {
-					height: 100%;
-				}
-			</style>
-		</th:block>
-	</head>
-	<!-- head 영역 끝 -->
-	<body>
-		<div class="findidcheck-22r">
-		  <img class="image-5-kjY" src="./assets/image-5-aKG.png">
-		  <img class="oh-no-amico-1-VSE" src="./assets/oh-no-amico-1.png">
-		  	<p class="item--E8v">아이디를 잊어버리셨나요?</p>
-		  <div class="rectangle-35-6gv"></div>
-		  <div class="rectangle-46-DWe"></div>
-		  <div class="rectangle-47-vfx"></div>
-		  <div class="rectangle-48-e6A"></div>
-			  <p class="item--B66">확 인</p>
-			  <p class="item--5hG">이름</p>
-			  <p class="item--zZL">이메일</p>
-		  <img class="item-01-1-tuc" src="./assets/-86a.png">
-		</div>
-	</body>
-</html>
+  <meta charset="utf-8">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>FindIDCheck</title>
+  <th:blcok layout:fragment="css">
+  	<link rel="stylesheet" th:href="@{/css/findIdCheck.css}">
+  </th:blcok>
+  <th:block layout:fragment="script">
+  	<script th:inline="javascript">
+		  $(function(){
+			  var userNm=$('#userNm').val()
+			  var userEmail=$('#userEmail').val()
+			  
+			  $.ajax({
+				  url:"/user/idfCheck",
+				  type:"post",
+				  data:{"userNm":userNm, "userEmail":userEmail} ,
+				  success:function(data){
+					  if(data == 0){
+						  $('#id_value').text("회원 정보를 확인해 주세요.");
+						  $('#userNm').val('');
+						  $('#userEmail').val('');
+					  }else{
+						  $('#id_value').text(data);
+						  $('#userNm').val('');
+						  $('#userEmail').val('');
+					  }
+				  },
+				  error:function(){
+					  alert("오류입니다.");
+				  }
+				  
+			  });
+			  
+		  });
+	  const model = document.getElementById("model")
+	  
 	
+		  
+  		</script>
+	</th:block>
+</head>
+
+
+
+<body>
+	<div layout:fragment="content">
+	<div class="findidcheck-22r">
+	<form id="findIdCheckForm" action = "/user/findIdCheck" method="post">
+  <img class="image-5-kjY" src="/assets/image-5-aKG.png">
+  <img class="oh-no-amico-1-VSE" src="/assets/oh-no-amico-1.png">
+  <p class="item--E8v">아이디를 잊어버리셨나요?</p>
+  <div class="rectangle-35-6gv">
+  </div>
+	  <input type="text" id="userNm" name="userNm" class="rectangle-46-DWe">
+	  <input type="text" id="userEmail" name="userEmail" class="rectangle-47-vfx">
+  <div class="rectangle-48-e6A">
+  </div>
+  <button type="button" id="fidCheckBtn" name="fidCheckBtn">확인</button>
+<!--  <a th:href="@{/user/findId}" class="item--B66">확 인<a>
+-->  <p class="item--5hG">이름</p>
+  <p class="item--zZL">이메일</p>
+  <img class="item-01-1-tuc" src="/assets/-86a.png">
+		</form>
+	</div>
+	</div>
+</body>
+</html>

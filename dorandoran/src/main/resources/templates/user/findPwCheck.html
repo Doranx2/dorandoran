@@ -2,41 +2,68 @@
 <html lang="ko"
 	  xmlns:th="http://www.thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layouts/layout}">
-	  
-	<!-- head 영역 시작 -->
-	<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+	  >
 <head>
-		<th:block layout:fragment="script">
-			<script th:inline="javascript">
-				$(function() {
-					
-				});
-			</script>
-		</th:block>
-		
-		<th:block layout:frament="css">
-			<style>
-				body {
-					height: 100%;
-				}
-			</style>
-		</th:block>
-	</head>
-	<!-- head 영역 끝 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>FindPwCheck</title>
+  <th:block layout:fragment="css">
+	  <link rel="stylesheet" th:href="@{/css/findPwCheck.css}">
+  </th:block>
+<th:block layout:fragment="script">
+  <script th:inline="javascript">
+/*	  
+	  $("#findPw_Check").click(function(){
+		  var userId = $("#userId").val();
+		  var userEmail = $("#userEmail").val();
+		  
+		  $.ajax({
+			  url:"/user/findPwCheck",
+			  type:"get",
+			  data:{
+				  "userId":userId,
+				  "userEmail":usreEmail
+			  },
+			  success:function(res){
+				  if(res['check']){
+					  swal("해당 이메일로 비밀번호를 전송하였습니다.").then((OK) =>{
+						  if(ok){
+							  $.ajax({
+								  type:"post",
+								  url:"/"
+							  })
+						  })
+					  })
+				  }
+			  }
+			  
+		  })
+		  
+	  })
+
+*/
+  </script>
+</th:block>
+
+</head>
 	<body>
 		<div class="findpwcheck-Myg">
-		  <img class="questions-pana-1-JP8" src="./assets/questions-pana-1.png">
-		  <img class="image-6-2K8" src="./assets/image-6.png">
-		  	<p class="item--xTg">비밀번호를 찾으시나요?</p>
-			  <div class="rectangle-49-2yL"></div>
-			  <div class="rectangle-50-waW"></div>
-			  <div class="rectangle-51-Fr6"></div>
-			  <div class="rectangle-52-y1Q"></div>
-		  <p class="item--JJa">확 인</p>
-		  <p class="item--Cuk">아이디</p>
+		  <img class="questions-pana-1-JP8" src="/assets/questions-pana-1.png">
+		  <img class="image-6-2K8" src="/assets/image-6.png">
+		  <p class="item--xTg">비밀번호를 찾으시나요?</p>
+		  <div class="rectangle-49-2yL">
+		  </div>
+		  <input type="text" id="userId" name="userId" class="rectangle-50-waW">
+		  <input type="text" id="userEmail" name="userEmail" class="rectangle-51-Fr6">
+		  <div class="rectangle-52-y1Q">
+		  </div>
+		  <button type="button" id="findPw_Check" name="findPw_Check" >확인</button>
+<!--		  <a th:href="@{/user/findPw}" class="item--JJa">확 인</a>
+-->		  <p class="item--Cuk">아이디</p>
 		  <p class="item--Jht">이메일</p>
-	  		<img class="item-01-1-1cJ" src="./assets/-yRY.png">
+		  <img class="item-01-1-1cJ" src="/assets/-yRY.png">
 		</div>
 	</body>
 </html>

@@ -35,7 +35,7 @@ body {
   width: 30.3rem;
   height: 33.8rem;
   position: absolute;
-  left: 108.3rem;
+  left: 118.5rem;
   top: 26.4rem;
   object-fit: cover;
   vertical-align: top;
@@ -44,7 +44,7 @@ body {
   width: 32.4rem;
   height: 7rem;
   position: absolute;
-  left: 79.8rem;
+  left: 74rem;
   top: 34.2rem;
   text-align: center;
   font-size: 4rem;
@@ -87,6 +87,7 @@ body {
   background-color: #ffffff;
   border-radius: 1rem;
 }
+/*
 .findpwcheck-Myg .rectangle-52-y1Q {
   width: 15rem;
   height: 3.5rem;
@@ -95,7 +96,8 @@ body {
   top: 61.4rem;
   background-color: #1761a0;
   border-radius: 0.5rem;
-}
+}*/
+/*
 .findpwcheck-Myg .item--JJa {
   width: 3.5rem;
   height: 7rem;
@@ -109,7 +111,7 @@ body {
   color: #ffffff;
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
-}
+}*/
 .findpwcheck-Myg .item--Cuk {
   width: 2.8rem;
   height: 7rem;
@@ -139,11 +141,26 @@ body {
   white-space: nowrap;
 }
 .findpwcheck-Myg .item-01-1-1cJ {
-  width: 14.1351rem;
-  height: 14.1351rem;
+  width: 12rem;
+  height: 12rem;
   position: absolute;
   left: 122.1rem;
-  top: 30.8rem;
+  top: 32rem;
   object-fit: cover;
   vertical-align: top;
+}
+#findPw_Check{
+	  width: 15rem;
+  height: 3.5rem;
+  position: absolute;
+  left: 88.4rem;
+  top: 61.4rem;
+  background-color: #1761a0;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
 }
