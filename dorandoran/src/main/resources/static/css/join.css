@@ -92,7 +92,7 @@
 	}
 	
 	.joinCdInput {
-		width: 330px;
+		width: 250px;
 	    height: 60px;
 	    background: rgba(245, 245, 245, 1);
 	    opacity: 1;
@@ -104,6 +104,19 @@
 	    border-bottom-left-radius: 10px;
 	    border-bottom-right-radius: 10px;
 	    overflow: hidden;
+	}
+	
+	select{
+		width: 100%;
+	    height: 100%;
+	    border: 0px;
+	    background: none;
+	    font-size: 1.4em;
+	    padding: 10px;
+	}
+	
+	select:focus {
+    	outline: none;
 	}
 	
 	.joinCnt{
@@ -132,6 +145,34 @@
 	    border-bottom-left-radius: 10px;
 	    border-bottom-right-radius: 10px;
 	    overflow: hidden;
+	}
+	
+	.joinDtmInput{
+		width: 330px;
+	    height: 60px;
+	    background: rgba(245, 245, 245, 1);
+	    opacity: 1;
+	    position: absolute;
+	    top: 1047px;
+	    left: 327px;
+	    border-top-left-radius: 10px;
+	    border-top-right-radius: 10px;
+	    border-bottom-left-radius: 10px;
+	    border-bottom-right-radius: 10px;
+	    overflow: hidden;
+	}
+	
+	.doneYn{
+		width: 130px;
+	    color: #EEC400;
+	    position: absolute;
+	    top: 1115px;
+	    left: 327px;
+	    font-family: Inter;
+	    font-weight: Regular;
+	    font-size: 30px;
+	    opacity: 1;
+	    text-align: left;
 	}
 	
 	.v89_472 {
@@ -174,7 +215,7 @@
 		width: 130px;
 		color: #EEC400;
 	    position: absolute;
-		top: 989px;
+		top: 998px;
 		left: 327px;
 		font-family: Inter;
 		font-weight: Regular;
@@ -201,11 +242,11 @@
 	
 	.v89_462 {
 		width: 70%;
-	    height: 408px;
+	    height: 532px;
 	    background: rgba(245, 245, 245, 1);
 	    opacity: 1;
 	    position: absolute;
-	    top: 1396px;
+	    top: 1256px;
 	    left: 327px;
 	    border-top-left-radius: 10px;
 	    border-top-right-radius: 10px;
@@ -257,11 +298,11 @@
 
 	.conditionBtns {
 		height: 60px;
-		opacity: 1;
-		position: absolute;
-		top: 1042px;
-		left:325px;
-		margin : 20px;
+	    opacity: 1;
+	    position: absolute;
+	    top: 1160px;
+	    left: 307px;
+	    margin: 20px;
 	}
 
 	.conditionBtns input[type=radio]{

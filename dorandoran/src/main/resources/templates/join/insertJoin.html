@@ -88,30 +88,39 @@
 					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
 					<span class="joinCd">모집 분야</span>
 					<div class="joinCdInput">
-						<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요.">
+						<select name="joinCd">
+							<option value="SPO" selected>스포츠 / 운동</option>
+							<option value="FOD">배달 / 식사</option>
+							<option value="GRO">장보기</option>
+							<option value="WAK">산책</option>
+							<option value="ETC">기타</option>
+						</select>
 					</div>
 					<span class="v89_467">모집기준</span>
 					<div class="v89_465">
-						<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요.">
+						<label><input type="checkbox" value="10대"/>10대</label>
+						<label><input type="checkbox" value="20대"/>20대</label>
+						<label><input type="checkbox" value="30대"/>30대</label>
+						<label><input type="checkbox" value="40대~"/>40대 ~</label>
+						<label><input type="checkbox" value="여자"/>여자</label>
+						<label><input type="checkbox" value="남자"/>남자</label>
 					</div>
 					<span class="joinCnt">인원</span>
 					<div class="joinCntInput">
 						<input type="number" class="MarketInput" name="price" placeholder="몇명?">
 					</div>
 					<span class="v89_475">명</span>
-					<span class="v89_467">모집날짜</span>
-					<div class="v89_465">
+					<span class="v89_468">모집날짜</span>
+					<div class="joinDtmInput">
 						<input type="number" class="MarketInput" name="price" placeholder="모집기간을 입력하세요.">
 					</div>
 
-					<span class="v89_468">거래상태</span>
+					<span class="doneYn">모집상태</span>
 					<div class="conditionBtns">
-						<input type="radio" id="condition1" name="status" value="SAE" checked><label
-							for="condition1">판매중</label>
-						<input type="radio" id="condition2" name="status" value="RES"><label
-							for="condition2">예약중</label>
-						<input type="radio" id="condition3" name="status" value="SDO"><label
-							for="condition3">판매완료</label>
+						<input type="radio" id="condition1" name="doneYn" value="N" checked><label
+							for="condition1">모집중</label>
+						<input type="radio" id="condition2" name="doneYn" value="Y"><label for="condition2">모집완료</label>
+
 					</div>
 
 					<div class="v89_462">
