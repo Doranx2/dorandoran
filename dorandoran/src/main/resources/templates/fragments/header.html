@@ -20,7 +20,7 @@
 			
 			<div th:if="${session.loginUser eq null}" th:remove="tag">
 				<button class="headerBtn" id="login" onclick="location.href='/temp/loginPage'" style="color:#FFFFFF; font-size:13px;">LOGIN</button>
-				<button class="headerBtn" id="join" style="color:#FFFFFF; font-size:13px;">JOIN</button>
+				<button class="headerBtn" id="join" onclick="location.href='/user/join'" style="color:#FFFFFF; font-size:13px;">JOIN</button>
 			</div>
 			
 			<div th:if="${session.loginUser ne null}" th:remove="tag" >
