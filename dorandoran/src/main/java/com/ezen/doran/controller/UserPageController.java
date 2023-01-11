@@ -39,13 +39,13 @@ public class UserPageController {
 		return mv;
 	}
 	
-//	@RequestMapping("/playListPage")
-//	public ModelAndView myPlayList() {
-//		ModelAndView mv = new ModelAndView();
-//		
-//		mv.setViewName("/userPage/playListPage.html");
-//		return mv;
-//	}
+	@RequestMapping("/playListPage")
+	public ModelAndView myPlayList() {
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/userPage/playListPage.html");
+		return mv;
+	}
 	
 	@RequestMapping("/writingListPage")
 	public ModelAndView myWritingList() {

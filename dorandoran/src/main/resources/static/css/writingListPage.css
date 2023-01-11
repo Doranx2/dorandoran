@@ -24,6 +24,52 @@ body {
   flex-direction: column;
   background-color: #ffffff;
 }
+.listName {
+	clear:both;
+}
+th {
+	margin-right: 15rem;
+	margin-bottom: 7px;
+	width: 100px;
+    font-size: 2.4rem;
+    font-weight: 500;
+    line-height: 1.0416666667;
+    letter-spacing: 0.132rem;
+    color: #000000;
+    font-family: Jua, 'Source Sans Pro';
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-align: center;
+}
+td {
+	margin-right: 16rem;
+    font-size: 1.6rem;
+    width: 90px;
+    font-weight: 400;
+    line-height: 1.5625;
+    letter-spacing: 0.088rem;
+    color: #000000;
+    font-family: Jua, 'Source Sans Pro';
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-align: center;
+}
+tr {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+li {
+	margin-right: 50px;
+}
+.pageBtn {
+	margin-left: 25px;
+	margin-top: 10px;
+	margin-bottom: 50px;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+}
 .item--T9Y .auto-group-6xuv-y7t {
   margin-bottom: 7.05rem;
   box-sizing: border-box;
@@ -473,7 +519,7 @@ body {
 }
 .item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW {
   box-sizing: border-box;
-  padding: 9.6rem 37.3rem 32rem 38.2rem;
+  padding: 5rem 37.3rem 5rem 38.2rem;
   width: 100%;
   align-items: center;
   display: flex;
@@ -483,7 +529,7 @@ body {
   background-color: #ffffff;
 }
 .item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW .item--Tze {
-  margin: 0rem 4.8rem 4.1rem 0rem;
+  margin: 0rem 4.8rem 6rem 0rem;
   text-align: right;
   display: flex;
   font-size: 3rem;
@@ -532,14 +578,6 @@ body {
   border-radius: 0.3rem;
   flex-shrink: 0;
 }
-.item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW .list-pcE {
-  margin-bottom: 1.7rem;
-  width: 100%;
-  height: 29.9rem;
-  border-bottom: solid 0.3rem #000000;
-  box-sizing: border-box;
-  flex-shrink: 0;
-}
 .item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW .list-pcE .auto-group-xbx6-mnN {
   box-sizing: border-box;
   padding: 1.922rem 7.05rem 0.9rem 5.05rem;
@@ -553,6 +591,7 @@ body {
   background-position: center;
   background-image: url('../assets/frame-1134.png');
   border-top: solid 0.3rem #000000;
+  border-bottom: solid 0.3rem #000000;
 }
 .item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW .list-pcE .auto-group-xbx6-mnN .item--TQJ {
   margin: 0rem 3.05rem 3.178rem 0rem;

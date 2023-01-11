@@ -120,40 +120,32 @@
 
       <div class="auto-group-v2ve-F2n">
         <div class="item--mG2">‘<a th:text="${session.loginUser.userNm}"></a>’님의 장터 목록</div>
-        <div class="item--RbU">
-          <div class="rectangle-100-LyL">
-          </div>
-          <div class="btn-U3x">검색</div>
-        </div>
         <div class="list-WWS">
           <div class="frame-1134-rqC">
-            <div class="auto-group-8phl-yQ2">
-            <table id="myMarketTable">
-              <tr class="auto-group-f23u-h58">
-                <td class="item--qSE">번호</td>
-                <td class="item--k3Q">제목</td>
-                <td class="item--TTc">날짜</td>
+            <div>
+            <table id="myMarketTable" class="auto-group-8phl-yQ2">
+              <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>날짜</th>
               </tr>
-              <tr th:each="myMarket : ${myMarket}" class="auto-group-f23u-h58">
-              	<td th:text="${myMarket.marketNo}" class="item--qSE"></td>
-                <td th:text="${myMarket.prodNm}" class="item--k3Q"></td>
-                <td th:text="${myMarket.inputDtm}" class="item--TTc"></td>
+              <tr th:each="myMarket : ${myMarket}">
+              	<td th:text="${myMarket.marketNo}"></td>
+                <td th:text="${myMarket.prodNm}"></td>
+                <td th:text="${myMarket.inputDtm}"></td>
               </tr>
              </table>
-              <div class="auto-group-bhvj-dmQ">
-                <img class="btn1-kb8" th:src="@{/images/btn1-5LA.png}"/>
-                <div class="item-1-uD8">1</div>
-                <img class="btn1-2Ye" th:src="@{/images/btn1-mHp.png}"/>
-              </div>
             </div>
           </div>
+          
+          <!-- 페이지 버튼 -->
+               <li class="auto-group-bhvj-dmQ">
+                <a><img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+                <a><img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+              </li>
+          <!-- 페이지 버튼 -->
+          
         </div>
-		
-        <div class="item--Wii">
-          <div class="btn-S6a">취소</div>
-          <div class="btn-Hcz">삭제</div>
-        </div>
-
       </div>
     </div>
     <!-- 상세창 내부 -->
