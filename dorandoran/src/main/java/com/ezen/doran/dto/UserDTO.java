@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
   @AllArgsConstructor
   
   public class UserDTO { 
+
 	  private int userNo; 
 	  private String userNm; 
 	  private String userId; 
@@ -28,6 +29,7 @@ import lombok.NoArgsConstructor;
 	  private String userLoc; 
 	  private String userNick; 
 	  private String userRole;
+	  private String userTel;
 	  
   @DateTimeFormat(pattern = "yyyy-MM-dd") 
 	private Date inputDtm; 

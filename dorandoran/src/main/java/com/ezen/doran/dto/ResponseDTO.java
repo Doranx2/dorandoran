@@ -10,7 +10,7 @@ import lombok.Data;
 public class ResponseDTO<T> {
 	private String errorMessage;
 	private int statusCode;
-	private List<T> Items;
-	private T Item;
+	private List<T> items;
+	private T item;
 	private Page<T> pageItems;
 	}
