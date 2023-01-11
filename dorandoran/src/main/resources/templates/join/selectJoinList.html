@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			function textOver(marketNo) {
+				$("#text" + marketNo).css("display", "block");
+			};
+
+			function textOut(marketNo) {
+				$("#text" + marketNo).css("display", "none");
+			};
+
+			function search() {
+				let searchKeyword = $('#searchKeyword').val();
+				console.log(searchKeyword);
+				location.href = "/market/selectMarketList?searchKeyword=" + searchKeyword;
+			}
+		</script>
+	</th:block>
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<link rel="stylesheet" th:href="@{/css/boardTitle.css}" />
+		<link rel="stylesheet" th:href="@{/css/join.css}" />
+
+
+		<div class="v19_9" style="height: 1373px;">
+
+			<div class="v89_238">
+				<div class="v89_239"></div>
+				<div class="v89_240"></div>
+				<span class="v89_241">함께해요</span>
+			</div>
+
+			<div class="v89_245">
+				<img class="backImg" th:src="@{/images/boardBack.png}" />
+			</div>
+			<div class="v89_249">
+				<img class="iconImg" th:src="@{/images/joinIcon.png}" />
+			</div>
+
+			<div class="v21_78" style="height: 240px;"><span class="v21_80">혼자라서 외로울 때<br>여기서 사람들을 모아보세요!</span>
+				<span class="v21_81">모임을 만들고, 모임 신청이 가능한 게시판입니다.<br>
+					소식좌인데 치킨이 먹고 싶을 때!<br>멀티게임을 샀는데 준비물인 친구가 없을 때!<br>
+					함께해요 게시판에서 사람들을 모아보세요.<br>
+					언젠가 동네 인싸가 되어있는 당신을 발견할지도 몰라요.</span>
+			</div>
+			
+
+			<div th:if="${session.loginUser ne null}" th:remove="tag">
+				<button class="insertPageBtn" onclick="location.href='/join/insertJoinPage'"
+					style="z-index : 1; top : 533px;">모임 만들기</button>
+			</div>
+
+			<div th:if="${session.loginUser eq null}" th:remove="tag">
+				<button class="insertPageBtn" onclick="location.href='/temp/loginPage'" style="z-index : 1;top : 533px;">로그인 후
+					모임만들기</button>
+			</div>
+			<div class="container">
+				<div class="boardContainer"></div>
+				<!--<div class="boardContainer">
+					<div class="marketListContainer" th:each="list : ${list}"
+						th:onmouseover="'textOver('+${list.marketNo}+');'"
+						th:onmouseout="'textOut('+${list.marketNo}+');'">
+						<div th:if="${list.imageNm ne null and list.imageNm.length > 0}" th:remove="tag">
+							<img th:src="@{'/upload/' + ${list.imageNm}}" th:id="'prodImg'+${list.marketNo}"
+								class="prodImage">
+							<div th:id="'text'+${list.marketNo}" class="text" style="display:none;"
+								th:onclick="|location.href='@{/market/selectMarket?marketNo={marketNo} (marketNo = ${list.marketNo})}'|">
+								<a class="title" th:text="${list.prodNm}"></a><br>
+								<a class="price" th:text="${list.price} +' 원'"></a>
+
+								<div th:if="${list.status eq '거래완료'}" th:remove="tag">
+									<a class="status" th:text="${list.status}" style="background: red;"></a>
+								</div>
+
+								<div th:if="${list.status ne '거래완료'}" th:remove="tag">
+									<a class="status" th:text="${list.status}"></a>
+								</div>
+
+
+							</div>
+						</div>
+
+						<div th:if="${list.imageNm eq null or list.imageNm.length < 1}" th:remove="tag">
+							<div style="height:100%; cursor:pointer;"
+								th:onclick="|location.href='@{/market/selectMarket?marketNo={marketNo} (marketNo = ${list.marketNo})}'|">
+								<a class="title" th:text="${list.prodNm}"></a><br>
+								<a class="price" th:text="${list.price} +' 원'"></a>
+								<div th:if="${list.status eq '거래완료'}" th:remove="tag">
+									<a class="status" th:text="${list.status}" style="background: red;"></a>
+								</div>
+
+								<div th:if="${list.status ne '거래완료'}" th:remove="tag">
+									<a class="status" th:text="${list.status}"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>-->
+			</div>
+
+
+			<div class="searchInput">
+				<input id="searchKeyword" name="searchKeyword">
+				<button class="searchIcon" onclick="search();"></button>
+			</div>
+
+
+			
+
+
+		</div>
+	</div>
+</body>
+
+</html>

@@ -22,8 +22,8 @@ import com.ezen.doran.dto.MarketDTO;
 import com.ezen.doran.dto.Pagination;
 import com.ezen.doran.dto.PlayDTO;
 import com.ezen.doran.dto.ReDTO;
+import com.ezen.doran.service.market.MarketService;
 import com.ezen.doran.service.re.ReService;
-import com.ezen.doran.service.service.MarketService;
 
 @RestController
 @RequestMapping("/market")
