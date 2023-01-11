@@ -56,7 +56,7 @@ body {
 .item--T9Y .auto-group-6xuv-y7t .frame-1144-V6E .auto-group-5qh8-Bjk .group-34-hCJ {
   margin: 0.2rem 1.95rem 0rem 0rem;
   box-sizing: border-box;
-  padding: 1.2rem 2.388rem 0.3rem 2.413rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
@@ -131,14 +131,13 @@ body {
 }
 .item--T9Y .auto-group-6xuv-y7t .frame-1144-V6E .auto-group-hazv-j4S {
   box-sizing: border-box;
-  padding: 7.8rem 9.85rem 7.9rem 9.95rem;
+  padding: 5.5rem 5rem 5.2rem 5rem;
   width: 53.5rem;
   height: 100%;
   background-color: #ffffff;
   flex-shrink: 0;
 }
 .item--T9Y .auto-group-6xuv-y7t .frame-1144-V6E .auto-group-hazv-j4S .nnnn--3L2 {
-  max-width: 33.7rem;
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
@@ -206,7 +205,7 @@ body {
   width: 10.4rem;
   height: 7rem;
   position: absolute;
-  left: 4.25rem;
+  left: 2.8rem;
   top: 0;
   text-align: center;
   font-size: 2.2rem;
@@ -479,12 +478,12 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-  border: solid 0.1rem #1761a0;
+  border-top: double 6px #1761a0;
+  border-bottom: double 6px #1761a0;
   background-color: #ffffff;
 }
 .item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW .item--Tze {
   margin: 0rem 4.8rem 4.1rem 0rem;
-  max-width: 31.4rem;
   text-align: right;
   display: flex;
   font-size: 3rem;
@@ -755,13 +754,10 @@ body {
   white-space: nowrap;
 }
 .item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW .list-pcE .auto-group-xbx6-mnN .group-25-qjc .group-24-eKg {
-  width: 64.8rem;
-  height: 2.6rem;
-  position: absolute;
-  left: 0;
-  top: 0;
+  margin: 0rem 0rem 1.2rem 1rem;
   display: flex;
   align-items: flex-start;
+  flex-shrink: 0;
 }
 .item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW .list-pcE .auto-group-xbx6-mnN .group-25-qjc .group-24-eKg .item-3-az2 {
   margin: 0.1rem 25.2rem 0rem 0rem;

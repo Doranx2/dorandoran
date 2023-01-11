@@ -56,7 +56,7 @@ body {
 .mypage-gbx .auto-group-vcwe-RZY .frame-1144-8yk .auto-group-qu3g-3av .group-34-ZpA {
   margin: 0.2rem 1.95rem 0rem 0rem;
   box-sizing: border-box;
-  padding: 1.2rem 2.388rem 0.3rem 2.413rem;
+  padding: 2rem 2.5rem 1.5rem 2.5rem;
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
@@ -131,18 +131,18 @@ body {
 }
 .mypage-gbx .auto-group-vcwe-RZY .frame-1144-8yk .auto-group-wh4e-3oC {
   box-sizing: border-box;
-  padding: 7.8rem 9.85rem 7.9rem 9.95rem;
+  padding: 8rem 7rem 6rem 7rem;
   width: 53.5rem;
   height: 100%;
   background-color: #ffffff;
   flex-shrink: 0;
 }
 .mypage-gbx .auto-group-vcwe-RZY .frame-1144-8yk .auto-group-wh4e-3oC .nnnn--NKg {
-  max-width: 33.7rem;
+  max-width: 100%;
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
-  line-height: 1.6666666667;
+  line-height: 1.1;
   color: #7e7e7e;
   font-family: Inter, 'Source Sans Pro';
 }
@@ -187,16 +187,16 @@ body {
   flex-shrink: 0;
 }
 .mypage-gbx .auto-group-vcwe-RZY .auto-group-pjzg-oQz .frame-1143-gUn .group-33-JFG {
-  width: 18.9rem;
-  height: 100%;
+  width: 18.5rem;
+  height: 77%;
   position: relative;
   border-radius: 3rem;
   flex-shrink: 0;
+  color: #ffd3d0
 }
 .mypage-gbx .auto-group-vcwe-RZY .auto-group-pjzg-oQz .frame-1143-gUn .group-33-JFG .rectangle-106-4ES {
-  width: 18.9rem;
-  height: 4rem;
-  position: absolute;
+  width: 18rem;
+  height: 5rem;
   left: 0;
   top: 1.5rem;
   background-color: #ffd3d0;
@@ -206,12 +206,12 @@ body {
   width: 10.4rem;
   height: 7rem;
   position: absolute;
-  left: 4.25rem;
+  left: 2.3rem;
   top: 0;
   text-align: center;
   font-size: 2.2rem;
   font-weight: 600;
-  line-height: 3.1818181818;
+  line-height: 2.5;
   color: #f44336;
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
@@ -475,7 +475,7 @@ body {
 .mypage-gbx .auto-group-2pyg-MMx .auto-group-da3u-eLN .rectangle-102-mSv {
   width: 100%;
   height: 87.9rem;
-  border: solid 0.1rem #1761a0;
+  border-top: double 6px #1761a0;
   box-sizing: border-box;
   background-color: #ffffff;
 }
