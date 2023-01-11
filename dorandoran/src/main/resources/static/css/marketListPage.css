@@ -12,6 +12,9 @@ ul, li {
 input {
 	border: none;
 }
+td, tr, table {
+  text-align: center;
+}
 body {
   width: 192rem;
 }.item--L6J {
@@ -545,10 +548,11 @@ body {
   box-sizing: border-box;
   padding-top: 0.3rem;
   width: 100%;
-  height: 17.7rem;
+  height: 60rem;
   overflow: hidden;
   position: relative;
   border-top: solid 0.3rem #000000;
+  border-bottom: solid 0.3rem #000000;
   background-color: #f8f8f8;
 }
 .item--L6J .auto-group-ge7u-CJA .auto-group-xkcs-zUE .auto-group-v2ve-F2n .list-WWS .frame-1134-rqC .auto-group-8phl-yQ2 {
@@ -568,7 +572,7 @@ body {
   flex-shrink: 0;
 }
 .item--L6J .auto-group-ge7u-CJA .auto-group-xkcs-zUE .auto-group-v2ve-F2n .list-WWS .frame-1134-rqC .auto-group-8phl-yQ2 .auto-group-f23u-h58 .item--qSE {
-  margin-right: 27.25rem;
+  margin-right: 23rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -584,6 +588,7 @@ body {
 .item--L6J .auto-group-ge7u-CJA .auto-group-xkcs-zUE .auto-group-v2ve-F2n .list-WWS .frame-1134-rqC .auto-group-8phl-yQ2 .auto-group-f23u-h58 .item--k3Q {
   margin-right: 26rem;
   display: flex;
+  max-width: 20px;
   align-items: center;
   justify-content: center;
   font-size: 2.4rem;

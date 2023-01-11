@@ -12,6 +12,7 @@ ul, li {
 input {
 	border: none;
 }
+
 body {
   width: 192rem;
 }.item--yEn {
@@ -29,6 +30,12 @@ body {
 }
 #userEmail {
   background-color: #d9d9d9;
+}
+.item--yEn .auto-group-9rl6-UxE .frame-1144-oDp .rectangle-104-P9Q {
+  width: 53.5rem;
+  height: 25.7rem;
+  background-color: #ffffff;
+  flex-shrink: 0;
 }
 .item--yEn .auto-group-9rl6-UxE {
   margin-bottom: 7.05rem;
@@ -144,7 +151,6 @@ body {
   flex-shrink: 0;
 }
 .item--yEn .auto-group-9rl6-UxE .frame-1144-oDp .auto-group-wdiz-ybU .nnnn--6AJ {
-  max-width: 34em;
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
@@ -795,4 +801,5 @@ body {
   background-color: #eec400;
   border-radius: 1rem;
   flex-shrink: 0;
+  border-color: white;
 }

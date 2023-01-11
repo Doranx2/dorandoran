@@ -9,6 +9,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <title>장터목록</title>
+  
+  <th:block layout:fragment="script">
+		<script th:inline="javascript">
+		
+		$(function(){
+			let userNo = /*[[${session.loginUser.userNo}]]*/;
+			console.log(userNo);
+		});
+		
+		</script>
+	</th:block>
+  
+  
 </head>
 <!-- head 끝 -->
 
@@ -78,10 +91,10 @@
 
       <div class="frame-1147-6gN">
         <div class="item--Qwx" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인</div>
-        <div class="item--ihk" onclick="location.href='/userPage/playListPage'" style="cursor:pointer;">모임 목록</div>
-        <div class="item--dJv" onclick="location.href='/userPage/marketListPage'" style="cursor:pointer;">장터 목록</div>
-        <div class="item--LDL" onclick="location.href='/userPage/writingListPage'" style="cursor:pointer;">작성한 글 목록</div>
-        <div class="item--F5Q" onclick="location.href='/userPage/questionListPage'" style="cursor:pointer;">고객센터 글 목록</div>
+        <div class="item--ihk" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
+        <div class="item--dJv" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
+        <div class="item--LDL" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
+        <div class="item--F5Q" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
 
       <div class="icon-media-play-5aE">
@@ -121,10 +134,10 @@
                 <td class="item--k3Q">제목</td>
                 <td class="item--TTc">날짜</td>
               </tr>
-              <tr class="auto-group-f23u-h58">
-              	<td class="item--qSE">1</td>
-                <td class="item--k3Q">2</td>
-                <td class="item--TTc">3</td>
+              <tr th:each="myMarket : ${myMarket}" class="auto-group-f23u-h58">
+              	<td th:text="${myMarket.marketNo}" class="item--qSE"></td>
+                <td th:text="${myMarket.prodNm}" class="item--k3Q"></td>
+                <td th:text="${myMarket.inputDtm}" class="item--TTc"></td>
               </tr>
              </table>
               <div class="auto-group-bhvj-dmQ">
@@ -135,7 +148,7 @@
             </div>
           </div>
         </div>
-
+		
         <div class="item--Wii">
           <div class="btn-S6a">취소</div>
           <div class="btn-Hcz">삭제</div>

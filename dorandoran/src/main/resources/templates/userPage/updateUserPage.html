@@ -100,10 +100,10 @@
       </div>
       <div class="frame-1146-bMG">
         <div class="item--uMx" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인</div>
-        <div class="item--1A6" onclick="location.href='/userPage/playListPage'" style="cursor:pointer;">모임 목록</div>
-        <div class="item--hoc" onclick="location.href='/userPage/marketListPage'" style="cursor:pointer;">장터 목록</div>
-        <div class="item--zXp" onclick="location.href='/userPage/writingListPage'" style="cursor:pointer;">작성한 글 목록</div>
-        <div class="item--GkE" onclick="location.href='/userPage/questionListPage'" style="cursor:pointer;">고객센터 글 목록</div>
+        <div class="item--1A6" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
+        <div class="item--hoc" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
+        <div class="item--zXp" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
+        <div class="item--GkE" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
       <div class="icon-media-play-yuY">
         <img class="icon-media-play-WPg" th:src="@{/images/mediaPlayIcon.png}"/>
@@ -129,33 +129,34 @@
         <div class="item--Bpa">‘<a th:text="${session.loginUser.userNm}"></a>’님의 개인 정보</div>
         <div class="auto-group-yafu-3Lz">
           <div class="item--8NS">아이디</div>
-          <input type="text" id="userId" class="dorandoran-d4J" style="outline: none;" th:value="${session.loginUser.userId}" readonly="readonly">
+          <input type="text" name="userId" class="dorandoran-d4J" style="outline: none;" th:value="${session.loginUser.userId}" readonly="readonly">
         </div>
         <div class="auto-group-25ml-92e">
           <div class="item--5S6">가입일자</div>
-          <input type="text" id="inputDtm" class="item-0000-00-00-xEz" style="outline: none;" th:value="${session.loginUser.inputDtm}" readonly="readonly">
+          <input type="text" name="inputDtm" class="item-0000-00-00-xEz" style="outline: none;" th:value="${session.loginUser.inputDtm}" readonly="readonly">
         </div>
         <div class="auto-group-wata-4J2">
           <div class="item--b34">성별</div>
-          <input type="text" id="userGen" class="item--t2A" style="outline: none;" th:value="${session.loginUser.userGen}" readonly="readonly">
+          <input type="text" name="userGen" class="item--t2A" style="outline: none;" th:value="${session.loginUser.userGen}" readonly="readonly">
         </div>
         <div class="auto-group-2gm8-B1G">
           <div class="item--Hpz">이메일</div>
-          <input class="group-19-zzJ" id="userEmail" placeholder="이메일을 입력해주세요.">
+          <input class="group-19-zzJ" name="userEmail" placeholder="이메일을 입력해주세요.">
         </div>
         <div class="auto-group-g9vc-YPY">
           <div class="item--G4e">전화번호</div>
-          <input class="group-20-7b4" id="userTel" placeholder="전화번호를 입력해주세요.">
+          <input class="group-20-7b4" name="userTel" placeholder="전화번호를 입력해주세요.">
         </div>
         <div class="auto-group-9ehg-ajY">
           <div class="item--6xn">닉네임</div>
-          <input class="group-21-D1p" id="userNick" placeholder="닉네임을 입력해주세요.">
+          <input class="group-21-D1p" name="userNick" placeholder="닉네임을 입력해주세요.">
         </div>
         <div class="auto-group-d9p8-65c">
           <div class="item--p1c">지역</div>
-          <input class="group-22-tGN" id="userLoc" placeholder="지역을 입력해주세요.">
+          <input class="group-22-tGN" name="userLoc" placeholder="지역을 입력해주세요.">
         </div>
-        <button class="auto-group-8eqa-aoQ" id="updateUserBtn" type="submit" style="cursor:pointer;">정보 변경하기</div>
+        <button class="auto-group-8eqa-aoQ" id="updateUserBtn" type="submit" th:onclick="updateUser()" style="cursor:pointer;">정보 변경
+        </div>
       </div>
     </div>
     </form>

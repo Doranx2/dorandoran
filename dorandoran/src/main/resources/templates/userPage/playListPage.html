@@ -43,6 +43,8 @@
         되는 날입니다!
         </p>
       </div>
+      <div class="rectangle-104-ECe">
+      </div>
     </div>
     
     <!-- 공지로 넘어가기 -->
@@ -78,10 +80,10 @@
 
       <div class="frame-1147-D1x">
         <div class="item--X2e" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인      </div>
-        <div class="item--pnS" onclick="location.href='/userPage/playListPage'" style="cursor:pointer;">모임 목록</div>
-        <div class="item--vqU" onclick="location.href='/userPage/marketListPage'" style="cursor:pointer;">장터 목록</div>
-        <div class="item--ErA" onclick="location.href='/userPage/writingListPage'" style="cursor:pointer;">작성한 글 목록</div>
-        <div class="item--x1U" onclick="location.href='/userPage/questionListPage'" style="cursor:pointer;">고객센터 글 목록</div>
+        <div class="item--pnS" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
+        <div class="item--vqU" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
+        <div class="item--ErA" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
+        <div class="item--x1U" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
 
       <div class="icon-media-play-3Yi">

@@ -78,10 +78,10 @@
       </div>
       <div class="frame-1147-ASA">
         <div class="item--sLa" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인</div>
-        <div class="item--aEz" onclick="location.href='/userPage/playListPage'" style="cursor:pointer;">모임 목록</div>
-        <div class="item--szn" onclick="location.href='/userPage/marketListPage'" style="cursor:pointer;">장터 목록</div>
-        <div class="item--auC" onclick="location.href='/userPage/writingListPage'" style="cursor:pointer;">작성한 글 목록</div>
-        <div class="item--hD8" onclick="location.href='/userPage/questionListPage'" style="cursor:pointer;">고객센터 글 목록</div>
+        <div class="item--aEz" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
+        <div class="item--szn" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
+        <div class="item--auC" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
+        <div class="item--hD8" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
       <div class="icon-media-play-Pbk">
         <img class="icon-media-play-i8E" th:src="@{/images/mediaPlayIcon.png}"/>
@@ -104,7 +104,7 @@
       </div>
       <div class="auto-group-ugjn-L54">
         <div class="group-31-TQa">
-          <div class="item-1-1--oUS">‘<a th:text="${session.loginUser.userNick}"></a>’님의 1:1 문의 목록</div>
+          <div class="item-1-1--oUS">‘<a th:text="${session.loginUser.userNm}"></a>’님의 1:1 문의 목록</div>
           <div class="list-ezr">
             <div class="frame-1134-yXL">
               <div class="auto-group-ywae-WGN">
@@ -114,10 +114,10 @@
                   <td class="item--eG6">제목</td>
                   <td class="item--wkz">날짜</td>
                 </tr>
-                <tr class="auto-group-383t-FWn">
-                  <td class="item-1-yxa">1</td>
-                  <td class="item--6GW">예쁜 카페 가요~</td>
-                  <td class="item-0000-00-00-yr6">0000/00/00</div>
+                <tr th:each="myQuestion : ${myQuestion}" class="auto-group-383t-FWn">
+                  <td th:text="${myQuestion.qNo}" class="item-1-yxa"></td>
+                  <td th:text="${myQuestion.qTitle}" class="item--6GW"></td>
+                  <td th:text="${myQuestion.inputDtm}" class="item-0000-00-00-yr6"></div>
                 </tr>
               </table>
                 <div class="auto-group-vdfy-hXC">
@@ -135,20 +135,20 @@
           </div>
 
           <div class="group-31-LkW">
-            <div class="item--gZU">‘<a th:text="${session.loginUser.userNick}"></a>’님의 신고 목록</div>
+            <div class="item--gZU">‘<a th:text="${session.loginUser.userNm}"></a>’님의 신고 목록</div>
             <div class="list-Z7U">
               <div class="frame-1134-H3U">
                 <div class="auto-group-cpsz-cLe">
                 <table>
                   <tr class="auto-group-puej-L1k">
                     <td class="item--FuQ">번호</td>
-                    <td class="item--MxS">제목</td>
-                    <td class="item--fy8">날짜</td>
+                    <td th:text="${}" class="item--MxS">제목</td>
+                    <td th:text="${}" class="item--fy8">날짜</td>
                   </tr>
-                  <tr class="auto-group-fq5g-BwU">
-                    <td class="item-1-Wyk">1</td>
-                    <td class="item--RL2">예쁜 카페 가요~</td>
-                    <td class="item-0000-00-00-KRQ">0000/00/00</td>
+                  <tr th:each="myRep : ${myRep}" class="auto-group-fq5g-BwU">
+                    <td th:text="${myRep.repNo}" class="item-1-Wyk"></td>
+                    <td th:text="${myRep.repTitle}" class="item--RL2"></td>
+                    <td th:text="${myRep.inputDtm}" class="item-0000-00-00-KRQ"></td>
                   </tr>
                 </table>
                   <div class="auto-group-thkg-36W">

@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.ezen.doran.dto.MarketDTO;
 import com.ezen.doran.dto.PlayDTO;
 import com.ezen.doran.dto.UserDTO;
 
@@ -31,5 +32,8 @@ public interface UserPageMapper {
 	
 	@Select("SELECT * FROM tb_play WHERE USER_NO = #{userNo}")
 	List<PlayDTO> selectMyPlayList();
+	
+	@Select("SELECT * FROM tb_market WHERE USER_NO = #{userNo}")
+	List<MarketDTO> selectMyMarketList(int userNo);
 
 }
