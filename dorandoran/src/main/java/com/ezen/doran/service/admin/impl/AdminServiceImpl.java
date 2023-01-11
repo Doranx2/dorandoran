@@ -1,14 +1,15 @@
 package com.ezen.doran.service.admin.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ezen.doran.dto.FaqDTO;
+import com.ezen.doran.dto.AnswerDTO;
 import com.ezen.doran.dto.NoticeDTO;
+import com.ezen.doran.dto.Pagination;
 import com.ezen.doran.dto.QuestionDTO;
-import com.ezen.doran.dto.RepDTO;
 import com.ezen.doran.mapper.AdminMapper;
 import com.ezen.doran.service.admin.AdminService;
 
@@ -21,11 +22,22 @@ public class AdminServiceImpl implements AdminService{
 	
 	
 	/* ======================= AdminNotice ======================= */
+	/* SELECT NOTICE ALL */
+	@Override
+	public List<NoticeDTO> getAdNoticeList(Pagination page){
+		return adminMapper.selectNoticeAll(page);
+	}
+
+	@Override
+	public int getAdNoticeTotalCnt(String searchKeyword) {
+		return adminMapper.getAdNoticeTotalCnt(searchKeyword);
+	}
+	
 	/* INSERT */
 	@Override
-	public void insertNotice(NoticeDTO noticeDTO) {
+	public void adNoticeInsert(NoticeDTO noticeDTO) {
 		/* 데이터 흐름 : adminController.java -> adminServiceImpl.java -> AdminMapper -> DB */
-		adminMapper.insertNotice(noticeDTO);
+		adminMapper.adNoticeInsert(noticeDTO);
 	}
 	
 	/* SELECT NOTICE ONE */
@@ -36,81 +48,49 @@ public class AdminServiceImpl implements AdminService{
 	
 	/* UPDATE */
 	@Override
-	public void updateNotice(NoticeDTO noticeDTO) {
-		adminMapper.updateNotice(noticeDTO);
-	}
-	
-	/* SELECT NOTICE ALL */
-	@Override
-	public List<NoticeDTO> getAdNoticeList(){
-		return adminMapper.selectNoticeAll();
+	public void adUpdateNotice(NoticeDTO noticeDTO) {
+		adminMapper.adUpdateNotice(noticeDTO);
 	}
 	
 	/* DELETE NOTICE ONE */
 	@Override
-	public int deleteNotice(int noticeNo) {
-		return adminMapper.deleteNoticeOne(noticeNo);
-	}
-	
-	/* ======================= AdminFAQ ======================= */
-	/* INSERT */
-	@Override
-	public void insertAdFaq(FaqDTO faqDTO) {
-		/* 데이터 흐름 : adminController.java -> adminServiceImpl.java -> AdminMapper -> DB */
-		adminMapper.insertAdFaq(faqDTO);
-	}
-	
-	/* SELECT NOTICE ONE */
-	@Override
-	public FaqDTO getAdFaqOne(int faqNo) {
-		return adminMapper.selectAdFaqOne(faqNo);
-	}
-	
-	/* UPDATE */
-	@Override
-	public void updateAdFaq(FaqDTO faqDTO) {
-		adminMapper.updateAdFaq(faqDTO);
-	}
-	
-	/* SELECT NOTICE ALL */
-	@Override
-	public List<FaqDTO> getAdFaqList() {
-		return adminMapper.selectAdFaqAll();
-	}
-	
-	/* DELETE NOTICE ONE */
-	@Override
-	public int deleteAdFaq(int faqNo) {
-		return adminMapper.deleteAdFaqOne(faqNo);
+	public int adNoticeDelete(int noticeNo) {
+		return adminMapper.adNoticeDeleteOne(noticeNo);
 	}
 	
 	/* ======================= AdminQuestionAnswer ======================= */
-//	public void insertAdQna(QuestionDTO questionDTO);
-//	
-//	public QuestionDTO getAdQnaOne(int qNo);
-//	
-//	public void updateAdQna(QuestionDTO questionDTO);
-
-	/* SELECT ALL */
-	public List<QuestionDTO> getAdQnaList(){
-		return adminMapper.selectAdQnaAll();
+	/* LIST */
+	@Override
+	public List<QuestionDTO> getAdQnaList(Pagination page){
+		return adminMapper.selectQnaAll(page);
 	}
+
+	@Override
+	public int getAdQnaTotalCnt(String searchKeyword) {
+		return adminMapper.getAdQnaTotalCnt(searchKeyword);
+	}
+	
+	@Override
+	public QuestionDTO getQnaOne(int qNo) {
+		return adminMapper.getQnaOne(qNo);
+	}
+	
+	@Override
+	public AnswerDTO getQnaAnswerOne(int qNo) {
+		return adminMapper.getQnaAnswerOne(qNo);
+	}
+	
+//	@Override
+//	public void AdAnswerUpdate(AnswerDTO answerDTO) {
+//		adminMapper.AdAnswerUpdate(answerDTO);
+//	}	
 //	
-//	public int deleteAdQna(int qNo);
-//	
-//	public void updateAdAnswer(AnswerDTO answerDTO);
+//	@Override
+//	public int adQnaDelete(int qNo) {
+//		return adminMapper.adQnaDelete(qNo);
+//	}
 	
 	/* ======================= AdminReport ======================= */
-//	public void insertAdReport(RepDTO repDTO);
-//	
-//	public RepDTO getAdReportOne(int repNo);
-//	
-//	public void updateAdReport(RepDTO repDTO);
-//	
-	public List<RepDTO> getAdReportList(){
-		return adminMapper.selectAdReportAll();
-	}
-//	
-//	public int deleteAdReport(int repNo);
+
 
 }

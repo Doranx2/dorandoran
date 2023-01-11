@@ -17,5 +17,6 @@ public class UserDTO {
 	private String userLoc;
 	private String userNick;
 	private Date inputDtm;
+	private String userRole;
 
 }
