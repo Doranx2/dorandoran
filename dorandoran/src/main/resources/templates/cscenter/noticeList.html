@@ -85,7 +85,7 @@
 							<input type="hidden" name="amount" th:value="${pageDTO.cri.amount }">
 							<table style="width: 950px; border-collapse: collapse; margin-top: px;">
 								<tr>
-									<td align="right">
+									<td align="right" style="display : none;">
 										<select name="searchCondition">
 											<option value="ALL" th:selected="${searchCondition == 'ALL'}">전체</option>
 											<option value="TITLE" th:selected="${searchCondition == 'TITLE'}">제목
