@@ -1,12 +1,10 @@
 package com.ezen.doran.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.util.modeler.modules.ModelerSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.doran.dto.Pagination;
-import com.ezen.doran.dto.PlayDTO;
 import com.ezen.doran.dto.ReDTO;
 import com.ezen.doran.dto.ShareDTO;
 import com.ezen.doran.service.re.ReService;
@@ -32,7 +29,8 @@ public class ShareController {
 	
 	@RequestMapping("/selectShareList")
 	public ModelAndView selectShareList(@RequestParam(defaultValue = "1") int page,
-										@RequestParam(defaultValue = "") String searchKeyword) {
+										@RequestParam(defaultValue = "") String searchKeyword,
+										@RequestParam(defaultValue = "") String shareCat) {
 		ModelAndView mv = new ModelAndView();
 
 		// 총 게시글 수
@@ -47,6 +45,7 @@ public class ShareController {
 		// 생성인자로 총 게시글 수, 현재 페이지 전달
 		Pagination pagination = new Pagination(totalListCnt, page);
 		pagination.setSearchKeyword(searchKeyword);
+		pagination.setShareCat(shareCat);
 
 		List<ShareDTO> selectShareList = shareService.selectShareList(pagination);
 
