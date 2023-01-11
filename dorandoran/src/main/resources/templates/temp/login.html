@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			$(function () {
+
+				$("#loginBtn").on("click", function () {
+					$.ajax({
+						url: "/temp/login",
+						type: "post",
+						data: $("#loginForm").serialize(),
+						success: function (obj) {
+							console.log(obj);
+							//id 체크
+							if (!obj) {
+								alert("존재하지 않는 아이디거나 올바르지 않은 비밀번호입니다.");
+								$("#userId").focus();
+								window.location.replace("/temp/loginPage");
+							}
+							else {
+								//로그인 처리
+								window.location.replace("/");
+							}
+						},
+						error: function (e) {
+							console.log(e);
+						}
+					});
+				});
+
+			});
+		</script>
+	</th:block>
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<link rel="stylesheet" th:href="@{/css/temp.css}" />
+		<form id="loginForm" method="post" action="/temp/login">
+			<div class="v14_29" style="position: relative;">
+				<div class="v118_224">
+					<div class="v23_26"></div>
+					<div class="v23_25"></div>
+					<div class="v23_27"></div>
+					<div class="v23_28"></div>
+					<div class="v23_29"></div>
+					<div class="v23_31"></div>
+					<div class="v23_32"></div>
+					<div class="v23_30"></div>
+					<div class="v23_24"></div>
+					<div class="v23_23"></div>
+					<div class="v19_186"></div>
+					<div class="v25_53"></div>
+				</div><span class="v19_187">LOGIN</span>
+				<div class="v19_195"></div>
+				<div class="v19_198">
+					<input class="userPw" id="userPw" name="userPw" placeholder="비밀번호를 입력하세요."></input>
+				</div>
+				<div class="v19_197">
+					<input class="userId" id="userId" name="userId" placeholder="아이디를 입력하세요."></input>
+				</div><span class="v19_196">아이디 찾기 | 비밀번호 찾기 | 회원가입</span>
+				<div class="v118_223">
+					<button id="loginBtn" class="v19_194"><span class="v118_222">로그인</span></button>
+				</div>
+			</div>
+		</form>
+
+
+	</div>
+</body>
+
+</html>

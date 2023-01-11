@@ -16,5 +16,6 @@ public class RepDTO {
 	private int userNo;
 	private String userId;
 	private String inputDtm;
-	private String aYn;
+	private String compYn;
+	private String userNm;
 }

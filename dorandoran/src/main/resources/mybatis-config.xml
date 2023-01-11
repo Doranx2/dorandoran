@@ -12,5 +12,6 @@
 		<typeAlias type="com.ezen.doran.dto.NoticeDTO" alias="notice"/>
 		<typeAlias type="com.ezen.doran.dto.QuestionDTO" alias="question"/>
 		<typeAlias type="com.ezen.doran.dto.RepDTO" alias="report"/>
+		<typeAlias type="com.ezen.doran.dto.AnswerDTO" alias="answer"/>
 	</typeAliases>
 </configuration>
