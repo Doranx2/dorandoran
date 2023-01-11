@@ -24,3 +24,15 @@
 				insert 페이지 주석 풀기
 				
 				mapper 값 수정
+				
+				
+				
+				
+											<tr>
+								<th
+									style="background-Color : #1761A0; width: 15%; height:10px; border-bottom-left-radius:10px;">
+								</th>
+								<th style="background-Color : #1761A0; width: 60%;"></th>
+								<th style="background-Color : #1761A0; width: 25%; border-bottom-right-radius:10px;">
+								</th>
+							</tr>

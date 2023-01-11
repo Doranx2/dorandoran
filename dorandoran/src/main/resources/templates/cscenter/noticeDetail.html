@@ -27,28 +27,38 @@
 			</div>
 			<div class="auto-group-hv9g-23x">
 				<div class="rectangle-23-xiJ">
-					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-						<form action="" method="" id="ntcForm">
+					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"
+						id="ntcTag">
+						<div id="tpImg2">
+							<div>
+								<img th:src="@{/images/Logo2.png}" style="width : 80px; height : 80px;">
+							</div>
+							<div>
+								<span id="listTtl2">공지내용</span>
+							</div>
+						</div>
+						<form id="ntcForm">
 							<input type="hidden" name="noticeNo" id="noticeNo" th:value="${nDetail.noticeNo}">
-							<table border="1" style="border-collapse: collapse; margin-top : 120px;">
+							<table style="border-collapse: collapse; margin-top : 10px;">
 								<tr>
-									<td style="width: 150px; height: 50px;">
+									<td id="ntcTag1">
 										제목
 									</td>
-									<td style="text-align: left; background: white; ">
+									<td id="ntcTag2">
 										[[${nDetail.noticeTitle }]]
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 150px; height: 50px;">
+									<td id="ntcTag1">
 										작성자
 									</td>
-									<td style="text-align: left; background: white; ">
-										[[${nDetail.userNm }]]
+									<td id="ntcTag2">
+										<!--[[${nDetail.userNm }]]-->
+										도란도란
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 150px; height: 50px;">
+									<td id="ntcTag1">
 										작성일
 									</td>
 									<td style="text-align: left; background: white; " id="inputDtmText"
@@ -56,13 +66,33 @@
 									</td>
 								</tr>
 								<tr>
-									<td style="text-align: left; width : 800px; height: 400px; background: white; vertical-align:top;" colspan='2'>
-										[[${nDetail.noticeContent }]]
-									</td>
+									<td id="ntcTag3" colspan='2' style="white-space : pre-wrap;word-break:break-all;overflow:scroll;"><div style="height: 50px;">[[${nDetail.noticeContent }]]</div></td>
 								</tr>
 							</table>
-							<a href="/cscenter/noticeList" id"aBack">이전</a>
 						</form>
+						<div class="aBack">
+							<a href="/cscenter/noticeList">목록</a>
+						</div>
+						<div id ="nDetPN">
+							<th:block th:if="${nPrev != null}">
+								<div id="nPrev">
+									<div id="nPrevT">이전글</div>
+									<div id="nPrevC">
+										<a
+											th:href="@{/cscenter/notice/{noticeNo} (noticeNo=${nPrev.noticeNo})}">[[${nPrev.noticeTitle}]]</a>
+									</div>
+								</div>
+							</th:block>
+							<th:block th:if="${nNext != null}">
+								<div id="nNext">
+									<div id="nNextT">다음글</div>
+									<div id="nNextC">
+										<a
+											th:href="@{/cscenter/notice/{noticeNo} (noticeNo=${nNext.noticeNo})}">[[${nNext.noticeTitle}]]</a>
+									</div>
+								</div>
+							</th:block>
+						</div>
 					</div>
 				</div>
 			</div>

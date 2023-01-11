@@ -59,54 +59,67 @@
 			<div class="auto-group-hv9g-23x">
 				<div class="rectangle-23-xiJ">
 					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<div id="tpImg2">
+							<div>
+								<img th:src="@{/images/Logo2.png}" style="width : 80px; height : 80px;">
+							</div>
+							<div>
+								<span id="listTtl2">신고내용</span>
+							</div>
+						</div>
 						<form id="detailForm">
 							<input type="hidden" name="repNo" id="repNo" th:value="${rDetail.repNo}">
 							<input type="hidden" name="inputDtm" id="inputDtm" th:value="${rDetail.inputDtm}">
-							<table border="1" style="border-collapse: collapse; margin-top : 100px;">
+							<table style="border-collapse: collapse; margin-top : 10px;">
 								<tr>
-									<td style="width: 150px; height: 50px;">
+									<td id="ntcTag1">
 										제목
 									</td>
-									<td style="text-align: left" colspan='3'>
+									<td id="ntcTag2" colspan='3'>
 										[[${rDetail.repTitle}]]
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td id="ntcTag1">
 										작성자
 									</td>
-									<td style="text-align: left;width : 245px;">
+									<td id="ntcTag2">
 										[[${rDetail.userNm}]]
 									</td>
-									<td style="width: 150px; height: 50px;">
+									<td id="ntcTag1">
 										처리여부
 									</td>
-									<td style="text-align: left; width : 245px;">
+									<td style="text-align: left; width : 160px;" id="ntcTag2">
 										[[${rDetail.compYn}]]
 									</td>
 								</tr>
 								<tr>
-									<td style="width: 150px; height: 50px;">
+									<td id="ntcTag1">
 										작성일
 									</td>
-									<td style="text-align: left" id="inputDtmText"
+									<td style="text-align: left" id="ntcTag2"
 										th:text="${rDetail.inputDtm eq null ? '' : #strings.substring(rDetail.inputDtm, 0, 10)}"
 										colspan='3'>
 									</td>
 								</tr>
 								<tr>
-									<td style="text-align: left; width: 800px; height: 450px; background: white; vertical-align:top;"
-										colspan='4'>
-										[[${rDetail.repContent}]]
-									</td>
+									<td id="ntcTag4" colspan='4' style="white-space : pre-wrap;word-break:break-all;overflow:scroll;"><div style="height: 150px;">[[${rDetail.repContent}]]</div></td>
 								</tr>
 							</table>
 						</form>
 						<hr />
-						<a name="repNo" id="updateBtn"
-							th:href="@{/cscenter/repUdt/{repNo} (repNo=${rDetail.repNo})}">수정</a>
-						<a href="#" id="deleteBtn">삭제</a>
-						<a href="/cscenter/repList">뒤로가기</a>
+						<div id="qDetDiv">
+							<div>
+								<a name="repNo" id="updateBtn"
+									th:href="@{/cscenter/repUdt/{repNo} (repNo=${rDetail.repNo})}">수정</a>
+							</div>
+							<div>
+								<a href="#" id="deleteBtn">삭제</a>
+							</div>
+							<div>
+								<a href="/cscenter/repList" style="background-color: #EEC400!important;">목록</a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

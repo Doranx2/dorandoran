@@ -5,20 +5,20 @@
 	  
 	<!-- head 영역 시작 -->
 	<!-- layout으로 잡히는 모든 html의 head 영역을 config.html로 대체" -->
-	<head>
+	<head th:replace="/fragments/config :: config">
 
 	</head>
 	<!-- head 영역 끝 -->
 	
 	<body>
-		<!--<header th:replace="/fragments/header :: header"></header>-->
+		<header th:replace="/fragments/header :: header"></header>
 		
 		<main>
 			<aside th:replace="/fragments/aside :: aside"></aside>
 			<div layout:fragment="content"></div>
 		</main>
 		
-		<!--<footer th:replace="/fragments/footer :: footer"></footer>-->
+		<footer th:replace="/fragments/footer :: footer"></footer>
 	</body>
 	
 	

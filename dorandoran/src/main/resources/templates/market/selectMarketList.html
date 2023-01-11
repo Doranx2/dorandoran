@@ -69,7 +69,7 @@
 					<div class="marketListContainer" th:each="list : ${list}"
 						th:onmouseover="'textOver('+${list.marketNo}+');'"
 						th:onmouseout="'textOut('+${list.marketNo}+');'">
-						<div th:if="${list.imageNm ne null}" th:remove="tag">
+						<div th:if="${list.imageNm ne null and list.imageNm.length > 0}" th:remove="tag">
 							<img th:src="@{'/upload/' + ${list.imageNm}}" th:id="'prodImg'+${list.marketNo}"
 								class="prodImage">
 							<div th:id="'text'+${list.marketNo}" class="text" style="display:none;"
@@ -89,7 +89,7 @@
 							</div>
 						</div>
 
-						<div th:if="${list.imageNm eq null}" th:remove="tag">
+						<div th:if="${list.imageNm eq null or list.imageNm.length < 1}" th:remove="tag">
 							<div style="height:100%; cursor:pointer;"
 								th:onclick="|location.href='@{/market/selectMarket?marketNo={marketNo} (marketNo = ${list.marketNo})}'|">
 								<a class="title" th:text="${list.prodNm}"></a><br>

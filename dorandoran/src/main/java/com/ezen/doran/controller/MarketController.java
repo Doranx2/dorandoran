@@ -77,7 +77,7 @@ public class MarketController {
 		MarketDTO testDTO = new MarketDTO();
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("market", testDTO);
-		mv.addObject("update",false);
+		mv.addObject("update", false);
 		mv.setViewName("market/insertMarket.html");
 
 		return mv;
@@ -155,17 +155,17 @@ public class MarketController {
 		mv.setViewName("market/selectMarket.html");
 		return mv;
 	}
-	
+
 	@RequestMapping("/updateMarketPage")
 	public ModelAndView updateMarketPage(@RequestParam("marketNo") int marketNo) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("market", marketService.selectMarket(marketNo));
-		mv.addObject("update",true);
+		mv.addObject("update", true);
 		mv.setViewName("market/insertMarket.html");
-		
+
 		return mv;
 	}
-	
+
 	@PostMapping("/updateMarket")
 	public void updateMarket(MarketDTO marketDTO, @RequestParam("file") MultipartFile file, HttpServletRequest request,
 			HttpServletResponse response) throws Exception, IOException {
@@ -186,6 +186,12 @@ public class MarketController {
 			// 파일을 불러올 때 사용할 파일 경로
 			String savedPath = attachPath + savedName;
 
+			// 이전 파일 삭제
+			File deleteFile = new File(attachPath + marketDTO.getImageNm());
+			if (deleteFile.exists()) { // 파일이 존재하면
+				deleteFile.delete(); // 파일 삭제
+			}
+
 			File saveFile = new File(savedPath);
 			// 실제로 로컬에 uuid를 파일명으로 저장
 			file.transferTo(saveFile);
@@ -197,7 +203,7 @@ public class MarketController {
 
 		response.sendRedirect("/market/selectMarket?marketNo=" + marketDTO.getMarketNo());
 	}
-	
+
 	@GetMapping("/deleteMarket")
 	public void deleteMarket(@RequestParam("marketNo") int marketNo, HttpServletResponse response) throws Exception {
 		marketService.deleteMarket(marketNo);

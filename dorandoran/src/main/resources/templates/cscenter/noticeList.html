@@ -17,7 +17,36 @@
 					e.preventDefault();
 
 					$("input[name='pageNum']").val($(this).attr("href"));
-					$("#searchForm").submit();
+					$.ajax({
+						url: '/cscenter/pageNoticeList',
+						type: 'get',
+						data: $("#searchForm").serialize(),
+						success: function (obj) {
+							console.log(obj);
+							let htmlStr = "";
+							for (let i = 0; i < obj.item.noticeList.length; i++) {
+								htmlStr += `
+									<tr id="eachList">
+										<td>${obj.item.noticeList[i].noticeNo}</td>
+										<td>
+											<a href="/cscenter/notice/${obj.item.noticeList[i].noticeNo}">
+												${obj.item.noticeList[i].noticeTitle}
+											</a>
+										</td>
+										<td>
+											${obj.item.noticeList[i].inputDtm == null ? '' : obj.item.noticeList[i].inputDtm.substring(0, 10)}
+										</td>
+									</tr>
+								`;
+							}
+							$("#boardTable").children(":first").children().not(':first').remove();
+							$("#boardTable").children(":first").append(htmlStr);
+
+						},
+						error: function (e) {
+							console.log(e);
+						}
+					});
 				});
 
 				$("#btnSearch").on("click", function () {
@@ -43,12 +72,20 @@
 				<div class="rectangle-23-xiJ">
 					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"
 						id="table1">
-						<form id="searchForm" action="/cscenter/noticeList" method="get">
+						<div id="tpImg">
+							<div>
+								<img th:src="@{/images/-ib8.png}" style="width : 80px; height : 80px;">
+							</div>
+							<div>
+								<span id="listTtl">공지사항</span>
+							</div>
+						</div>
+						<form id="searchForm">
 							<input type="hidden" name="pageNum" th:value="${pageDTO.cri.pageNum }">
 							<input type="hidden" name="amount" th:value="${pageDTO.cri.amount }">
-							<table style="width: 800px; border-collapse: collapse; margin-top: 100px;">
+							<table style="width: 950px; border-collapse: collapse; margin-top: px;">
 								<tr>
-									<td align="right" style="display:none;">
+									<td align="right" style="display : none;">
 										<select name="searchCondition">
 											<option value="ALL" th:selected="${searchCondition == 'ALL'}">전체</option>
 											<option value="TITLE" th:selected="${searchCondition == 'TITLE'}">제목
@@ -63,13 +100,17 @@
 							</table>
 						</form>
 
-						<table id="boardTable" style="width: 800px; border-collapse: collapse; margin-top:10px">
-							<tr>
-								<th style="background-Color : #CFE1FC; width: 15%; height:50px;">번호</th>
-								<th style="background-Color : #CFE1FC; width: 60%;">제목</th>
-								<th style="background-Color : #CFE1FC; width: 25%;">등록일</th>
+						<table id="boardTable"
+							style="width: 950px; border-collapse: collapse; margin-top:10px;table-layout:fixed;">
+							<tr id="tbHead">
+								<th
+									style="background-Color : #1761A0; width: 15%; height:50px; border-top-left-radius:10px;">
+									번호</th>
+								<th style="background-Color : #1761A0; width: 60%;">제목</th>
+								<th style="background-Color : #1761A0; width: 25%; border-top-right-radius:10px;">등록일
+								</th>
 							</tr>
-							<tr th:each="notice : ${noticeList}">
+							<tr th:each="notice : ${noticeList}" id="eachList">
 								<td th:text=${notice.noticeNo}></td>
 								<td>
 									<a th:text="${notice.noticeTitle}"
@@ -80,14 +121,19 @@
 									th:text="${notice.inputDtm eq null ? '' : #strings.substring(notice.inputDtm, 0, 10)}">
 								</td>
 							</tr>
+						</table>
+						<table style="width: 950px; border-collapse: collapse;table-layout:fixed;">
 							<tr>
-								<th style="background-Color : #CFE1FC; width: 15%; height:5px;"></th>
-								<th style="background-Color : #CFE1FC; width: 60%;"></th>
-								<th style="background-Color : #CFE1FC; width: 25%;"></th>
+								<th
+									style="background-Color : #1761A0; width: 15%; height:10px; border-bottom-left-radius:10px;">
+								</th>
+								<th style="background-Color : #1761A0; width: 60%;"></th>
+								<th style="background-Color : #1761A0; width: 25%; border-bottom-right-radius:10px;">
+								</th>
 							</tr>
 						</table>
 						<br />
-						<div>
+						<div id="pageDiv">
 							<ul class="pagination">
 								<li th:if="${pageDTO.prev }" class="pagination_button">
 									<a th:href="${pageDTO.cri.pageNum - 1 }"><img th:src="@{/images/leftArrow.png}"></a>
@@ -95,12 +141,13 @@
 
 
 								<li th:each="num : ${#numbers.sequence(pageDTO.startPage, pageDTO.endPage)} "
-									class="pagination_button">
+									class="pagination_num">
 									<a th:href="${num }" th:text="${num}"></a>
 								</li>
 
 								<li th:if="${pageDTO.next }" class="pagination_button">
-									<a th:href="${pageDTO.cri.pageNum + 1 }"><img th:src="@{/images/rightArrow.png}"></a>
+									<a th:href="${pageDTO.cri.pageNum + 1 }"><img
+											th:src="@{/images/rightArrow.png}"></a>
 								</li>
 							</ul>
 						</div>

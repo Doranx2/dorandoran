@@ -167,10 +167,10 @@
 			<span class="marketTitle" id="marketTitle" th:text="${market.prodNm}"></span>
 			<span class="marketPrice" th:text="${market.price}+' 원'"></span>
 			
-			<div th:if="${market.imageNm ne null}" th:remove="tag">
+			<div th:if="${market.imageNm ne null and market.imageNm.length > 0}" th:remove="tag">
 				<img th:src="@{'/upload/' + ${market.imageNm}}" class="selectImg">
 			</div>
-			<div th:if="${market.imageNm eq null}" th:remove="tag">
+			<div th:if="${market.imageNm eq null or market.imageNm.length < 1}" th:remove="tag">
 				<img th:src="@{'/upload/temp.png'}" class="selectImg">
 			</div>
 				<div class="marketContentContainer">

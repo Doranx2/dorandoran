@@ -17,6 +17,14 @@ public interface CsService {
 
 	NoticeDTO selectNotice(int noticeNo);
 	
+	int prevNoticeNo(int noticeNo);
+
+	int nextNoticeNo(int noticeNo);
+	
+	NoticeDTO prevNotice(int nPrevNo);
+
+	NoticeDTO nextNotice(int nNextNo);
+	
 	//----------------------------------------------------------------------------------
 
 	List<QuestionDTO> selectQuestionList(Map<String, String> paramMap, Criteria cri);
@@ -52,6 +60,8 @@ public interface CsService {
 	void updateRep(RepDTO repDTO);
 
 	void deleteRep(int repNo);
+
+
 
 
 
