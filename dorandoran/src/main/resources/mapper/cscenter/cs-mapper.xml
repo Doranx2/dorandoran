@@ -23,7 +23,7 @@
 	<select id="selectNoticeList" parameterType="map" resultType="notice">
 	<![CDATA[
 		SELECT *
-			FROM TB_NOTICE JOIN TB_USER USING(USER_ID) ORDER BY NOTICE_NO DESC
+			FROM TB_NOTICE JOIN TB_USER USING(USER_ID) 
 			
 	]]>
 		<if test="noticeSearch.searchKeyword != null and noticeSearch.searchKeyword != ''">
@@ -42,6 +42,7 @@
 				</if>
 			</if>
 		</if>
+		ORDER BY NOTICE_NO DESC
 		LIMIT #{cri.amount} OFFSET #{cri.startNum}
 	</select>
 
@@ -77,7 +78,7 @@
 	<select id="selectQuestionList" parameterType="map" resultType="question">
 		<![CDATA[
 		SELECT *
-			FROM TB_QUESTION JOIN TB_USER USING(USER_NO) ORDER BY Q_NO DESC
+			FROM TB_QUESTION JOIN TB_USER USING(USER_NO)
 			
 	]]>
 		<if test="questionSearch.searchKeyword != null and questionSearch.searchKeyword != ''">
@@ -96,6 +97,7 @@
 				</if>
 			</if>
 		</if>
+		ORDER BY Q_NO DESC
 		LIMIT #{cri.amount} OFFSET #{cri.startNum}
 	</select>
 
@@ -168,7 +170,7 @@
 	<select id="selectRepList" parameterType="map" resultType="report">
 		<![CDATA[
 		SELECT *
-			FROM TB_REP JOIN TB_USER USING(USER_NO) ORDER BY REP_NO DESC
+			FROM TB_REP JOIN TB_USER USING(USER_NO)
 			
 	]]>
 		<if test="repSearch.searchKeyword != null and repSearch.searchKeyword != ''">
@@ -187,6 +189,7 @@
 				</if>
 			</if>
 		</if>
+		ORDER BY REP_NO DESC
 		LIMIT #{cri.amount} OFFSET #{cri.startNum}
 	</select>
 

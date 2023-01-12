@@ -13,5 +13,6 @@
 		<typeAlias type="com.ezen.doran.dto.QuestionDTO" alias="question"/>
 		<typeAlias type="com.ezen.doran.dto.RepDTO" alias="report"/>
 		<typeAlias type="com.ezen.doran.dto.AnswerDTO" alias="answer"/>
+		<typeAlias type="com.ezen.doran.common.CamelHashMap" alias="camelHashMap"/>
 	</typeAliases>
 </configuration>
