@@ -8,19 +8,27 @@
 <head>
 	<th:block layout:fragment="script">
 		<script th:inline="javascript">
-			function textOver(marketNo) {
-				$("#text" + marketNo).css("display", "block");
+			$(function(){
+				let Check = /*[[${Check}]]*/;
+				if(Check){
+					alert("검색된 게시글이 없습니다.");
+				}
+			});
+		
+			function textOver(joinNo) {
+				$("#container" + joinNo).css("box-shadow", "3px 3px 3px 3px #00000012 inset");
 			};
-
-			function textOut(marketNo) {
-				$("#text" + marketNo).css("display", "none");
+			function textOut(joinNo) {
+				$("#container" + joinNo).css("box-shadow", "3px 3px 3px 3px #00000012");
 			};
 
 			function search() {
 				let searchKeyword = $('#searchKeyword').val();
 				console.log(searchKeyword);
-				location.href = "/market/selectMarketList?searchKeyword=" + searchKeyword;
-			}
+				location.href = "/join/selectJoinList?searchKeyword=" + searchKeyword;
+			};
+			
+			
 		</script>
 	</th:block>
 </head>
@@ -53,7 +61,7 @@
 					함께해요 게시판에서 사람들을 모아보세요.<br>
 					언젠가 동네 인싸가 되어있는 당신을 발견할지도 몰라요.</span>
 			</div>
-			
+
 
 			<div th:if="${session.loginUser ne null}" th:remove="tag">
 				<button class="insertPageBtn" onclick="location.href='/join/insertJoinPage'"
@@ -61,51 +69,43 @@
 			</div>
 
 			<div th:if="${session.loginUser eq null}" th:remove="tag">
-				<button class="insertPageBtn" onclick="location.href='/temp/loginPage'" style="z-index : 1;top : 533px;">로그인 후
+				<button class="insertPageBtn" onclick="location.href='/temp/loginPage'"
+					style="z-index : 1;top : 533px;">로그인 후
 					모임만들기</button>
 			</div>
 			<div class="container">
 				<div class="boardContainer"></div>
-				<!--<div class="boardContainer">
-					<div class="marketListContainer" th:each="list : ${list}"
-						th:onmouseover="'textOver('+${list.marketNo}+');'"
-						th:onmouseout="'textOut('+${list.marketNo}+');'">
-						<div th:if="${list.imageNm ne null and list.imageNm.length > 0}" th:remove="tag">
-							<img th:src="@{'/upload/' + ${list.imageNm}}" th:id="'prodImg'+${list.marketNo}"
-								class="prodImage">
-							<div th:id="'text'+${list.marketNo}" class="text" style="display:none;"
-								th:onclick="|location.href='@{/market/selectMarket?marketNo={marketNo} (marketNo = ${list.marketNo})}'|">
-								<a class="title" th:text="${list.prodNm}"></a><br>
-								<a class="price" th:text="${list.price} +' 원'"></a>
+				<div class="boardContainer">
+					<div class="joinListContainer" th:each="join : ${selectJoinList}" th:id="'container'+${join.joinNo}"
+					th:onmouseover="'textOver('+${join.joinNo}+');'"
+						th:onmouseout="'textOut('+${join.joinNo}+');'"
+						th:onclick="|location.href='@{/join/selectJoin?joinNo={joinNo} (joinNo = ${join.joinNo})}'|">
+						<div class="ContainerTop">
+							<img th:src="@{'/images/' + ${join.joinCd}} + '.png'" th:id="'prodImg'+${join.joinNo}"
+								class="cdImage">
+							<div th:if="${join.doneYn eq 'N'}" th:remove="tag">
+								<a class="status" style="background : #f44336;">모집중</a>
+							</div>
 
-								<div th:if="${list.status eq '거래완료'}" th:remove="tag">
-									<a class="status" th:text="${list.status}" style="background: red;"></a>
+							<div th:if="${join.doneYn ne 'N'}" th:remove="tag">
+								<a class="status">모집완료</a>
+							</div>
+
+						</div>
+
+						<div class="ContainerBottom">
+						
+							<a class="title" th:text="${join.joinTitle}"></a>
+								
+							<div class="typeCdTotal" th:each="type : ${typeCdList}" th:if="${type.key eq join.joinNo}">
+								<div th:if="${type.value.length > 0}" th:remove="tag">
+									<a class="typeCd"  th:each="cd : ${type.value}" th:text="'#'+${cd}"></a>
 								</div>
-
-								<div th:if="${list.status ne '거래완료'}" th:remove="tag">
-									<a class="status" th:text="${list.status}"></a>
-								</div>
-
-
 							</div>
 						</div>
 
-						<div th:if="${list.imageNm eq null or list.imageNm.length < 1}" th:remove="tag">
-							<div style="height:100%; cursor:pointer;"
-								th:onclick="|location.href='@{/market/selectMarket?marketNo={marketNo} (marketNo = ${list.marketNo})}'|">
-								<a class="title" th:text="${list.prodNm}"></a><br>
-								<a class="price" th:text="${list.price} +' 원'"></a>
-								<div th:if="${list.status eq '거래완료'}" th:remove="tag">
-									<a class="status" th:text="${list.status}" style="background: red;"></a>
-								</div>
-
-								<div th:if="${list.status ne '거래완료'}" th:remove="tag">
-									<a class="status" th:text="${list.status}"></a>
-								</div>
-							</div>
-						</div>
 					</div>
-				</div>-->
+				</div>
 			</div>
 
 
@@ -114,8 +114,45 @@
 				<button class="searchIcon" onclick="search();"></button>
 			</div>
 
+			<div class="pagation">
+				<div class="page">
+					<ul class="pagination modal">
+						<li class="page-item">
+							<a class="first"
+								th:href="@{/join/selectJoinList?page=1&searchKeyword={keyword} (keyword = ${pagination.searchKeyword})}">
+								처음
+							</a>
+						</li>
+						<li class="page-item">
+							<a class="arrow left"
+								th:href="@{/join/selectJoinList?page={page}&searchKeyword={keyword} (page = ${pagination.page}-1, keyword = ${pagination.searchKeyword}) }">
+								<< </a>
+						</li>
+						<th:block th:with="start = ${pagination.startPage}, end = ${pagination.endPage}">
+							<li class="page-item" th:with="start = ${pagination.startPage}, end = ${pagination.endPage}"
+								th:each="pageButton : ${#numbers.sequence(start, end)}">
+								<a class="num"
+									th:href="@{/join/selectJoinList?page={page}&searchKeyword={keyword} (page = ${pageButton}, keyword = ${pagination.searchKeyword} )}"
+									th:text=${pageButton}></a>
+							</li>
+						</th:block>
+						<li class="page-item">
+							<a class="arrow right"
+								th:href="@{/join/selectJoinList?page={page}&searchKeyword={keyword} (page = ${pagination.page}+1, keyword = ${pagination.searchKeyword})}">
+								>>
+							</a>
+						</li>
+						<li class="page-item">
+							<a class="last"
+								th:href="@{/join/selectJoinList?page={page}&searchKeyword={keyword} (page = ${pagination.totalPageCnt}, keyword = ${pagination.searchKeyword} )}">
+								<span aria-hidden="true">끝</span>
+							</a>
+						</li>
+					</ul>
+				</div>
 
-			
+			</div>
+
 
 
 		</div>

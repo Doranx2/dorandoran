@@ -157,7 +157,7 @@
 			<input id="helpNo" type="hidden" th:value="${help.helpNo}">
 			
 			<div th:if="${help.doneYn eq '요청중'}" th:remove="tag">
-			<span class="helpStatus" th:text="${help.doneYn}" style="color: red;"></span>
+			<span class="helpStatus" th:text="${help.doneYn}" style="color: #f44336;"></span>
 			</div>
 			
 			<div th:if="${help.doneYn ne '요청중'}" th:remove="tag">

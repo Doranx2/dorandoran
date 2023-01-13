@@ -17,4 +17,6 @@ public class JoinDTO {
 	private String joinPlace;
 	private Date inputDtm;
 	private String doneYn;
+	
+	private String userNm;
 }

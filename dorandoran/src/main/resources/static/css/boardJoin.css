@@ -14,7 +14,7 @@
     align-items: center;
 }
 
-.marketListContainer{
+.joinListContainer{
 	width: 295px;
     height: 295px;
     background: rgba(245,245,245,1);
@@ -26,7 +26,10 @@
     overflow: hidden;
     margin : 20px;
     position: relative;
+    box-shadow: 3px 3px 3px 3px #00000012;
+    cursor : pointer;
 }
+
 
 .boardContainer{
 	height: 50%;
@@ -119,12 +122,19 @@
     	outline: none;
 	}
 	
+	select option {
+		background: #fbf3ce;
+		color : #1761A0;
+		font-weight: bold;
+		outline : none;
+	}
+	
 	.joinCnt{
 		width: 130px;
 	    color: #EEC400;
 	    position: absolute;
-	    top: 884px;
-	    left: 694px;
+	    top: 998px;
+	    left: 705px;
 	    font-family: Inter;
 	    font-weight: Regular;
 	    font-size: 30px;
@@ -138,8 +148,8 @@
 	    background: rgba(245, 245, 245, 1);
 	    opacity: 1;
 	    position: absolute;
-	    top: 933px;
-	    left: 696px;
+	    top: 1047px;
+	    left: 705px;
 	    border-top-left-radius: 10px;
 	    border-top-right-radius: 10px;
 	    border-bottom-left-radius: 10px;
@@ -203,8 +213,8 @@
 		width: 28px;
 	    color: #EEC400;
 	    position: absolute;
-	    top: 942px;
-	    left: 813px;
+	    top: 1050px;
+	    left: 824px;
 	    font-family: Inter;
 	    font-weight: Regular;
 	    font-size: 30px;
@@ -242,7 +252,7 @@
 	
 	.v89_462 {
 		width: 70%;
-	    height: 532px;
+	    height: 396px;
 	    background: rgba(245, 245, 245, 1);
 	    opacity: 1;
 	    position: absolute;
@@ -270,21 +280,42 @@
 		overflow: hidden;
 	}
 	
-	.MarketInput{
+	.joinPlaceInput{
+		width: 40%;
+	    height: 110px;
+	    background: rgba(245, 245, 245, 1);
+	    opacity: 1;
+	    position: absolute;
+	    top: 1686px;
+	    left: 327px;
+	    border-top-left-radius: 10px;
+	    border-top-right-radius: 10px;
+	    border-bottom-left-radius: 10px;
+	    border-bottom-right-radius: 10px;
+	    overflow: hidden;
+	    padding: 14px;
+	}
+	
+	.joinPlace{
+		font-size : 1.5em;
+		color : #EEC400;
+		font-weight: bold; 
+	}
+	
+	.JoinInput{
 		width: 100%;
-	    height: 100%;
 	    background: none;
 	    padding: 20px;
 	    font-size: 1.4em;
 	}
-	.MarketInput:focus{
+	.JoinInput:focus{
 		outline : none;
 	}
 
 	.v89_465 {
-		width: 330px;
+		width: 566px;
 		height: 60px;
-		background: rgba(245, 245, 245, 1);
+		/*background: rgba(245, 245, 245, 1);*/
 		opacity: 1;
 		position: absolute;
 		top: 933px;
@@ -297,13 +328,31 @@
 		display: flex;
 	    flex-direction: row;
 	    justify-content: center;
+	    align-items: center;
 	}
 	
 	.v89_465 label{
-		height: 20px;
-	    width: 60px;
+		height: 38px;
+	    width: 79px;
 	    font-size: 1.4em;
 	    font-weight: bold;
+	    text-align: center;
+	    border: 2px solid #EEC400;
+	    border-radius: 20px;
+	    margin: 5px;
+	    line-height: 35px;
+	    color: #EEC400;
+	}
+	
+	input.typeCdInput {
+		display: none;
+	}
+	
+	input.typeCdInput:checked + label {
+		background: #1761a0;
+		color : #ffffff;
+		border:0px;
+		line-height: 38px;
 	}
 
 	.conditionBtns {
@@ -331,7 +380,7 @@
 	    color:#FFFFFF;
 	}
 
-	.marketContent{
+	.joinContent{
 		width: 100%;
 	    height: 100%;
 	    background: none;
@@ -340,7 +389,7 @@
 	    border:0px;
 	    line-height: 35px;
 	}
-	.marketContent:focus{
+	.joinContent:focus{
 		outline:none;
 	}
 	
@@ -420,16 +469,16 @@
 	}
 
 
-	/* selectMarketList */
+	/* selectJoinList */
 	
 	.title{
-		font-size: 1.9em;
+		font-size: 1.6em;
 	    display: flex;
-	    padding-top: 50px;
 	    font-weight: bold;
 	    justify-content: center;
 	    align-items: center;
-	    height: 40%;
+	    height: 60%;
+	    width:80%;
 	    align-content: center;	
 	}
 	
@@ -444,16 +493,16 @@
 	    justify-content: center;
 	}
 
-	.prodImage{
-		width: 295px;
-	    height: 295px;
+	.cdImage{
+		width: 80px;
+	    height: 80px;
 	    border-radius: 25px;
-	    display: flex;
-	    margin: 0px auto;
+	    margin: 10px;
+	    
 	}
 	
 	.status{
-		padding: 20px;
+		padding: 15px;
 	    display: flex;
 	    justify-content: center;
 	    background: #EEC400;
@@ -464,21 +513,64 @@
 	    font-weight: bold;
 	    text-align: center;
 	    align-items: center;
-	    margin:20px auto;
+	    margin:1px auto;
 	}
 	
 	.text{
 		z-index: 1;
-	    background: #7199bbd4;
 	   	height: 295px;
 	    position: absolute;
 	    width: 295px;
 	    cursor : pointer;
 	    transform: translate(0px, -295px);
 	}
+	
+	.ContainerBottom{
+		height: 50%;
+	    display: flex;
+	    justify-content: flex-start;
+	    flex-direction: column;
+	    align-content: center;
+	    align-items: center;
+	    padding: 10px;
+	    text-align: center;
+	}
+	
+	.ContainerTop{
+		height: 55%;
+	    display: flex;
+	    flex-direction: column;
+	    align-content: center;
+	    justify-content: center;
+	    align-items: center;
+	}
+	
+	.typeCd{
+	    width: 77px;
+	    height: 24px;
+	    text-align: center;
+	    color: #1761A0;
+	    font-weight: bold;
+	    border-radius: 10px;
+	    border: 1px solid;
+	    margin: 2px;
+	}
 
 
-.searchInput {
+	.typeCdTotal{
+		display: flex;
+	    flex-direction: row;
+	    align-content: center;
+	    justify-content: center;
+	    align-items: center;
+	    width: 100%;
+	    flex-wrap: wrap;
+	    height: 110px;
+	    margin: 15px;
+		}
+	
+	
+	.searchInput {
 	  width: 282px;
 	  height: 40px;
 	  opacity: 1;
@@ -602,7 +694,7 @@
 	}
 	
 	
-	/* selectMarket */
+	/* selectJoin */
 	
 	.replyBtns{
 		display: flex;
@@ -709,7 +801,7 @@
     text-align: left;
   }
 
-  .marketContentContainer {
+  .joinContentContainer {
 	width: 70%;
     height: 300px;
     background: #fefdf5;
@@ -720,12 +812,42 @@
     overflow: hidden;
     padding: 30px;
   }
+  
+  .joinCdContainer {
+	width: 315px;
+    height: 205px;
+    position: absolute;
+    top: 910px;
+    left: 368px;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  
+  .joinTypeCd{
+	width: 75px;
+    height: 34px;
+    text-align: center;
+    color: #1761A0;
+    font-weight: bolder;
+    border-radius: 33px;
+    border: 2px solid;
+    margin: 5px;
+    font-size: 1.2em;
+    padding: 3px;
+  }
 
-  .marketTitle {
+  .joinTitle {
     color: rgba(0, 0, 0, 1);
     position: absolute;
-    top: 771px;
-    left: 867px;
+    top: 761px;
+    left: 728px;
     font-family: Inter;
     font-weight: Bold;
     font-size: 40px;
@@ -734,7 +856,7 @@
     padding-bottom: 10px;
   }
 
-  .marketContent {
+  .joinContent {
     width: 100%;
     font-family: Inter;
     font-weight: Bold;
@@ -885,16 +1007,16 @@
  
  .selectImg{
 	top: 687px;
-    left: 351px;
-    width: 338px;
-    height: 400px;
+    left: 274px;
+    width: 200px;
+    height: 200px;
  }
  
- .marketStatus{
+ .joinStatus{
 	color: #EEC400;
     position: absolute;
-    top: 778px;
-    left: 736px;
+    top: 702px;
+    left: 728px;
     font-family: Inter;
     font-weight: Bold;
     font-size: 20px;
@@ -905,15 +1027,31 @@
     border: 5px solid;
  }
  
- .marketPrice{
+ .joinListA{
 	color: #1761A0;
     position: absolute;
-    top: 888px;
-    left: 867px;
+    top: 856px;
+    left: 728px;
     font-family: Inter;
     font-weight: Bold;
-    font-size: 40px;
+    font-size: 25px;
     opacity: 1;
     text-align: left;
     padding-bottom: 10px;
+    border-bottom: 4px dotted #CFE1FC;
+    width : auto;
+ }
+ 
+ .joinListB{
+	top: 865px;
+    left: 1512px;
+    width: 150px;
+    height: 50px;
+    font-size: 1.4em;
+    font-weight: bold;
+    border: 0px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #f44336;
+    color:#ffffff;
  }
