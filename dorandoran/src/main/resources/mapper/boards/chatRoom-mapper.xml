@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/dtd/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.doran.mapper.ChatRoomMapper">
+
+	<insert id="insertChatRoom" parameterType="chatRoom">
+
+		<selectKey resultType="int" keyProperty="roomNo" order="BEFORE">
+
+			SELECT MAX(ROOM_NO)+1 FROM TB_CHAT_ROOM
+
+      	</selectKey>
+      
+		INSERT INTO TB_CHAT_ROOM VALUES (
+			(SELECT IFNULL(MAX(A.ROOM_NO),0)+1 FROM TB_CHAT_ROOM A)
+			, #{roomNm}
+			, #{masterNo}
+			, #{slaveNo}
+		)
+	</insert>
+
+</mapper>

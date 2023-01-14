@@ -18,5 +18,7 @@
 
 		<!-- 게시판들 alias -->
 		<typeAlias type="com.ezen.doran.dto.JoinDTO" alias="join" />
+		<typeAlias type="com.ezen.doran.dto.ChatDTO" alias="chat" />
+		<typeAlias type="com.ezen.doran.dto.ChatRoomDTO" alias="chatRoom" />
 	</typeAliases>
 </configuration>
