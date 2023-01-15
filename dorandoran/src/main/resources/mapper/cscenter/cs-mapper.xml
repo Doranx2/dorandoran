@@ -133,7 +133,7 @@
 					A_YN
 		) VALUES (
 					(SELECT IFNULL(MAX(A.Q_NO), 0) + 1 FROM TB_QUESTION A),
-					1,
+					#{userNo},
 					#{qCd},
 					#{qTitle},
 					#{qContent},
@@ -224,7 +224,7 @@
 					COMP_YN
 		) VALUES (
 					(SELECT IFNULL(MAX(A.REP_NO), 0) + 1 FROM TB_REP A),
-					1,
+					#{userNo},
 					#{repTitle},
 					#{repContent},
 					now(),
