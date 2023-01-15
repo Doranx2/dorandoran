@@ -5,7 +5,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.doran.dto.MarketDTO;
-import com.ezen.doran.dto.PlayDTO;
 import com.ezen.doran.dto.QuestionDTO;
 import com.ezen.doran.dto.RepDTO;
 import com.ezen.doran.dto.UserDTO;
@@ -39,13 +37,13 @@ public class UserPageController {
 		return mv;
 	}
 	
-	@RequestMapping("/playListPage")
-	public ModelAndView myPlayList() {
-		ModelAndView mv = new ModelAndView();
-		
-		mv.setViewName("/userPage/playListPage.html");
-		return mv;
-	}
+//	@RequestMapping("/playListPage")
+//	public ModelAndView myPlayList() {
+//		ModelAndView mv = new ModelAndView();
+//		
+//		mv.setViewName("/userPage/playListPage.html");
+//		return mv;
+//	}
 	
 	@RequestMapping("/writingListPage")
 	public ModelAndView myWritingList() {
@@ -64,18 +62,18 @@ public class UserPageController {
 	}
 	
 	
-	// selectMyJoinList(int)
-//	@RequestMapping("/playListPage")
-//	public ModelAndView selectMyPlayList(@RequestParam("userNo") int userNo) {
-//		ModelAndView mv = new ModelAndView();
-//		
-//		List<JoinDTO> selectMyJoinList = UserPageService.selectMyJoinList(userNo);
-//		
-//		mv.addObject("myJoin", selectMyJoinList);
-//		mv.setViewName("/userPage/marketListPage.html");
-//		
-//		return mv;
-//	}
+//	 selectMyJoinList(int)
+	@RequestMapping("/playListPage")
+	public ModelAndView selectMyPlayList(@RequestParam("userNo") int userNo) {
+		ModelAndView mv = new ModelAndView();
+		
+		List<JoinDTO> selectMyJoinList = UserPageService.selectMyJoinList(userNo);
+		
+		mv.addObject("myJoin", selectMyJoinList);
+		mv.setViewName("/userPage/marketListPage.html");
+		
+		return mv;
+	}
 	
 	
 	// selectMyMarketList(int, String)

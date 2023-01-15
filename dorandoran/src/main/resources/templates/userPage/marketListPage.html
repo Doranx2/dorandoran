@@ -16,6 +16,18 @@
 		$(function(){
 			let userNo = /*[[${session.loginUser.userNo}]]*/;
 			console.log(userNo);
+			
+			let date = /*[[${session.loginUser.inputDtm}]]*/;
+			
+			let today = new Date();
+			
+			
+			let diff = today - date;
+			let diffDay = Math.floor(today / (1000*60*60*24));
+			
+			console.log(date);
+			console.log(today);
+			
 		});
 		
 		</script>
