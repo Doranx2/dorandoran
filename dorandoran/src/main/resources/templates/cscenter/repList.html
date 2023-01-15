@@ -26,6 +26,7 @@
 					e.preventDefault();
 					if (loginUser == null) {
 						alert("게시글을 보려면 로그인을 해주세요.");
+						window.location.href = "/cscenter/loginPage";
 						e.preventDefault;
 					} else if (loginUser != null) {
 						const loginUserNm = loginUser.userNm;

@@ -178,13 +178,16 @@ public class CsController {
 
 	// 1:1 문의글,답변 상세보기
 	@GetMapping("/question/{qNo}")
-	public ModelAndView selectQuestion(@PathVariable int qNo) {
+	public ModelAndView selectQuestion(@PathVariable int qNo, HttpSession session) {
 		QuestionDTO qDetail = csService.selectQuestion(qNo);
 		AnswerDTO answer = csService.selectAnswer(qNo);
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/questionDetail.html");
 		mv.addObject("qDetail", qDetail);
 		mv.addObject("answer", answer);
+		
 		return mv;
 	}
 
@@ -304,9 +307,11 @@ public class CsController {
 	
 	// 신고글 상세보기
 	@GetMapping("/report/{repNo}")
-	public ModelAndView selectRep(@PathVariable int repNo) {
+	public ModelAndView selectRep(@PathVariable int repNo, HttpSession session) {
 		RepDTO rDetail = csService.selectRep(repNo);
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/repDetail.html");
 		mv.addObject("rDetail", rDetail);
 		return mv;
