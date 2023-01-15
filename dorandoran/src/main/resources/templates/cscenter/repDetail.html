@@ -24,6 +24,8 @@
 					if (loginUserNm != userNm) {
 						$("#updateBtn").hide();
 						$("#deleteBtn").hide();
+						alert("잘못된 접근방식입니다.");
+						window.location.href = "/cscenter/repList";
 					}
 				}
 				const compYn = /*[[${rDetail.compYn}]]*/;

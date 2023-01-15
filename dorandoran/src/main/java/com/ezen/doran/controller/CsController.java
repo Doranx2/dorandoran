@@ -212,9 +212,11 @@ public class CsController {
 
 	// 1:1 문의글 수정 페이지 이동
 	@GetMapping("/questionUdt/{qNo}")
-	public ModelAndView questionUdtView(@PathVariable int qNo) throws IOException {
+	public ModelAndView questionUdtView(@PathVariable int qNo, HttpSession session) throws IOException {
 		QuestionDTO qDetail = csService.selectQuestion(qNo);
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/questionUdt.html");
 		mv.addObject("qDetail", qDetail);
 		return mv;
@@ -337,9 +339,11 @@ public class CsController {
 
 	// 신고글 수정 페이지 이동
 	@GetMapping("/repUdt/{repNo}")
-	public ModelAndView repUdtView(@PathVariable int repNo) {
+	public ModelAndView repUdtView(@PathVariable int repNo, HttpSession session) {
 		RepDTO rDetail = csService.selectRep(repNo);
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/repUdt.html");
 		mv.addObject("rDetail", rDetail);
 		return mv;
