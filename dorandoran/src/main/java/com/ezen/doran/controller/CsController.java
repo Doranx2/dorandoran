@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import com.ezen.doran.dto.PageDTO;
 import com.ezen.doran.dto.QuestionDTO;
 import com.ezen.doran.dto.RepDTO;
 import com.ezen.doran.dto.ResponseDTO;
+import com.ezen.doran.dto.UserDTO;
 import com.ezen.doran.service.cs.CsService;
 
 @RestController
@@ -116,8 +118,9 @@ public class CsController {
 	// -------------------------------------------------------------------------------------------
 	// 1:1 문의글 목록
 	@GetMapping("/questionList")
-	public ModelAndView selectQuestionList(@RequestParam Map<String, String> paramMap, Criteria cri) {
+	public ModelAndView selectQuestionList(@RequestParam Map<String, String> paramMap, Criteria cri, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
 		List<QuestionDTO> questionList = csService.selectQuestionList(paramMap, cri);
 		mv.addObject("questionList", questionList);
 
@@ -131,18 +134,18 @@ public class CsController {
 
 		int total = csService.getQuestionTotalCnt(paramMap);
 		mv.addObject("pageDTO", new PageDTO(cri, total));
-
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/questionList");
 
 		return mv;
 	}
 
 	@GetMapping("/pageQList")
-	public ResponseEntity<?> pageQList(@RequestParam Map<String, String> paramMap, Criteria cri) {
+	public ResponseEntity<?> pageQList(@RequestParam Map<String, String> paramMap, Criteria cri, HttpSession session) {
 		ResponseDTO<Map<String, Object>> response = new ResponseDTO<>();
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		try {
-
+			UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
 			List<QuestionDTO> questionList = csService.selectQuestionList(paramMap, cri);
 			returnMap.put("questionList", questionList);
 
@@ -156,7 +159,7 @@ public class CsController {
 
 			int total = csService.getQuestionTotalCnt(paramMap);
 			returnMap.put("pageDTO", new PageDTO(cri, total));
-
+			returnMap.put("loginUser", loginUser);
 			response.setItem(returnMap);
 
 			return ResponseEntity.ok().body(response);
@@ -164,6 +167,13 @@ public class CsController {
 			response.setErrorMessage(e.getMessage());
 			return ResponseEntity.badRequest().body(response);
 		}
+	}
+	
+	@GetMapping("/loginPage")
+	public ModelAndView loginPage() throws IOException {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/temp/login.html");
+		return mv;
 	}
 
 	// 1:1 문의글,답변 상세보기
@@ -239,8 +249,9 @@ public class CsController {
 
 	// 신고글 목록
 	@GetMapping("/repList")
-	public ModelAndView selectRepList(@RequestParam Map<String, String> paramMap, Criteria cri) {
+	public ModelAndView selectRepList(@RequestParam Map<String, String> paramMap, Criteria cri, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
 		List<RepDTO> repList = csService.selectRepList(paramMap, cri);
 		mv.addObject("repList", repList);
 
@@ -254,18 +265,18 @@ public class CsController {
 
 		int total = csService.getRepTotalCnt(paramMap);
 		mv.addObject("pageDTO", new PageDTO(cri, total));
-
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/repList.html");
 
 		return mv;
 	}
 
 	@GetMapping("/pageRepList")
-	public ResponseEntity<?> pageRepList(@RequestParam Map<String, String> paramMap, Criteria cri) {
+	public ResponseEntity<?> pageRepList(@RequestParam Map<String, String> paramMap, Criteria cri, HttpSession session) {
 		ResponseDTO<Map<String, Object>> response = new ResponseDTO<>();
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		try {
-
+			UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
 			List<RepDTO> repList = csService.selectRepList(paramMap, cri);
 			returnMap.put("repList", repList);
 
@@ -279,7 +290,7 @@ public class CsController {
 
 			int total = csService.getRepTotalCnt(paramMap);
 			returnMap.put("pageDTO", new PageDTO(cri, total));
-
+			returnMap.put("loginUser", loginUser);
 			response.setItem(returnMap);
 
 			return ResponseEntity.ok().body(response);

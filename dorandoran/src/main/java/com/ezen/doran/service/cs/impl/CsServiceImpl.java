@@ -74,10 +74,6 @@ public class CsServiceImpl implements CsService {
 		cri.setStartNum((cri.getPageNum() - 1) * cri.getAmount());
 		pMap.put("cri", cri);
 		
-		for(int i = 0; i < csMapper.selectQuestionList(pMap).size(); i++) {
-			System.out.println("===========================>" + csMapper.selectQuestionList(pMap).get(i).toString());
-		}
-		
 		return csMapper.selectQuestionList(pMap);
 	}
 
