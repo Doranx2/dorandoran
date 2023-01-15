@@ -190,8 +190,10 @@ public class CsController {
 
 	// 1:1 문의글 작성 페이지 이동 // 세션 또는 Security
 	@GetMapping("/insertQuestion")
-	public ModelAndView insertQuestionView() throws IOException {
+	public ModelAndView insertQuestionView(HttpSession session) throws IOException {
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/insertQuestion.html");
 		return mv;
 	}
@@ -312,8 +314,10 @@ public class CsController {
 
 	// 신고글 작성 페이지 이동
 	@GetMapping("/insertReport")
-	public ModelAndView insertRepView() throws IOException {
+	public ModelAndView insertRepView(HttpSession session) throws IOException {
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/insertReport.html");
 		return mv;
 	}
@@ -321,7 +325,7 @@ public class CsController {
 	// 신고글 작성
 	@PostMapping("/report")
 	public void insertRep(RepDTO repDTO, HttpServletResponse response, HttpServletRequest request) throws IOException {
-
+		
 		csService.insertRep(repDTO);
 		response.sendRedirect("/cscenter/repList");
 	}
