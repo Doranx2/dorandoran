@@ -13,13 +13,31 @@
 		<script th:src="@{/js/jquery-3.6.1.min.js}"></script>
 		<script th:inline="javascript">
 			$(function () {
+				const loginUser = /*[[${loginUser}]]*/;
 				$("#insertBtn").on("click", function () {
-					const loginUser = /*[[${loginUser}]]*/;
 					if (loginUser == null) {
 						alert("로그인이 필요한 기능입니다. 로그인 페이지로 이동합니다.");
 						window.location.href = "/cscenter/loginPage";
 					} else {
 						window.location.href = "/cscenter/insertReport";
+					}
+				})
+				$(document).on("click", "a[name='repTitDet']", function (e) {
+					e.preventDefault();
+					if (loginUser == null) {
+						alert("게시글을 보려면 로그인을 해주세요.");
+						e.preventDefault;
+					} else if (loginUser != null) {
+						const loginUserNm = loginUser.userNm;
+						const userNm = $(this).attr("data-report-writer");
+						console.log(loginUserNm);
+						console.log(userNm);
+						if (loginUserNm != userNm) {
+							alert("다른 회원의 글은 열람이 불가합니다.");
+							e.preventDefault;
+						} else {
+							window.location.href = "/cscenter/report/" + $(this).attr("data-report-repno");
+						}
 					}
 				})
 				$(document).on("click", ".pagination a", function (e) {
@@ -39,8 +57,9 @@
 									<tr id="eachList">
 										<td>${obj.item.repList[i].repNo}</td>
 										<td>
-											<a href="/cscenter/question/${obj.item.repList[i].repNo}">
-												${obj.item.repList[i].repTitle}
+											<a name="repTitDet" id="'repTitDet' + ${obj.item.repList[i].repNo}" href="#" 
+											   data-report-writer="${obj.item.repList[i].userNm}" data-report-repno="${obj.item.repList[i].repNo}">
+											   ${obj.item.repList[i].repTitle}
 											</a>
 											<img src="/images/lock.png" width="18px" height="18px;">
 										</td>
@@ -158,8 +177,8 @@
 							<tr th:each="report : ${repList}" id="eachList">
 								<td th:text=${report.repNo}></td>
 								<td>
-									<a th:text="${report.repTitle}"
-										th:href="@{/cscenter/report/{repNo} (repNo=${report.repNo})}">
+									<a th:text="${report.repTitle}" name="repTitDet" th:id="'repTitDet' + ${report.repNo}" href="#" 
+									   th:data-report-writer="${report.userNm}" th:data-report-repno="${report.repNo}">
 									</a>
 									<img th:src="@{/images/lock.png}" width="18px" height="18px;">
 								</td>

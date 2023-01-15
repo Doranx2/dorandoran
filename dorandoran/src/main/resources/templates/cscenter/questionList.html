@@ -25,8 +25,7 @@
 				$(document).on("click", "a[name='qTitDet']", function (e) {
 					e.preventDefault();
 					if (loginUser == null) {
-						alert("로그인이 필요한 기능입니다. 로그인 페이지로 이동합니다.");
-						window.location.href = "/cscenter/loginPage";
+						alert("게시글을 보려면 로그인을 해주세요.");
 						e.preventDefault;
 					} else if (loginUser != null) {
 						const loginUserNm = loginUser.userNm;
