@@ -1,4 +1,4 @@
-package com.ezen.doran.service.service;
+package com.ezen.doran.service.market;
 
 import java.util.List;
 

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			$(function(){
+				let Check = /*[[${Check}]]*/;
+				if(Check){
+					alert("검색된 게시글이 없습니다.");
+				}
+			});
+		
+			function textOver(joinNo) {
+				$("#container" + joinNo).css("box-shadow", "3px 3px 3px 3px #00000012 inset");
+			};
+			function textOut(joinNo) {
+				$("#container" + joinNo).css("box-shadow", "3px 3px 3px 3px #00000012");
+			};
+
+			function search() {
+				let searchKeyword = $('#searchKeyword').val();
+				console.log(searchKeyword);
+				location.href = "/join/selectJoinList?searchKeyword=" + searchKeyword;
+			};
+			
+			
+		</script>
+	</th:block>
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<link rel="stylesheet" th:href="@{/css/boardTitle.css}" />
+		<link rel="stylesheet" th:href="@{/css/boardJoin.css}" />
+
+
+		<div class="v19_9" style="height: 1373px;">
+
+			<div class="v89_238">
+				<div class="v89_239"></div>
+				<div class="v89_240"></div>
+				<span class="v89_241">함께해요</span>
+			</div>
+
+			<div class="v89_245">
+				<img class="backImg" th:src="@{/images/boardBack.png}" />
+			</div>
+			<div class="v89_249">
+				<img class="iconImg" th:src="@{/images/joinIcon.png}" />
+			</div>
+
+			<div class="v21_78" style="height: 240px;"><span class="v21_80">혼자라서 외로울 때<br>여기서 사람들을 모아보세요!</span>
+				<span class="v21_81">모임을 만들고, 모임 신청이 가능한 게시판입니다.<br>
+					소식좌인데 치킨이 먹고 싶을 때!<br>멀티게임을 샀는데 준비물인 친구가 없을 때!<br>
+					함께해요 게시판에서 사람들을 모아보세요.<br>
+					언젠가 동네 인싸가 되어있는 당신을 발견할지도 몰라요.</span>
+			</div>
+
+
+			<div th:if="${session.loginUser ne null}" th:remove="tag">
+				<button class="insertPageBtn" onclick="location.href='/join/insertJoinPage'"
+					style="z-index : 1; top : 533px;">모임 만들기</button>
+			</div>
+
+			<div th:if="${session.loginUser eq null}" th:remove="tag">
+				<button class="insertPageBtn" onclick="location.href='/temp/loginPage'"
+					style="z-index : 1;top : 533px;">로그인 후
+					모임만들기</button>
+			</div>
+			<div class="container">
+				<div class="boardContainer"></div>
+				<div class="boardContainer">
+					<div class="joinListContainer" th:each="join : ${selectJoinList}" th:id="'container'+${join.joinNo}"
+					th:onmouseover="'textOver('+${join.joinNo}+');'"
+						th:onmouseout="'textOut('+${join.joinNo}+');'"
+						th:onclick="|location.href='@{/join/selectJoin?joinNo={joinNo} (joinNo = ${join.joinNo})}'|">
+						<div class="ContainerTop">
+							<img th:src="@{'/images/' + ${join.joinCd}} + '.png'" th:id="'prodImg'+${join.joinNo}"
+								class="cdImage">
+							<div th:if="${join.doneYn eq 'N'}" th:remove="tag">
+								<a class="status" style="background : #f44336;">모집중</a>
+							</div>
+
+							<div th:if="${join.doneYn ne 'N'}" th:remove="tag">
+								<a class="status">모집완료</a>
+							</div>
+
+						</div>
+
+						<div class="ContainerBottom">
+						
+							<a class="title" th:text="${join.joinTitle}"></a>
+								
+							<div class="typeCdTotal" th:each="type : ${typeCdList}" th:if="${type.key eq join.joinNo}">
+								<div th:if="${type.value.length > 0}" th:remove="tag">
+									<a class="typeCd"  th:each="cd : ${type.value}" th:text="'#'+${cd}"></a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+
+			<div class="searchInput">
+				<input id="searchKeyword" name="searchKeyword">
+				<button class="searchIcon" onclick="search();"></button>
+			</div>
+
+			<div class="pagation">
+				<div class="page">
+					<ul class="pagination modal">
+						<li class="page-item">
+							<a class="first"
+								th:href="@{/join/selectJoinList?page=1&searchKeyword={keyword} (keyword = ${pagination.searchKeyword})}">
+								처음
+							</a>
+						</li>
+						<li class="page-item">
+							<a class="arrow left"
+								th:href="@{/join/selectJoinList?page={page}&searchKeyword={keyword} (page = ${pagination.page}-1, keyword = ${pagination.searchKeyword}) }">
+								<< </a>
+						</li>
+						<th:block th:with="start = ${pagination.startPage}, end = ${pagination.endPage}">
+							<li class="page-item" th:with="start = ${pagination.startPage}, end = ${pagination.endPage}"
+								th:each="pageButton : ${#numbers.sequence(start, end)}">
+								<a class="num"
+									th:href="@{/join/selectJoinList?page={page}&searchKeyword={keyword} (page = ${pageButton}, keyword = ${pagination.searchKeyword} )}"
+									th:text=${pageButton}></a>
+							</li>
+						</th:block>
+						<li class="page-item">
+							<a class="arrow right"
+								th:href="@{/join/selectJoinList?page={page}&searchKeyword={keyword} (page = ${pagination.page}+1, keyword = ${pagination.searchKeyword})}">
+								>>
+							</a>
+						</li>
+						<li class="page-item">
+							<a class="last"
+								th:href="@{/join/selectJoinList?page={page}&searchKeyword={keyword} (page = ${pagination.totalPageCnt}, keyword = ${pagination.searchKeyword} )}">
+								<span aria-hidden="true">끝</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+
+			</div>
+
+
+
+		</div>
+	</div>
+</body>
+
+</html>

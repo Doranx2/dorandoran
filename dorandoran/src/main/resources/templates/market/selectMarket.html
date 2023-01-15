@@ -157,7 +157,7 @@
 			<input id="marketNo" type="hidden" th:value="${market.marketNo}">
 			
 			<div th:if="${market.status eq '거래완료'}" th:remove="tag">
-			<span class="marketStatus" th:text="${market.status}" style="color: red;"></span>
+			<span class="marketStatus" th:text="${market.status}" style="color: #f44336;"></span>
 			</div>
 			
 			<div th:if="${market.status ne '거래완료'}" th:remove="tag">

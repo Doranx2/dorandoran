@@ -78,7 +78,7 @@
 								<a class="price" th:text="${list.price} +' 원'"></a>
 
 								<div th:if="${list.status eq '거래완료'}" th:remove="tag">
-									<a class="status" th:text="${list.status}" style="background: red;"></a>
+									<a class="status" th:text="${list.status}" style="background: #f44336;"></a>
 								</div>
 
 								<div th:if="${list.status ne '거래완료'}" th:remove="tag">
@@ -95,7 +95,7 @@
 								<a class="title" th:text="${list.prodNm}"></a><br>
 								<a class="price" th:text="${list.price} +' 원'"></a>
 								<div th:if="${list.status eq '거래완료'}" th:remove="tag">
-									<a class="status" th:text="${list.status}" style="background: red;"></a>
+									<a class="status" th:text="${list.status}" style="background: #f44336;"></a>
 								</div>
 
 								<div th:if="${list.status ne '거래완료'}" th:remove="tag">

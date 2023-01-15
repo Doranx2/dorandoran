@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layouts/layout}">
+	  
+	<!-- head 영역 시작 -->
+	<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+<head>
+		<th:block layout:fragment="script">
+			<script th:inline="javascript">
+				$(function() {
+					
+				});
+			</script>
+		</th:block>
+		
+		<th:block layout:frament="css">
+			<style>
+				body {
+					height: 100%;
+				}
+			</style>
+		</th:block>
+	</head>
+	<!-- head 영역 끝 -->
+	<body>
+	<div class="findpw-WaS">
+	  <img class="image-8-EmL" src="./assets/image-8.png">
+	  	<p class="item--A9C">비밀번호를 찾았습니다!</p>
+		  	<div class="rectangle-49-DNN"></div>
+		  	<div class="rectangle-50-obU"></div>
+			  <p class="item--LLW">확 인</p>
+			  <p class="item--2z2">해당 이메일로 비밀번호를 전송합니다.</p>
+	  <div class="jaewonjkgmailcom-Vsc">jaewon.jk@gmail.com</div>
+		  <img class="image-11-d6e" src="./assets/image-11.png">
+		  <img class="item-01-1-M2e" src="./assets/.png">
+	</div>
+	</body>
+</html>

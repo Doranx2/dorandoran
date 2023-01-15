@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko"
+	  xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layouts/layout}">
+	  
+	<!-- head 영역 시작 -->
+	<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+<head>
+		<th:block layout:fragment="script">
+			<script th:inline="javascript">
+				$(function() {
+					console.log($("#errorMsg").val());
+					
+					const url = new URL(window.location.href);
+					
+					const urlParams = url.searchParams;
+					
+					if(urlParams.get("error")) {
+						alert(urlParams.get("errorMsg"));
+					}
+			});
+			</script>
+		</th:block>
+		
+		<th:block layout:frament="css">
+			<style>
+				body {
+					height: 100%;
+				}
+			</style>
+		</th:block>
+	</head>
+	<!-- head 영역 끝 -->
+	<body>
+		<div layout:fragment="content">
+		<div class="login-r4v">
+		  <div class="background-oF4">
+		    <div class="auto-group-hvby-isp">
+		      <div class="auto-group-c1sq-4wg">
+		        <div class="auto-group-ouc6-cTQ">
+		          <div class="rectangle-37-MA6">
+		          </div>
+		          <div class="rectangle-36-su8">
+		          </div>
+		          <img class="item-01-1-cbp" src="./assets/-3PU.png">
+		        </div>
+		        <div class="auto-group-6rwe-iPx">
+		          <div class="rectangle-45-UP8">
+		          </div>
+		          <div class="rectangle-41-zsG">
+		          </div>
+		        </div>
+		      </div>
+		      <div class="auto-group-4hna-ioG">
+		        <div class="rectangle-39-dQS">
+		        </div>
+		        <div class="rectangle-38-wvv">
+		        </div>
+		        <div class="rectangle-43-g7p">
+		        </div>
+		        <div class="rectangle-30-DNe">
+		        </div>
+		        <img class="kakaologinmediumwide-1-vnr" src="./assets/kakaologinmediumwide-1.png">
+		        <div class="pwinput-SWJ">
+		          <img class="image-3-kWz" src="./assets/image-3.png">
+		        </div>
+		        <div class="idinput-4Gn">
+		          <img class="image-4-P4A" src="./assets/image-4.png">
+		        </div>
+		        <p class="item--u2W">아이디 찾기  |  비밀번호 찾기  |  회원가입</p>
+		        <div class="loginbtn-Xpa">
+		          <button class="rectangle-33-UE2">
+	  		          <div class="item--QNa">로그인</div>
+		          </button>
+		        </div>
+		      </div>
+		    </div>
+		    <div class="auto-group-rsaa-5Dp">
+		      <div class="auto-group-s1aa-1NN">
+		        <div class="rectangle-40-8C6">
+		        </div>
+		        <div class="rectangle-42-FnW">
+		        </div>
+		      </div>
+		      <div class="rectangle-44-PNv">
+		      </div>
+		    </div>
+		  </div>
+		  <p class="login-XV8">LOGIN</p>
+		  </div>
+		</div>
+	</body>
+</html>
