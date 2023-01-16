@@ -115,10 +115,10 @@
               <th>제목</th>
               <th>날짜</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>예쁜 카페 가요~</td>
-              <td>0000/00/00</td>
+			<tr th:each="myShare : ${myShare}">
+              <td th:text="${myShare.ShareNo}"></td>
+              <td th:text="${myShare.ShareTitle}"></td>
+              <td th:text="${myShare.inputDtm}"></td>
             </tr>
           </table>
           
@@ -143,10 +143,10 @@
               <th>제목</th>
               <th>날짜</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>예쁜 카페 가요~</td>
-              <td>0000/00/00</td>
+            <tr th:each="myHelp : ${myHelp}">
+              <td th:text="${myHelp.HelpNo}"></td>
+              <td th:text="${myHelp.HelpTitle}"></td>
+              <td th:text="${myHelp.inputDtm}"></td>
             </tr>
           </table>
           
@@ -171,10 +171,10 @@
               <th>제목</th>
               <th>날짜</th>
             </tr>
-            <tr>
-              <td>1</td>
-              <td>예쁜 카페 가요~</td>
-              <td>0000/00/00</td>
+            <tr th:each="myPlay : ${myPlay}">
+              <td th:text="${myPlay.playNo}"></td>
+              <td th:text="${myPlay.playTitle}"></td>
+              <td th:text="${myPlay.inputDtm}"></td>
             </tr>
           </table>
           

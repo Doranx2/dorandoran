@@ -579,19 +579,15 @@ li {
   flex-shrink: 0;
 }
 .item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW .list-pcE .auto-group-xbx6-mnN {
-  box-sizing: border-box;
-  padding: 1.922rem 7.05rem 0.9rem 5.05rem;
-  width: 100%;
-  height: 29.6rem;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url('../assets/frame-1134.png');
-  border-top: solid 0.3rem #000000;
-  border-bottom: solid 0.3rem #000000;
+    margin-bottom: 0.2735rem;
+    box-sizing: border-box;
+    padding-top: 0.3rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border-top: solid 0.3rem #000000;
+    border-bottom: solid 0.3rem #000000;
+    background-color: #f8f8f8;
 }
 .item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW .list-pcE .auto-group-xbx6-mnN .item--TQJ {
   margin: 0rem 3.05rem 3.178rem 0rem;

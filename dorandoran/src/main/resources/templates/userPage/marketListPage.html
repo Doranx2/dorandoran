@@ -151,10 +151,15 @@
           </div>
           
           <!-- 페이지 버튼 -->
+          
                <li class="auto-group-bhvj-dmQ">
-                <a><img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
-                <a><img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+                <a th:href="@{/userPage/selectMarketList?page={page} (page = ${pagination.page}-1)}">
+                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+                
+                <a th:href="@{/userPage/selectMarketList?page={page} (page = ${pagination.page}+1)}">
+                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
               </li>
+              
           <!-- 페이지 버튼 -->
           
         </div>
