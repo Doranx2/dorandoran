@@ -70,7 +70,8 @@
 										작성자
 									</td>
 									<td id="intQTag2">
-										<!--<input type="text" name="userNm" th:value="${#authentication.principal.username}" readonly>-->
+										<input type="hidden" name="userNo" th:value="${loginUser.userNo}">
+										[[${loginUser.userNm}]]
 									</td>
 								</tr>
 								<tr>

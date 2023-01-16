@@ -13,6 +13,21 @@
 		<script th:src="@{/js/jquery-3.6.1.min.js}"></script>
 		<script th:inline="javascript">
 			$(function () {
+				const loginUser = /*[[${loginUser}]]*/;
+				const userNm = /*[[${rDetail.userNm}]]*/;
+				console.log(loginUser);
+				if (loginUser == null) {
+					alert("로그인이 필요한 기능입니다. 로그인 페이지로 이동합니다.");
+					window.location.href = "/cscenter/loginPage";
+				} else if (loginUser != null) {
+					const loginUserNm = loginUser.userNm;
+					if (loginUserNm != userNm) {
+						$("#updateBtn").hide();
+						$("#deleteBtn").hide();
+						alert("잘못된 접근방식입니다.");
+						window.location.href = "/cscenter/repList";
+					}
+				}
 				const compYn = /*[[${rDetail.compYn}]]*/;
 				$("#updateBtn").on('click', function (e) {
 					if (compYn == "Y") {
@@ -103,7 +118,8 @@
 									</td>
 								</tr>
 								<tr>
-									<td id="ntcTag4" colspan='4' style="white-space : pre-wrap;word-break:break-all;overflow:scroll;"><div style="height: 150px;">[[${rDetail.repContent}]]</div></td>
+									<td id="ntcTag4" colspan='4'
+										style="white-space : pre-wrap;word-break:break-all;overflow:scroll;"><div style="height: 150px;">[[${rDetail.repContent}]]</div></td>
 								</tr>
 							</table>
 						</form>

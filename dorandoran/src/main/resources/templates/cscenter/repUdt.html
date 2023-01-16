@@ -12,7 +12,23 @@
 	<th:block layout:fragment="script">
 		<script th:src="@{/js/jquery-3.6.1.min.js}"></script>
 		<script th:inline="javascript">
+			$(function () {
+				const loginUser = /*[[${loginUser}]]*/;
+				const userNm = /*[[${rDetail.userNm}]]*/;
+				console.log(loginUser);
 
+				if (loginUser == null) {
+					alert("로그인이 필요한 기능입니다. 로그인 페이지로 이동합니다.");
+					window.location.href = "/cscenter/loginPage";
+				} else if (loginUser != null) {
+					const loginUserNm = loginUser.userNm;
+					if (loginUserNm != userNm) {
+						$("#btnUpdate").hide();
+						alert("잘못된 접근방식입니다.");
+						window.location.href = "/cscenter/repList";
+					}
+				}
+			})
 			function fnUpdateBoard() {
 				if ($("#repTitle").val().length == 0) {
 					alert("제목을 입력해주세요.");
