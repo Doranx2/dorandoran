@@ -14,5 +14,11 @@
 		<typeAlias type="com.ezen.doran.dto.RepDTO" alias="report"/>
 		<typeAlias type="com.ezen.doran.dto.AnswerDTO" alias="answer"/>
 		<typeAlias type="com.ezen.doran.common.CamelHashMap" alias="camelHashMap"/>
+		
+		<typeAlias type="com.ezen.doran.dto.Pagination" alias="page" />
+
+		<!-- 게시판들 alias -->
+		<typeAlias type="com.ezen.doran.dto.JoinDTO" alias="join" />
+		
 	</typeAliases>
 </configuration>
