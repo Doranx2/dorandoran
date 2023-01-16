@@ -38,20 +38,20 @@ public class UserPageController {
 	}
 	
 //	@RequestMapping("/playListPage")
-//	public ModelAndView myPlayList() {
-//		ModelAndView mv = new ModelAndView();
-//		
-//		mv.setViewName("/userPage/playListPage.html");
-//		return mv;
-//	}
-	
-	@RequestMapping("/writingListPage")
-	public ModelAndView myWritingList() {
+	public ModelAndView myPlayList() {
 		ModelAndView mv = new ModelAndView();
 		
-		mv.setViewName("/userPage/writingListPage.html");
+		mv.setViewName("/userPage/playListPage.html");
 		return mv;
 	}
+	
+//	@RequestMapping("/writingListPage")
+//	public ModelAndView myWritingList() {
+//		ModelAndView mv = new ModelAndView();
+//		
+//		mv.setViewName("/userPage/writingListPage.html");
+//		return mv;
+//	}
 	
 	// updateUser(UserDTO)
 	@PostMapping("/updateUser")
@@ -63,17 +63,17 @@ public class UserPageController {
 	
 	
 //	 selectMyJoinList(int)
-	@RequestMapping("/playListPage")
-	public ModelAndView selectMyPlayList(@RequestParam("userNo") int userNo) {
-		ModelAndView mv = new ModelAndView();
-		
-		List<JoinDTO> selectMyJoinList = UserPageService.selectMyJoinList(userNo);
-		
-		mv.addObject("myJoin", selectMyJoinList);
-		mv.setViewName("/userPage/marketListPage.html");
-		
-		return mv;
-	}
+//	@RequestMapping("/playListPage")
+//	public ModelAndView selectMyPlayList(@RequestParam("userNo") int userNo) {
+//		ModelAndView mv = new ModelAndView();
+//		
+//		List<JoinDTO> selectMyJoinList = UserPageService.selectMyJoinList(userNo);
+//		
+//		mv.addObject("myJoin", selectMyJoinList);
+//		mv.setViewName("/userPage/marketListPage.html");
+//		
+//		return mv;
+//	}
 	
 	
 	// selectMyMarketList(int, String)
@@ -113,11 +113,9 @@ public class UserPageController {
 	}
 	
 	
+	// selectMyWritingList(int)
+	@RequestMapping("/writingListPage")
 	
-	// selectMyHelpList(int, String)
-	
-	
-	// selectMyShareList(int)
 	
 	
 
