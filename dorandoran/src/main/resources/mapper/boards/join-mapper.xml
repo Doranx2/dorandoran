@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/dtd/DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.doran.mapper.JoinMapper">
+
+	<select id="selectJoinList" parameterType="page" resultType="join">
+		SELECT * FROM TB_JOIN
+		WHERE 1 = 1
+		AND JOIN_CD LIKE CONCAT('%', #{joinCd}, '%') 
+		AND 	( 	
+					JOIN_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR JOIN_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%') 
+				)
+		ORDER BY INPUT_DTM DESC
+		LIMIT #{pageSize} OFFSET #{startIndex}
+	</select>
+
+	<select id="selectJoinCnt" parameterType="map" resultType="int">
+		SELECT COUNT(*) FROM TB_JOIN
+		WHERE 1 = 1
+			AND JOIN_CD LIKE CONCAT('%', #{joinCd}, '%')
+			AND 	( 	
+					JOIN_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')
+					OR JOIN_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%') 
+					)
+	</select>
+
+</mapper>

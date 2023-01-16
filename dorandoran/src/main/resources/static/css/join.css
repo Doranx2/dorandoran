@@ -1,0 +1,126 @@
+html {
+	
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+ul, li {
+	list-style: none;
+}
+
+input[type='text'], input[type='password'],
+input[type='email'] {
+	border: 1px solid black;
+	height: 30px;
+	border-radius: 7px;
+}
+
+.join-D6e{
+	display: flex;
+	justify-content: center;
+	
+}
+
+.join-Lwx {
+	text-align: center;
+	font-size: 5rem;
+}
+
+.join-input-section {
+	margin-top: 20px;
+	font-size: 2.25rem;
+	
+}
+
+.item--WV4 {
+	text-align: right;
+	font-size: 1.5rem;
+	
+}
+
+form {
+	width: 30%;
+}
+
+.join-userid-section {
+	display: inline-block;
+	width: 55%;
+	margin-left: 10px;
+}
+
+.rectangle-52-AdU {
+	width: 70%;
+}
+
+.checkBtn {
+	width: 65px;
+	height: 25px;
+	background-color: #eec400;
+	border: none;
+	border-radius: 3px;
+	color: white;
+	font-size: 1.25rem;
+}
+
+div[class*=auto-group] {
+	margin-top: 20px;
+}
+
+div[class*=auto-group]  > p, div[class*=auto-group]  > p > span {
+	font-weight: bold;
+}
+
+div[class*=auto-group] > p {
+	display: inline-block;
+	width: 40%;
+}
+
+.item--WV4 {
+	width: 100% !important;
+}
+
+div[class*=auto-group] > input {
+	display: inline-block;
+	width: 55%;
+	margin-left: 10px;
+}
+
+.genmangirl {
+	display: inline-block;
+	width: 55%;
+	margin-left: 10px;
+	font-size: 1.75rem;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+input[value='girl'] {
+	margin-left: 30px;
+}
+
+.joinBtn {
+	display: block;
+	margin: 10px auto;
+	background-color: #1761a0;
+	border-radius: 5px;
+	color: white;
+	width: 200px;
+	height: 50px;
+	font-size: 2rem;
+}
+
+div[class*=line] {
+	margin-top: 5px;
+	border-bottom: 3px solid black;
+}
+
+.auto-group-entz-vtn {
+	margin-bottom: 20px;	
+}
+
+.font-red {
+	color: red;
+}

@@ -111,4 +111,5 @@ public class Pagination {
 	
 	private String searchKeyword;
 	private String shareCat;
+	private String joinCd;
 }
