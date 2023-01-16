@@ -5,57 +5,57 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.ezen.doran.dto.AnswerDTO;
-import com.ezen.doran.dto.FaqDTO;
 import com.ezen.doran.dto.NoticeDTO;
+import com.ezen.doran.dto.Pagination;
 import com.ezen.doran.dto.QuestionDTO;
 import com.ezen.doran.dto.RepDTO;
+import com.ezen.doran.dto.UserDTO;
 
 @Service
 public interface AdminService {
 	
 	/* ======================= AdminNotice ======================= */
-	public void insertNotice(NoticeDTO noticeDTO);
+	List<NoticeDTO> getAdNoticeList(Pagination pagination);
 	
-	public NoticeDTO getNoticeOne(int noticeNo);
+	int getAdNoticeTotalCnt(String searchKeyword);
 	
-	public void updateNotice(NoticeDTO noticeDTO);
+	void adNoticeInsert(NoticeDTO noticeDTO);
 	
-	public List<NoticeDTO> getAdNoticeList();
+	NoticeDTO getNoticeOne(int noticeNo);
 	
-	public int deleteNotice(int noticeNo);
+	void adUpdateNotice(NoticeDTO noticeDTO);
 	
-	/* ======================= AdminFAQ ======================= */
-	public void insertAdFaq(FaqDTO faqDTO);
-	
-	public FaqDTO getAdFaqOne(int faqNo);
-	
-	public void updateAdFaq(FaqDTO faqDTO);
-	
-	public List<FaqDTO> getAdFaqList();
-	
-	public int deleteAdFaq(int faqNo);
-	
+	public int adNoticeDelete(int noticeNo);
+
 	/* ======================= AdminQuestionAnswer ======================= */
-//	public void insertAdQna(QuestionDTO questionDTO);
-//	
-//	public QuestionDTO getAdQnaOne(int qNo);
-//	
-//	public void updateAdQna(QuestionDTO questionDTO);
-//	
-	public List<QuestionDTO> getAdQnaList();
-//	
-//	public int deleteAdQna(int qNo);
-//	
-//	public void updateAdAnswer(AnswerDTO answerDTO);
+	List<QuestionDTO> getAdQnaList(Pagination pagination);
+	
+	int getAdQnaTotalCnt(String searchKeyword);
+	
+	void adAnswerInsert(AnswerDTO answerDTO);
+
+	QuestionDTO getQuestionOne(int qNo);
+	
+	AnswerDTO getAnswerOne(int qNo);
+	
+	void adAnswerUpdate(AnswerDTO answerDTO);
 	
 	/* ======================= AdminReport ======================= */
-//	public void insertAdReport(RepDTO repDTO);
-//	
-//	public RepDTO getAdReportOne(int repNo);
-//	
-//	public void updateAdReport(RepDTO repDTO);
-//	
-	public List<RepDTO> getAdReportList();
-//	
-//	public int deleteAdReport(int repNo);
+	List<RepDTO> getAdReportList(Pagination pagination);
+	
+	int getAdReportTotalCnt(String searchKeyword);
+	
+	RepDTO getReportOne(int repNo);
+	
+	void adReportUpdate(RepDTO repDTO);
+	
+	/* ======================= AdminUserRole ======================= */
+	List<UserDTO> getAdUserList(Pagination pagination);
+	
+	int getAdUserTotalCnt(String searchKeyword);
+	
+	UserDTO getUserOne(int userNo);
+	
+	void adUserUpdate(UserDTO userDTO);
+
 }

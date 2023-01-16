@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#000000" />
+	<title>admin page</title>
+	
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			function search() {
+				let searchKeyword = $('#searchKeyword').val();
+				console.log(searchKeyword);
+				location.href = "#"
+						+ searchKeyword;
+			}
+			
+			/* function btnSUSPENDED(userNo){
+				if(confirm(adUser.userId + "회원을 정말 정지하시겠습니까?") == true){
+					location.href = '/admin/AdNoticeDelete?userNo=' + userNo;
+				}else{
+					return ;				}
+			} */
+
+		</script>
+	</th:block>
+</head>
+<body>
+	<div layout:fragment="content">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jua%3A400" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter%3A600%2C900" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400%2C600%2C900" />
+	<link rel="stylesheet" th:href="@{/css/insertAdUser.css}" />
+
+	<div class="admin-page-iGN">
+		<div class="admin-page-d8S">Admin Page</div>
+		<div class="auto-group-rzws-hPC">
+			<div class="auto-group-agdg-E8E">
+				<div class="menu-YPp">
+					<a href="/admin/getAdNoticeList" class="item--gW2">공지사항</a>
+					<a href="/admin/getAdQnaList" class="item--gW2">1 : 1 문의</a>
+					<a href="/admin/getAdReportList" class="item--S7p">신고관리</a>
+					<a href="/admin/getAdUserList" class="item--Axv">회원관리</a>
+				</div>
+			</div>
+				
+				<div class="auto-group-ns3g-5KC">
+					<div class="auto-group-hjpi-mhp">
+						<div class="auto-group-uxyp-5yQ">
+							<p class="item--1s4">회원관리</p>
+						</div>
+					</div>
+						
+						<form
+						th:action="${formTitle != 'Registration' ? '/admin/AdUserUpdate' : '/admin/AdUserUpdate'}"
+						method="post"
+						id="insertAdUser"
+						>
+						<input type="hidden" name="userNo" id="userNo" th:value="${adUser.userNo}">
+						
+						<label for="userId">아이디</label>
+						<input type="text" class="bg-light" id="userId" name="userId" th:field="${adUser.userId}" readonly>
+												
+						<label for="userNick">닉네임</label>
+						<input type="text" class="bg-light" id="userNick" name="userNick" th:field="${adUser.userNick}" readonly>
+						<br>
+						
+						<label for="userNm">이름 </label>
+						<input type="text" class="bg-light" id="userNm" name="userNm" th:field="${adUser.userNm}" readonly>
+												
+						<label for="userAge">나이</label>
+						<input type="text" class="bg-light" id="userAge" name="userAge" th:field="${adUser.userAge}" readonly>
+						<br>
+						
+						<label for="userGen">성별</label>
+						<input type="text" class="bg-light" id="userGen" name="userGen" th:field="${adUser.userGen}" readonly>
+												
+						<label for="userTel">전화번호</label>
+						<input type="text" class="bg-light" id="userTel" name="userTel" th:field="${adUser.userTel}" readonly>
+						<br>
+						
+						<label for="userEmail">이메일</label>
+						<input type="text" class="bg-light" id="userEmail" name="userEmail" th:field="${adUser.userEmail}" readonly>
+						
+						<label for="userLoc">지역</label>
+						<input type="text" class="bg-light" id="userLoc" name="userLoc" th:field="${adUser.userLoc}" readonly>
+						<br>
+						
+						<!-- <label for="inputDtm">가입일</label>
+						<input type="text" class="bg-light" id="inputDtm" name="inputDtm"
+							th:value="${adUser.inputDtm eq null ? '' : #strings.substring(adUser.inputDtm, 0, 10)}" readonly> -->
+						
+						<label for="userRole">회원상태</label>
+						<select name="userRole" id="userRole">
+							<option th:text="${adUser.userRole}"></option>
+							<option th:text="${adUser.userRole != 'NORMAL' ? 'NORMAL' : 'SUSPENDED'}"></option>
+						</select>
+						
+						<div class="btn-CRUD">
+						<button type="submit" class="btn-myButton"
+							th:if="${formTitle} == 'Registration'">상태변경</button>
+						</div>
+					</form>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

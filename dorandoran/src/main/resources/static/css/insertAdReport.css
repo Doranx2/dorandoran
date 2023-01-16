@@ -49,7 +49,7 @@ body {
 	box-sizing: border-box;
 	padding-right: 2.5rem;
 	width: 100%;
-	height: 95.6rem;
+	height: 100%;
 	display: flex;
 	align-items: center;
 	border: solid 0.3rem #f5f5f5;
@@ -61,7 +61,7 @@ body {
 .admin-page-iGN .auto-group-rzws-hPC .auto-group-agdg-E8E {
 	margin-right: 1.6rem;
 	box-sizing: border-box;
-	padding: 14.3rem 5.3rem 14.3rem 4.2rem;
+	padding: 31rem 5.3rem 31rem 4.2rem;
 	width: 23rem;
 	height: 100%;
 	background-color: #f5f5f5;
@@ -160,7 +160,7 @@ body {
 }
 
 .admin-page-iGN .auto-group-rzws-hPC .auto-group-ns3g-5KC {
-	margin: 8.6rem 0rem 13.6rem 0rem;
+	margin: 5rem 0rem 0rem 0rem;
 	width: 99.9rem;
 	height: calc(100% - 22.2rem);
 	align-items: center;
@@ -296,7 +296,7 @@ body {
 .admin-page-iGN .auto-group-rzws-hPC .auto-group-ns3g-5KC .auto-group-bvsg-uN6
 	{
 	width: 100%;
-	height: 57.6rem;
+	height: 100%;
 	position: relative;
 	flex-shrink: 0;
 }
@@ -306,7 +306,7 @@ body {
 	box-sizing: border-box;
 	padding: 0rem 3.794rem 0rem 2.286rem;
 	width: 98.6rem;
-	height: 56rem;
+	height: 100%;
 	position: absolute;
 	left: 0.9rem;
 	top: 1.6rem;
@@ -458,19 +458,28 @@ body {
 각 게시판별 추가 부분. 위쪽은 공통부분
 */
 
-#insertAdFaq{
+#insertAdReport{
 	width: 90%;
 	font-size: 2rem;
 }
 
-#faqTitle, #userId, #faqContent{
+#repTitle, #repContent, #repDate{
 	width: 80%;
 	border: 1px solid black;
 	padding: 0 auto;
 }
 
-#faqContent{
-	height: 100%;
+#userId{
+	width: 33.5%;
+	border: 1px solid black;
+	padding: 0 auto;
+}
+#compYn{font-size: 1.0em; width: 33.5%; text-align: center; margin-left: 100px;
+		padding: 5px 10px; border: 1px solid black; border-radius: 10px;}
+
+
+#repContent{
+	height: 25rem;
 }
 
 input, textarea{
@@ -487,7 +496,7 @@ label{
 	margin-top: 15px;
 }
 
-.faqContent{
+.repContent{
 	height: 50px;
 }
 
@@ -518,4 +527,10 @@ button>a, button>a:hover{
 .btn-CRUD{
 	justify-content:flex-end;
 	display: flex;	
+}
+
+/* tbody > tr:nth-child(1) > td:nth-child(2) */
+
+table thead tr th:nth-child(2) {
+	width: 20rem;
 }
