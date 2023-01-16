@@ -56,7 +56,7 @@ body {
 .item--nzi .auto-group-eusc-V8S .frame-1144-zL6 .auto-group-4xyt-hEW .group-34-DCr {
   margin: 0.2rem 1.95rem 0rem 0rem;
   box-sizing: border-box;
-  padding: 1.2rem 2.388rem 0.3rem 2.413rem;
+  padding: 1.5rem 2rem 1.5rem 2rem;
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
@@ -131,14 +131,13 @@ body {
 }
 .item--nzi .auto-group-eusc-V8S .frame-1144-zL6 .auto-group-7thx-cRL {
   box-sizing: border-box;
-  padding: 7.8rem 9.85rem 7.9rem 9.95rem;
+  padding: 5.5rem 5rem 5.2rem 5rem;
   width: 53.5rem;
   height: 100%;
   background-color: #ffffff;
   flex-shrink: 0;
 }
 .item--nzi .auto-group-eusc-V8S .frame-1144-zL6 .auto-group-7thx-cRL .nnnn--jF4 {
-  max-width: 33.7rem;
   text-align: center;
   font-size: 3rem;
   font-weight: 600;
@@ -206,7 +205,7 @@ body {
   width: 10.4rem;
   height: 7rem;
   position: absolute;
-  left: 4.25rem;
+  left: 2.8rem;
   top: 0;
   text-align: center;
   font-size: 2.2rem;
@@ -477,7 +476,8 @@ body {
   padding: 8.2rem 37.6rem 5.3rem 37.7rem;
   width: 100%;
   height: 87.9rem;
-  border: solid 0.1rem #1761a0;
+  border-top: double 6px #1761a0;
+  border-bottom: double 6px #1761a0;
   background-color: #ffffff;
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 .group-31-TQa {
@@ -488,8 +488,7 @@ body {
   flex-direction: column;
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 .group-31-TQa .item-1-1--oUS {
-  margin: 0rem 26.2rem 4.4rem 0rem;
-  max-width: 34.7rem;
+  margin: 0rem 20rem 4.4rem 0rem;
   text-align: right;
   display: flex;
   font-size: 3rem;
@@ -716,8 +715,7 @@ body {
   flex-shrink: 0;
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 .group-31-TQa .group-31-LkW .item--gZU {
-  margin: 0rem 26.2rem 4.4rem 0rem;
-  max-width: 29.4rem;
+  margin: 0rem 25rem 4.4rem 0rem;
   text-align: right;
   display: flex;
   font-size: 3rem;

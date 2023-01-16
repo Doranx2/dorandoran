@@ -13,11 +13,103 @@
 		<script th:src="@{/js/jquery-3.6.1.min.js}"></script>
 		<script th:inline="javascript">
 			$(function () {
-				$(".pagination a").on("click", function (e) {
+				const loginUser = /*[[${loginUser}]]*/;
+				$("#insertBtn").on("click", function () {
+					if (loginUser == null) {
+						alert("로그인이 필요한 기능입니다. 로그인 페이지로 이동합니다.");
+						window.location.href = "/cscenter/loginPage";
+					} else {
+						window.location.href = "/cscenter/insertQuestion";
+					}
+				})
+				$(document).on("click", "a[name='qTitDet']", function (e) {
+					e.preventDefault();
+					if (loginUser == null) {
+						alert("게시글을 보려면 로그인을 해주세요.");
+						window.location.href = "/cscenter/loginPage";
+						e.preventDefault;
+					} else if (loginUser != null) {
+						const loginUserNm = loginUser.userNm;
+						const userNm = $(this).attr("data-question-writer");
+						console.log(loginUserNm);
+						console.log(userNm);
+						if (loginUserNm != userNm) {
+							alert("다른 회원의 글은 열람이 불가합니다.");
+							e.preventDefault;
+						} else {
+							window.location.href = "/cscenter/question/" + $(this).attr("data-question-qno");
+						}
+					}
+				})
+				$(document).on("click", ".pagination a", function (e) {
 					e.preventDefault();
 
 					$("input[name='pageNum']").val($(this).attr("href"));
-					$("#searchForm").submit();
+					$.ajax({
+						url: '/cscenter/pageQList',
+						type: 'get',
+						data: $("#searchForm").serialize(),
+						success: function (obj) {
+							console.log(obj);
+							let htmlStr = "";
+							let htmlStr2 = "";
+							for (let i = 0; i < obj.item.questionList.length; i++) {
+								htmlStr += `
+									<tr id="eachList">
+										<td>${obj.item.questionList[i].qno}</td>
+										<td>
+											<a name="qTitDet" id="'qTitDet' + ${obj.item.questionList[i].qno}" href="#" 
+											   data-question-writer="${obj.item.questionList[i].userNm}" data-question-qno="${obj.item.questionList[i].qno}">
+											   ${obj.item.questionList[i].qtitle}
+											</a>
+											<img src="/images/lock.png" width="18px" height="18px;">
+										</td>
+										<td>${obj.item.questionList[i].userNm}</td>
+										<td>
+											${obj.item.questionList[i].inputDtm == null ? '' : obj.item.questionList[i].inputDtm.substring(0, 10)}
+										</td>
+									</tr>
+									
+								`;
+							}
+							$("#boardTable").children(":first").children().not(':first').remove();
+							$("#boardTable").children(":first").append(htmlStr);
+
+							htmlStr = "";
+
+
+							if (obj.item.pageDTO.prev) {
+								htmlStr += `
+									<li class="pagination_button" id="prevBtn">
+										<a href="${obj.item.pageDTO.cri.pageNum - 1}"><img src="/images/leftArrow.png"></a>
+									</li>
+								`;
+							}
+
+							for (let i = obj.item.pageDTO.startPage; i <= obj.item.pageDTO.endPage; i++) {
+								htmlStr += `
+									<li class="pagination_num">
+										<a href="${i}">${i}</a>
+									</li>
+								`;
+							}
+
+							if (obj.item.pageDTO.next) {
+								htmlStr += `
+									<li class="pagination_button" id="nextBtn">
+										<a href="${obj.item.pageDTO.cri.pageNum + 1}">
+										<img src="/images/rightArrow.png"></a>
+									</li>
+								`;
+							}
+
+							$(".pagination").html(htmlStr);
+
+						},
+						error: function (e) {
+							console.log(e);
+						}
+					});
 				});
 
 				$("#btnSearch").on("click", function () {
@@ -43,10 +135,18 @@
 				<div class="rectangle-23-xiJ">
 					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;"
 						id="table1">
+						<div id="tpImg">
+							<div>
+								<img th:src="@{/images/-ib8.png}" style="width : 80px; height : 80px;">
+							</div>
+							<div>
+								<span id="listTtl">1:1 문의</span>
+							</div>
+						</div>
 						<form id="searchForm" action="/cscenter/questionList" method="get">
 							<input type="hidden" name="pageNum" th:value="${pageDTO.cri.pageNum }">
 							<input type="hidden" name="amount" th:value="${pageDTO.cri.amount }">
-							<table style="width: 800px; border-collapse: collapse; margin-top:100px;">
+							<table style="width: 950px; border-collapse: collapse;">
 								<tr>
 									<td align="right" style="display:none;">
 										<select name="searchCondition">
@@ -65,19 +165,23 @@
 							</table>
 						</form>
 
-						<table id="boardTable" style="width: 800px; border-collapse: collapse; margin-top:10px;">
-							<tr>
-								<th style="background-Color : #CFE1FC; width: 10%;">번호</th>
-								<th style="background-Color : #CFE1FC; width: 50%;">제목</th>
-								<th style="background-Color : #CFE1FC; width: 20%;">작성자</th>
-								<th style="background-Color : #CFE1FC; width: 20%;">등록일</th>
+						<table id="boardTable" style="width: 950px; border-collapse: collapse; margin-top:10px;">
+							<tr id="tbHead">
+								<th
+									style="background-Color : #1761A0; width: 10%; height:50px; border-top-left-radius:10px;">
+									번호</th>
+								<th style="background-Color : #1761A0; width: 50%;">제목</th>
+								<th style="background-Color : #1761A0; width: 20%;">작성자</th>
+								<th style="background-Color : #1761A0; width: 20%; border-top-right-radius:10px;">등록일
+								</th>
 							</tr>
-							<tr th:each="question : ${questionList}">
+							<tr th:each="question : ${questionList}" id="eachList">
 								<td th:text=${question.qNo}></td>
 								<td>
-									<a th:text="${question.qTitle}"
-										th:href="@{/cscenter/question/{qNo} (qNo=${question.qNo})}">
+									<a th:text="${question.qTitle}" name="qTitDet" th:id="'qTitDet' + ${question.qNo}" href="#" 
+									   th:data-question-writer="${question.userNm}" th:data-question-qno="${question.qNo}">
 									</a>
+									<img th:src="@{/images/lock.png}" width="18px" height="18px;">
 								</td>
 								<td th:text="${question.userNm}"></td>
 								<td
@@ -85,23 +189,34 @@
 								</td>
 							</tr>
 						</table>
+						<table style="width: 950px; border-collapse: collapse;table-layout:fixed;">
+							<tr>
+								<th
+									style="background-Color : #1761A0; width: 10%; height:10px; border-bottom-left-radius:10px;">
+								</th>
+								<th style="background-Color : #1761A0; width: 50%;"></th>
+								<th style="background-Color : #1761A0; width: 20%;"></th>
+								<th style="background-Color : #1761A0; width: 20%; border-bottom-right-radius:10px;">
+								</th>
+							</tr>
+						</table>
 						<div id="writeTag">
-							<a th:href="@{/cscenter/insertQuestion}">문의하기</a>
+							<a href="#" id="insertBtn">문의하기</a>
 						</div>
 						<br />
 						<div>
 							<ul class="pagination">
-								<li th:if="${pageDTO.prev }" class="pagination_button">
+								<li th:if="${pageDTO.prev }" class="pagination_button" id="prevBtn">
 									<a th:href="${pageDTO.cri.pageNum - 1 }"><img th:src="@{/images/leftArrow.png}"></a>
 								</li>
 
 
 								<li th:each="num : ${#numbers.sequence(pageDTO.startPage, pageDTO.endPage)} "
-									class="pagination_button">
+									class="pagination_num">
 									<a th:href="${num }" th:text="${num}"></a>
 								</li>
 
-								<li th:if="${pageDTO.next }" class="pagination_button">
+								<li th:if="${pageDTO.next }" class="pagination_button" id="nextBtn">
 									<a th:href="${pageDTO.cri.pageNum + 1 }"><img
 											th:src="@{/images/rightArrow.png}"></a>
 								</li>

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import com.ezen.doran.dto.AnswerDTO;
 import com.ezen.doran.dto.NoticeDTO;
@@ -20,6 +21,16 @@ public interface CsMapper {
 	NoticeDTO selectNotice(int noticeNo);
 
 	int getNoticeTotalCnt(Map<String, String> paramMap);
+	
+	@Select("SELECT IFNULL(MAX(NOTICE_NO),0) FROM TB_NOTICE WHERE NOTICE_NO < #{noticeNo}")
+	int prevNoticeNo(int noticeNo);
+	
+	@Select("SELECT IFNULL(MIN(NOTICE_NO),0) FROM TB_NOTICE WHERE NOTICE_NO > #{noticeNo}")
+	int nextNoticeNo(int noticeNo);
+	
+	NoticeDTO prevNotice(int nPrevNo);
+
+	NoticeDTO nextNotice(int nNextNo);
 	
 	//----------------------------------------------------------------------------------
 
@@ -56,7 +67,8 @@ public interface CsMapper {
 	void updateRep(RepDTO repDTO);
 
 	void deleteRep(int repNo);
-	
+
+
 	
 		
 

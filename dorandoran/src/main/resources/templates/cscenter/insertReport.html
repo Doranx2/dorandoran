@@ -11,6 +11,33 @@
 	</th:block>
 	<th:block layout:fragment="script">
 		<script th:inline="javascript">
+			$(document).ready(function () {
+				$('#texta1').on('keyup', function () {
+					$('#text_cnt').html($(this).val().length + " / 500");
+
+					if ($(this).val().length > 500) {
+						$(this).val($(this).val().substring(0, 500));
+						$('#text_cnt').html("500 / 500");
+					}
+				});
+				$('#insertInp').on('keyup', function () {
+					if ($(this).val().length > 20) {
+						$(this).val($(this).val().substring(0, 20));
+					}
+				});
+				$("#btnInsert").on("click", function () {
+					if ($("#insertInp").val().length == 0) {
+						alert("제목을 입력해주세요.");
+						$("#insertInp").focus();
+						return false;
+					}
+					if ($("#texta1").val().length == 0) {
+						alert("내용을 입력해주세요.");
+						$("#texta1").focus();
+						return false;
+					}
+				})
+			});
 		</script>
 	</th:block>
 </head>
@@ -27,41 +54,58 @@
 			<div class="auto-group-hv9g-23x">
 				<div class="rectangle-23-xiJ">
 					<div style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+						<div id="tpImg2">
+							<div>
+								<img th:src="@{/images/Logo2.png}" style="width : 80px; height : 80px;">
+							</div>
+							<div>
+								<span id="listTtl2">신고하기</span>
+							</div>
+						</div>
 						<form action="/cscenter/report" method="post">
 							<input type="hidden" id="compYn" name="compYn" value="N">
-							<table border="1" style="border-collapse: collapse; margin-top: 100px;" id="tb1">
+							<table style="border-collapse: collapse; margin-top: 10px;" id="tb1">
 								<tr>
-									<td>
+									<td id="intQTag">
 										작성자
 									</td>
-									<td style="text-align: left;">
-										<!--<input type="text" name="userNm" th:value="${#authentication.principal.username}" readonly>-->
+									<td style="text-align: left;" id="intQTag2">
+										<input type="hidden" name="userNo" th:value="${loginUser.userNo}">
+										[[${loginUser.userNm}]]
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td id="intQTag">
 										제목
 									</td>
-									<td style="text-align: left;">
-										<input type="text" name="repTitle" id="insertInp">
+									<td style="text-align: left;" id="intQTag2">
+										<input type="text" name="repTitle" id="insertInp" style="outline:none;"
+											placeholder="제목을 입력해주세요.(20자 이내)">
 									</td>
 								</tr>
 								<tr>
-									<td>
+									<td id="intQTag">
 										내용
 									</td>
-									<td style="text-align: left;">
+									<td id="intQTag2">
 										<textarea name="repContent" cols="40" rows="10"
-											style="width:700px; height:450px;" id="texta1"></textarea>
+											placeholder="내용을 입력해주세요.(500자 이내)"
+											style="width:575px; height:385px; outline:none;" id="texta1"></textarea>
 									</td>
 								</tr>
 								<tr>
-									<td colspan="2" align="right">
-										<a href="/cscenter/repList">취소</a>
-										<button type="submit">등록</button>
+									<td id="intQTag">
+										글자수 제한
+									</td>
+									<td style="text-align: right;" id="intQTag2">
+										<div id="text_cnt" style="background : white;">0 / 500</div>
 									</td>
 								</tr>
 							</table>
+							<div id="istTagA">
+								<a href="/cscenter/repList" onclick="alert('작성 중인 글은 삭제됩니다.')">취소</a>
+								<button type="submit" id="btnInsert">등록</button>
+							</div>
 						</form>
 					</div>
 				</div>

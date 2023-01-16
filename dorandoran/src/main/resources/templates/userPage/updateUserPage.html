@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+	  
+<!-- head -->
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <title>개인정보변경</title>
+  
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+/*		const remainTime = document.querySelector("#remain-time");
+		function diffDay() {
+			const joinTime = new Date("${session.loginUser.inputDtm}");
+			const todayTime = new Date();
+			
+			const diff = todayTime - joinTime;
+			
+			const diffDay = Math.floor(diff / (1000*60*60*24));
+			
+			reaminTime.innerText = '${diffDay}';
+			
+		}*/
+		
+		
+		
+		</script>
+	</th:block>
+  
+</head>
+<!-- head -->
+
+<body>
+
+<div layout:fragment="content">
+
+<link rel="stylesheet" th:href="@{/css/updateUserPage.css}"/>
+
+<div class="item--yEn">
+
+  <div class="auto-group-9rl6-UxE">
+    <div class="frame-1144-oDp">
+      <div class="auto-group-sfce-i5t">
+        <div class="group-34-2MU">회원</div>
+        <div class="auto-group-jkv6-4ox">
+          <p class="item--DB4">
+            <span class="item--DB4-sub-0">활동 지역은 </span>
+            <span class="item--DB4-sub-1">‘<a th:text="${session.loginUser.userLoc}"></a>’</span>
+            <span class="item--DB4-sub-2"> 입니다.</span>
+          </p>
+          <p class="item--fSN"><a th:text="${session.loginUser.userNm}"></a> 님</p>
+          <p class="nnnn-nn-nn-7ZG"><a th:text="${session.loginUser.inputDtm}"></a></p>
+        </div>
+      </div>
+      <div class="auto-group-wdiz-ybU">
+        <p class="nnnn--6AJ">
+        오늘은 도란도란과 함께한 지
+        <br>
+        + 일 
+        <br>
+        되는 날입니다!
+        </p>
+      </div>
+      <div class="rectangle-104-P9Q">
+      </div>
+    </div>
+    <div class="auto-group-yssz-7r6">
+      <div class="rectangle-105-fMp">
+      </div>
+      
+      <!-- 공지로 넘어가기 -->
+      <div class="frame-1143-nxE">
+        <p class="item--voY">도란도란을 누구보다 잘 이용하고 싶다면? </p>
+        <div class="group-33-FjL">
+          <div class="rectangle-106-cJz">
+          </div>
+          <a class="item--juQ" href="/admin/getAdNoticeList" style="cursor: pointer;">공지 확인하기</a>
+        </div>
+      </div>
+      <!-- 공지로 넘어가기 -->
+      
+    </div>
+  </div>
+  
+  <div class="my-doran-1M8">MY DORAN</div>
+  <div class="auto-group-tkke-imL">
+    <div class="auto-group-ewie-fAn">
+      <div class="rectangle-84-CAi">
+      </div>
+      <div class="rectangle-88-KFL">
+      </div>
+      <div class="rectangle-85-ogJ">
+      </div>
+      <div class="rectangle-86-8yU">
+      </div>
+      <div class="rectangle-87-sAN">
+      </div>
+      <div class="frame-1146-bMG">
+        <div class="item--uMx" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인</div>
+        <div class="item--1A6" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
+        <div class="item--hoc" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
+        <div class="item--zXp" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
+        <div class="item--GkE" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
+      </div>
+      <div class="icon-media-play-yuY">
+        <img class="icon-media-play-WPg" th:src="@{/images/mediaPlayIcon.png}"/>
+        <img class="vector-EqU" th:src="@{/images/mediaPlayIcon.png}"/>
+        <div class="icon-media-play-PCa">
+          <img class="vector-9Bk" th:src="@{/images/mediaPlayIcon.png}"/>
+          <div class="icon-media-play-Hok">
+            <img class="vector-qqG" th:src="@{/images/mediaPlayIcon.png}"/>
+            <img class="icon-media-play-nVc" th:src="@{/images/mediaPlayIcon.png}"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 상세창 내부 -->
+    <form id="updateUserPage" method="post" action="/userPage/updateUser">
+    <div class="auto-group-p7le-5zW">
+      <div class="auto-group-wp8a-bxr">
+        <div class="item--7wC">개인 정보 확인</div>
+        <div class="item--c7G">개인 정보를 확인하고 수정할 수 있습니다.</div>
+      </div>
+      <div class="auto-group-u4yi-gN2">
+        <div class="item--Bpa">‘<a th:text="${session.loginUser.userNm}"></a>’님의 개인 정보</div>
+        <div class="auto-group-yafu-3Lz">
+          <div class="item--8NS">아이디</div>
+          <input type="text" name="userId" class="dorandoran-d4J" style="outline: none;" th:value="${session.loginUser.userId}" readonly="readonly">
+        </div>
+        <div class="auto-group-25ml-92e">
+          <div class="item--5S6">가입일자</div>
+          <input type="text" name="inputDtm" class="item-0000-00-00-xEz" style="outline: none;" th:value="${session.loginUser.inputDtm}" readonly="readonly">
+        </div>
+        <div class="auto-group-wata-4J2">
+          <div class="item--b34">성별</div>
+          <input type="text" name="userGen" class="item--t2A" style="outline: none;" th:value="${session.loginUser.userGen}" readonly="readonly">
+        </div>
+        <div class="auto-group-2gm8-B1G">
+          <div class="item--Hpz">이메일</div>
+          <input class="group-19-zzJ" name="userEmail" placeholder="이메일을 입력해주세요.">
+        </div>
+        <div class="auto-group-g9vc-YPY">
+          <div class="item--G4e">전화번호</div>
+          <input class="group-20-7b4" name="userTel" placeholder="전화번호를 입력해주세요.">
+        </div>
+        <div class="auto-group-9ehg-ajY">
+          <div class="item--6xn">닉네임</div>
+          <input class="group-21-D1p" name="userNick" placeholder="닉네임을 입력해주세요.">
+        </div>
+        <div class="auto-group-d9p8-65c">
+          <div class="item--p1c">지역</div>
+          <input class="group-22-tGN" name="userLoc" placeholder="지역을 입력해주세요.">
+        </div>
+        <button class="auto-group-8eqa-aoQ" id="updateUserBtn" type="submit" th:onclick="updateUser()" style="cursor:pointer;">정보 변경
+        </div>
+      </div>
+    </div>
+    </form>
+    <!-- 상세창 내부 끝 -->
+    
+  </div>
+</div>
+
+</div>
+</body>
