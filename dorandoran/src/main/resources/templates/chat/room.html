@@ -72,25 +72,31 @@
 	<div layout:fragment="content">
 		<div class="container">
 			<div class="col-6">
-				<h1>[[${room.roomNm}]]</h1>
+				<div th:if="${room.slaveNo eq session.loginUser.userNo}">
+					<h1>[[${room.masterNm}]] 님과의 채팅방</h1>
+				</div>
+				<div th:if="${room.masterNo eq session.loginUser.userNo}">
+					<h1>[[${room.slaveNm}]] 님과의 채팅방</h1>
+				</div>
 			</div>
 			<div>
 				<div id="msgArea" class="col">
-					<div th:each="chat : ${chat}" th:if="${chat.sendUserNo == session.loginUser.userNo}">
-						<div class='col-6'>
-							<div class='alert alert-secondary'>
-								<b>[[${chat.sendUserNo}]] : [[${chat.message}]]</b>
+					<div th:each="chat : ${chat}">
+						<div th:if="${chat.sendUserNo == session.loginUser.userNo}">
+							<div class='col-6'>
+								<div class='alert alert-secondary'>
+									<b>[[${chat.sendUserNo}]] : [[${chat.message}]]</b>
+								</div>
+							</div>
+						</div>
+						<div th:if="${chat.sendUserNo != session.loginUser.userNo}">
+							<div class='col-6'>
+								<div class='alert alert-warning'>
+									<b>[[${chat.sendUserNo}]] : [[${chat.message}]]</b>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div th:each="chat : ${chat}" th:if="${chat.sendUserNo != session.loginUser.userNo}">
-						<div class='col-6'>
-							<div class='alert alert-warning'>
-								<b>[[${chat.sendUserNo}]] : [[${chat.message}]]</b>
-							</div>
-						</div>
-					</div>
-
 
 				</div>
 				<div class="col-6">

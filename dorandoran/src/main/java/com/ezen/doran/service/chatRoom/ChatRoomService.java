@@ -8,6 +8,8 @@ public interface ChatRoomService {
 	
 	List<ChatRoomDTO> selectChatRoomList(int userNo);
 	
+	int checkRooms(ChatRoomDTO chatRoomDTO);
+	
 	ChatRoomDTO selectCharRoom(int roomNo);
 	
 	void insertChatRoom(ChatRoomDTO chatRoomDTO);

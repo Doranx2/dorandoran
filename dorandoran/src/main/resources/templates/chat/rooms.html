@@ -37,17 +37,22 @@
 	<div layout:fragment="content">
 		<link rel="stylesheet" th:href="@{/css/chat.css}" />
 		<div class="container">
-			<span class="title">채팅방 목록</span>
+			<span class="title">[[${session.loginUser.userNick}]]님의 채팅방 목록</span>
 			<div class="chatRoomList">
 				<ul th:each="room : ${list}">
-					<li><a th:href="@{/chat/room(roomNo=${room.roomNo})}">[[${room.roomNm}]]</a></li>
+					<div th:if="${session.loginUser.userNo eq room.masterNo}">
+						<li><a th:href="@{/chat/room(roomNo=${room.roomNo})}">[[${room.slaveNm}]]님과의 채팅방</a></li>
+					</div>
+					<div th:if="${session.loginUser.userNo eq room.slaveNo}">
+						<li><a th:href="@{/chat/room(roomNo=${room.roomNo})}">[[${room.masterNm}]]님과의 채팅방</a></li>
+					</div>
 				</ul>
 			</div>
 
-			<form class="chatRoominsert" th:action="@{/chat/room}" method="post">
+			<!--<form class="chatRoominsert" th:action="@{/chat/room}" method="post">
 				<input type="text" name="name" class="insertInput">
 				<button class="insertBtn">개설하기</button>
-			</form>
+			</form> -->
 		</div>
 	</div>
 </body>

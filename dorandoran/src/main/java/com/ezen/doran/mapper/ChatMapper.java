@@ -21,6 +21,6 @@ public interface ChatMapper {
 			+ ")")
 	void insertChat(ChatDTO chatDTO);
 	
-	@Select("SELECT * FROM TB_CHAT WHERE ROOM_NO = #{roomNo}")
+	@Select("SELECT * FROM TB_CHAT WHERE ROOM_NO = #{roomNo} ORDER BY SEND_DTM")
 	List<ChatDTO> selectChat(int roomNo);
 }

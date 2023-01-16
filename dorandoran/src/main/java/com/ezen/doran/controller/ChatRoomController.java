@@ -24,7 +24,7 @@ import lombok.extern.log4j.Log4j2;
 public class ChatRoomController {
 	@Autowired
 	ChatRoomService chatRoomService;
-	
+
 	@Autowired
 	ChatService chatService;
 
@@ -44,11 +44,17 @@ public class ChatRoomController {
 	@PostMapping(value = "/room")
 	public String create(ChatRoomDTO chatRoomDTO, RedirectAttributes rttr) {
 
+		int check = chatRoomService.checkRooms(chatRoomDTO);
+		if (check != 0) {
+			log.info("# 이미 존재하는 채팅방입니다. 해당 채팅방으로 이동합니다.");
+			return "redirect:/chat/room?roomNo=" + check;
+		}
+
 		log.info("# Create Chat Room , name: " + chatRoomDTO.getRoomNm());
 		chatRoomService.insertChatRoom(chatRoomDTO);
 		ChatRoomDTO room = chatRoomService.selectCharRoom(chatRoomDTO.getRoomNo());
 		rttr.addFlashAttribute("room", room);
-		return "redirect:/chat/room?roomNo="+chatRoomDTO.getRoomNo();
+		return "redirect:/chat/room?roomNo=" + chatRoomDTO.getRoomNo();
 	}
 
 	// 채팅방 조회

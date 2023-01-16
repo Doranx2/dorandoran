@@ -17,6 +17,9 @@ public class ChatRoomDTO {
 	private int masterNo;
 	private int slaveNo;
 	
+	private String masterNm;
+	private String slaveNm;
+	
 	
 	private Set<WebSocketSession> sessions = new HashSet<>();
     //WebSocketSession은 Spring에서 Websocket Connection이 맺어진 세션

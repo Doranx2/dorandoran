@@ -30,6 +30,11 @@ public class ChatRoomSerivceImpl implements ChatRoomService{
 	public void insertChatRoom(ChatRoomDTO chatRoomDTO) {
 		mapper.insertChatRoom(chatRoomDTO);
 	}
+
+	@Override
+	public int checkRooms(ChatRoomDTO chatRoomDTO) {
+		return mapper.checkRooms(chatRoomDTO);
+	}
 	
 	
 }
