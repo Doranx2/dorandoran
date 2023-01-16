@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ezen.doran.dto.MarketDTO;
 import com.ezen.doran.dto.Pagination;
 import com.ezen.doran.mapper.MarketMapper;
-import com.ezen.doran.service.service.MarketService;
+import com.ezen.doran.service.market.MarketService;
 
 @Service
 public class MarketSerivceImpl implements MarketService{

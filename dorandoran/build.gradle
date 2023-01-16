@@ -37,6 +37,12 @@ dependencies {
 	implementation 'org.mybatis:mybatis:3.5.11'	
 	implementation 'org.mybatis:mybatis-spring:3.0.0'
 	//implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+	
+	// 채팅 기능 
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    // https://mvnrepository.com/artifact/org.webjars/stomp-websocket
+	implementation group: 'org.webjars', name: 'stomp-websocket', version: '2.3.3-1'
 }
 
 tasks.named('test') {

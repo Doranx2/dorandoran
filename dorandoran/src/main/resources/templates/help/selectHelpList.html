@@ -72,7 +72,7 @@
 								<a class="place" th:text="${list.helpPlace}"></a>
 
 								<div th:if="${list.doneYn eq '요청중'}" th:remove="tag">
-									<a class="status" th:text="${list.doneYn}" style="background: red;"></a>
+									<a class="status" th:text="${list.doneYn}" style="background: #f44336;"></a>
 								</div>
 
 								<div th:if="${list.doneYn ne '요청중'}" th:remove="tag">
@@ -89,7 +89,7 @@
 								<a class="title" th:text="${list.helpTitle}"></a><br>
 								<a class="place" th:text="${list.helpPlace}"></a>
 								<div th:if="${list.doneYn eq '요청중'}" th:remove="tag">
-									<a class="status" th:text="${list.doneYn}" style="background: red;"></a>
+									<a class="status" th:text="${list.doneYn}" style="background: #f44336;"></a>
 								</div>
 
 								<div th:if="${list.doneYn ne '요청중'}" th:remove="tag">

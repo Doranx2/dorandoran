@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
+<!-- head 영역 시작 -->
+<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+
+<head>
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+
+			$(function () {
+
+				$("#updateMarket").hide();
+				let updateCheck = /*[[${update}]]*/;
+
+
+				if (!updateCheck) {
+					console.log("INSERT!");
+
+				} else {
+					console.log("UPDATE!");
+					$("#insertJoin").hide();
+					$("#updateJoin").show();
+
+					const joinTitle = /*[[${join.joinTitle}]]*/;
+					const joinContent = /*[[${join.joinContent}]]*/;
+					const joinNo = /*[[${join.joinNo}]]*/;
+					const joinCd = /*[[${join.joinCd}]]*/;
+					const joinCnt = /*[[${join.joinCnt}]]*/;
+					const joinDtm = /*[[${join.joinDtm}]]*/;
+					const joinPlace = /*[[${join.joinPlace}]]*/;
+					const doneYn = /*[[${join.doneYn}]]*/;
+
+					const typeCd = /*[[${typeCd}]]*/;
+
+					$('input[name=joinTitle]').attr('value', joinTitle);
+					$("#joinContent").append(joinContent);
+					$('input[name=joinNo]').attr('value', joinNo);
+					$('#joinCd').val(joinCd).attr('selected', 'selected');
+					$('input[name=joinCnt]').attr('value', joinCnt);
+					$('input[name=joinDtm]').attr('value', joinDtm);
+					$('input[name=joinPlace]').attr('value', joinPlace);
+					$("input:radio[name='doneYn']:radio[value=" + doneYn + "]").prop("checked", true);
+
+					for (let i = 0; i < typeCd.length; i++) {
+						for (let j = 1; j < 7; j++) {
+							if ($("#typeCd_" + j).val() == typeCd[i]) {
+								$("#typeCd_" + j).attr("checked",true);
+							}
+						}
+					}
+
+				};
+
+
+			});
+
+			function insertSubmit() {
+				let typeTotal = "";
+
+				for (let i = 1; i < 7; i++) {
+					if ($("#typeCd" + i).is(":checked")) {
+						let type = $("#typeCd" + i).val();
+						typeTotal = typeTotal + type + ",";
+					}
+				}
+
+				$("#joinTypeCd").val(typeTotal);
+				console.log(typeTotal);
+			};
+		</script>
+	</th:block>
+
+</head>
+<!-- head 영역 끝 -->
+
+<body>
+	<div layout:fragment="content">
+		<link rel="stylesheet" th:href="@{/css/boardTitle.css}" />
+		<link rel="stylesheet" th:href="@{/css/boardJoin.css}" />
+
+		<div class="v89_351" style="position: relative;">
+			<!-- 화면 윗 부분 -->
+			<div class="v89_238">
+				<div class="v89_239"></div>
+				<div class="v89_240"></div>
+				<span class="v89_241">함께해요</span>
+			</div>
+			<div class="v89_245">
+				<img class="backImg" th:src="@{/images/boardBack.png}" />
+			</div>
+			<div class="v89_249">
+				<img class="iconImg" th:src="@{/images/joinIcon.png}" />
+			</div>
+
+
+			<!-- 윗 부분 끝 -->
+
+			<div id="insertJoin">
+				<span class="subTitle">모임 만들기</span>
+
+				<form id="insertForm" method="post" action="/join/insertJoin" onsubmit="insertSubmit();">
+					<div class="v89_463">
+						<input class="JoinInput" name="joinTitle" placeholder="제목을 입력하세요." maxlength="25">
+					</div>
+					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
+					<span class="joinCd">모집 분야</span>
+					<div class="joinCdInput">
+						<select name="joinCd">
+							<option value="SPO" selected>스포츠 / 운동</option>
+							<option value="FOD">배달 / 식사</option>
+							<option value="GRO">장보기</option>
+							<option value="WAK">산책</option>
+							<option value="ETC">기타</option>
+						</select>
+					</div>
+					<span class="v89_467">모집기준</span>
+					<div class="v89_465">
+						<input id="typeCd1" class="typeCdInput" type="checkbox" value="10대" /><label
+							for="typeCd1">10대</label>
+						<input id="typeCd2" class="typeCdInput" type="checkbox" value="20대" /><label
+							for="typeCd2">20대</label>
+						<input id="typeCd3" class="typeCdInput" type="checkbox" value="30대" /><label
+							for="typeCd3">30대</label>
+						<input id="typeCd4" class="typeCdInput" type="checkbox" value="40대~" /><label
+							for="typeCd4">40대~</label>
+						<input id="typeCd5" class="typeCdInput" type="checkbox" value="여자" /><label
+							for="typeCd5">여자</label>
+						<input id="typeCd6" class="typeCdInput" type="checkbox" value="남자" /><label
+							for="typeCd6">남자</label>
+					</div>
+					<input type="hidden" name="joinTypeCd" id="joinTypeCd">
+					<span class="joinCnt">인원</span>
+					<div class="joinCntInput">
+						<input type="number" class="JoinInput" name="joinCnt" placeholder="몇명?">
+					</div>
+					<span class="v89_475">명</span>
+					<span class="v89_468">모집날짜</span>
+					<div class="joinDtmInput">
+						<input type="date" class="JoinInput" name="joinDtm" placeholder="모집기간을 입력하세요.">
+					</div>
+
+					<span class="doneYn">모집상태</span>
+					<div class="conditionBtns">
+						<input type="radio" id="condition1" name="doneYn" value="N" checked><label
+							for="condition1">모집중</label>
+						<input type="radio" id="condition2" name="doneYn" value="Y"><label for="condition2">모집완료</label>
+
+					</div>
+
+					<div class="v89_462">
+						<textarea id="joinContentInput" class="joinContent" name="joinContent"
+							placeholder="내용을 입력하세요."></textarea>
+					</div>
+					<div class="joinPlaceInput">
+						<span class="joinPlace">상세 장소</span>
+						<input class="JoinInput" name="joinPlace" placeholder="상세 장소를 입력하세요.">
+					</div>
+
+					<button class="insertBtn" onclick="submit">등록</button>
+				</form>
+			</div>
+
+			<div id="updateJoin" style="display: none;">
+				<span class="subTitle">모임 정보 수정하기</span>
+
+				<form id="updateForm" method="post" action="/join/updateJoin" onsubmit="insertSubmit();">
+					<div class="v89_463">
+						<input id="joinTitle" class="JoinInput" name="joinTitle" placeholder="제목을 입력하세요."
+							maxlength="25">
+					</div>
+					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
+					<input type="hidden" name="joinNo">
+					<span class="joinCd">모집 분야</span>
+					<div class="joinCdInput">
+						<select id="joinCd" name="joinCd">
+							<option value="SPO" selected>스포츠 / 운동</option>
+							<option value="FOD">배달 / 식사</option>
+							<option value="GRO">장보기</option>
+							<option value="WAK">산책</option>
+							<option value="ETC">기타</option>
+						</select>
+					</div>
+					<span class="v89_467">모집기준</span>
+					<div class="v89_465">
+						<input id="typeCd_1" class="typeCdInput" name="typeCdInput" type="checkbox" value="10대" /><label
+							for="typeCd_1">10대</label>
+						<input id="typeCd_2" class="typeCdInput" name="typeCdInput" type="checkbox" value="20대" /><label
+							for="typeCd_2">20대</label>
+						<input id="typeCd_3" class="typeCdInput" name="typeCdInput" type="checkbox" value="30대" /><label
+							for="typeCd_3">30대</label>
+						<input id="typeCd_4" class="typeCdInput" name="typeCdInput" type="checkbox"
+							value="40대~" /><label for="typeCd_4">40대~</label>
+						<input id="typeCd_5" class="typeCdInput" name="typeCdInput" type="checkbox" value="여자" /><label
+							for="typeCd_5">여자</label>
+						<input id="typeCd_6" class="typeCdInput" name="typeCdInput" type="checkbox" value="남자" /><label
+							for="typeCd_6">남자</label>
+					</div>
+					<input type="hidden" name="joinTypeCd" id="joinTypeCd">
+					<span class="joinCnt">인원</span>
+					<div class="joinCntInput">
+						<input type="number" id="joinCnt" class="JoinInput" name="joinCnt" placeholder="몇명?">
+					</div>
+					<span class="v89_475">명</span>
+					<span class="v89_468">모집날짜</span>
+					<div class="joinDtmInput">
+						<input type="date" id="joinDtm" class="JoinInput" name="joinDtm" placeholder="모집기간을 입력하세요.">
+					</div>
+
+					<span class="doneYn">모집상태</span>
+					<div class="conditionBtns">
+						<input type="radio" id="condition3" name="doneYn" value="N" checked><label
+							for="condition3">모집중</label>
+						<input type="radio" id="condition4" name="doneYn" value="Y"><label for="condition4">모집완료</label>
+
+					</div>
+
+					<div class="v89_462">
+						<textarea id="joinContent" class="joinContent" name="joinContent"
+							placeholder="내용을 입력하세요."></textarea>
+					</div>
+					<div class="joinPlaceInput">
+						<span class="joinPlace">상세 장소</span>
+						<input id="joinPlace" class="JoinInput" name="joinPlace" placeholder="상세 장소를 입력하세요.">
+					</div>
+
+					<button class="insertBtn" onclick="submit">등록</button>
+				</form>
+			</div>
+
+			<button class="cancelBtn" onclick="location.href='/join/selectJoinList'">취소</button>
+		</div>
+
+
+	</div>
+</body>
+
+
+
+</html>
