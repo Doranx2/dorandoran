@@ -50,6 +50,11 @@ form {
 	width: 55%;
 	margin-left: 10px;
 }
+.join-usernick-section {
+	display: inline-block;
+	width: 55%;
+	margin-left: 10px;
+}
 
 .rectangle-52-AdU {
 	width: 70%;
@@ -123,4 +128,16 @@ div[class*=line] {
 
 .font-red {
 	color: red;
+}
+.nickCheckBtn{	
+	width: 65px;
+	height: 25px;
+	background-color: #eec400;
+	border: none;
+	border-radius: 3px;
+	color: white;
+	font-size: 1.25rem;
+}
+.rectangle-56-HQa{
+	width: 70%;
 }

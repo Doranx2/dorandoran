@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.data.repository.query.Param;
 
 import com.ezen.doran.entity.User;
 
@@ -15,7 +16,8 @@ public interface UserMapper {
 	
 	@Select("SELECT * FROM TB_USER")
 	List<User> getUserList();
-	
+	 
+
 	//회원가입
 	@Insert("INSERT INTO TB_USER("
 			+ "USER_NO,"
@@ -46,14 +48,18 @@ public interface UserMapper {
 			)
 	void insertUser (User user);
 	
-	
-	 //아이디 찾기
-	/* 
-	 @Select("SELECT * FROM TB_USER" + "WHERE USER_NM=#{userNm} " +
-	 "AND USER_EMAIL=#{userEmail}")
-	 */
+
+/*
+	//아이디 찾기
+	@Select("SELECT * FROM TB_USER" 
+			 		+ "WHERE USER_NM=#{userNm} " 
+			 		+ "AND USER_EMAIL=#{userEmail}")
+	 (@Param("userNm")String userNm,
+			 @Param("userEmail")String userEmail);
+	 
+
 	
 	//비밀번호 찾기
-	
-
+	@Select("SELECT * FROM TB_USER WHERE USER_ID=#{userId}")
+*/
 }

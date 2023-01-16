@@ -14,36 +14,36 @@
   </th:blcok>
   <th:block layout:fragment="script">
   	<script th:inline="javascript">
-		  $(function(){
-			  var userNm=$('#userNm').val()
-			  var userEmail=$('#userEmail').val()
-			  
-			  $.ajax({
-				  url:"/user/idfCheck",
-				  type:"post",
-				  data:{"userNm":userNm, "userEmail":userEmail} ,
-				  success:function(data){
-					  if(data == 0){
-						  $('#id_value').text("회원 정보를 확인해 주세요.");
-						  $('#userNm').val('');
-						  $('#userEmail').val('');
-					  }else{
-						  $('#id_value').text(data);
-						  $('#userNm').val('');
-						  $('#userEmail').val('');
-					  }
-				  },
-				  error:function(){
-					  alert("오류입니다.");
-				  }
-				  
-			  });
-			  
-		  });
-	  const model = document.getElementById("model")
+		$(function(){
+			$("#fidCheckBtn").on("click",function(e){
+				var Nm = $("#userNm").val();
+				var Email = $("#userEmail").val();
+				
+				var postData = {'userNm':Nm, 'userEmail':Email};
+				
+				$.ajax({
+					url:"/user/idfCheck",
+					type:"post",
+					data: postData,
+					
+					success:function(obj){
+						console.log(obj);
+						if(obj.item.msg == 'findSuccess'){
+							$("#findId").val(obj.item.findId);
+							$("#findIdCheckForm").submit();
+							//window.location.href="/user/findId?userId=" + obj.item.findId;
+						}else if(obj.item.msg === 'nameFail') {
+							alert("존재하지 않는 사용자 이름입니다.");
+							return;
+						}else if(obj.item.msg === 'emailFail') {
+							alert("잘못된 이메일입니다.");
+							return;
+						}
+					}
+				})
+			})  
+		})  
 	  
-	
-		  
   		</script>
 	</th:block>
 </head>
@@ -53,7 +53,8 @@
 <body>
 	<div layout:fragment="content">
 	<div class="findidcheck-22r">
-	<form id="findIdCheckForm" action = "/user/findIdCheck" method="post">
+	<form id="findIdCheckForm" action = "/user/findId" method="post">
+		<input type="hidden" id="findId" name="userId">
   <img class="image-5-kjY" src="/assets/image-5-aKG.png">
   <img class="oh-no-amico-1-VSE" src="/assets/oh-no-amico-1.png">
   <p class="item--E8v">아이디를 잊어버리셨나요?</p>
@@ -61,11 +62,10 @@
   </div>
 	  <input type="text" id="userNm" name="userNm" class="rectangle-46-DWe">
 	  <input type="text" id="userEmail" name="userEmail" class="rectangle-47-vfx">
-  <div class="rectangle-48-e6A">
-  </div>
-  <button type="button" id="fidCheckBtn" name="fidCheckBtn">확인</button>
-<!--  <a th:href="@{/user/findId}" class="item--B66">확 인<a>
--->  <p class="item--5hG">이름</p>
+<!--  <div class="rectangle-48-e6A">
+  </div>-->
+  <button type="button" name="fidCheckBtn" id="fidCheckBtn" class="btnF">확인</button>
+  <p class="item--5hG">이름</p>
   <p class="item--zZL">이메일</p>
   <img class="item-01-1-tuc" src="/assets/-86a.png">
 		</form>

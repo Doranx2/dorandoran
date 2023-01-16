@@ -164,6 +164,7 @@ body {
   top: 24.8rem;
   object-fit: cover;
   vertical-align: top;
+
 }
 .login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .pwinput-SWJ {
   box-sizing: border-box;
@@ -201,11 +202,18 @@ body {
   object-fit: cover;
   vertical-align: top;
 }
+
+.findWrapper {
+  position: absolute;
+  height: 7rem;
+  left: 3rem;
+  top: 35rem;
+}
+
+
 /* 아이디 찾기 */
 .login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .item--u2W {
-  width: 33.1rem;
   height: 7rem;
-  position: absolute;
   left: 3rem;
   top: 35rem;
   text-align: center;
@@ -219,9 +227,7 @@ body {
 }
 /* 비밀번호 찾기 */
 .login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .item--u3W {
-  width: 33.1rem;
   height: 7rem;
-  position: absolute;
   left: 18.6rem;
   top: 35rem;
   text-align: center;
@@ -235,9 +241,7 @@ body {
 }
 /* 회원가입 */
 .login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .item--u4W {
-  width: 33.1rem;
   height: 7rem;
-  position: absolute;
   left: 32rem;
   top: 35rem;
   text-align: center;
@@ -257,7 +261,7 @@ body {
   top: 18.4rem;
   border-radius: 0.5rem;
 }
-.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .loginbtn-Xpa .rectangle-33-UE2 {
+/*.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .loginbtn-Xpa .rectangle-33-UE2 {
   width: 30rem;
   height: 4.5rem;
   position: absolute;
@@ -265,8 +269,8 @@ body {
   top: 1.3rem;
   background-color: #1761a0;
   border-radius: 0.5rem;
-}
-.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .loginbtn-Xpa .item--QNa {
+}*/
+/*.login-r4v .background-oF4 .auto-group-hvby-isp .auto-group-4hna-ioG .loginbtn-Xpa .item--QNa {
   width: 2.9rem;
   height: 7.2rem;
   position: absolute;
@@ -282,7 +286,7 @@ body {
   color: #ffffff;
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
-}
+}*/
 .login-r4v .background-oF4 .auto-group-rsaa-5Dp {
   height: 100%;
   align-items: flex-end;
@@ -615,3 +619,26 @@ body {
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
+
+/*로그인 버튼*/
+.btnL{
+	width: 30rem;
+	height: 4.5rem;
+	position: absolute;
+  top: 1.3rem;
+  background-color: #1761a0;
+  border-radius: 0.5rem;
+  position: absolute;
+  left: 0rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 4;
+  letter-spacing: -0.126rem;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  white-space: nowrap;
+}
+

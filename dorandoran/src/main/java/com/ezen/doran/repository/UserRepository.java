@@ -20,9 +20,23 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	
 	Optional<User> findByUserId(@Param("userId") String userId); 
 	
+	Optional<User> findByUserPw(@Param("userPw") String userPw); 
+	
+	Optional<User> findByUserNick(@Param("userNick") String userNick);
+	
 	Optional<User> findByUserNm(@Param("userNm") String userNm); 
 	
-	Optional<User> findByUserEmail(@Param("userEmail") String userEmail); 
+	/* Optional<User> findByUserEmail(@Param("userEmail") String userEmail); */
+	
+	//아이디 찾을 때 (이름 + 이메일 입력하여 찾기)
+	Optional<User> findByUserNmAndUserEmail(
+			@Param("userNm")String userNm, 
+			@Param("userEmail")String userEmail);
+	
+	//비밀번호 찾을 때 (아이디 + 이메일 입력)
+	Optional<User> findByUserIdAndUserEmail(
+			@Param("userId")String userId,
+			@Param("userEmail")String userEmail);
 	
 	
 }

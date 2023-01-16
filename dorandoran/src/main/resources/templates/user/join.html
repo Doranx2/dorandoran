@@ -21,41 +21,83 @@
 			  //비밀번호가 확인과 일치하는지
 			  var pwCheck = false;
 			  
+			  //닉네임 중복체크 확인 여부
+			  var checkNick = false;
+			  
 			  $("#pwCheckResult").hide();
 			  
 			  //아이디 중복체크
 			  $("#checkBtn").on("click", function(){
-				  $.ajax({
-					  url: "/user/idCheck",
-					  type: "post",
-					  data: {
+				  if($("#userId").val()!= ""){
+					  
+				  
+					  $.ajax({
+						  url: "/user/idCheck",
+						  type: "post",
+						  data: {
 						  userId: $("#userId").val()
-					 },
-					  success: function(obj){
-						  console.log(obj);
-						  
-						  if(obj.item.msg == 'duplicatedId'){
-							  alert("이미 사용 중인 아이디입니다");
-							  $("#userId").focus();
-						  }else{
-							  if(confirm("사용 가능한 아이디입니다."+
-							  $("#userId").val() + "를(을) 사용하시겠습니까?")){
-								  checkId = true;
-								  $("#checkBtn").attr("disabled", true);
+						 },
+						  success: function(obj){
+							  console.log(obj);
+							  
+							  if(obj.item.msg == 'duplicatedId'){
+								  alert("이미 사용 중인 아이디입니다");
+								  $("#userId").focus();
+							  }else{
+								  if(confirm("사용 가능한 아이디입니다."+
+								  $("#userId").val() + "를(을) 사용하시겠습니까?")){
+									  checkId = true;
+									  $("#checkBtn").attr("disabled", true);
+								  }
 							  }
+						  },
+						  error: function(e){
+							  console.log(e);
 						  }
-					  },
-					  error: function(e){
-						  console.log(e);
-					  }
-					 
-				  })
+						 
+					  })
+		  		  }
 			  });
 			//id 중복체크 후 다시 id를 변경했을 때
 			$("#userId").on("change", function() {
 				checkId = false;
 				$("#checkBtn ").attr("disabled", false);
 				});
+				
+			//닉네임 중복채크
+			$("#nickCheckBtn").on("click",function(){
+				if($("#userNick").val()!=""){
+					$.ajax({
+						url:"/user/nickCheck",
+						type:"post",
+						data:{
+							userNick:$("#userNick").val()
+						},
+						success:function(obj){
+							console.log(obj);
+							if(obj.item.msg =='duplicatedNick'){
+								alert("이미 사용 중인 닉네임입니다.");
+								$("#userNick").focus();
+							}else{
+								if(confirm("사용 가능한 아이디입니다."+
+								$("#userNick").val()+"를(을) 사용하시겠습니까?")){
+									checkNick= true;
+									$("#nickCheckBtn").attr("disabled", true);
+								}
+							}
+						},
+						error: function(e){
+							console.log(e);
+						}
+					})
+				}
+			});
+			//닉네임 중복체크 후 다시 변경하였을 때
+			$("#userNick").on("change",function(){
+				checkNick = false;
+				$("#nickCheckBtn").attr("disabled",false);
+			});
+
 			//비밀번호 확인 후 재설정
 			if($("#userPw").val() == $("#userPwCheck").val()){
 				pwCheck = true;
@@ -82,7 +124,7 @@
 					$("#userPwCheck").focus();
 					return;
 				}
-				/*$.ajax({
+				$.ajax({
 					url:'/user/join',
 					type: 'post',
 					success: function(obj){
@@ -98,7 +140,7 @@
 					error: function(e){
 						console.log(e);
 					}
-				}) */ 
+				}) 
 			});
 		  });
 		  
@@ -153,8 +195,10 @@
 	      <span class="item--g9t-sub-0">닉네임 </span>
 	      <span class="item--g9t-sub-1 font-red">*</span>
 	    </p>
-	    <input type="text" id="userNick" name="userNick" class="rectangle-56-HQa" required>
-	    </input>
+      	<div class="join-usernick-section">
+	      <input type="text" id="userNick" name="userNick" class="rectangle-56-HQa" required> <!-- name 또는 id = userId 설정 -->
+	      <button type="button" id="nickCheckBtn" class="nickCheckBtn">중복체크</button>
+      	</div>
 	  </div>
 	  <div class="auto-group-auhp-kGE">
 		  <p class="item--CnS">

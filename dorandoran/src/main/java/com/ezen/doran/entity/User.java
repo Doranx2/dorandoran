@@ -40,6 +40,7 @@ public class User {
 	private String userNm;
 	private LocalDateTime inputDtm = LocalDateTime.now();
 
+
 	
 
 }

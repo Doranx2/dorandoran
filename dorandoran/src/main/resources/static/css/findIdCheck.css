@@ -87,29 +87,7 @@ body {
   background-color: #ffffff;
   border-radius: 1rem;
 }
-/*.findidcheck-22r .rectangle-48-e6A {
-  width: 15rem;
-  height: 3.5rem;
-  position: absolute;
-  left: 88.5rem;
-  top: 61.4rem;
-  background-color: #1761a0;
-  border-radius: 0.5rem;
-}*/
-/*.findidcheck-22r .item--B66 {
-  width: 3.5rem;
-  height: 7rem;
-  position: absolute;
-  left: 94.15rem;
-  top: 59.7rem;
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 4.6666666667;
-  color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
-  white-space: nowrap;
-}*/
+
 .findidcheck-22r .item--5hG {
   width: 1.9rem;
   height: 7rem;
@@ -147,19 +125,19 @@ body {
   object-fit: cover;
   vertical-align: top;
 }
-#fidCheckBtn{
-	  width: 16rem;
+.btnF{
   height: 4rem;
   position: absolute;
-  text-align: center;
-  font-size: 1.6rem;
-  font-weight: 600;
-
+  font-size: 1.5rem;
   color: #ffffff;
   font-family: Inter, 'Source Sans Pro';
-  white-space: nowrap;
-  left: 88.5rem;
-  top: 61.4rem;
+  left: 86rem;
   background-color: #1761a0;
   border-radius: 0.5rem;
+  width: 20rem;
+  top: 60rem;
+  text-align: center;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
 }

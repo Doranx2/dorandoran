@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko"
 	  xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layouts/layout}">
 <head>
   <meta charset="utf-8">
   <link rel="icon" href="/favicon.ico">
@@ -14,10 +15,38 @@
   <th:block layout:fragment="script">
   	<script th:inline="javascript">
 		  
+
+		<!-- 일반 로그인 -->
+		  $(function(){
+			  $("#btnLogin").on("click",function(e){
+				  $.ajax({
+					  url: '/user/login',
+					  type: 'post',
+					  data : $("#loginForm").serialize(),
+					  success:function(obj){
+						  console.log(obj);
+						  if(obj.item.msg == "loginSuccess"){
+							alert("로그인되었습니다.");
+							window.location.href="/main";
+							
+						  }else if(obj.item.msg == "idFail"){
+							  alert("아이디가 존재하지 않습니다.");
+							  return;
+						  }else{
+  							  alert("비밀번호가 틀렸습니다.");
+							  return;
+						  }
+					  },
+					  error: function(e){
+						  console.log(e);
+					  }
+				  })
+			  });
+		  });
 		  
 		  
-		  
-		  
+	  
+	
   	</script>
   </th:block>
 </head>
@@ -25,6 +54,7 @@
 <body>
 <div layout:fragment="content">
 <div class="login-r4v">
+	<form id="loginForm" action="/user/loginProc" method="post">
   <div class="background-oF4">
     <div class="auto-group-hvby-isp">
       <div class="auto-group-c1sq-4wg">
@@ -51,24 +81,29 @@
         </div>
         <div class="rectangle-30-DNe">
         </div>
-        <img class="kakaologinmediumwide-1-vnr" src="/assets/kakaologinmediumwide-1.png">
+        <!-- 카카오 로그인 버튼 이미지-->
+        <button type="button" name="KakaoBtn" class="kakaologinmediumwide-1-vnr"  onclick="loginWithKakao()"><img src="/assets/kakaologinmediumwide-1.png"></button>
+<!--        <img class="kakaologinmediumwide-1-vnr" src="/assets/kakaologinmediumwide-1.png"
+        onclick="loginWithKakao()">-->
        <!-- 비밀번호-->
-        <input type="text" class="pwinput-SWJ">
+        <input type="password" name="userPw" class="pwinput-SWJ">
           <img class="image-3-kWz" src="/assets/image-3.png">
         </input>
         <!-- 아이디 -->
-        <input type="text" class="idinput-4Gn"> 
+        <input type="text" name="userId" class="idinput-4Gn"> 
           <img class="image-4-P4A"  src="/assets/image-4.png" >
         </input>
-				<a th:href="@{/user/findIdCheck}" class="item--u2W">아이디 찾기 |</a>
-				<a th:href="@{/user/findPwCheck}" class="item--u3W">비밀번호 찾기 |</a>
-				<a th:href="@{/user/join}" class="item--u4W">회원가입</a>       
+        <div class="findWrapper">
+			<a th:href="@{/user/findIdCheck}" class="item--u2W">아이디 찾기 |</a>
+			<a th:href="@{/user/findPwCheck}" class="item--u3W">비밀번호 찾기 |</a>
+			<a th:href="@{/user/join}" class="item--u4W">회원가입</a>   
+		</div>   
 <!--			<p class="item--u2W">아이디 찾기  |  비밀번호 찾기  |  회원가입</p>-->
         <div class="loginbtn-Xpa">
-          <div class="rectangle-33-UE2">
-          </div>
-          <div class="item--QNa">로그인</div>
-        </div>
+			<button type="submit" id="btnLogin" name="btnLogin" class="btnL">로그인</button>
+<!--          <button type="button" id="btnLogin" name="btnLogin" class="rectangle-33-UE2">로그인</button>
+--><!--          <div class="item--QNa">로그인</div>
+-->        </div>
       </div>
     </div>
     <div class="auto-group-rsaa-5Dp">
@@ -83,6 +118,7 @@
     </div>
   </div>
   <p class="login-XV8">LOGIN</p>
+  </form>
 </div>
 </div>
 </body>

@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserRepository userRepository;
 	
+	//회원가입
 	@Override
 	public void join(User user) {
 		int userNo = userRepository.getNextUserNo();
@@ -44,22 +45,43 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		userRepository.save(user);
 	}
-
+	//아이디 중복체크
 	@Override
 	public User idCheck(User user) {
-		// TODO Auto-generated method stub
 		if(!userRepository.findByUserId(user.getUserId()).isEmpty()) {
 			return userRepository.findByUserId(user.getUserId()).get();
 		}else {
 			return null;			
 		}
 	}  
-	
-	/*
+	//닉네임 중복체크
+	@Override
+	public User nickCheck(User user) {
+		if(!userRepository.findByUserNick(user.getUserNick()).isEmpty()) {
+			return userRepository.findByUserNick(user.getUserNick()).get();
+		}else {
+			return null;			
+		}
+	}
+
+	//아이디 찾기
 	@Override
 	public User idfCheck(User user) {
-		if(!userRepository.findByUserNm(user.getUserNm()){
-			return userRepository.findByUserNm(user.getUserNm()).get();
-		}*/
+		if(!userRepository.findByUserNmAndUserEmail(user.getUserNm(), user.getUserEmail()).isEmpty()) {
+			return userRepository.findByUserNmAndUserEmail(
+					user.getUserNm(), user.getUserEmail()).get();
+		}else {
+			return null;
+		}
 	}
-	
+	//비밀번호 찾기
+	@Override
+	public User pwfCheck(User user) {
+		if(!userRepository.findByUserIdAndUserEmail(user.getUserId(), user.getUserEmail()).isEmpty()) {
+			return userRepository.findByUserIdAndUserEmail(user.getUserId(), user.getUserEmail()).get();
+		}else {
+			return null;
+		}
+	}
+
+}

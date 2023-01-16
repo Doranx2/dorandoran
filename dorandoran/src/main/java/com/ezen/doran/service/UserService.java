@@ -7,6 +7,13 @@ public interface UserService {
 	
 	User idCheck(User user);
 	
-	/* User idfCheck(User user); */
-
+	User nickCheck(User user);
+	
+	//아이디 찾기
+	User idfCheck(User user); 
+	
+	//비밀번호 찾기
+	User pwfCheck(User user);
+	
+	
 }
