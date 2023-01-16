@@ -13,7 +13,7 @@
 		<script th:src="@{/js/jquery-3.6.1.min.js}"></script>
 		<script th:inline="javascript">
 			$(function () {
-				$(".pagination a").on("click", function (e) {
+				$(document).on("click", ".pagination a", function (e) {
 					e.preventDefault();
 
 					$("input[name='pageNum']").val($(this).attr("href"));
@@ -38,9 +38,40 @@
 										</td>
 									</tr>
 								`;
+								
 							}
 							$("#boardTable").children(":first").children().not(':first').remove();
 							$("#boardTable").children(":first").append(htmlStr);
+							
+							htmlStr = "";
+							
+							
+							if(obj.item.pageDTO.prev) {
+								htmlStr += `
+									<li class="pagination_button" id="prevBtn">
+										<a href="${obj.item.pageDTO.cri.pageNum - 1 }"><img src="/images/leftArrow.png"></a>
+									</li>
+								`;
+							}
+							
+							for(let i = obj.item.pageDTO.startPage; i <= obj.item.pageDTO.endPage; i++) {
+								htmlStr += `
+									<li class="pagination_num">
+										<a href="${i }">${i}</a>
+									</li>
+								`;
+							}
+							
+							if(obj.item.pageDTO.next) {
+								htmlStr += `
+									<li class="pagination_button" id="nextBtn">
+										<a href="${obj.item.pageDTO.cri.pageNum + 1 }">
+										<img src="/images/rightArrow.png"></a>
+									</li>
+								`;
+							}
+							
+							$(".pagination").html(htmlStr);
 
 						},
 						error: function (e) {
@@ -135,7 +166,7 @@
 						<br />
 						<div id="pageDiv">
 							<ul class="pagination">
-								<li th:if="${pageDTO.prev }" class="pagination_button">
+								<li th:if="${pageDTO.prev }" class="pagination_button" id="prevBtn">
 									<a th:href="${pageDTO.cri.pageNum - 1 }"><img th:src="@{/images/leftArrow.png}"></a>
 								</li>
 
@@ -145,7 +176,7 @@
 									<a th:href="${num }" th:text="${num}"></a>
 								</li>
 
-								<li th:if="${pageDTO.next }" class="pagination_button">
+								<li th:if="${pageDTO.next }" class="pagination_button" id="nextBtn">
 									<a th:href="${pageDTO.cri.pageNum + 1 }"><img
 											th:src="@{/images/rightArrow.png}"></a>
 								</li>

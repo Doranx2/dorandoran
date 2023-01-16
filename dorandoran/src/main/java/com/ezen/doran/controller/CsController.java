@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ import com.ezen.doran.dto.PageDTO;
 import com.ezen.doran.dto.QuestionDTO;
 import com.ezen.doran.dto.RepDTO;
 import com.ezen.doran.dto.ResponseDTO;
+import com.ezen.doran.dto.UserDTO;
 import com.ezen.doran.service.cs.CsService;
 
 @RestController
@@ -116,8 +118,9 @@ public class CsController {
 	// -------------------------------------------------------------------------------------------
 	// 1:1 문의글 목록
 	@GetMapping("/questionList")
-	public ModelAndView selectQuestionList(@RequestParam Map<String, String> paramMap, Criteria cri) {
+	public ModelAndView selectQuestionList(@RequestParam Map<String, String> paramMap, Criteria cri, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
 		List<QuestionDTO> questionList = csService.selectQuestionList(paramMap, cri);
 		mv.addObject("questionList", questionList);
 
@@ -131,18 +134,18 @@ public class CsController {
 
 		int total = csService.getQuestionTotalCnt(paramMap);
 		mv.addObject("pageDTO", new PageDTO(cri, total));
-
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/questionList");
 
 		return mv;
 	}
 
 	@GetMapping("/pageQList")
-	public ResponseEntity<?> pageQList(@RequestParam Map<String, String> paramMap, Criteria cri) {
+	public ResponseEntity<?> pageQList(@RequestParam Map<String, String> paramMap, Criteria cri, HttpSession session) {
 		ResponseDTO<Map<String, Object>> response = new ResponseDTO<>();
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		try {
-
+			UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
 			List<QuestionDTO> questionList = csService.selectQuestionList(paramMap, cri);
 			returnMap.put("questionList", questionList);
 
@@ -156,7 +159,7 @@ public class CsController {
 
 			int total = csService.getQuestionTotalCnt(paramMap);
 			returnMap.put("pageDTO", new PageDTO(cri, total));
-
+			returnMap.put("loginUser", loginUser);
 			response.setItem(returnMap);
 
 			return ResponseEntity.ok().body(response);
@@ -165,23 +168,35 @@ public class CsController {
 			return ResponseEntity.badRequest().body(response);
 		}
 	}
+	
+	@GetMapping("/loginPage")
+	public ModelAndView loginPage() throws IOException {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/temp/login.html");
+		return mv;
+	}
 
 	// 1:1 문의글,답변 상세보기
 	@GetMapping("/question/{qNo}")
-	public ModelAndView selectQuestion(@PathVariable int qNo) {
+	public ModelAndView selectQuestion(@PathVariable int qNo, HttpSession session) {
 		QuestionDTO qDetail = csService.selectQuestion(qNo);
 		AnswerDTO answer = csService.selectAnswer(qNo);
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/questionDetail.html");
 		mv.addObject("qDetail", qDetail);
 		mv.addObject("answer", answer);
+		
 		return mv;
 	}
 
 	// 1:1 문의글 작성 페이지 이동 // 세션 또는 Security
 	@GetMapping("/insertQuestion")
-	public ModelAndView insertQuestionView() throws IOException {
+	public ModelAndView insertQuestionView(HttpSession session) throws IOException {
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/insertQuestion.html");
 		return mv;
 	}
@@ -197,9 +212,11 @@ public class CsController {
 
 	// 1:1 문의글 수정 페이지 이동
 	@GetMapping("/questionUdt/{qNo}")
-	public ModelAndView questionUdtView(@PathVariable int qNo) throws IOException {
+	public ModelAndView questionUdtView(@PathVariable int qNo, HttpSession session) throws IOException {
 		QuestionDTO qDetail = csService.selectQuestion(qNo);
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/questionUdt.html");
 		mv.addObject("qDetail", qDetail);
 		return mv;
@@ -239,8 +256,9 @@ public class CsController {
 
 	// 신고글 목록
 	@GetMapping("/repList")
-	public ModelAndView selectRepList(@RequestParam Map<String, String> paramMap, Criteria cri) {
+	public ModelAndView selectRepList(@RequestParam Map<String, String> paramMap, Criteria cri, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
 		List<RepDTO> repList = csService.selectRepList(paramMap, cri);
 		mv.addObject("repList", repList);
 
@@ -254,18 +272,18 @@ public class CsController {
 
 		int total = csService.getRepTotalCnt(paramMap);
 		mv.addObject("pageDTO", new PageDTO(cri, total));
-
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/repList.html");
 
 		return mv;
 	}
 
 	@GetMapping("/pageRepList")
-	public ResponseEntity<?> pageRepList(@RequestParam Map<String, String> paramMap, Criteria cri) {
+	public ResponseEntity<?> pageRepList(@RequestParam Map<String, String> paramMap, Criteria cri, HttpSession session) {
 		ResponseDTO<Map<String, Object>> response = new ResponseDTO<>();
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		try {
-
+			UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
 			List<RepDTO> repList = csService.selectRepList(paramMap, cri);
 			returnMap.put("repList", repList);
 
@@ -279,7 +297,7 @@ public class CsController {
 
 			int total = csService.getRepTotalCnt(paramMap);
 			returnMap.put("pageDTO", new PageDTO(cri, total));
-
+			returnMap.put("loginUser", loginUser);
 			response.setItem(returnMap);
 
 			return ResponseEntity.ok().body(response);
@@ -291,9 +309,11 @@ public class CsController {
 	
 	// 신고글 상세보기
 	@GetMapping("/report/{repNo}")
-	public ModelAndView selectRep(@PathVariable int repNo) {
+	public ModelAndView selectRep(@PathVariable int repNo, HttpSession session) {
 		RepDTO rDetail = csService.selectRep(repNo);
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/repDetail.html");
 		mv.addObject("rDetail", rDetail);
 		return mv;
@@ -301,8 +321,10 @@ public class CsController {
 
 	// 신고글 작성 페이지 이동
 	@GetMapping("/insertReport")
-	public ModelAndView insertRepView() throws IOException {
+	public ModelAndView insertRepView(HttpSession session) throws IOException {
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/insertReport.html");
 		return mv;
 	}
@@ -310,16 +332,18 @@ public class CsController {
 	// 신고글 작성
 	@PostMapping("/report")
 	public void insertRep(RepDTO repDTO, HttpServletResponse response, HttpServletRequest request) throws IOException {
-
+		
 		csService.insertRep(repDTO);
 		response.sendRedirect("/cscenter/repList");
 	}
 
 	// 신고글 수정 페이지 이동
 	@GetMapping("/repUdt/{repNo}")
-	public ModelAndView repUdtView(@PathVariable int repNo) {
+	public ModelAndView repUdtView(@PathVariable int repNo, HttpSession session) {
 		RepDTO rDetail = csService.selectRep(repNo);
 		ModelAndView mv = new ModelAndView();
+		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/repUdt.html");
 		mv.addObject("rDetail", rDetail);
 		return mv;

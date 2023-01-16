@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org/DTD Config 3.0//EN" "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<!DOCTYPE configuration 
+	PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
+	"https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<settings>
-		<setting name="returnInstanceForEmptyRow" value="true" />
-		<setting name="callSettersOnNulls" value="true" />
 		<setting name="mapUnderscoreToCamelCase" value="true" />
 	</settings>
-
-
+	
 	<!-- alias 추가 -->
 	<typeAliases>
-		<typeAlias type="com.ezen.doran.dto.NoticeDTO" alias="notice" />
-		<typeAlias type="com.ezen.doran.dto.QuestionDTO" alias="question" />
-		<typeAlias type="com.ezen.doran.dto.RepDTO" alias="report" />
-		<typeAlias type="com.ezen.doran.dto.AnswerDTO" alias="answer" />
+		<typeAlias type="com.ezen.doran.dto.NoticeDTO" alias="notice"/>
+		<typeAlias type="com.ezen.doran.dto.QuestionDTO" alias="question"/>
+		<typeAlias type="com.ezen.doran.dto.RepDTO" alias="report"/>
+		<typeAlias type="com.ezen.doran.dto.AnswerDTO" alias="answer"/>
+		<typeAlias type="com.ezen.doran.common.CamelHashMap" alias="camelHashMap"/>
+		
 		<typeAlias type="com.ezen.doran.dto.Pagination" alias="page" />
 
 		<!-- 게시판들 alias -->
 		<typeAlias type="com.ezen.doran.dto.JoinDTO" alias="join" />
+		
 	</typeAliases>
 </configuration>
