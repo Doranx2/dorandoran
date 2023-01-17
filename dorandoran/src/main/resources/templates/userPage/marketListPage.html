@@ -143,7 +143,7 @@
               </tr>
               <tr th:each="myMarket : ${myMarket}">
               	<td th:text="${myMarket.marketNo}"></td>
-                <td th:text="${myMarket.prodNm}"></td>
+                <td th:text="${myMarket.prodNm}" th:onclick="|location.href='@{/market/selectMarket?marketNo={marketNo} (marketNo = ${myMarket.marketNo})}'|" style="cursor:pointer;" class="Title"></td>
                 <td th:text="${myMarket.inputDtm}"></td>
               </tr>
              </table>
@@ -153,10 +153,10 @@
           <!-- 페이지 버튼 -->
           
                <li class="auto-group-bhvj-dmQ">
-                <a th:href="@{/userPage/selectMarketList?page={page} (page = ${pagination.page}-1)}">
+                <a th:href="@{/userPage/marketListPage?page={page}&userNo={userNo} (page = ${pagination.page}-1, userNo = ${session.loginUser.userNo})}">
                 <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
                 
-                <a th:href="@{/userPage/selectMarketList?page={page} (page = ${pagination.page}+1)}">
+                <a th:href="@{/userPage/marketListPage?page={page}&userNo={userNo} (page = ${pagination.page}+1, userNo = ${session.loginUser.userNo})}">
                 <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
               </li>
               

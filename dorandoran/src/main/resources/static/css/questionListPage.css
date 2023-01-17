@@ -23,7 +23,7 @@ tr {
 th {
 	margin-right: 15rem;
 	margin-bottom: 7px;
-	width: 100px;
+	width: 130px;
     font-size: 2.4rem;
     font-weight: 500;
     line-height: 1.0416666667;
@@ -37,7 +37,7 @@ th {
 td {
 	margin-right: 16rem;
     font-size: 1.6rem;
-    width: 90px;
+    width: 120px;
     font-weight: 400;
     line-height: 1.5625;
     letter-spacing: 0.088rem;
@@ -48,7 +48,16 @@ td {
     text-align: center;
 }
 li {
-	padding-left: 480px;;
+	padding-left: 530px;;
+}
+.Title {
+	width: 120px;
+	overflow:hidden;
+    text-overflow:ellipsis;
+}
+.Title:hover {
+	color: blue;
+	font-weight: bold;
 }
 .pageBtn {
 	margin-left: 30px;
@@ -517,7 +526,7 @@ li {
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 {
   box-sizing: border-box;
-  padding: 8.2rem 20rem 5.3rem 37.7rem;
+  padding: 8.2rem 13rem 5.3rem 2rem;
   width: 100%;
   height: 87rem;
   border-top: double 6px #1761a0;
@@ -532,7 +541,7 @@ li {
   flex-direction: column;
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 .group-31-TQa .item-1-1--oUS {
-  margin: 0rem 38rem 4.4rem 0rem;
+  margin: 0rem 42rem 4.4rem 0rem;
   text-align: right;
   display: flex;
   font-size: 3rem;
@@ -745,14 +754,13 @@ li {
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 .group-31-TQa .group-31-LkW {
   margin-right: 0.1rem;
-  width: 78.1rem;
   align-items: flex-end;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 .group-31-TQa .group-31-LkW .item--gZU {
-  margin: 0rem 40rem 4.4rem 0rem;
+  margin: 0rem 45rem 4.4rem 0rem;
   text-align: right;
   display: flex;
   font-size: 3rem;

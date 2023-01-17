@@ -117,7 +117,7 @@
             </tr>
 			<tr th:each="myShare : ${myShare}">
               <td th:text="${myShare.ShareNo}"></td>
-              <td th:text="${myShare.ShareTitle}"></td>
+              <td th:text="${myShare.ShareTitle}" th:onclick="|location.href='@{/share/selectShare?shareNo={shareNo} (shareNo = ${myShare.shareNo})}'|" style="cursor:pointer;" class="Title"></td>
               <td th:text="${myShare.inputDtm}"></td>
             </tr>
           </table>
@@ -127,11 +127,16 @@
         
         <!-- 페이지 버튼 -->
 			<li class="group-30-rVc">
-              <a><img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
-              <a><img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+              <a th:href="@{/userPage/writingListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}-1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+              
+              
+              <a th:href="@{/userPage/writingListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}+1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
             </li>
         <!-- 페이지 버튼 -->
         <!-- 공유해요 리스트 -->
+        
         
         <!-- 도와줘요 리스트 -->
         <div class="listName">도와줘요</div>
@@ -145,7 +150,7 @@
             </tr>
             <tr th:each="myHelp : ${myHelp}">
               <td th:text="${myHelp.HelpNo}"></td>
-              <td th:text="${myHelp.HelpTitle}"></td>
+              <td th:text="${myHelp.HelpTitle}" th:onclick="|location.href='@{/help/selectHelp?helpNo={helpNo} (helpNo = ${myHelp.helpNo})}'|" style="cursor:pointer;" class="Title"></td>
               <td th:text="${myHelp.inputDtm}"></td>
             </tr>
           </table>
@@ -155,11 +160,16 @@
         
         <!-- 페이지 버튼 -->
 			<li class="group-30-rVc">
-              <a><img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
-              <a><img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+              <a th:href="@{/userPage/writingListPage?page2={page}&userNo={userNo} (page = ${pagination2.page}-1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+              
+              
+              <a th:href="@{/userPage/writingListPage?page2={page}&userNo={userNo} (page = ${pagination2.page}+1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
             </li>
         <!-- 페이지 버튼 -->
         <!-- 공유해요 리스트 -->
+        
         
         <!-- 놀아줘요 리스트 -->
         <div class="listName">놀아줘요</div>
@@ -173,7 +183,7 @@
             </tr>
             <tr th:each="myPlay : ${myPlay}">
               <td th:text="${myPlay.playNo}"></td>
-              <td th:text="${myPlay.playTitle}"></td>
+              <td th:text="${myPlay.playTitle}" th:onclick="|location.href='@{/play/selectPlay?playNo={playNo} (playNo = ${myPlay.playNo})}'|" style="cursor:pointer;" class="Title"></td>
               <td th:text="${myPlay.inputDtm}"></td>
             </tr>
           </table>
@@ -183,8 +193,12 @@
         
         <!-- 페이지 버튼 -->
 			<li class="group-30-rVc">
-              <a><img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
-              <a><img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+              <a th:href="@{/userPage/writingListPage?page3={page}&userNo={userNo} (page = ${pagination3.page}-1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+              
+              
+              <a th:href="@{/userPage/writingListPage?page3={page}&userNo={userNo} (page = ${pagination3.page}+1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
             </li>
         <!-- 페이지 버튼 -->
         <!-- 공유해요 리스트 -->

@@ -20,7 +20,7 @@ tr {
 th {
 	margin-right: 15rem;
 	margin-bottom: 7px;
-	width: 100px;
+	width: 110px;
     font-size: 2.4rem;
     font-weight: 500;
     line-height: 1.0416666667;
@@ -49,6 +49,15 @@ li {
 }
 body {
   width: 192rem;
+}
+.Title {
+	width: 120px;
+	overflow:hidden;
+    text-overflow:ellipsis;
+}
+.Title:hover {
+	color: blue;
+	font-weight: bold;
 }
 .pageBtn {
 	margin-left: 30px;
@@ -549,7 +558,6 @@ body {
     box-sizing: border-box;
     padding-top: 0.3rem;
     width: 100%;
-    height: 22rem;
     overflow: hidden;
     position: relative;
     border-top: solid 0.3rem #000000;
@@ -796,7 +804,6 @@ body {
   box-sizing: border-box;
   padding-top: 0.3rem;
   width: 100%;
-  height: 17.7rem;
   overflow: hidden;
   position: relative;
   border-top: solid 0.3rem #000000;

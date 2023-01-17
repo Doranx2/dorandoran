@@ -104,6 +104,8 @@
       </div>
       <div class="auto-group-ugjn-L54">
         <div class="group-31-TQa">
+        
+        <!-- 문의 목록 -->
           <div class="item-1-1--oUS">‘<a th:text="${session.loginUser.userNm}"></a>’님의 1:1 문의 목록</div>
           <div class="list-ezr">
             <div class="frame-1134-yXL">
@@ -117,20 +119,27 @@
                 </tr>
                 <tr th:each="myQuestion : ${myQuestion}">
                   <td th:text="${myQuestion.qNo}"></td>
-                  <td th:text="${myQuestion.qTitle}"></td>
+                  <td th:text="${myQuestion.qTitle}" class="Title"></td>
                   <td th:text="${myQuestion.inputDtm}"></td>
                   <td th:text="${myQuestion.aYn}" style="font-weight: bold;"></td>
                 </tr>
               </table>
               </div>
             </div>
+            <!-- 페이지 버튼 -->
             	<li class="auto-group-vdfy-hXC">
-	               <a><img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
-	               <a><img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+	              <a th:href="@{/userPage/questionListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}-1, userNo = ${session.loginUser.userNo})}">
+	                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+	              
+	              
+	              <a th:href="@{/userPage/questionListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}+1, userNo = ${session.loginUser.userNo})}">
+	                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
 	           </li>
+	        <!-- 페이지 버튼 -->
           </div>
+          <!-- 문의 목록 -->
 
-
+		  <!-- 신고 목록 -->
           <div class="group-31-LkW">
             <div class="item--gZU">‘<a th:text="${session.loginUser.userNm}"></a>’님의 신고 목록</div>
             <div class="list-Z7U">
@@ -145,7 +154,7 @@
                   </tr>
                   <tr th:each="myRep : ${myRep}">
                     <td th:text="${myRep.repNo}"></td>
-                    <td th:text="${myRep.repTitle}"></td>
+                    <td th:text="${myRep.repTitle}" class="Title"></td>
                     <td th:text="${myRep.inputDtm}"></td>
                     <td th:text="${myRep.compYn}" style="font-weight: bold;"></td>
                   </tr>
@@ -155,12 +164,18 @@
               </div>
               <!-- 페이지 버튼 -->
                   <li class="auto-group-thkg-36W">
-                    <a><img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
-	               	<a><img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+              <a th:href="@{/userPage/questionListPage?page2={page}&userNo={userNo} (page = ${pagination2.page}-1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+              
+              <a th:href="@{/userPage/questionListPage?page2={page}&userNo={userNo} (page = ${pagination2.page}+1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
                   </li>
               <!-- 페이지 버튼 -->
             </div>
           </div>
+          <!-- 신고 목록 -->
+          
+          
         </div>
       </div>
     </div>
