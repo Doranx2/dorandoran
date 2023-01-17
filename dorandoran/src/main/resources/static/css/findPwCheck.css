@@ -164,3 +164,19 @@ body {
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
+.btnF1{
+	  height: 4rem;
+  position: absolute;
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-family: Inter, 'Source Sans Pro';
+  left: 86rem;
+  background-color: #1761a0;
+  border-radius: 0.5rem;
+  width: 20rem;
+  top: 60rem;
+  text-align: center;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+}

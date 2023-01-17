@@ -8,7 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#000000">
   <title>FindPW</title>
-  <link rel="stylesheet" th:href="@{/css/findPw.css}">
+  <th:block layout:fragment="css">
+  	<link rel="stylesheet" th:href="@{/css/findPw.css}">
+  </th:block>
+  <th:block layout:fragment="script">
+  	<script th:inline="javascript">
+
+  
+  	</script>
+  </th:block>
 </head>
 
 	<body>
@@ -17,11 +25,10 @@
 		  <p class="item--A9C">비밀번호를 찾았습니다!</p>
 		  <div class="rectangle-49-DNN">
 		  </div>
-		  <div class="rectangle-50-obU">
-		  </div>
-		  <a th:href="@{/user/login}" class="item--LLW">확 인</a>
+		  <button type="button" id="pwFindSuccessBtn" name="pwFindSuccessBtn"  onclick="location.href='/login'" class="rectangle-50-obU">
+		  확인</button>
 		  <p class="item--2z2">해당 이메일로 비밀번호를 전송합니다.</p>
-		  <div class="jaewonjkgmailcom-Vsc">jaewon.jk@gmail.com</div>
+		  <div class="jaewonjkgmailcom-Vsc" th:text="${userEmail}"></div>
 		  <img class="image-11-d6e" src="/assets/image-11.png">
 		  <img class="item-01-1-M2e" src="/assets/.png">
 		</div>

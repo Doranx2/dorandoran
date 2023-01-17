@@ -2,12 +2,16 @@ package com.ezen.doran.repository;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.ezen.doran.entity.User;
 
+@Transactional
 public interface UserRepository extends JpaRepository<User, Integer>{
 	User findByUserIdAndUserPw(
 			@Param("userId")String userId,
@@ -37,6 +41,16 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 	Optional<User> findByUserIdAndUserEmail(
 			@Param("userId")String userId,
 			@Param("userEmail")String userEmail);
+	
+	@Modifying
+	@Query(value="UPDATE TB_USER"
+			+ "		SET USER_PW = :userPw"
+			+ "		WHERE USER_ID = :userId", nativeQuery=true)
+	void updateTempPw(@Param("userId") String userId, @Param("userPw") String tempLoginPasswd);
+	
+	
+	
+	//임시 비밀번호로 업데이트
 	
 	
 }

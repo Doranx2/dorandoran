@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,9 @@ import com.ezen.doran.service.UserService;
   
   @Autowired 
   private UserService userService;
+  
+  @Autowired
+  private PasswordEncoder passwordEncoder;
 	
 	  //회원가입
 	  @GetMapping("/join") 
@@ -47,7 +51,7 @@ import com.ezen.doran.service.UserService;
 				  		  .userEmail(userDTO.getUserEmail())
 				  		  .userGen(userDTO.getUserGen())
 				  		  .userLoc(userDTO.getUserLoc())
-				  		  .userPw(userDTO.getUserPw())
+				  		  .userPw(passwordEncoder.encode(userDTO.getUserPw()))
 				  		  .userNick(userDTO.getUserNick())
 				  		  .userNm(userDTO.getUserNm())
 				  		  .userTel(userDTO.getUserTel())
@@ -140,7 +144,7 @@ import com.ezen.doran.service.UserService;
 			  if(checkedUser == null) {
 				  returnMap.put("msg", "idFail");
 			  }else {
-				  if(!checkedUser.getUserPw().equals(userDTO.getUserPw())) {
+				  if(!passwordEncoder.matches(userDTO.getUserPw(), checkedUser.getUserPw())) {
 					  returnMap.put("msg", "pwFail");
 				  }else {
 					  UserDTO loginUser = UserDTO.builder()
@@ -230,10 +234,7 @@ import com.ezen.doran.service.UserService;
      mv.addObject("userId", userDTO.getUserId());
      return mv;
   	}
-  
-  
-  
-  
+ 
   //비밀번호 찾기 화면단
   @GetMapping("/findPwCheck") 
   public ModelAndView findPwCheckView() { 
@@ -243,8 +244,8 @@ import com.ezen.doran.service.UserService;
   	}
   //비밀번호 찾기
   //아이디 + 이메일 입력하여 이메일로 임시 비밀번호 전송
-  @PostMapping("/findPwCheck")
-  public ResponseEntity<?>findPw(UserDTO userDTO, HttpSession session){
+  @PostMapping("/pwfCheck")
+  public ResponseEntity<?>pwfCheck(UserDTO userDTO, HttpSession session){
 	  ResponseDTO<Map<String, String>>responseDTO = new ResponseDTO<>();
 	  Map<String, String> returnMap = new HashMap<String, String>();
 	  try {
@@ -260,7 +261,7 @@ import com.ezen.doran.service.UserService;
 			  if(!fndPwUser.getUserEmail().equals(userDTO.getUserEmail())) {
 				  returnMap.put("msg","emailFail");
 			  }else {
-				  UserDTO pwUser = userDTO.builder()
+				  /*UserDTO pwUser = userDTO.builder()
                           .userId(fndPwUser.getUserId())
                           .userAge(fndPwUser.getUserAge())
                           .userEmail(fndPwUser.getUserEmail())
@@ -271,9 +272,13 @@ import com.ezen.doran.service.UserService;
                           .userNm(fndPwUser.getUserNm())
                           .userTel(fndPwUser.getUserTel())
                           .build();
-				  session.setAttribute("pwUser", pwUser);
+				  session.setAttribute("pwUser", pwUser);*/
+				  //입력한 id와 email이 정확할 때 임시비밀번호 생성 및 저장 그리고 메일로 발송
+				  userService.updateTempPw(fndPwUser);
+				  
 				  returnMap.put("msg","findPwSuccess");
-				  }
+				  //returnMap.put("findPw",fndPwUser.getUserPw());
+			  }
 		  }
 		  responseDTO.setItem(returnMap);
 		  return ResponseEntity.ok().body(responseDTO);
@@ -286,12 +291,15 @@ import com.ezen.doran.service.UserService;
 
   //비밀번호 찾기 성공
   @PostMapping("/findPw") 
-  public ModelAndView findPwView() { 
+  public ModelAndView findPwView(UserDTO userDTO) { 
      ModelAndView mv = new ModelAndView(); 
      mv.setViewName("/user/findPw.html"); 
+     mv.addObject("userPw",userDTO.getUserPw());
+     mv.addObject("userEmail", userDTO.getUserEmail());
      return mv;
   	}
   }
   
+
   
  

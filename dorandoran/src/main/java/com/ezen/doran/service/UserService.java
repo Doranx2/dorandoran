@@ -1,5 +1,6 @@
 package com.ezen.doran.service;
 
+import com.ezen.doran.dto.UserDTO;
 import com.ezen.doran.entity.User;
 
 public interface UserService {
@@ -15,5 +16,9 @@ public interface UserService {
 	//비밀번호 찾기
 	User pwfCheck(User user);
 	
-	
+	//임시 비밀번호로 회원 비밀번호 변경하기
+	User editPw(User user);
+
+	void updateTempPw(User user);
 }
+

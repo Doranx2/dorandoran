@@ -61,29 +61,22 @@ body {
   height: 3.5rem;
   position: absolute;
   left: 88.5rem;
-  top: 61.4rem;
   background-color: #1761a0;
   border-radius: 0.5rem;
-}
-.findpw-WaS .item--LLW {
-  width: 3.5rem;
-  height: 7rem;
-  position: absolute;
-  left: 94.15rem;
   top: 59.7rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   font-weight: 600;
-  line-height: 4.6666666667;
   color: #ffffff;
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
+
 .findpw-WaS .item--2z2 {
   width: 27.4rem;
   height: 7rem;
   position: absolute;
-  left: 82.2rem;
+  left: 78.8rem;
   top: 47.4rem;
   text-align: center;
   font-size: 2rem;
@@ -102,7 +95,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.8rem;
+  font-size: 2.rem;
   font-weight: 900;
   line-height: 0.8928571429;
   letter-spacing: 0.154rem;
