@@ -19,6 +19,7 @@ public class ChatRoomDTO {
 	
 	private String masterNm;
 	private String slaveNm;
+	private int userNo;
 	
 	
 	private Set<WebSocketSession> sessions = new HashSet<>();

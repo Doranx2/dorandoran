@@ -16,8 +16,6 @@ import com.ezen.doran.dto.Pagination;
 public interface JoinMapper {
 	
 
-	// @Select 사용 시 검색 결과 없을 때 오류 발생 
-	// ==> xml 파일로 쿼리 처리 
 	List<JoinDTO> selectJoinList(Pagination pagination);
 
 	int selectJoinCnt(Map<String, String> map);

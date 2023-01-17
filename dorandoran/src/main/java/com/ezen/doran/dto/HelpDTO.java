@@ -14,4 +14,6 @@ public class HelpDTO {
 	private String doneYn;
 	private int userNo;
 	private String imageNm;
+	
+	private String userNick;
 }

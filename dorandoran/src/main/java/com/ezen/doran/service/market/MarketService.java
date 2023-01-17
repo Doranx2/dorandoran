@@ -17,4 +17,6 @@ public interface MarketService {
 	void updateMarket(MarketDTO marketDTO);
 	
 	void deleteMarket(int marketNo);
+	
+	void updateStatus(int marketNo);
 }

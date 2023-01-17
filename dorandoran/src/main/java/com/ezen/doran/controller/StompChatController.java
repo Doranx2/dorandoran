@@ -6,7 +6,11 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
 import com.ezen.doran.dto.ChatDTO;
+import com.ezen.doran.dto.ChatRoomDTO;
+import com.ezen.doran.dto.UserDTO;
+import com.ezen.doran.mapper.UserMapper;
 import com.ezen.doran.service.chat.ChatService;
+import com.ezen.doran.service.chatRoom.ChatRoomService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -17,6 +21,12 @@ public class StompChatController {
 	@Autowired
 	ChatService chatService;
 	
+	@Autowired
+	ChatRoomService chatRoomService;
+	
+	@Autowired
+	UserMapper userMapper;
+	
 	private final SimpMessagingTemplate template; // 특정 Broker로 메세지를 전달
 
 	// Client가 SEND할 수 있는 경로
@@ -24,7 +34,14 @@ public class StompChatController {
 	// "/pub/chat/enter"
 	@MessageMapping(value = "/chat/enter")
 	public void enter(ChatDTO message) {
-		message.setMessage(message.getSendUserNo() + "님이 채팅방에 참여하였습니다.");
+		UserDTO userDTO = userMapper.getUserNm(message.getSendUserNo());
+		
+//		ChatRoomDTO chatRoomDTO = new ChatRoomDTO();
+//		chatRoomDTO.setRoomNo(message.getRoomNo());
+//		chatRoomDTO.setUserNo(message.getSendUserNo());
+//		chatRoomService.updateChatRoomRead(chatRoomDTO);
+		
+		message.setMessage( userDTO.getUserNick()+ "님이 채팅방에 참여하였습니다.");
 		template.convertAndSend("/sub/chat/room/" + message.getRoomNo(), message);
 	}
 

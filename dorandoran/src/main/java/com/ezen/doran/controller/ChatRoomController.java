@@ -44,8 +44,8 @@ public class ChatRoomController {
 	@PostMapping(value = "/room")
 	public String create(ChatRoomDTO chatRoomDTO, RedirectAttributes rttr) {
 
-		int check = chatRoomService.checkRooms(chatRoomDTO);
-		if (check != 0) {
+		Integer check = chatRoomService.checkRooms(chatRoomDTO);
+		if (check != null && check != 0) {
 			log.info("# 이미 존재하는 채팅방입니다. 해당 채팅방으로 이동합니다.");
 			return "redirect:/chat/room?roomNo=" + check;
 		}
@@ -54,14 +54,19 @@ public class ChatRoomController {
 		chatRoomService.insertChatRoom(chatRoomDTO);
 		ChatRoomDTO room = chatRoomService.selectCharRoom(chatRoomDTO.getRoomNo());
 		rttr.addFlashAttribute("room", room);
-		return "redirect:/chat/room?roomNo=" + chatRoomDTO.getRoomNo();
+		return "redirect:/chat/room?roomNo=" + chatRoomDTO.getRoomNo() + "&userNo=" + chatRoomDTO.getSlaveNo();
 	}
 
 	// 채팅방 조회
 	@GetMapping("/room")
-	public void getRoom(int roomNo, Model model) {
+	public void getRoom(int roomNo,int userNo, Model model) {
 
 		log.info("# get Chat Room, roomID : " + roomNo);
+		
+		ChatRoomDTO chatRoomDTO = new ChatRoomDTO();
+		chatRoomDTO.setRoomNo(roomNo);
+		chatRoomDTO.setUserNo(userNo);
+		chatRoomService.updateChatRoomRead(chatRoomDTO);
 
 		model.addAttribute("chat", chatService.selectChat(roomNo));
 		model.addAttribute("room", chatRoomService.selectCharRoom(roomNo));

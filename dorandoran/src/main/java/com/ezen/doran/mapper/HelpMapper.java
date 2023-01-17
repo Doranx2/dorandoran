@@ -39,7 +39,17 @@ public interface HelpMapper {
 			+ " OR HELP_PLACE LIKE CONCAT('%', #{searchKeyword}, '%')")
 	int selectPlayCnt(String searchKeyword);
 	
-	@Select("SELECT * FROM TB_HELP WHERE HELP_NO = #{helpNo}")
+	@Select("SELECT "
+			+ "A.HELP_NO"
+			+ ",A.HELP_TITLE"
+			+ ",A.HELP_CONTENT"
+			+ ",A.HELP_PLACE"
+			+ ",A.INPUT_DTM"
+			+ ",A.DONE_YN"
+			+ ",A.USER_NO"
+			+ ",A.IMAGE_NM"
+			+ ",(SELECT B.USER_NICK FROM TB_USER B WHERE B.USER_NO = A.USER_NO) AS USER_NICK "
+			+ "FROM TB_HELP A WHERE HELP_NO = #{helpNo}")
 	HelpDTO selectHelp(int helpNo);
 	
 	@Update("UPDATE TB_HELP SET"
@@ -53,4 +63,10 @@ public interface HelpMapper {
 	
 	@Delete("DELETE FROM TB_HELP WHERE HELP_NO = #{helpNo}")
 	void deleteHelp(int helpNo);
+	
+	@Update("UPDATE TB_HELP"
+			+ " SET "
+			+ " DONE_YN = 'Y'"
+			+ " WHERE HELP_NO = #{helpNo}")
+	void updateDoneYn(int helpNo);
 }

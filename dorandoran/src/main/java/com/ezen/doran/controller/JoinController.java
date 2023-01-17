@@ -33,11 +33,9 @@ public class JoinController {
 	@Autowired
 	ReService reService;
 
-	@SuppressWarnings("finally")
 	@RequestMapping("/selectJoinList")
 	public ModelAndView selectJoinList(@RequestParam(defaultValue = "1") int page,
-			@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "") String joinCd)
-			throws Exception {
+			@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "") String joinCd) {
 		ModelAndView mv = new ModelAndView();
 
 		Map<String, String> map = new HashMap<>();
@@ -58,39 +56,22 @@ public class JoinController {
 		pagination.setSearchKeyword(searchKeyword);
 		pagination.setJoinCd(joinCd);
 
-		List<JoinDTO> selectJoinList = null;
-		try {
-			selectJoinList = joinService.selectJoinList(pagination);
-		} catch (Exception e) {
-			e.getMessage();
-		} finally {
-			if (selectJoinList != null) {
-				Map<Integer, String[]> typeCdList = new HashMap<>();
-				for (JoinDTO join : selectJoinList) {
-					if (!join.getJoinTypeCd().equals("") && join.getJoinTypeCd() != null) {
-						String[] arrayTypeCd = join.getJoinTypeCd().split(",");
-						typeCdList.put(join.getJoinNo(), arrayTypeCd);
-					}
-				}
+		List<JoinDTO> selectJoinList = joinService.selectJoinList(pagination);
 
-				mv.addObject("selectJoinList", selectJoinList);
-				mv.addObject("typeCdList", typeCdList);
-				mv.addObject("pagination", pagination);
-				mv.addObject("Check", false);
-				mv.setViewName("join/selectJoinList.html");
-
-				return mv;
-			} else {
-				Map<Integer, String[]> typeCdList = new HashMap<>();
-				mv.addObject("selectJoinList", selectJoinList);
-				mv.addObject("typeCdList", typeCdList);
-				mv.addObject("pagination", pagination);
-				mv.addObject("Check", true);
-				mv.setViewName("join/selectJoinList.html");
-
-				return mv;
+		Map<Integer, String[]> typeCdList = new HashMap<>();
+		for (JoinDTO join : selectJoinList) {
+			if (!join.getJoinTypeCd().equals("") && join.getJoinTypeCd() != null) {
+				String[] arrayTypeCd = join.getJoinTypeCd().split(",");
+				typeCdList.put(join.getJoinNo(), arrayTypeCd);
 			}
 		}
+
+		mv.addObject("selectJoinList", selectJoinList);
+		mv.addObject("typeCdList", typeCdList);
+		mv.addObject("pagination", pagination);
+		mv.setViewName("join/selectJoinList.html");
+
+		return mv;
 
 	}
 

@@ -12,9 +12,9 @@
 
 				var roomNm = /*[[${room.roomNm}]]*/;
 				var roomNo = /*[[${room.roomNo}]]*/;
-				var username = /*[[${session.loginUser.userNo}]]*/;
+				var userNo = /*[[${session.loginUser.userNo}]]*/;
 
-				console.log(roomNm + ", " + roomNo + ", " + username);
+				console.log(roomNm + ", " + roomNo + ", " + userNo);
 
 				var sockJs = new SockJS("/stomp/chat");
 				//1. SockJS를 내부에 들고있는 stomp를 내어줌
@@ -22,7 +22,21 @@
 
 				//2. connection이 맺어지면 실행
 				stomp.connect({}, function () {
-					console.log("STOMP Connection")
+					console.log("STOMP Connection");
+					$.ajax({
+							url: '/chat/room',
+							type: 'get',
+							data: {
+								roomNo: roomNo,
+								userNo : userNo
+							},
+							success: function () {
+								console.log("update!");
+							},
+							error: function (e) {
+								console.log(e);
+							}
+					});
 
 					//4. subscribe(path, callback)으로 메세지를 받을 수 있음
 					stomp.subscribe("/sub/chat/room/" + roomNo, function (chat) {
@@ -30,36 +44,42 @@
 
 						var writer = content.sendUserNo;
 						var message = content.message;
+						var roomNo = content.roomNo;
+						var readYn = content.readYn;
 						var str = '';
 						console.log(content);
-						if (writer === username) {
-							str = "<div class='col-6'>";
-							str += "<div class='alert alert-secondary'>";
-							str += "<b>" + writer + " : " + message + "</b>";
+						if (writer === userNo) {
+							str = "<div class='sendChat'>";
+							//str += "<b th:if='${"+readYn+" eq 'N'}' class='readYn'>1</b>"
+							str += "<div class='alert send'>";
+							str += "<b>" + message + "</b>";
 							str += "</div></div>";
 							$("#msgArea").append(str);
 						}
 						else {
-							str = "<div class='col-6'>";
-							str += "<div class='alert alert-warning'>";
-							str += "<b>" + writer + " : " + message + "</b>";
-							str += "</div></div>";
+							str = "<div class='receiveChat'>";
+							str += "<div class='alert recevice'>";
+							str += "<b>" + message + "</b>";
+							str += "</div>" 
+							//str += "<b th:if='${"+readYn+" eq 'N'}' class='readYn'>1</b>"
+							str += "</div>";
 							$("#msgArea").append(str);
 						}
 
-						//$("#msgArea").append(str);
+						
 					});
 
 					//3. send(path, header, message)로 메세지를 보낼 수 있음
-					stomp.send('/pub/chat/enter', {}, JSON.stringify({roomNo: roomNo, sendUserNo: username}))
+					stomp.send('/pub/chat/enter', {}, JSON.stringify({roomNo: roomNo, sendUserNo: userNo}))
 				});
 
 				$("#button-send").on("click", function (e) {
 					var msg = document.getElementById("msg");
 
-					console.log(username + ":" + msg.value);
-					stomp.send('/pub/chat/message', {}, JSON.stringify({roomNo: roomNo, message: msg.value, sendUserNo: username}));
+					console.log(userNo + ":" + msg.value);
+					stomp.send('/pub/chat/message', {}, JSON.stringify({roomNo: roomNo, message: msg.value, sendUserNo: userNo}));
 					msg.value = '';
+					
 				});
 			});
 		</script>
@@ -70,40 +90,49 @@
 
 <body>
 	<div layout:fragment="content">
-		<div class="container">
+		<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+
+		<link rel="stylesheet" th:href="@{/css/chat.css}" />
+
+		<div class="chatContainer">
 			<div class="col-6">
 				<div th:if="${room.slaveNo eq session.loginUser.userNo}">
+					<h1></h1>
 					<h1>[[${room.masterNm}]] 님과의 채팅방</h1>
 				</div>
 				<div th:if="${room.masterNo eq session.loginUser.userNo}">
+					<h1></h1>
 					<h1>[[${room.slaveNm}]] 님과의 채팅방</h1>
 				</div>
 			</div>
-			<div>
+			<div class="chats">
 				<div id="msgArea" class="col">
 					<div th:each="chat : ${chat}">
-						<div th:if="${chat.sendUserNo == session.loginUser.userNo}">
-							<div class='col-6'>
-								<div class='alert alert-secondary'>
-									<b>[[${chat.sendUserNo}]] : [[${chat.message}]]</b>
+						<div th:if="${chat.sendUserNo != session.loginUser.userNo}">
+							<div class='receiveChat'>
+								<div class='alert recevice'>
+									<b>[[${chat.message}]]</b>
 								</div>
+								<!--<b th:if="${chat.readYn eq 'N'}" class="readYn">1</b>-->
 							</div>
 						</div>
-						<div th:if="${chat.sendUserNo != session.loginUser.userNo}">
-							<div class='col-6'>
-								<div class='alert alert-warning'>
-									<b>[[${chat.sendUserNo}]] : [[${chat.message}]]</b>
+						<div th:if="${chat.sendUserNo == session.loginUser.userNo}">
+							<div class='sendChat'>
+								<!--<b th:if="${chat.readYn eq 'N'}" class="readYn">1</b>-->
+								<div class='alert send'>
+									<b>[[${chat.message}]]</b>
 								</div>
 							</div>
 						</div>
 					</div>
 
 				</div>
-				<div class="col-6">
-					<div class="input-group mb-3">
+				<div class="col2">
+					<div class="input-group">
 						<input type="text" id="msg" class="form-control">
 						<div class="input-group-append">
-							<button class="btn btn-outline-secondary" type="button" id="button-send">전송</button>
+							<button class="sendBtn" type="button" id="button-send">전송</button>
 						</div>
 					</div>
 				</div>
@@ -111,17 +140,6 @@
 			<div class="col-6"></div>
 		</div>
 
-
-		<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-		<!-- 합쳐지고 최소화된 최신 CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-		<!-- 부가적인 테마 -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-		<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	</div>
 </body>
 

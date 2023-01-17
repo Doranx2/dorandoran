@@ -6,12 +6,16 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import com.ezen.doran.dto.UserDTO;
 import com.ezen.doran.entity.User;
 
 @Mapper
 public interface UserMapper {
 	@Select("SELECT * FROM TB_USER WHERE USER_NO = #{userNo}")
 	User getUser(int userNo);
+	
+	@Select("SELECT USER_NICK, USER_NM FROM TB_USER WHERE USER_NO = #{userNo}")
+	UserDTO getUserNm(int userNo);
 	
 	@Select("SELECT * FROM TB_USER")
 	List<User> getUserList();

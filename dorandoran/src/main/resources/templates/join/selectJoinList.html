@@ -8,12 +8,6 @@
 <head>
 	<th:block layout:fragment="script">
 		<script th:inline="javascript">
-			$(function(){
-				let Check = /*[[${Check}]]*/;
-				if(Check){
-					alert("검색된 게시글이 없습니다.");
-				}
-			});
 		
 			function textOver(joinNo) {
 				$("#container" + joinNo).css("box-shadow", "3px 3px 3px 3px #00000012 inset");

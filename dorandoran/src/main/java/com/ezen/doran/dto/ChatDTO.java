@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 public class ChatDTO {
 	private int chatNo;
-	private String roomNo;
+	private int roomNo;
 	private int sendUserNo; // writer
 	private String message;
 	private Date sendDtm;

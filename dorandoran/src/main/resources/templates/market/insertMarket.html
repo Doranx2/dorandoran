@@ -118,12 +118,12 @@
 				<form id="insertForm" method="post" action="/market/insertMarket" enctype="multipart/form-data">
 					<span class="v89_472">상품명</span>
 					<div class="v89_463">
-						<input class="MarketInput" name="prodNm" placeholder="상품명을 입력하세요.">
+						<input class="MarketInput" name="prodNm" placeholder="상품명을 입력하세요." required>
 					</div>
 					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
 					<span class="v89_467">판매가격</span>
 					<div class="v89_465">
-						<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요.">
+						<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요." required>
 					</div>
 					<span class="v89_475">원</span>
 
@@ -147,7 +147,7 @@
 
 					<div class="v89_462">
 						<textarea id="marketContentInput" class="marketContent" name="marketContent"
-							placeholder="내용을 입력하세요."></textarea>
+							placeholder="내용을 입력하세요." required></textarea>
 					</div>
 
 					<button class="insertBtn" onclick="submit">등록</button>
@@ -160,14 +160,14 @@
 				<form id="updateForm" method="post" action="/market/updateMarket" enctype="multipart/form-data">
 					<span class="v89_472">상품명</span>
 					<div class="v89_463">
-						<input id="MarketInput" class="MarketInput" name="prodNm" placeholder="상품명을 입력하세요.">
+						<input id="MarketInput" class="MarketInput" name="prodNm" placeholder="상품명을 입력하세요." required>
 					</div>
 					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
 					<input id="marketNo" name="marketNo" type="hidden">
 					<input id="imageNm" name="imageNm" type="hidden">
 					<span class="v89_467">판매가격</span>
 					<div class="v89_465">
-						<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요.">
+						<input type="number" class="MarketInput" name="price" placeholder="판매가격을 입력하세요." required>
 					</div>
 					<span class="v89_475">원</span>
 
@@ -182,6 +182,7 @@
 					</div>
 
 					<span class="v89_444">상품 사진</span>
+					<label for="update-image">업로드</label>
 					<div class="filebox">
 						<div th:if="${market.imageNm eq null or market.imageNm.length < 1}" th:remove="tag">
 							<img style="width: 196px;" id="update-preview-image"src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
@@ -190,13 +191,12 @@
 							<img style="width: 196px;" id="update-preview-image"
 								th:src="@{'/upload/' + ${market.imageNm}}">
 						</div>
-						<label for="update-image">업로드</label>
 						<input type="file" id="update-image" name="file">
 					</div>
 
 					<div class="v89_462">
 						<textarea id="marketContent" class="marketContent" name="marketContent"
-							placeholder="내용을 입력하세요."></textarea>
+							placeholder="내용을 입력하세요." required></textarea>
 					</div>
 
 					<button class="insertBtn" onclick="submit">등록</button>

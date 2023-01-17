@@ -17,17 +17,18 @@
 .chatRoomList ul {
 	list-style: none;
     font-size: 20px;
-    margin: 21px;
+    margin: 25px;
 }
 
 .chatRoomList li {
-	margin: 5px;
+	margin: 20px;
 }
 
-a {
+li a {
 	text-decoration: none;
     color: #1761a0;
     font-weight: bold;
+    
 }
 
 .title{
@@ -50,4 +51,107 @@ a {
 
 .insertInput {
 	border:2px solid #1761a0;
+}
+
+
+/* room */
+.chatContainer {
+	width: 100%;
+    height: 1100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chatContainer h1{
+	color : #1761a0;
+	font-weight:bold;
+	font-size: 35px;
+	padding: 20px;
+}
+
+.col{
+	background: #e8f4ff;
+    padding: 20px;
+    border: 2px dotted #1761a0;
+    overflow: auto;
+    width: 700px;
+    height: 722px;
+    font-size: 17px;
+}
+.col2{
+    padding: 20px;
+    width: 700px;
+    height: 200px;
+}
+
+.chats{
+	width: 800px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+}
+
+.receiveChat{
+	width:620px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sendChat{
+	width: 676px;
+    display: flex;
+    align-items: center;
+    color: white;
+    justify-content: flex-end;
+}
+
+#msg{
+	width: 500px;
+    height: 42px;
+    border-bottom: 1px solid #1761a0;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.input-group{
+	display: flex;
+    justify-content: center;
+}
+
+.recevice{
+	background: white;
+}
+
+.send{
+	background: #EEC400;
+}
+
+.alert{
+	border-radius: 20px;
+    padding: 15px;
+    margin: 10px;
+}
+
+.sendBtn{
+	width: 104px;
+    height: 64px;
+    background: #1761a0;
+    border: none;
+    border-radius: 10px;
+    margin-left: 10px;
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.readYn{
+	font-size: 15px;
+    color: red;
+    padding-top: 10px;
+    font-weight: bold;
 }

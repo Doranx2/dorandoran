@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.ezen.doran.dto.ChatRoomDTO;
 
@@ -27,7 +28,7 @@ public interface ChatRoomMapper {
 			+ " WHERE ( MASTER_NO = #{masterNo} OR SLAVE_NO = #{masterNo} )"
 			+ " AND"
 			+ " ( MASTER_NO = #{slaveNo} OR SLAVE_NO = #{slaveNo} )")
-	int checkRooms(ChatRoomDTO chatRoomDTO);
+	Integer checkRooms(ChatRoomDTO chatRoomDTO);
 	
 	
 	@Select("SELECT "
@@ -43,4 +44,7 @@ public interface ChatRoomMapper {
 //	@Insert("INSERT INTO TB_CHAT_ROOM (ROOM_NO,ROOM_NM,MASTER_NO,SLAVE_NO) "
 //			+ " VALUES ((SELECT IFNULL(MAX(ROOM_NO),0)+1 FROM TB_CHAT_ROOM A),#{roomNm},#{masterNo},#{slaveNo})")
 	void insertChatRoom(ChatRoomDTO chatRoomDTO); 
+	
+	@Update("UPDATE TB_CHAT SET READ_YN = 'Y' WHERE ROOM_NO = #{roomNo} AND SEND_USER_NO <> #{userNo}")
+	void updateChatRoomRead(ChatRoomDTO chatRoomDTO);
 }
