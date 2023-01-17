@@ -8,18 +8,30 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.ezen.doran.dto.FaqDTO;
+import com.ezen.doran.dto.AnswerDTO;
 import com.ezen.doran.dto.NoticeDTO;
+import com.ezen.doran.dto.Pagination;
 import com.ezen.doran.dto.QuestionDTO;
 import com.ezen.doran.dto.RepDTO;
+import com.ezen.doran.dto.UserDTO;
 
 @Mapper
 public interface AdminMapper {
-	
 	/* ======================= AdminNotice ======================= */
-	@Select("SELECT * FROM tb_notice")
-	List<NoticeDTO> selectNoticeAll();
-	
+	/* NOTICE LIST */
+	@Select("SELECT * FROM TB_NOTICE JOIN TB_USER USING(USER_ID)"
+			+" WHERE NOTICE_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" OR NOTICE_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" ORDER BY NOTICE_NO DESC"
+			+" LIMIT #{pageSize} OFFSET #{startIndex}")
+	List<NoticeDTO> selectNoticeAll(Pagination pagination);
+
+	@Select("SELECT COUNT(*) FROM TB_NOTICE JOIN TB_USER USING(USER_ID)"
+			+" WHERE NOTICE_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" OR NOTICE_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')")
+	int getAdNoticeTotalCnt(String searchKeyword);
+		
+	/* NOTICE INSERT */
 	@Insert("INSERT INTO TB_NOTICE ("
 			+ "NOTICE_NO,"
 			+ "NOTICE_TITLE,"
@@ -31,62 +43,120 @@ public interface AdminMapper {
 			+ "#{noticeTitle},"
 			+ "#{noticeContent},"
 			+ "#{userId},"
-			+ "NOW())")
-	void insertNotice(NoticeDTO noticeDTO);
+			+ "NOW())"
+			)
+	void adNoticeInsert(NoticeDTO noticeDTO);
 	
-	@Select("SELECT * FROM tb_notice WHERE NOTICE_NO = #{noticeNo}")
+	/* SELECT NOTICE ONE */
+	@Select("SELECT * FROM TB_NOTICE JOIN TB_USER USING(USER_ID) WHERE NOTICE_NO = #{noticeNo}")
 	NoticeDTO selectNoticeOne(int noticeNo);
 	
-	@Update("UPDATE tb_notice "
+	/* NOTICE UPDATE */
+	@Update("UPDATE TB_NOTICE JOIN TB_USER USING(USER_ID)"
 			+ "SET NOTICE_TITLE = #{noticeTitle},"
 			+ "	   NOTICE_CONTENT = #{noticeContent},"
 			+ "	   USER_ID = #{userId}"
 			+ "WHERE NOTICE_NO = #{noticeNo}")	
-	void updateNotice(NoticeDTO noticeDTO);
+	void adUpdateNotice(NoticeDTO noticeDTO);
 	
-	@Delete("DELETE FROM tb_notice "
+	/* DELETE NOTICE ONE */
+	@Delete("DELETE FROM TB_NOTICE "
 			+ "WHERE NOTICE_NO = #{noticeNo}")
-	int deleteNoticeOne(int noticeNo);
-		
-	/* ======================= AdminFAQ ======================= */
-	@Select("SELECT * FROM tb_faq")
-	List<FaqDTO> selectAdFaqAll();
+	int adNoticeDeleteOne(int noticeNo);
+
+	/* ======================= AdminQuestionAnswer ======================= */
+	/* QNA LIST */
+	@Select("SELECT * FROM TB_QUESTION JOIN TB_USER USING(USER_NO)"
+			+" WHERE Q_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" OR Q_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" ORDER BY Q_NO DESC"
+			+" LIMIT #{pageSize} OFFSET #{startIndex}")
+	List<QuestionDTO> selectQnaAll(Pagination pagination);
+
+	@Select("SELECT COUNT(*) FROM TB_QUESTION"
+			+" WHERE Q_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" OR Q_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')")
+	int getAdQnaTotalCnt(String searchKeyword);
 	
-	@Insert("INSERT INTO tb_faq ( "
-			+ "FAQ_NO,"
-			+ "FAQ_TITLE,"
-			+ "FAQ_CONTENT,"
-			+ "USER_ID,"
+	/* ANSWER INSERT */
+	@Insert("INSERT INTO TB_ANSWER ("
+			+ "A_NO,"
+			+ "Q_NO,"
+			+ "A_CONTENT,"
 			+ "INPUT_DTM"
 			+ ") VALUES ("
-			+ "(SELECT IFNULL(MAX(A.FAQ_NO), 0) + 1 FROM tb_faq A),"
-			+ "#{faqTitle},"
-			+ "#{faqContent},"
-			+ "#{userId},"
-			+ "now())")
-	void insertAdFaq(FaqDTO faqDTO);
+			+ "(SELECT IFNULL(MAX(A.A_NO), 0) + 1 FROM TB_ANSWER A),"
+			+ "#{qNo},"
+			+ "#{aContent},"
+			+ "NOW())")
+	void adAnswerInsert(AnswerDTO answerDTO);
 	
-	@Select("SELECT * FROM tb_faq WHERE FAQ_NO = #{faqNo}")
-	FaqDTO selectAdFaqOne(int faqDTO);
+	/* Question SELECT ONE */
+	@Select("SELECT * FROM TB_QUESTION"
+			+" JOIN TB_USER USING(USER_NO)"
+			+ "WHERE Q_NO = #{qNo}")
+	QuestionDTO getQuestionOne(int qNo);
 	
-	@Update("UPDATE tb_faq "
-			+ "SET FAQ_TITLE = #{faqTitle},"
-			+ "	   FAQ_CONTENT = #{faqContent},"
-			+ "	   USER_ID = #{userId}"
-			+ "WHERE FAQ_NO = #{faqNo}")	
-	void updateAdFaq(FaqDTO faqDTO);
-	
-	@Delete("DELETE FROM tb_faq "
-			+ "WHERE FAQ_NO = #{tb_faq}")
-	int deleteAdFaqOne(int faqDTO);
-	
-	/* ======================= AdminQuestionAnswer ======================= */
-	@Select("SELECT * FROM tb_question")
-	List<QuestionDTO> selectAdQnaAll();
+	/* Answer SELECT ONE */
+	@Select("SELECT Q_NO, A_NO, A_CONTENT, B.INPUT_DTM"
+			+" FROM TB_QUESTION A"
+			+" LEFT OUTER JOIN TB_ANSWER B USING(Q_NO)"
+			+" WHERE Q_NO = #{qNo}")
+	AnswerDTO getAnswerOne(int qNo);
+
+	/* ANSWER UPDATE */
+	@Update("UPDATE TB_ANSWER JOIN TB_QUESTION USING(Q_NO)"
+			+ "SET A_NO = #{aNo},"
+			+ "	   A_CONTENT = #{aContent}"
+			+ "WHERE Q_NO = #{qNo}")	
+	void adAnswerUpdate(AnswerDTO answerDTO);
 	
 	/* ======================= AdminReport ======================= */
-	@Select("SELECT * FROM tb_rep")
-	List<RepDTO> selectAdReportAll();
+	/* REPORT LIST */
+	@Select("SELECT * FROM TB_REP JOIN TB_USER USING(USER_NO)"
+			+" WHERE REP_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" OR REP_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" ORDER BY REP_NO DESC"
+			+" LIMIT #{pageSize} OFFSET #{startIndex}")
+	List<RepDTO> selectReportAll(Pagination pagination);
 
+	@Select("SELECT COUNT(*) FROM TB_REP"
+			+" WHERE REP_TITLE LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" OR REP_CONTENT LIKE CONCAT('%', #{searchKeyword}, '%')")
+	int getAdReportTotalCnt(String searchKeyword);
+	
+	/* REPORT SELECT ONE */
+	@Select("SELECT * FROM TB_REP JOIN TB_USER USING(USER_NO)"
+			+" WHERE REP_NO = #{repNo}")
+	RepDTO getReportOne(int repNo);
+	
+	/* REPORT UPDATE */
+	@Update("UPDATE TB_REP JOIN TB_USER USING(USER_NO)"
+			+ "SET COMP_YN = #{compYn}"
+			+ "WHERE REP_NO = #{repNo}")
+	void adReportUpdate(RepDTO repDTO);
+	
+	/* ======================= AdminUserRole ======================= */
+	/* USER LIST */
+	@Select("SELECT * FROM TB_USER"
+			+" WHERE USER_NM LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" OR USER_ID LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" ORDER BY USER_NO DESC"
+			+" LIMIT #{pageSize} OFFSET #{startIndex}")
+	List<UserDTO> selectUserAll(Pagination pagination);
+
+	@Select("SELECT COUNT(*) FROM TB_USER"
+			+" WHERE USER_NM LIKE CONCAT('%', #{searchKeyword}, '%')"
+			+" OR USER_ID LIKE CONCAT('%', #{searchKeyword}, '%')")
+	int getAdUserTotalCnt(String searchKeyword);
+
+	/* USER SELECT ONE */
+	@Select("SELECT * FROM TB_USER"
+			+" WHERE USER_NO = #{userNo}")
+	UserDTO getUserOne(int userNo);
+	
+	/* USER UPDATE */
+	@Update("UPDATE TB_USER SET USER_ROLE = #{userRole} WHERE USER_NO = #{userNo}")
+	void adUserUpdate(UserDTO userDTO);
+	
 }
-
