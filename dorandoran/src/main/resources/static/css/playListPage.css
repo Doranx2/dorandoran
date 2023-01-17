@@ -67,6 +67,10 @@ body {
 	height: 25px;
 	cursor: pointer;
 }
+.pageBtn:hover {
+	width: 27px;
+	height: 27px;
+}
 .item--YUv {
   box-sizing: border-box;
   padding-top: 3.4rem;
@@ -267,6 +271,10 @@ body {
   color: #f44336;
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
+  text-decoration : none;
+}
+.item--YUv .auto-group-slf4-4TG .auto-group-hpae-Zki .frame-1143-eXG .group-33-Tjc .item--YWA:hover {
+	color: white;
 }
 .item--YUv .my-doran-QoG {
   margin-bottom: 1.4rem;
@@ -560,8 +568,8 @@ body {
     width: 100%;
     overflow: hidden;
     position: relative;
-    border-top: solid 0.3rem #000000;
-    border-bottom: solid 0.3rem #000000;
+    border-radius: 10px;
+    border: solid 1px #F2F5A9;
     background-color: #f8f8f8;
 }
 .item--YUv .auto-group-dzia-7xa .auto-group-8guq-xxW .auto-group-nuxn-EHk .group-31-ABQ .list-kfQ .frame-1134-gox .auto-group-fur8-D3C {
@@ -806,8 +814,8 @@ body {
   width: 100%;
   overflow: hidden;
   position: relative;
-  border-top: solid 0.3rem #000000;
-  border-bottom: solid 0.3rem #000000;
+  border-radius: 10px;
+  border: solid 1px #F2F5A9;
   background-color: #f8f8f8;
 }
 .item--YUv .auto-group-dzia-7xa .auto-group-8guq-xxW .auto-group-nuxn-EHk .group-32-c4e .list-DaE .frame-1134-wWE .auto-group-pgqx-UFG {

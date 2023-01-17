@@ -37,6 +37,10 @@ body {
   background-color: #ffffff;
   flex-shrink: 0;
 }
+.item--yEn .auto-group-9rl6-UxE .auto-group-yssz-7r6 .frame-1143-nxE .group-33-FjL .item--juQ:hover {
+	font-weight: 800;
+	color: white;
+}
 .item--yEn .auto-group-9rl6-UxE {
   margin-bottom: 7.05rem;
   box-sizing: border-box;
@@ -225,6 +229,7 @@ body {
   color: #f44336;
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
+  text-decoration : none
 }
 .item--yEn .my-doran-1M8 {
   margin-bottom: 1.65rem;

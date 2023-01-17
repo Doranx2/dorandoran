@@ -25,7 +25,8 @@ body {
   background-color: #ffffff;
 }
 .listName {
-	clear:both;
+	margin-right: 600px;
+	font-size: 20px;
 }
 th {
 	margin-top: 7px;
@@ -79,6 +80,10 @@ li {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
+}
+.pageBtn:hover {
+	width: 27px;
+	height: 27px;
 }
 .item--T9Y .auto-group-6xuv-y7t {
   margin-bottom: 7.05rem;
@@ -270,6 +275,10 @@ li {
   color: #f44336;
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
+  text-decoration : none;
+}
+.item--T9Y .auto-group-6xuv-y7t .auto-group-gpu2-GTg .frame-1143-YRC .group-33-M7k .item--q2v:hover {
+	color: white;
 }
 .item--T9Y .my-doran-hav {
   margin-bottom: 1.65rem;
@@ -595,8 +604,8 @@ li {
     width: 100%;
     overflow: hidden;
     position: relative;
-    border-top: solid 0.3rem #000000;
-    border-bottom: solid 0.3rem #000000;
+    border-radius: 10px;
+    border: solid 1px #F2F5A9;
     background-color: #f8f8f8;
 }
 .item--T9Y .auto-group-fkle-27Q .auto-group-dwes-GWr .auto-group-adxg-wWW .list-pcE .auto-group-xbx6-mnN .item--TQJ {

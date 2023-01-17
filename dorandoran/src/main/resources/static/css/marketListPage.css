@@ -74,6 +74,10 @@ body {
 	height: 25px;
 	cursor: pointer;
 }
+.pageBtn:hover {
+	width: 27px;
+	height: 27px;
+}
 li {
 	padding-left: 400px;;
 }
@@ -267,6 +271,10 @@ li {
   color: #f44336;
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
+  text-decoration : none;
+}
+.item--L6J .auto-group-hrkg-2jp .auto-group-s6wc-GEA .frame-1143-irr .group-33-Kre .item--cKx:hover {
+	color: white;
 }
 .item--L6J .my-doran-HBC {
   margin-bottom: 1.65rem;
@@ -592,8 +600,8 @@ li {
   width: 1000px;
   overflow: hidden;
   position: relative;
-  border-top: solid 0.3rem #000000;
-  border-bottom: solid 0.3rem #000000;
+  border-radius: 10px;
+  border: solid 1px #F2F5A9;
   background-color: #f8f8f8;
 }
 .item--L6J .auto-group-ge7u-CJA .auto-group-xkcs-zUE .auto-group-v2ve-F2n .list-WWS .frame-1134-rqC .auto-group-8phl-yQ2 {

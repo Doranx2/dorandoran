@@ -59,14 +59,14 @@
       </div>
       <div class="auto-group-9fml-uW6">
         <p class="nnnn--qPk">
-        오늘은 도란도란과 함께한 지
+        도란도란은 오늘
         <br>
-        + nnnn 일 
+        <span th:text="${#dates.format(#dates.createNow(), 'yyyy년MM월dd일')}" style="color: #585858; font-size:40px;"></span>
         <br>
-        되는 날입니다!
+        입니다!
         </p>
       </div>
-      <div class="rectangle-104-iiS">
+      <div class="rectangle-104-iiS" style="background-image: url(/images/dev.png); background-repeat: no-repeat">
       </div>
     </div>
     
@@ -79,7 +79,7 @@
         <div class="group-33-Kre">
           <div class="rectangle-106-gBQ">
           </div>
-          <a class="item--cKx" href="/admin/getAdNoticeList" style="cursor: pointer;">공지 확인하기</a>
+          <a class="item--cKx" href="/cscenter/noticeList" style="cursor: pointer;">공지 확인하기</a>
         </div>
       </div>
     </div>
