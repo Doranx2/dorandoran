@@ -18,4 +18,6 @@ public interface HelpService {
 	void updateHelp(HelpDTO helpDTO);
 	
 	void deleteHelp(int helpNo);
+	
+	void updateDoneYn(int helpNo);
 }

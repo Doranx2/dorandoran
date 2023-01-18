@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import com.ezen.doran.dto.UserDTO;
 import com.ezen.doran.entity.User;
 
 @Mapper
@@ -15,7 +16,8 @@ public interface UserMapper {
 	
 	@Select("SELECT * FROM TB_USER")
 	List<User> getUserList();
-	
+	 
+
 	//회원가입
 	@Insert("INSERT INTO TB_USER("
 			+ "USER_NO,"
@@ -45,15 +47,22 @@ public interface UserMapper {
 			+ "NOW()"
 			)
 	void insertUser (User user);
-	
-	
-	 //아이디 찾기
-	/* 
-	 @Select("SELECT * FROM TB_USER" + "WHERE USER_NM=#{userNm} " +
-	 "AND USER_EMAIL=#{userEmail}")
-	 */
-	
-	//비밀번호 찾기
+
+    @Select("SELECT USER_NICK, USER_NM FROM TB_USER WHERE USER_NO = #{userNo}")
+	UserDTO getUserNm(int sendUserNo);
 	
 
+/*
+	//아이디 찾기
+	@Select("SELECT * FROM TB_USER" 
+			 		+ "WHERE USER_NM=#{userNm} " 
+			 		+ "AND USER_EMAIL=#{userEmail}")
+	 (@Param("userNm")String userNm,
+			 @Param("userEmail")String userEmail);
+	 
+
+	
+	//비밀번호 찾기
+	@Select("SELECT * FROM TB_USER WHERE USER_ID=#{userId}")
+*/
 }

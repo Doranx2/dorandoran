@@ -209,5 +209,10 @@ public class MarketController {
 		marketService.deleteMarket(marketNo);
 		response.sendRedirect("/market/selectMarketList");
 	}
+	
+	@PostMapping("/updateStatus")
+	public void updateStatus(@RequestParam("marketNo") int marketNo) {
+		marketService.updateStatus(marketNo);
+	}
 
 }

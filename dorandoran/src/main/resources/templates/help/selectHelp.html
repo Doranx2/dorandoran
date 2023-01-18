@@ -128,6 +128,23 @@
 					});
 				}
 			};
+			
+			function updateDone(helpNo){
+				$.ajax({
+						url: '/help/updateDoneYn',
+						type: 'post',
+						data: {
+							helpNo: helpNo,
+						},
+						success: function () {
+							alert("도움을 받으셨군요! 다행이네요!\n해결완료로 상태를 변경하였습니다.");
+							location.reload();
+						},
+						error: function (e) {
+							console.log(e);
+						}
+					});
+			};
 
 		</script>
 	</th:block>
@@ -155,29 +172,30 @@
 			</div>
 			<button class="backBtn" onclick="location.href='/help/selectHelpList'">목록으로</button>
 			<input id="helpNo" type="hidden" th:value="${help.helpNo}">
-			
+
 			<div th:if="${help.doneYn eq '요청중'}" th:remove="tag">
-			<span class="helpStatus" th:text="${help.doneYn}" style="color: #f44336;"></span>
+				<span class="helpStatus" th:text="${help.doneYn}" style="color: #f44336;"></span>
 			</div>
-			
+
 			<div th:if="${help.doneYn ne '요청중'}" th:remove="tag">
-			<span class="helpStatus" th:text="${help.doneYn}"></span>
+				<span class="helpStatus" th:text="${help.doneYn}"></span>
 			</div>
-			
+
 			<span class="helpTitle" id="helpTitle" th:text="${help.helpTitle}"></span>
 			<span class="helpPlace" th:text="'• 요청 주소 : '+${help.helpPlace}"></span>
-			
+			<span class="helpUser" th:text="'• 요청자 : '+${help.userNick}+' 님'"></span>
+
 			<div th:if="${help.imageNm ne null and help.imageNm.length > 0}" th:remove="tag">
 				<img th:src="@{'/helpImg/' + ${help.imageNm}}" class="selectImg">
 			</div>
 			<div th:if="${help.imageNm eq null or help.imageNm.length < 1}" th:remove="tag">
 				<img th:src="@{'/upload/temp.png'}" class="selectImg">
 			</div>
-				<div class="helpContentContainer">
-					<span class="helpContent" id="helpContent" th:text="${help.helpContent}"></span>
-				</div>
-				<span class="v112_672">댓글</span>
-				<!--<div class="replyListContainer">
+			<div class="helpContentContainer">
+				<textarea class="helpContent" id="helpContent" th:text="${help.helpContent}" disabled></textarea>
+			</div>
+			<span class="v112_672">댓글</span>
+			<!--<div class="replyListContainer">
 			
 				<div class="replyList">
 				<ul class ="replyUl" th:each="reList : ${reList}">
@@ -189,88 +207,99 @@
 			</div>-->
 
 
-				<div th:if="${session.loginUser eq null}" th:remove="tag">
-					<div class="replyInputContainer">
-						<input class="replyInput" placeholder="로그인 후 이용 가능 합니다." readonly></input>
-					</div>
-					<button class="replyInsertBtn">등록</button>
+			<div th:if="${session.loginUser eq null}" th:remove="tag">
+				<div class="replyInputContainer">
+					<input class="replyInput" placeholder="로그인 후 이용 가능 합니다." readonly></input>
 				</div>
-
-				<div th:if="${session.loginUser ne null}" th:remove="tag">
-					<!-- 로그인 정보가 있을 때 -->
-					<div class="replyInputContainer">
-						<input id="replyInput" class="replyInput" placeholder="댓글을 입력해주세요."></input>
-					</div>
-					<button class="replyInsertBtn" onclick="reply();">등록</button>
-					<input id="userNo" type="hidden" th:value="${session.loginUser.userNo}">
-
-					<!-- 로그인 정보와 글 작성 정보가 같을 때 -->
-					<div th:if="${session.loginUser.userNo eq help.userNo}" th:remove="tag">
-						<button class="updateBtn"
-							th:onclick="|location.href='@{/help/updateHelpPage?helpNo={helpNo} (helpNo = ${help.helpNo})}'|">수정</button>
-						<button class="deleteBtn"
-							th:onclick="|location.href='@{/help/deleteHelp?helpNo={helpNo} (helpNo = ${help.helpNo})}'|">삭제</button>
-					</div>
-				</div>
-
+				<button class="replyInsertBtn">등록</button>
 			</div>
 
-			<div class="plus">
-				<div class="replyListContainer">
+			<div th:if="${session.loginUser ne null}" th:remove="tag">
+				<!-- 로그인 정보가 있을 때 -->
+				<div class="replyInputContainer">
+					<input id="replyInput" class="replyInput" placeholder="댓글을 입력해주세요."></input>
+				</div>
+				<button class="replyInsertBtn" onclick="reply();">등록</button>
+				<input id="userNo" type="hidden" th:value="${session.loginUser.userNo}">
 
-					<div class="replyList">
-						<div class="replyListDiv" th:each="reList : ${reList}">
-							<ul class="replyUl">
-								<li class="replyUserNm" th:text="${reList.userNick}"></li>
-								<li><input th:id="'reContent'+${reList.reNo}" class="replyContent" disabled
-										th:value="${reList.reContent}"></li>
-
-								<li class="replyBtns">
-									<div th:if="${session.loginUser ne null}" th:remove="tag">
-										<button th:id="'reBtn'+${reList.reNo}"
-											th:onclick="'reReplyInput('+${reList.reNo}+');'">답글</button>
-										<div th:if="${session.loginUser.userNo eq reList.userNo}" th:remove="tag">
-											<button th:id="'reUpdateBtn'+${reList.reNo}"
-												th:onclick="'updateBtn('+${reList.reNo}+');'">수정</button>
-											<button th:id="'reDeleteBtn'+${reList.reNo}" class="deleteReBtn"
-												th:onclick="'deleteReply('+${reList.reNo}+',0);'">삭제</button>
-										</div>
-									</div>
-								</li>
-							</ul>
-
-							<div class="reReplyInputContainer" th:id="'re'+${reList.reNo}" style="display : none;">
-								<input class="replyInput" th:id="'reReplyInput'+${reList.reNo}"
-									placeholder="대댓글을 입력해주세요."></input>
-								<button class="reReplyInsertBtn" th:onclick="'reReply('+${reList.reNo}+');'">등록</button>
-							</div>
-
-							<div th:each="reReList : ${reReList}" th:if="${reList.reNo == reReList.parentReNo}">
-								<ul class="reReplyUl" th:id="'reReUl'+${reReList.parentReNo}">
-									<li class="replyUserNm" th:text="${reReList.userNick}"></li>
-									<li><input th:id="'reContent'+${reReList.reNo}" class="replyContent" disabled
-											th:value="${reReList.reContent}"></li>
-
-									<li class="reReplyBtns">
-										<div th:if="${session.loginUser ne null}" th:remove="tag">
-											<div th:if="${session.loginUser.userNo eq reReList.userNo}" th:remove="tag">
-												<button th:id="'reUpdateBtn'+${reReList.reNo}" class="updateReBtn"
-													th:onclick="'updateBtn('+${reReList.reNo}+');'">수정</button>
-												<button th:id="'reDeleteBtn'+${reReList.reNo}" class="deleteReBtn"
-													th:onclick="'deleteReply('+${reReList.reNo}+',1);'">삭제</button>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-
-						</div>
-					</div>
-
+				<!-- 로그인 정보와 글 작성 정보가 같을 때 -->
+				<div th:if="${session.loginUser.userNo eq help.userNo}" th:remove="tag">
+					<button class="updateBtn"
+						th:onclick="|location.href='@{/help/updateHelpPage?helpNo={helpNo} (helpNo = ${help.helpNo})}'|">수정</button>
+					<button class="deleteBtn"
+						th:onclick="|location.href='@{/help/deleteHelp?helpNo={helpNo} (helpNo = ${help.helpNo})}'|">삭제</button>
 				</div>
 			</div>
 
 		</div>
+
+		<div class="plus">
+			<div class="replyListContainer">
+
+				<div class="replyList">
+					<div class="replyListDiv" th:each="reList : ${reList}">
+
+						<div th:if="${session.loginUser ne null and session.loginUser.userNo eq help.userNo and help.doneYn.length eq 3}"
+							class="updateStatusBtn">
+							<button th:onclick="'updateDone('+${help.helpNo}+');'"><img class="arrow" th:src="@{'/images/down-arrow.png'}"> 이 사람에게 도움을 받았어요!</button>
+						</div>
+
+						<ul class="replyUl">
+							<li class="replyUserNm" th:text="${reList.userNick}"></li>
+							<li><input th:id="'reContent'+${reList.reNo}" class="replyContent" disabled
+									th:value="${reList.reContent}"></li>
+
+							<li class="replyBtns">
+								<div th:if="${session.loginUser ne null}" th:remove="tag">
+									<button th:id="'reBtn'+${reList.reNo}"
+										th:onclick="'reReplyInput('+${reList.reNo}+');'">답글</button>
+									<div th:if="${session.loginUser.userNo eq reList.userNo}" th:remove="tag">
+										<button th:id="'reUpdateBtn'+${reList.reNo}"
+											th:onclick="'updateBtn('+${reList.reNo}+');'">수정</button>
+										<button th:id="'reDeleteBtn'+${reList.reNo}" class="deleteReBtn"
+											th:onclick="'deleteReply('+${reList.reNo}+',0);'">삭제</button>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+						<div class="reReplyInputContainer" th:id="'re'+${reList.reNo}" style="display : none;">
+							<input class="replyInput" th:id="'reReplyInput'+${reList.reNo}"
+								placeholder="대댓글을 입력해주세요."></input>
+							<button class="reReplyInsertBtn" th:onclick="'reReply('+${reList.reNo}+');'">등록</button>
+						</div>
+
+						<div th:each="reReList : ${reReList}" th:if="${reList.reNo == reReList.parentReNo}">
+							<div th:if="${session.loginUser ne null and session.loginUser.userNo eq help.userNo and help.doneYn.length eq 3}"
+								class="updateStatusBtnRe">
+								<button th:onclick="'updateDone('+${help.helpNo}+');'"><img class="arrow" th:src="@{'/images/down-arrow.png'}"> 이 사람에게 도움을
+									받았어요!</button>
+							</div>
+							<ul class="reReplyUl" th:id="'reReUl'+${reReList.parentReNo}">
+								<li class="replyUserNm" th:text="${reReList.userNick}"></li>
+								<li><input th:id="'reContent'+${reReList.reNo}" class="replyContent" disabled
+										th:value="${reReList.reContent}"></li>
+
+								<li class="reReplyBtns">
+									<div th:if="${session.loginUser ne null}" th:remove="tag">
+										<div th:if="${session.loginUser.userNo eq reReList.userNo}" th:remove="tag">
+											<button th:id="'reUpdateBtn'+${reReList.reNo}" class="updateReBtn"
+												th:onclick="'updateBtn('+${reReList.reNo}+');'">수정</button>
+											<button th:id="'reDeleteBtn'+${reReList.reNo}" class="deleteReBtn"
+												th:onclick="'deleteReply('+${reReList.reNo}+',1);'">삭제</button>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
 </body>
 
 </html>

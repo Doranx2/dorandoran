@@ -56,7 +56,7 @@ public class Pagination {
         
 		/** 5. 총 게시글 수 **/
 		setTotalListCnt(totalListCnt);
-
+		if(totalListCnt != 0) {
 
 		/** 6. 총 페이지 수 **/
 		// 한 페이지의 최대 개수를 총 게시물 수 * 1.0로 나누어주고 올림 해준다.
@@ -106,6 +106,7 @@ public class Pagination {
         
 		/** 10. DB 접근 시작 index **/
 		setStartIndex((page-1) * pageSize);
+		}
 	
 	}
 	

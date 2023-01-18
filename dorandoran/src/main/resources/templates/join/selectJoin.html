@@ -129,6 +129,7 @@
 				}
 			};
 
+
 		</script>
 	</th:block>
 </head>
@@ -165,14 +166,23 @@
 			</div>
 
 			<span class="joinTitle" id="joinTitle" th:text="${join.joinTitle}"></span>
-			<span class="joinListA" th:text="'모임장 : '+${join.userNm}" ></span>
+			<span class="joinListA" th:text="'모임장 : '+${join.userNm}"></span>
 			<span class="joinListA" th:text="'모집 인원 : '+${join.joinCnt}+' 명'" style="top : 914px;"></span>
 			<span class="joinListA" th:text="'모집 기간 : '+${join.joinDtm}" style="top : 969px;"></span>
 			<div th:if="${join.joinPlace ne ''}" th:remove="tag">
 				<span class="joinListA" th:text="'상세 주소 : '+${join.joinPlace}" style="top : 1027px;"></span>
 			</div>
 			
-			<button class="joinListB">채팅걸기</button>
+			<div th:if="${session.loginUser ne null and session.loginUser.userNo ne join.userNo}" th:remove="tag">
+				<!-- 로그인 정보가 있을 때 -->
+				<!-- 채팅방 개설하기 -->
+				<form class="chatRoominsert" action="/chat/room" method="post">
+					<input name="roomNm" type="hidden" th:value="${join.joinTitle}">
+					<input name="masterNo" type="hidden" th:value="${join.userNo}">
+					<input name="slaveNo" type="hidden" th:value="${session.loginUser.userNo}">
+					<button class="joinListB" onclick="submit">채팅걸기</button>
+				</form>
+			</div>
 
 			<img th:src="@{'/images/'+${join.joinCd}+'.png'}" class="selectImg">
 			<div th:if="${typeCd[0] ne ''}" th:remove="tag">
@@ -181,7 +191,7 @@
 				</div>
 			</div>
 			<div class="joinContentContainer">
-				<span class="joinContent" id="joinContent" th:text="${join.joinContent}"></span>
+				<textarea class="joinContent" id="joinContent" th:text="${join.joinContent}" disabled></textarea>
 			</div>
 			<span class="v112_672">댓글</span>
 

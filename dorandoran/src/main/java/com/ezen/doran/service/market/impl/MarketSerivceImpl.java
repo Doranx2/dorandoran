@@ -1,4 +1,4 @@
-package com.ezen.doran.service.service.impl;
+package com.ezen.doran.service.market.impl;
 
 import java.util.List;
 
@@ -44,6 +44,11 @@ public class MarketSerivceImpl implements MarketService{
 	@Override
 	public void deleteMarket(int marketNo) {
 		mapper.deleteMarket(marketNo);
+	}
+
+	@Override
+	public void updateStatus(int marketNo) {
+		mapper.updateStatus(marketNo);
 	}
 
 }

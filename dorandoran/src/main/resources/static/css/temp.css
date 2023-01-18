@@ -17,10 +17,6 @@
 	.v118_224 {
 		width: 100%;
 		height: 646px;
-		background: url("../images/v118_224.png");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
 		opacity: 1;
 		position: absolute;
 		top: 107px;
@@ -197,10 +193,6 @@
 	.v25_53 {
 		width: 154px;
 		height: 154px;
-		background: url("../images/v25_53.png");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
 		opacity: 1;
 		position: absolute;
 		top: 37px;
@@ -224,10 +216,6 @@
 	.v19_195 {
 		width: 300px;
 		height: 45px;
-		background: url("../images/v19_195.png");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
 		opacity: 1;
 		position: absolute;
 		top: 461px;
@@ -238,10 +226,6 @@
 	.v19_198 {
 		width: 340px;
 		height: 45px;
-		background: url("../images/v19_198.png");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
 		opacity: 1;
 		position: absolute;
 		top: 338px;
@@ -269,10 +253,6 @@
 	.v19_191 {
 		width: 17px;
 		height: 24px;
-		background: url("../images/v19_191.png");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
 		opacity: 1;
 		position: absolute;
 		top: 11px;
@@ -283,10 +263,6 @@
 	.v19_197 {
 		width: 340px;
 		height: 45px;
-		background: url("../images/v19_197.png");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
 		opacity: 1;
 		position: absolute;
 		top: 279px;
@@ -314,10 +290,6 @@
 	.v19_193 {
 		width: 21px;
 		height: 25px;
-		background: url("../images/v19_193.png");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
 		opacity: 1;
 		position: absolute;
 		top: 10px;
@@ -341,10 +313,6 @@
 	.v118_223 {
 		width: 300px;
 		height: 45px;
-		background: url("../images/v118_223.png");
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
 		opacity: 1;
 		position: absolute;
 		top: 410px;
@@ -365,6 +333,7 @@
 		border-bottom-left-radius: 5px;
 		border-bottom-right-radius: 5px;
 		overflow: hidden;
+		cursor : pointer;
 	}
 
 	.v118_222 {
@@ -378,4 +347,9 @@
 		font-size: 18px;
 		opacity: 1;
 		text-align: center;
+	}
+	
+	.pwIdBtn:visited{
+		color :rgba(23, 97, 160, 1);
+		font-size: bold;
 	}

@@ -1,6 +1,5 @@
 package com.ezen.doran.controller;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.doran.dto.JoinDTO;
-import com.ezen.doran.dto.MarketDTO;
 import com.ezen.doran.dto.Pagination;
 import com.ezen.doran.dto.ReDTO;
 import com.ezen.doran.service.join.JoinService;
@@ -33,11 +32,9 @@ public class JoinController {
 	@Autowired
 	ReService reService;
 
-	@SuppressWarnings("finally")
 	@RequestMapping("/selectJoinList")
 	public ModelAndView selectJoinList(@RequestParam(defaultValue = "1") int page,
-			@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "") String joinCd)
-			throws Exception {
+			@RequestParam(defaultValue = "") String searchKeyword, @RequestParam(defaultValue = "") String joinCd) {
 		ModelAndView mv = new ModelAndView();
 
 		Map<String, String> map = new HashMap<>();
@@ -58,39 +55,22 @@ public class JoinController {
 		pagination.setSearchKeyword(searchKeyword);
 		pagination.setJoinCd(joinCd);
 
-		List<JoinDTO> selectJoinList = null;
-		try {
-			selectJoinList = joinService.selectJoinList(pagination);
-		} catch (Exception e) {
-			e.getMessage();
-		} finally {
-			if (selectJoinList != null) {
-				Map<Integer, String[]> typeCdList = new HashMap<>();
-				for (JoinDTO join : selectJoinList) {
-					if (!join.getJoinTypeCd().equals("") && join.getJoinTypeCd() != null) {
-						String[] arrayTypeCd = join.getJoinTypeCd().split(",");
-						typeCdList.put(join.getJoinNo(), arrayTypeCd);
-					}
-				}
+		List<JoinDTO> selectJoinList = joinService.selectJoinList(pagination);
 
-				mv.addObject("selectJoinList", selectJoinList);
-				mv.addObject("typeCdList", typeCdList);
-				mv.addObject("pagination", pagination);
-				mv.addObject("Check", false);
-				mv.setViewName("join/selectJoinList.html");
-
-				return mv;
-			} else {
-				Map<Integer, String[]> typeCdList = new HashMap<>();
-				mv.addObject("selectJoinList", selectJoinList);
-				mv.addObject("typeCdList", typeCdList);
-				mv.addObject("pagination", pagination);
-				mv.addObject("Check", true);
-				mv.setViewName("join/selectJoinList.html");
-
-				return mv;
+		Map<Integer, String[]> typeCdList = new HashMap<>();
+		for (JoinDTO join : selectJoinList) {
+			if (!join.getJoinTypeCd().equals("") && join.getJoinTypeCd() != null) {
+				String[] arrayTypeCd = join.getJoinTypeCd().split(",");
+				typeCdList.put(join.getJoinNo(), arrayTypeCd);
 			}
 		}
+
+		mv.addObject("selectJoinList", selectJoinList);
+		mv.addObject("typeCdList", typeCdList);
+		mv.addObject("pagination", pagination);
+		mv.setViewName("join/selectJoinList.html");
+
+		return mv;
 
 	}
 

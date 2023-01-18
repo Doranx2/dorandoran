@@ -44,4 +44,9 @@ public class HelpServiceImpl implements HelpService{
 	public void deleteHelp(int helpNo) {
 		mapper.deleteHelp(helpNo);
 	}
+
+	@Override
+	public void updateDoneYn(int helpNo) {
+		mapper.updateDoneYn(helpNo);
+	}
 }

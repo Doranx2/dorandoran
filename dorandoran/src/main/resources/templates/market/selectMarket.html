@@ -128,6 +128,23 @@
 					});
 				}
 			};
+			
+			function updateDone(marketNo){
+				$.ajax({
+						url: '/market/updateStatus',
+						type: 'post',
+						data: {
+							marketNo: marketNo,
+						},
+						success: function () {
+							alert("판매를 축하드립니다! \n거래완료 상태로 수정합니다.");
+							location.reload();
+						},
+						error: function (e) {
+							console.log(e);
+						}
+					});
+			};
 
 		</script>
 	</th:block>
@@ -166,6 +183,7 @@
 			
 			<span class="marketTitle" id="marketTitle" th:text="${market.prodNm}"></span>
 			<span class="marketPrice" th:text="${market.price}+' 원'"></span>
+			<span class="marketUser" th:text="'판매자 : ' + ${market.userNick}+' 님'"></span>
 			
 			<div th:if="${market.imageNm ne null and market.imageNm.length > 0}" th:remove="tag">
 				<img th:src="@{'/upload/' + ${market.imageNm}}" class="selectImg">
@@ -174,7 +192,7 @@
 				<img th:src="@{'/upload/temp.png'}" class="selectImg">
 			</div>
 				<div class="marketContentContainer">
-					<span class="marketContent" id="marketContent" th:text="${market.marketContent}"></span>
+					<textarea class="marketContent" id="marketContent" th:text="${market.marketContent}" disabled></textarea>
 				</div>
 				<span class="v112_672">댓글</span>
 				<!--<div class="replyListContainer">
@@ -220,6 +238,10 @@
 
 					<div class="replyList">
 						<div class="replyListDiv" th:each="reList : ${reList}">
+						<div th:if="${session.loginUser ne null and session.loginUser.userNo eq market.userNo and market.status.length eq 3}"
+							class="updateStatusBtn">
+							<button th:onclick="'updateDone('+${market.marketNo}+');'"><img class="arrow" th:src="@{'/images/down-arrow.png'}"> 이 사람에게 판매했어요!</button>
+						</div>
 							<ul class="replyUl">
 								<li class="replyUserNm" th:text="${reList.userNick}"></li>
 								<li><input th:id="'reContent'+${reList.reNo}" class="replyContent" disabled
@@ -246,6 +268,10 @@
 							</div>
 
 							<div th:each="reReList : ${reReList}" th:if="${reList.reNo == reReList.parentReNo}">
+								<div th:if="${session.loginUser ne null and session.loginUser.userNo eq market.userNo and market.status.length eq 3}"
+								class="updateStatusBtnRe">
+								<button th:onclick="'updateDone('+${market.marketNo}+');'"><img class="arrow" th:src="@{'/images/down-arrow.png'}"> 이 사람에게 판매했어요!</button>
+							</div>
 								<ul class="reReplyUl" th:id="'reReUl'+${reReList.parentReNo}">
 									<li class="replyUserNm" th:text="${reReList.userNick}"></li>
 									<li><input th:id="'reContent'+${reReList.reNo}" class="replyContent" disabled

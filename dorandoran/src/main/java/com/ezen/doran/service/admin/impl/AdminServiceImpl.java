@@ -5,10 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ezen.doran.dto.FaqDTO;
+import com.ezen.doran.dto.AnswerDTO;
 import com.ezen.doran.dto.NoticeDTO;
+import com.ezen.doran.dto.Pagination;
 import com.ezen.doran.dto.QuestionDTO;
 import com.ezen.doran.dto.RepDTO;
+import com.ezen.doran.dto.UserDTO;
 import com.ezen.doran.mapper.AdminMapper;
 import com.ezen.doran.service.admin.AdminService;
 
@@ -21,11 +23,22 @@ public class AdminServiceImpl implements AdminService{
 	
 	
 	/* ======================= AdminNotice ======================= */
-	/* INSERT */
+	/* NOTICE LIST */
 	@Override
-	public void insertNotice(NoticeDTO noticeDTO) {
+	public List<NoticeDTO> getAdNoticeList(Pagination page){
+		return adminMapper.selectNoticeAll(page);
+	}
+
+	@Override
+	public int getAdNoticeTotalCnt(String searchKeyword) {
+		return adminMapper.getAdNoticeTotalCnt(searchKeyword);
+	}
+	
+	/* NOTICE INSERT */
+	@Override
+	public void adNoticeInsert(NoticeDTO noticeDTO) {
 		/* 데이터 흐름 : adminController.java -> adminServiceImpl.java -> AdminMapper -> DB */
-		adminMapper.insertNotice(noticeDTO);
+		adminMapper.adNoticeInsert(noticeDTO);
 	}
 	
 	/* SELECT NOTICE ONE */
@@ -34,83 +47,100 @@ public class AdminServiceImpl implements AdminService{
 		return adminMapper.selectNoticeOne(noticeNo);
 	}
 	
-	/* UPDATE */
+	/* NOTICE UPDATE */
 	@Override
-	public void updateNotice(NoticeDTO noticeDTO) {
-		adminMapper.updateNotice(noticeDTO);
-	}
-	
-	/* SELECT NOTICE ALL */
-	@Override
-	public List<NoticeDTO> getAdNoticeList(){
-		return adminMapper.selectNoticeAll();
+	public void adUpdateNotice(NoticeDTO noticeDTO) {
+		adminMapper.adUpdateNotice(noticeDTO);
 	}
 	
 	/* DELETE NOTICE ONE */
 	@Override
-	public int deleteNotice(int noticeNo) {
-		return adminMapper.deleteNoticeOne(noticeNo);
-	}
-	
-	/* ======================= AdminFAQ ======================= */
-	/* INSERT */
-	@Override
-	public void insertAdFaq(FaqDTO faqDTO) {
-		/* 데이터 흐름 : adminController.java -> adminServiceImpl.java -> AdminMapper -> DB */
-		adminMapper.insertAdFaq(faqDTO);
-	}
-	
-	/* SELECT NOTICE ONE */
-	@Override
-	public FaqDTO getAdFaqOne(int faqNo) {
-		return adminMapper.selectAdFaqOne(faqNo);
-	}
-	
-	/* UPDATE */
-	@Override
-	public void updateAdFaq(FaqDTO faqDTO) {
-		adminMapper.updateAdFaq(faqDTO);
-	}
-	
-	/* SELECT NOTICE ALL */
-	@Override
-	public List<FaqDTO> getAdFaqList() {
-		return adminMapper.selectAdFaqAll();
-	}
-	
-	/* DELETE NOTICE ONE */
-	@Override
-	public int deleteAdFaq(int faqNo) {
-		return adminMapper.deleteAdFaqOne(faqNo);
+	public int adNoticeDelete(int noticeNo) {
+		return adminMapper.adNoticeDeleteOne(noticeNo);
 	}
 	
 	/* ======================= AdminQuestionAnswer ======================= */
-//	public void insertAdQna(QuestionDTO questionDTO);
-//	
-//	public QuestionDTO getAdQnaOne(int qNo);
-//	
-//	public void updateAdQna(QuestionDTO questionDTO);
-
-	/* SELECT ALL */
-	public List<QuestionDTO> getAdQnaList(){
-		return adminMapper.selectAdQnaAll();
+	/* QNA LIST */
+	@Override
+	public List<QuestionDTO> getAdQnaList(Pagination page){
+		return adminMapper.selectQnaAll(page);
 	}
-//	
-//	public int deleteAdQna(int qNo);
-//	
-//	public void updateAdAnswer(AnswerDTO answerDTO);
+
+	@Override
+	public int getAdQnaTotalCnt(String searchKeyword) {
+		return adminMapper.getAdQnaTotalCnt(searchKeyword);
+	}
+	
+	/* ANSWER INSERT */
+	@Override
+	public void adAnswerInsert(AnswerDTO answerDTO) {
+		adminMapper.adAnswerInsert(answerDTO);
+	}
+	
+	/* Question SELECT ONE */
+	@Override
+	public QuestionDTO getQuestionOne(int qNo) {
+		return adminMapper.getQuestionOne(qNo);
+	}
+	
+	/* Answer SELECT ONE */
+	@Override
+	public AnswerDTO getAnswerOne(int qNo) {
+		return adminMapper.getAnswerOne(qNo);
+	}
+		
+	/* ANSWER UPDATE */
+	@Override
+	public void adAnswerUpdate(AnswerDTO answerDTO) {
+		adminMapper.adAnswerUpdate(answerDTO);
+	}
 	
 	/* ======================= AdminReport ======================= */
-//	public void insertAdReport(RepDTO repDTO);
-//	
-//	public RepDTO getAdReportOne(int repNo);
-//	
-//	public void updateAdReport(RepDTO repDTO);
-//	
-	public List<RepDTO> getAdReportList(){
-		return adminMapper.selectAdReportAll();
+	/* REPORT LIST */
+	@Override
+	public List<RepDTO> getAdReportList(Pagination page){
+		return adminMapper.selectReportAll(page);
 	}
-//	
-//	public int deleteAdReport(int repNo);
+		
+	@Override
+	public int getAdReportTotalCnt(String searchKeyword) {
+		return adminMapper.getAdReportTotalCnt(searchKeyword);
+	}
 
+	/* REPORT SELECT ONE */
+	@Override
+	public RepDTO getReportOne(int repNo) {
+		return adminMapper.getReportOne(repNo);
+	}
+	
+	/* REPORT UPDATE */
+	@Override
+	public void adReportUpdate(RepDTO repDTO) {
+		adminMapper.adReportUpdate(repDTO);
+	}
+	
+	/* ======================= AdminUserRole ======================= */
+	/* USER LIST */
+	@Override
+	public List<UserDTO> getAdUserList(Pagination page){
+		return adminMapper.selectUserAll(page);
+	}
+		
+	@Override
+	public int getAdUserTotalCnt(String searchKeyword) {
+		return adminMapper.getAdUserTotalCnt(searchKeyword);
+	}
+	
+	/* USER SELECT ONE */
+	@Override
+	public UserDTO getUserOne(int userNo) {
+		return adminMapper.getUserOne(userNo);
+	}
+	
+	/* USER UPDATE */
+	@Override
+	public void adUserUpdate(UserDTO userDTO) {
+		adminMapper.adUserUpdate(userDTO);
+	}
+	
 }

@@ -672,7 +672,7 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   text-align: center;
 }
 .v9_14 {
-    width: 300px;
+    width: 400px;
     height: 40px;
     margin: 20px;
     opacity: 1;
@@ -726,6 +726,7 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
 .likeIcon {
 	width: 30px;
     padding-left: 10px;
-    top: -5%;
+    top: -7px;
     position: absolute;
+    cursor : pointer;
 }

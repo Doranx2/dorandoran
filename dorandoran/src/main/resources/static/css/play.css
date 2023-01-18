@@ -720,14 +720,16 @@
   }
 
   .playContent {
-    width: 401px;
+	width: 100%;
     font-family: Inter;
     font-weight: Bold;
     font-size: 30px;
     text-align: left;
-    color : black;
+    color: black;
     opacity: 1;
-    padding : 20px;
+    padding: 20px;
+    border: none;
+    background: none;
   }
 
   .updateBtn {
