@@ -176,6 +176,9 @@
           </div>
 
         </div>
+        	
+        <div class="chat" th:onclick="|location.href='@{/chat/rooms?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|">내 채팅방 확인하기</div>
+        
       </div>
     </div>
     <!-- 상세창 내부 끝 -->
