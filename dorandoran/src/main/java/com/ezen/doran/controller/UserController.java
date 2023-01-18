@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +29,8 @@ import com.ezen.doran.service.user.UserService;
   @Autowired 
   private UserService userService;
   
-  @Autowired
-  private PasswordEncoder passwordEncoder;
+//  @Autowired
+//  private PasswordEncoder passwordEncoder;
    
      //회원가입
      @GetMapping("/join") 
@@ -52,7 +52,8 @@ import com.ezen.doran.service.user.UserService;
                       .userEmail(userDTO.getUserEmail())
                       .userGen(userDTO.getUserGen())
                       .userLoc(userDTO.getUserLoc())
-                      .userPw(passwordEncoder.encode(userDTO.getUserPw()))
+//                      .userPw(passwordEncoder.encode(userDTO.getUserPw()))
+                      .userPw(userDTO.getUserPw())
                       .userNick(userDTO.getUserNick())
                       .userNm(userDTO.getUserNm())
                       .userTel(userDTO.getUserTel())
@@ -131,54 +132,54 @@ import com.ezen.doran.service.user.UserService;
         return mv;
      }
      
-     @PostMapping("/login")
-     public ResponseEntity<?> login(UserDTO userDTO, HttpSession session){
-        System.out.println("id===============================================" + userDTO.getUserId());
-        System.out.println("pw===============================================" + userDTO.getUserPw());
-        ResponseDTO<Map<String, String>> responseDTO = new ResponseDTO<>();
-        Map<String, String> returnMap = new HashMap<String, String>();
-        try {
-           User user = User.builder()
-                          .userId(userDTO.getUserId())
-                          .userPw(userDTO.getUserPw())
-                          .build();
-           User checkedUser = userService.idCheck(user);
-           System.out.println(checkedUser);
-           if(checkedUser == null) {
-              returnMap.put("msg", "idFail");
-           }else {
-              if(!passwordEncoder.matches(userDTO.getUserPw(), checkedUser.getUserPw())) {
-                 returnMap.put("msg", "pwFail");
-              }else {
-                 UserDTO loginUser = UserDTO.builder()
-                                        .userId(checkedUser.getUserId())
-                                        .userAge(checkedUser.getUserAge())
-                                        .userEmail(checkedUser.getUserEmail())
-                                        .userGen(checkedUser.getUserGen())
-                                        .userLoc(checkedUser.getUserLoc())
-                                        .userPw(checkedUser.getUserPw())
-                                        .userNick(checkedUser.getUserNick())
-                                        .userNm(checkedUser.getUserNm())
-                                        .userTel(checkedUser.getUserTel())
-                                        .userNo(checkedUser.getUserNo())
-                                        .userRole(checkedUser.getUserRole())
-                                        .inputDtm(checkedUser.getInputDtm())
-                                       
-                                        .build();
-                 session.setAttribute("loginUser", loginUser);
-                 
-                 System.out.println("[session : loginUser ] ==> "+session.getAttribute("loginUser"));
-                 
-                 returnMap.put("msg", "loginSuccess");
-                 }
-              }
-           responseDTO.setItem(returnMap);
-           return ResponseEntity.ok().body(responseDTO);
-        } catch(Exception e) {
-           responseDTO.setErrorMessage(e.getMessage());
-           return ResponseEntity.badRequest().body(responseDTO);
-        }
-        }        
+//     @PostMapping("/login")
+//     public ResponseEntity<?> login(UserDTO userDTO, HttpSession session){
+//        System.out.println("id===============================================" + userDTO.getUserId());
+//        System.out.println("pw===============================================" + userDTO.getUserPw());
+//        ResponseDTO<Map<String, String>> responseDTO = new ResponseDTO<>();
+//        Map<String, String> returnMap = new HashMap<String, String>();
+//        try {
+//           User user = User.builder()
+//                          .userId(userDTO.getUserId())
+//                          .userPw(userDTO.getUserPw())
+//                          .build();
+//           User checkedUser = userService.idCheck(user);
+//           System.out.println(checkedUser);
+//           if(checkedUser == null) {
+//              returnMap.put("msg", "idFail");
+//           }else {
+//              if(!passwordEncoder.matches(userDTO.getUserPw(), checkedUser.getUserPw())) {
+//                 returnMap.put("msg", "pwFail");
+//              }else {
+//                 UserDTO loginUser = UserDTO.builder()
+//                                        .userId(checkedUser.getUserId())
+//                                        .userAge(checkedUser.getUserAge())
+//                                        .userEmail(checkedUser.getUserEmail())
+//                                        .userGen(checkedUser.getUserGen())
+//                                        .userLoc(checkedUser.getUserLoc())
+//                                        .userPw(checkedUser.getUserPw())
+//                                        .userNick(checkedUser.getUserNick())
+//                                        .userNm(checkedUser.getUserNm())
+//                                        .userTel(checkedUser.getUserTel())
+//                                        .userNo(checkedUser.getUserNo())
+//                                        .userRole(checkedUser.getUserRole())
+//                                        .inputDtm(checkedUser.getInputDtm())
+//                                       
+//                                        .build();
+//                 session.setAttribute("loginUser", loginUser);
+//                 
+//                 System.out.println("[session : loginUser ] ==> "+session.getAttribute("loginUser"));
+//                 
+//                 returnMap.put("msg", "loginSuccess");
+//                 }
+//              }
+//           responseDTO.setItem(returnMap);
+//           return ResponseEntity.ok().body(responseDTO);
+//        } catch(Exception e) {
+//           responseDTO.setErrorMessage(e.getMessage());
+//           return ResponseEntity.badRequest().body(responseDTO);
+//        }
+//        }        
         
 //    @RequestMapping("/logout")
 // 	public void logout(HttpSession httpSession, HttpServletResponse response) throws Exception {
