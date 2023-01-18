@@ -348,3 +348,8 @@
 		opacity: 1;
 		text-align: center;
 	}
+	
+	.pwIdBtn:visited{
+		color :rgba(23, 97, 160, 1);
+		font-size: bold;
+	}

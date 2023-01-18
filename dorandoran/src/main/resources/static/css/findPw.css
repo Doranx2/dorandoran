@@ -26,7 +26,7 @@ body {
   width: 30.3rem;
   height: 33.8rem;
   position: absolute;
-  left: 119rem;
+  left: 110.6rem;
   top: 26.4rem;
   object-fit: cover;
   vertical-align: top;
@@ -95,7 +95,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2.rem;
+  font-size: 2em;
   font-weight: 900;
   line-height: 0.8928571429;
   letter-spacing: 0.154rem;
