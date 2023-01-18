@@ -781,10 +781,11 @@
  }
  
  .selectImg{
-	top: 687px;
+	top: 653px;
     left: 351px;
     width: 338px;
-    height: 400px;
+    height: 341px;
+    overflow: auto;
  }
  
  .helpStatus{
