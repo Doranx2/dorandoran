@@ -159,9 +159,13 @@ import com.ezen.doran.service.user.UserService;
                                         .userNick(checkedUser.getUserNick())
                                         .userNm(checkedUser.getUserNm())
                                         .userTel(checkedUser.getUserTel())
+                                        .userNo(checkedUser.getUserNo())
+                                        .userRole(checkedUser.getUserRole())
                                        
                                         .build();
                  session.setAttribute("loginUser", loginUser);
+                 
+                 System.out.println("session ? ==> "+session.getAttribute("loginUser"));
                  
                  returnMap.put("msg", "loginSuccess");
                  }

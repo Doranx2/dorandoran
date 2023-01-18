@@ -77,7 +77,7 @@ public class SecurityConfiguration {
 			//낚아챌 로그인 요청 url 지정
 			.loginProcessingUrl("/user/loginProc")
 			//로그인 성공 후 띄워줄 화면 url
-			.defaultSuccessUrl("/join/selectJoinList")
+			.defaultSuccessUrl("/")
 			.failureHandler(loginFailureHandler);
 			//OAuth기반 로그인 처리
 			/*.and()
