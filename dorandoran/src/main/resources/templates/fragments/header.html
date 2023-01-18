@@ -19,8 +19,16 @@
 			</div>
 			<div class="v9_14">
 
+<!--			userController 사용
 				<div th:if="${session.loginUser eq null}" th:remove="tag">
 					<button class="headerBtn" id="login" onclick="location.href='/user/login'"
+						style="color:#FFFFFF; font-size:13px;">LOGIN</button>
+					<button class="headerBtn" id="join" onclick="location.href='/user/join'"
+						style="color:#FFFFFF; font-size:13px;">JOIN</button>
+				</div> -->  
+				
+				<div th:if="${session.loginUser eq null}" th:remove="tag">
+					<button class="headerBtn" id="login" onclick="location.href='/temp/loginPage'"
 						style="color:#FFFFFF; font-size:13px;">LOGIN</button>
 					<button class="headerBtn" id="join" onclick="location.href='/user/join'"
 						style="color:#FFFFFF; font-size:13px;">JOIN</button>
@@ -38,7 +46,7 @@
 								<a
 								th:text="${session.loginUser.userId}"
 								style="color:#FFFFFF; font-size:13px;"></a></button>
-						<button class="headerBtn" id="logout" onclick="location.href='/user/logout'"
+						<button class="headerBtn" id="logout" onclick="location.href='/temp/logout'"
 							style="color:#FFFFFF; font-size:13px;">LOGOUT</button>
 						<img class="likeIcon" th:src="@{/images/chat.png}"
 							th:onclick="|location.href='@{/chat/rooms?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" />

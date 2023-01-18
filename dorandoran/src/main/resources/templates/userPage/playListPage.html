@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{layouts/layout}">
+   layout:decorate="~{layouts/layout}">
 
 <!-- head -->
 <head>
@@ -108,7 +108,7 @@
       <div class="auto-group-nuxn-EHk">
         <div class="group-31-ABQ">
           <div class="item--hSE">‘<a th:text="${session.loginUser.userNm}"></a>’님의 모임 목록</div>
-			
+         
           <div class="list-kfQ">
             <div class="frame-1134-gox">
               <div class="auto-group-fur8-D3C">
@@ -128,19 +128,19 @@
               </table>
               </div>
             </div>
-	            <li>
-	                <a th:href="@{/userPage/playListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}-1, userNo = ${session.loginUser.userNo})}">
-	                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
-	              
-	              
-	              <a th:href="@{/userPage/playListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}+1, userNo = ${session.loginUser.userNo})}">
-	                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
-	            </li>
+               <li>
+                   <a th:href="@{/userPage/playListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}-1, userNo = ${session.loginUser.userNo})}">
+                   <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+                 
+                 
+                 <a th:href="@{/userPage/playListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}+1, userNo = ${session.loginUser.userNo})}">
+                   <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+               </li>
           </div>
         </div>
 
-        	
-        <div class="chat">내 채팅방 확인하기</div>
+           
+        <div class="chat" th:onclick="|location.href='@{/chat/rooms?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|">내 채팅방 확인하기</div>
         
       </div>
     </div>

@@ -27,7 +27,7 @@ import java.security.SecureRandom;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ezen.doran.entity.User;
@@ -40,8 +40,8 @@ public class UserServiceImpl implements com.ezen.doran.service.user.UserService 
 	@Autowired
 	private UserRepository userRepository;
 	
-	@Autowired
-	private PasswordEncoder passwordEncoder;
+//	@Autowired
+//	private PasswordEncoder passwordEncoder;
 	
 	@Autowired
 	private MailService mailService;
@@ -128,7 +128,7 @@ public class UserServiceImpl implements com.ezen.doran.service.user.UserService 
 
 
 	      // 비밀번호 암호화해주는 메서드
-	      tempLoginPasswd = passwordEncoder.encode(tempLoginPasswd);
+//	      tempLoginPasswd = passwordEncoder.encode(tempLoginPasswd);
 	      // 데이터 베이스 값은 암호한 값으로 저장시킨다.
 	      userRepository.updateTempPw(user.getUserId(), tempLoginPasswd);
 	}
