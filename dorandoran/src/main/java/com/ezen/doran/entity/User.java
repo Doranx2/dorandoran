@@ -38,7 +38,7 @@ public class User {
 	@ColumnDefault("USER_ROLE")
 	private String userRole;
 	private String userNm;
-	private LocalDateTime inputDtm = LocalDateTime.now();
+//	private LocalDateTime inputDtm = LocalDateTime.now();
 
 	
 

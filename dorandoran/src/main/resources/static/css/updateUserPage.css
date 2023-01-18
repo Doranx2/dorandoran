@@ -545,8 +545,8 @@ body {
   flex-shrink: 0;
 }
 .item--yEn .auto-group-tkke-imL .auto-group-p7le-5zW .auto-group-u4yi-gN2 .auto-group-25ml-92e {
-  margin: 0rem 5.1rem 6.1rem 0rem;
-  width: calc(100% - 5.1rem);
+  margin: 0rem 13.35rem 5.1rem 0rem;
+  width: calc(100% - 13.35rem);
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -576,6 +576,7 @@ body {
   font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
+  margin-left: 100px;
 }
 .item--yEn .auto-group-tkke-imL .auto-group-p7le-5zW .auto-group-u4yi-gN2 .auto-group-wata-4J2 {
   margin: 0rem 13.35rem 5.1rem 0rem;
