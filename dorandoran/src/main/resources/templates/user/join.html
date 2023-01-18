@@ -1,207 +1,257 @@
 <!DOCTYPE html>
-<html lang="ko"
-	  xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layouts/layout}">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
 <head>
-  <meta charset="utf-8">
-  <link rel="icon" href="/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#000000">
-  <title>Join</title>
-  <th:block layout:fragment="css">
-	  <link rel="stylesheet" th:href="@{/css/join.css}">
-  </th:block>
-  <th:block layout:fragment="script">
-	  <script th:inline="javascript">
-		  $(function(){
-			  //아이디 중복체크 확인 여부
-			  var checkId = false;
-			  
-			  //비밀번호가 확인과 일치하는지
-			  var pwCheck = false;
-			  
-			  $("#pwCheckResult").hide();
-			  
-			  //아이디 중복체크
-			  $("#checkBtn").on("click", function(){
-				  $.ajax({
-					  url: "/user/idCheck",
-					  type: "post",
-					  data: {
-						  userId: $("#userId").val()
-					 },
-					  success: function(obj){
-						  console.log(obj);
-						  
-						  if(obj.item.msg == 'duplicatedId'){
-							  alert("이미 사용 중인 아이디입니다");
-							  $("#userId").focus();
-						  }else{
-							  if(confirm("사용 가능한 아이디입니다."+
-							  $("#userId").val() + "를(을) 사용하시겠습니까?")){
-								  checkId = true;
-								  $("#checkBtn").attr("disabled", true);
-							  }
-						  }
-					  },
-					  error: function(e){
-						  console.log(e);
-					  }
-					 
-				  })
-			  });
-			//id 중복체크 후 다시 id를 변경했을 때
-			$("#userId").on("change", function() {
-				checkId = false;
-				$("#checkBtn ").attr("disabled", false);
+	<meta charset="utf-8">
+	<link rel="icon" href="/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#000000">
+	<title>Join</title>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" th:href="@{/css/join.css}">
+	</th:block>
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			$(function () {
+				//아이디 중복체크 확인 여부
+				var checkId = false;
+
+				//닉네임 중복체크 확인 여부
+				var checkNick = false;
+
+				//비밀번호가 확인과 일치하는지
+				var pwCheck = false;
+
+				$("#pwCheckResult").hide();
+
+				//아이디 중복체크
+				$("#checkBtn").on("click", function () {
+					$.ajax({
+						url: "/user/idCheck",
+						type: "post",
+						data: {
+							userId: $("#userId").val()
+						},
+						success: function (obj) {
+							console.log(obj);
+
+							if (obj.item.msg == 'duplicatedId') {
+								alert("이미 사용 중인 아이디입니다");
+								$("#userId").focus();
+							} else {
+								if (confirm("사용 가능한 아이디입니다." +
+									$("#userId").val() + "를(을) 사용하시겠습니까?")) {
+									checkId = true;
+									$("#checkBtn").attr("disabled", true);
+								}
+							}
+						},
+						error: function (e) {
+							console.log(e);
+						}
+
+					})
 				});
-			//비밀번호 확인 후 재설정
-			if($("#userPw").val() == $("#userPwCheck").val()){
-				pwCheck = true;
-				$("#pwCheckResult").css("color", "blue");
-				$("#pwCheckResult").text("비밀번호가 일치합니다");
+
+				//닉네임 중복체크
+				$("#nickChk").on("click", function () {
+					$.ajax({
+						url: "/user/nickCheck",
+						type: "post",
+						data: {
+							userNick: $("#userNick").val()
+						},
+						success: function (obj) {
+							console.log(obj);
+
+							if (obj.item.msg == 'duplicatedNick') {
+								alert("이미 사용 중인 닉네임입니다");
+								$("#userNick").focus();
+							} else {
+								if (confirm("사용 가능한 닉네임입니다." +
+									$("#userNick").val() + "를(을) 사용하시겠습니까?")) {
+									checkNick = true;
+									$("#nickChk").attr("disabled", true);
+								}
+							}
+						},
+						error: function (e) {
+							console.log(e);
+						}
+
+					})
+				});
+
+				//id 중복체크 후 다시 id를 변경했을 때
+				$("#userId").on("change", function () {
+					checkId = false;
+					$("#checkBtn ").attr("disabled", false);
+				});
+
+				//닉네임 중복체크 후 다시 닉네임을 변경했을 때
+				$("#userNick").on("change", function () {
+					checkNick = false;
+					$("#nickChk ").attr("disabled", false);
+				});
+				//비밀번호 확인 후 재설정
+				if ($("#userPw").val() == $("#userPwCheck").val()) {
+					pwCheck = true;
+					$("#pwCheckResult").css("color", "blue");
+					$("#pwCheckResult").text("비밀번호가 일치합니다");
 				} else {
 					pwCheck = false;
 					$("#pwCheckResult").css("color", "red");
 					$("#pwCheckResult").text("비밀번호가 일치하지 않습니다");
 				}
-				
-			//submit 클릭 시
-			$("#joinForm").on("submit", function(e) {
-				if(!checkId){
-					e.preventDefault();
-					alert("ID 중복체크를해 해주세요");
-					$("#userId").focus();
-					return;
-				}
-				//비밀번호와 비밀번호 확인이 다를 경우
-				if(!pwCheck){
-					e.preventDefault();
-					alert("비밀번호가 일치하지 않습니다");
-					$("#userPwCheck").focus();
-					return;
-				}
-				/*$.ajax({
-					url:'/user/join',
-					type: 'post',
-					success: function(obj){
-						console.log(obj);
-						if(obj.item.joinMsg == 'joinSuccess'){
-							alert("회원가입에 성공하였습니다.");
-							window.location.href="/user/login";
-						}else{
-							alert("회원가입에 실패하였습니다.");
-							return;
-						}
-					},
-					error: function(e){
-						console.log(e);
+
+				//submit 클릭 시
+				$("#joinForm").on("submit", function (e) {
+					if (!checkId) {
+						e.preventDefault();
+						alert("ID 중복체크를 해주세요");
+						$("#userId").focus();
+						return;
 					}
-				}) */ 
+
+					if (!checkNick) {
+						e.preventDefault();
+						alert("닉네임 중복체크를 해주세요");
+						$("#userNick").focus();
+						return;
+					}
+					//비밀번호와 비밀번호 확인이 다를 경우
+					if (!pwCheck) {
+						e.preventDefault();
+						alert("비밀번호가 일치하지 않습니다");
+						$("#userPwCheck").focus();
+						return;
+					}
+					/*$.ajax({
+						url:'/user/join',
+						type: 'post',
+						success: function(obj){
+							console.log(obj);
+							if(obj.item.joinMsg == 'joinSuccess'){
+								alert("회원가입에 성공하였습니다.");
+								window.location.href="/user/login";
+							}else{
+								alert("회원가입에 실패하였습니다.");
+								return;
+							}
+						},
+						error: function(e){
+							console.log(e);
+						}
+					}) */
+				});
 			});
-		  });
-		  
-	  </script>
-  </th:block>
+
+		</script>
+	</th:block>
 </head>
 
 
 <body>
 	<div layout:fragment="content">
 		<div class="join-D6e">
-		<form id="joinForm" action="/user/join" method="post">
-  <p class="join-Lwx">JOIN</p>
-  <div class="join-input-section">
-	  <div class="auto-group-rjqn-Sk6">
-	    <p class="item--WV4 font-red">*필수입력사항</p>
-	  </div>
-	  <div class="line-3-bWW">
-	  </div>
-	    <div class="auto-group-euft-fFU">
-	      <p class="item--zHk">
-	        <span class="item--zHk-sub-0">아이디 </span>
-	        <span class="item--zHk-sub-1 font-red">*</span>
-	      </p>
-	      <div class="join-userid-section">
-		      <input type="text" id="userId" name="userId" class="rectangle-52-AdU" required> <!-- name 또는 id = userId 설정 -->
-		      <button type="button" id="checkBtn" class="checkBtn">중복체크</button>
-	      </div>
-	    </div>
-	    <div class="auto-group-fchg-TUA">
-	      <p class="item--U6S">
-	        <span class="item--U6S-sub-0">비밀번호 </span>
-	        <span class="item--U6S-sub-1 font-red">*</span>
-	      </p>
-	
-	      <input type="password" id="userPw" name="userPw" class="rectangle-53-V9x" required>
-	    </div>
-	<!--    <div class="idcheckbtn-owL">
+			<form id="joinForm" action="/user/join" method="post">
+				<p class="join-Lwx">JOIN</p>
+				<div class="join-input-section">
+					<div class="auto-group-rjqn-Sk6">
+						<p class="item--WV4 font-red">*필수입력사항</p>
+					</div>
+					<div class="line-3-bWW">
+					</div>
+					<div class="auto-group-euft-fFU">
+						<p class="item--zHk">
+							<span class="item--zHk-sub-0">아이디 </span>
+							<span class="item--zHk-sub-1 font-red">*</span>
+						</p>
+						<div class="join-userid-section">
+							<input type="text" id="userId" name="userId" class="rectangle-52-AdU" required>
+							<!-- name 또는 id = userId 설정 -->
+							<button type="button" id="checkBtn" class="checkBtn">중복체크</button>
+						</div>
+					</div>
+					<div class="auto-group-fchg-TUA">
+						<p class="item--U6S">
+							<span class="item--U6S-sub-0">비밀번호 </span>
+							<span class="item--U6S-sub-1 font-red">*</span>
+						</p>
+
+						<input type="password" id="userPw" name="userPw" class="rectangle-53-V9x" required>
+					</div>
+					<!--    <div class="idcheckbtn-owL">
 	      <div class="rectangle-53-Ytv">
 	      </div>
 	      <div class="item--fyY">중복체크</div>
 	    </div>-->
-	  <div class="auto-group-q4e6-KoC">
-	    <p class="item--ro8">
-	      <span class="item--ro8-sub-0">비밀번호 확인 </span>
-	      <span class="item--ro8-sub-1 font-red">*</span>
-	    </p>
-	    <input type="password" id="userPwCheck" name="userPwCheck" class="rectangle-54-E2z" required>
-	  </div>
-	  <div class="auto-group-auhp-kGE">
-	    <p class="item--g9t">
-	      <span class="item--g9t-sub-0">닉네임 </span>
-	      <span class="item--g9t-sub-1 font-red">*</span>
-	    </p>
-	    <input type="text" id="userNick" name="userNick" class="rectangle-56-HQa" required>
-	    </input>
-	  </div>
-	  <div class="auto-group-auhp-kGE">
-		  <p class="item--CnS">
-		    <span class="item--CnS-sub-0">지역 </span>
-		    <span class="item--CnS-sub-1 font-red">*</span>
-		  </p>
-		  <input type="text" id="userLoc" name="userLoc" class="rectangle-56" required>
-	  </div>
-	  <div class="auto-group-izrk-ygi">
-	    <p class="item--72E">
-	      <span class="item--72E-sub-0">이메일 </span>
-	      <span class="item--72E-sub-1 font-red">*</span>
-	    </p>
-	    <input type="email" id="userEmail" name="userEmail" class="rectangle-55-JsQ" required>
-	  </div>
-	  <div class="auto-group-izrk-ygi">
-		  <p class="item--2YW">성별</p>
-		  <div class="genmangirl">
-		  	<input type="radio" id="userGen" name="userGen" value="M">남성
-		  	<input type="radio" id="userGen" name="userGen" value="F">여성
-		  </div>
-	  </div>
-	  <div class="auto-group-entz-vtn">
-	    <p class="item--Tti">나이</p>
-        <input type="text" id="userAge" name="userAge" class="rectangle-57-Xdg">
-	  </div>
-	  <div class="auto-group-nm">
-		  <p class="item-nm">이름</p>
-		  <input type="text" id="userNm" name="userNm" class="rectangle-nm" required>
-	  </div>
-	  <div class="auto-group-tel">
-		  <p class="item-tel">전화번호</p>
-		  <input type="text" id="userTel" name="userTel" class="rectangle-tel" required>
-	  </div>
-	  <div class="line-2-yEE">
-	  </div>
-	  <div class="auto-group-entz-vtn">
-	  	<button type="submit" id="joinBtn" class="joinBtn">가입하기</button>
-	  </div>
-  </div>
-<!--  <div class="auto-group-3qan-9f4"> <!--가입하기 버튼-->
-<!--    <div class="rectangle-98-HmG">
+					<div class="auto-group-q4e6-KoC">
+						<p class="item--ro8">
+							<span class="item--ro8-sub-0">비밀번호 확인 </span>
+							<span class="item--ro8-sub-1 font-red">*</span>
+						</p>
+						<input type="password" id="userPwCheck" name="userPwCheck" class="rectangle-54-E2z" required>
+					</div>
+					<div class="auto-group-auhp-kGE">
+						<p class="item--g9t">
+							<span class="item--g9t-sub-0">닉네임 </span>
+							<span class="item--g9t-sub-1 font-red">*</span>
+						</p>
+						<div class="join-userNick-section">
+							<input type="text" id="userNick" name="userNick" class="rectangle-56-HQa" required>
+							<button type="button" id="nickChk" class="nickChk">중복체크</button>
+						</div>
+						</input>
+					</div>
+					<div class="auto-group-auhp-kGE">
+						<p class="item--CnS">
+							<span class="item--CnS-sub-0">지역 </span>
+							<span class="item--CnS-sub-1 font-red">*</span>
+						</p>
+						<input type="text" id="userLoc" name="userLoc" class="rectangle-56" required>
+					</div>
+					<div class="auto-group-izrk-ygi">
+						<p class="item--72E">
+							<span class="item--72E-sub-0">이메일 </span>
+							<span class="item--72E-sub-1 font-red">*</span>
+						</p>
+						<input type="email" id="userEmail" name="userEmail" class="rectangle-55-JsQ" required>
+					</div>
+					<div class="auto-group-izrk-ygi">
+						<p class="item--2YW">성별</p>
+						<div class="genmangirl">
+							<input type="radio" id="userGen" name="userGen" value="M">남성
+							<input type="radio" id="userGen" name="userGen" value="F">여성
+						</div>
+					</div>
+					<div class="auto-group-entz-vtn">
+						<p class="item--Tti">나이</p>
+						<input type="text" id="userAge" name="userAge" class="rectangle-57-Xdg">
+					</div>
+					<div class="auto-group-nm">
+						<p class="item-nm">이름</p>
+						<input type="text" id="userNm" name="userNm" class="rectangle-nm" required>
+					</div>
+					<div class="auto-group-tel">
+						<p class="item-tel">전화번호</p>
+						<input type="text" id="userTel" name="userTel" class="rectangle-tel" required>
+					</div>
+					<div class="line-2-yEE">
+					</div>
+					<div class="auto-group-entz-vtn">
+						<button type="submit" id="joinBtn" class="joinBtn">가입하기</button>
+					</div>
+				</div>
+				<!--  <div class="auto-group-3qan-9f4"> <!--가입하기 버튼-->
+				<!--    <div class="rectangle-98-HmG">
     </div>
     <div class="item--qGz">가입하기</div>
   				</div>-->
-  			</form>
+			</form>
 		</div>
-		</div>
-	</body>
+	</div>
+</body>
+
 </html>
