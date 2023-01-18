@@ -35,14 +35,14 @@
       </div>
       <div class="auto-group-7thx-cRL">
         <p class="nnnn--jF4">
-        오늘은 도란도란과 함께한 지
+        도란도란은 오늘
         <br>
-        + nnnn 일 
+        <span th:text="${#dates.format(#dates.createNow(), 'yyyy년MM월dd일')}" style="color: #585858; font-size:40px;"></span>
         <br>
-        되는 날입니다!
+        입니다!
         </p>
       </div>
-      <div class="rectangle-104-RNn">
+      <div class="rectangle-104-RNn" style="background-image: url(/images/dev.png); background-repeat: no-repeat">
       </div>
     </div>
     
@@ -55,7 +55,7 @@
         <div class="group-33-21C">
           <div class="rectangle-106-At6">
           </div>
-          <a class="item--7HY" href="/admin/getAdNoticeList" style="cursor: pointer;">공지 확인하기</a>
+          <a class="item--7HY" href="/cscenter/noticeList" style="cursor: pointer;">공지 확인하기</a>
         </div>
       </div>
     </div>
@@ -104,66 +104,78 @@
       </div>
       <div class="auto-group-ugjn-L54">
         <div class="group-31-TQa">
+        
+        <!-- 문의 목록 -->
           <div class="item-1-1--oUS">‘<a th:text="${session.loginUser.userNm}"></a>’님의 1:1 문의 목록</div>
           <div class="list-ezr">
             <div class="frame-1134-yXL">
-              <div class="auto-group-ywae-WGN">
-              <table>
-                <tr class="auto-group-trva-Ru8">
-                  <td class="item--kRc">번호</td>
-                  <td class="item--eG6">제목</td>
-                  <td class="item--wkz">날짜</td>
+              <div >
+              <table class="auto-group-ywae-WGN">
+                <tr>
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>날짜</th>
+                  <th>상태</th>
                 </tr>
-                <tr th:each="myQuestion : ${myQuestion}" class="auto-group-383t-FWn">
-                  <td th:text="${myQuestion.qNo}" class="item-1-yxa"></td>
-                  <td th:text="${myQuestion.qTitle}" class="item--6GW"></td>
-                  <td th:text="${myQuestion.inputDtm}" class="item-0000-00-00-yr6"></div>
+                <tr th:each="myQuestion : ${myQuestion}">
+                  <td th:text="${myQuestion.qNo}"></td>
+                  <td th:text="${myQuestion.qTitle}" class="Title"></td>
+                  <td th:text="${myQuestion.inputDtm}"></td>
+                  <td th:text="${myQuestion.aYn}" style="font-weight: bold;"></td>
                 </tr>
               </table>
-                <div class="auto-group-vdfy-hXC">
-                  <img class="btn1-bsU" th:src="@{/images/btn1-5LA.png}"/>
-                  <div class="item-1-wgS">1</div>
-                  <img class="btn1-GTp" th:src="@{/images/btn1-mHp.png}"/>
-                </div>
               </div>
             </div>
+            <!-- 페이지 버튼 -->
+            	<li class="auto-group-vdfy-hXC">
+	              <a th:href="@{/userPage/questionListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}-1, userNo = ${session.loginUser.userNo})}">
+	                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+	              
+	              
+	              <a th:href="@{/userPage/questionListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}+1, userNo = ${session.loginUser.userNo})}">
+	                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+	           </li>
+	        <!-- 페이지 버튼 -->
           </div>
+          <!-- 문의 목록 -->
 
-          <div class="item--xLe">
-            <div class="btn-ezA">취소</div>
-            <div class="btn-uQJ">삭제</div>
-          </div>
-
+		  <!-- 신고 목록 -->
           <div class="group-31-LkW">
             <div class="item--gZU">‘<a th:text="${session.loginUser.userNm}"></a>’님의 신고 목록</div>
             <div class="list-Z7U">
               <div class="frame-1134-H3U">
-                <div class="auto-group-cpsz-cLe">
-                <table>
-                  <tr class="auto-group-puej-L1k">
-                    <td class="item--FuQ">번호</td>
-                    <td th:text="${}" class="item--MxS">제목</td>
-                    <td th:text="${}" class="item--fy8">날짜</td>
+                <div>
+                <table class="auto-group-cpsz-cLe">
+                  <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>날짜</th>
+                    <th>상태</th>
                   </tr>
-                  <tr th:each="myRep : ${myRep}" class="auto-group-fq5g-BwU">
-                    <td th:text="${myRep.repNo}" class="item-1-Wyk"></td>
-                    <td th:text="${myRep.repTitle}" class="item--RL2"></td>
-                    <td th:text="${myRep.inputDtm}" class="item-0000-00-00-KRQ"></td>
+                  <tr th:each="myRep : ${myRep}">
+                    <td th:text="${myRep.repNo}"></td>
+                    <td th:text="${myRep.repTitle}" class="Title"></td>
+                    <td th:text="${myRep.inputDtm}"></td>
+                    <td th:text="${myRep.compYn}" style="font-weight: bold;"></td>
                   </tr>
                 </table>
-                  <div class="auto-group-thkg-36W">
-                    <img class="btn1-9fL" th:src="@{/images/btn1-5LA.png}"/>
-                    <div class="item-1-HWe">1</div>
-                    <img class="btn1-pWa" th:src="@{/images/btn1-mHp.png}"/>
-                  </div>
+
                 </div>
               </div>
-            </div>
-            <div class="item--7ka">
-              <div class="btn-dyp">취소</div>
-              <div class="btn-6sQ">삭제</div>
+              <!-- 페이지 버튼 -->
+                  <li class="auto-group-thkg-36W">
+              <a th:href="@{/userPage/questionListPage?page2={page}&userNo={userNo} (page = ${pagination2.page}-1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+              
+              <a th:href="@{/userPage/questionListPage?page2={page}&userNo={userNo} (page = ${pagination2.page}+1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+                  </li>
+              <!-- 페이지 버튼 -->
             </div>
           </div>
+          <!-- 신고 목록 -->
+          
+          
         </div>
       </div>
     </div>

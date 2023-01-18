@@ -5,9 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Pagination {
+public class Pagination2 {
 	/** 1. 페이지 당 보여지는 게시글의 최대 개수 **/
-	private int pageSize = 8;
+	private int pageSize = 5;
 
 	/** 2. 페이징된 버튼의 블럭당 최대 개수 **/
 	private int blockSize = 5;
@@ -44,7 +44,7 @@ public class Pagination {
 	
 	private int userNo;
 	
-	public Pagination(int totalListCnt, int page) {
+	public Pagination2(int totalListCnt, int page) {
 
 		// 총 게시물 수와 현재 페이지를 Controller로 부터 받아온다.
 

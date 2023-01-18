@@ -35,14 +35,14 @@
       </div>
       <div class="auto-group-hazv-j4S">
         <p class="nnnn--3L2">
-        오늘은 도란도란과 함께한 지
+        도란도란은 오늘
         <br>
-        + nnnn 일 
+        <span th:text="${#dates.format(#dates.createNow(), 'yyyy년MM월dd일')}" style="color: #585858; font-size:40px;"></span>
         <br>
-        되는 날입니다!
+        입니다!
         </p>
       </div>
-      <div class="rectangle-104-iwx">
+      <div class="rectangle-104-iwx" style="background-image: url(/images/dev.png); background-repeat: no-repeat">
       </div>
     </div>
     
@@ -55,7 +55,7 @@
         <div class="group-33-M7k">
           <div class="rectangle-106-u9G">
           </div>
-          <a class="item--q2v" href="/admin/getAdNoticeList" style="cursor: pointer;">공지 확인하기</a>
+          <a class="item--q2v" href="/cscenter/noticeList" style="cursor: pointer;">공지 확인하기</a>
         </div>
       </div>
     </div>
@@ -104,39 +104,105 @@
       </div>
       <div class="auto-group-adxg-wWW">
         <div class="item--Tze">‘도란이’님의 게시글 목록</div>
-        <div class="item--v7Y">
-          <div class="rectangle-100-SLn">
-          </div>
-          <div class="btn-ZgJ">검색</div>
-        </div>
+        
+        <!-- 공유해요 리스트 -->
+          <div class="listName">공유해요</div>
         <div class="list-pcE">
-          <div class="auto-group-xbx6-mnN">
-          <table>
-            <tr class="item--TQJ">
-              <td class="item--yNe">번호</td>
-              <td class="item--5Rg">제목</td>
-              <td class="item--naz">날짜</td>
+          <div>
+          <table class="auto-group-xbx6-mnN">
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>날짜</th>
             </tr>
-            <tr class="group-26-WWz">
-              <td class="item-1-eNJ">1</td>
-              <td class="item--xNz">예쁜 카페 가요~</td>
-              <td class="item-0000-00-00-Tae">0000/00/00</td>
+			<tr th:each="myShare : ${myShare}">
+              <td th:text="${myShare.ShareNo}"></td>
+              <td th:text="${myShare.ShareTitle}" th:onclick="|location.href='@{/share/selectShare?shareNo={shareNo} (shareNo = ${myShare.shareNo})}'|" style="cursor:pointer;" class="Title"></td>
+              <td th:text="${myShare.inputDtm}"></td>
             </tr>
           </table>
           
-            <div class="group-30-rVc">
-              <img class="btn1-ND4" th:src="@{/images/btn1-5LA.png}"/>
-              <div class="item-1-WKG">1</div>
-              <img class="btn1-SCv" th:src="@{/images/btn1-mHp.png}"/>
-            </div>
           </div>
         </div>
-		
-        <div class="item--tai">
-          <div class="btn-1QS">취소</div>
-          <div class="btn-fUz">삭제</div>
+        
+        <!-- 페이지 버튼 -->
+			<li class="group-30-rVc">
+              <a th:href="@{/userPage/writingListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}-1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+              
+              
+              <a th:href="@{/userPage/writingListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}+1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+            </li>
+        <!-- 페이지 버튼 -->
+        <!-- 공유해요 리스트 -->
+        
+        
+        <!-- 도와줘요 리스트 -->
+        <div class="listName">도와줘요</div>
+        <div class="list-pcE">
+          <div>
+          <table class="auto-group-xbx6-mnN">
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>날짜</th>
+            </tr>
+            <tr th:each="myHelp : ${myHelp}">
+              <td th:text="${myHelp.HelpNo}"></td>
+              <td th:text="${myHelp.HelpTitle}" th:onclick="|location.href='@{/help/selectHelp?helpNo={helpNo} (helpNo = ${myHelp.helpNo})}'|" style="cursor:pointer;" class="Title"></td>
+              <td th:text="${myHelp.inputDtm}"></td>
+            </tr>
+          </table>
+          
+          </div>
         </div>
-
+        
+        <!-- 페이지 버튼 -->
+			<li class="group-30-rVc">
+              <a th:href="@{/userPage/writingListPage?page2={page}&userNo={userNo} (page = ${pagination2.page}-1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+              
+              
+              <a th:href="@{/userPage/writingListPage?page2={page}&userNo={userNo} (page = ${pagination2.page}+1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+            </li>
+        <!-- 페이지 버튼 -->
+        <!-- 공유해요 리스트 -->
+        
+        
+        <!-- 놀아줘요 리스트 -->
+        <div class="listName">놀아줘요</div>
+        <div class="list-pcE">
+          <div>
+          <table class="auto-group-xbx6-mnN">
+            <tr>
+              <th>번호</th>
+              <th>제목</th>
+              <th>날짜</th>
+            </tr>
+            <tr th:each="myPlay : ${myPlay}">
+              <td th:text="${myPlay.playNo}"></td>
+              <td th:text="${myPlay.playTitle}" th:onclick="|location.href='@{/play/selectPlay?playNo={playNo} (playNo = ${myPlay.playNo})}'|" style="cursor:pointer;" class="Title"></td>
+              <td th:text="${myPlay.inputDtm}"></td>
+            </tr>
+          </table>
+          
+          </div>
+        </div>
+        
+        <!-- 페이지 버튼 -->
+			<li class="group-30-rVc">
+              <a th:href="@{/userPage/writingListPage?page3={page}&userNo={userNo} (page = ${pagination3.page}-1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+              
+              
+              <a th:href="@{/userPage/writingListPage?page3={page}&userNo={userNo} (page = ${pagination3.page}+1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+            </li>
+        <!-- 페이지 버튼 -->
+        <!-- 공유해요 리스트 -->
+        
       </div>
     </div>
     <!-- 상세창 내부 -->

@@ -36,14 +36,14 @@
       </div>
       <div class="auto-group-ezwe-QUW">
         <p class="nnnn--vxe">
-        오늘은 도란도란과 함께한 지
+        도란도란은 오늘
         <br>
-        + nnnn 일 
+        <span th:text="${#dates.format(#dates.createNow(), 'yyyy년MM월dd일')}" style="color: #585858; font-size:40px;"></span>
         <br>
-        되는 날입니다!
+        입니다!
         </p>
       </div>
-      <div class="rectangle-104-ECe">
+      <div class="rectangle-104-ECe" style="background-image: url(/images/dev.png); background-repeat: no-repeat">
       </div>
     </div>
     
@@ -56,7 +56,7 @@
         <div class="group-33-Tjc">
           <div class="rectangle-106-1WE">
           </div>
-          <a class="item--YWA" href="/admin/getAdNoticeList" style="cursor: pointer;">공지 확인하기</a>
+          <a class="item--YWA" href="/cscenter/noticeList" style="cursor: pointer;">공지 확인하기</a>
         </div>
       </div>
     </div>
@@ -113,69 +113,35 @@
             <div class="frame-1134-gox">
               <div class="auto-group-fur8-D3C">
               <table id="myPlayTable">
-                <tr class="auto-group-cedg-viJ">
-                  <td class="item--fA6">번호</td>
-                  <td class="item--NKQ">제목</td>
-                  <td class="item--HSN">작성일자</td>
-                  <td class="item--CZL">상태</td>
+                <tr>
+                  <th class="item--fA6">번호</th>
+                  <th class="item--NKQ">제목</th>
+                  <th class="item--HSN">작성일자</th>
+                  <th class="item--CZL">상태</th>
                 </tr>
-                <tr class="auto-group-qihy-7gJ" th:each="play : ${selectMyPlayList}">
-                  <td class="item-1-qMQ" th:text="${play.playNo}"></td>
-                  <td class="item--jxa" th:text="${play.playTitle}"></td>
-                  <td class="item-0000-00-00-do4" th:text="${play.inputDtm eq null ? '' : #strings.substring(play.inputDtm, 0, 10)}"></td>
-                  <td class="item--kcn"></td>
+                <tr th:each="myJoin : ${myJoin}">
+                  <td th:text="${myJoin.joinNo}"></td>
+                  <td th:text="${myJoin.joinTitle}" th:onclick="|location.href='@{/join/selectJoin?joinNo={joinNo} (joinNo = ${myJoin.joinNo})}'|" style="cursor:pointer;" class="Title"></td>
+                  <td th:text="${myJoin.inputDtm}"></td>
+                  <td th:text="${myJoin.doneYn}"></td>
                 </tr>
               </table>
-                <div class="auto-group-ozvx-gFY">
-                  <img class="btn1-o5G" th:src="@{/images/btn1-5LA.png}"/>
-                  <div class="item-1-Lqt">1</div>
-                  <img class="btn1-USJ" th:src="@{/images/btn1-mHp.png}"/>
-                </div>
               </div>
             </div>
+	            <li>
+	                <a th:href="@{/userPage/playListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}-1, userNo = ${session.loginUser.userNo})}">
+	                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+	              
+	              
+	              <a th:href="@{/userPage/playListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}+1, userNo = ${session.loginUser.userNo})}">
+	                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+	            </li>
           </div>
-
-          <div class="item--Apv">
-            <div class="btn-6ia">취소</div>
-            <div class="btn-ko8">삭제</div>
-          </div>
-
         </div>
 
-        <div class="group-32-c4e">
-          <div class="item--Mnv">‘<a th:text="${session.loginUser.userNm}"></a>’님의 모임 신청 목록</div>
-          <div class="list-DaE">
-            <div class="frame-1134-wWE">
-              <div class="auto-group-pgqx-UFG">
-                <table id="joinPlayTable">
-                <tr class="auto-group-urfp-bKt">
-                  <td class="item--XDY">번호</td>
-                  <td class="item--SLW">제목</td>
-                  <td class="item--YuL">날짜</td>
-                  <td class="item--U2J">상태</td>
-                </tr>
-                <tr class="auto-group-r78e-BhQ">
-                  <td class="item-1-Wza">1</td>
-                  <td class="item--Rre">오버워치 하실 분</td>
-                  <td class="item-0000-00-00-8WA">0000/00/00</td>
-                  <td class="item--FKt">진행 중</td>
-                </tr>
-                </table>
-                <div class="auto-group-lcft-mZ8">
-                  <img class="btn1-HGa" th:src="@{/images/btn1-5LA.png}"/>
-                  <div class="item-1-2V4">1</div>
-                  <img class="btn1-N38" th:src="@{/images/btn1-mHp.png}"/>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="item--TaN">
-            <div class="btn-nMk">취소</div>
-            <div class="btn-qL2">삭제</div>
-          </div>
-
-        </div>
+        	
+        <div class="chat">내 채팅방 확인하기</div>
+        
       </div>
     </div>
     <!-- 상세창 내부 끝 -->

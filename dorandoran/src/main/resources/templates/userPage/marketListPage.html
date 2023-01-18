@@ -16,6 +16,18 @@
 		$(function(){
 			let userNo = /*[[${session.loginUser.userNo}]]*/;
 			console.log(userNo);
+			
+			let date = /*[[${session.loginUser.inputDtm}]]*/;
+			
+			let today = new Date();
+			
+			
+			let diff = today - date;
+			let diffDay = Math.floor(today / (1000*60*60*24));
+			
+			console.log(date);
+			console.log(today);
+			
 		});
 		
 		</script>
@@ -47,14 +59,14 @@
       </div>
       <div class="auto-group-9fml-uW6">
         <p class="nnnn--qPk">
-        오늘은 도란도란과 함께한 지
+        도란도란은 오늘
         <br>
-        + nnnn 일 
+        <span th:text="${#dates.format(#dates.createNow(), 'yyyy년MM월dd일')}" style="color: #585858; font-size:40px;"></span>
         <br>
-        되는 날입니다!
+        입니다!
         </p>
       </div>
-      <div class="rectangle-104-iiS">
+      <div class="rectangle-104-iiS" style="background-image: url(/images/dev.png); background-repeat: no-repeat">
       </div>
     </div>
     
@@ -67,7 +79,7 @@
         <div class="group-33-Kre">
           <div class="rectangle-106-gBQ">
           </div>
-          <a class="item--cKx" href="/admin/getAdNoticeList" style="cursor: pointer;">공지 확인하기</a>
+          <a class="item--cKx" href="/cscenter/noticeList" style="cursor: pointer;">공지 확인하기</a>
         </div>
       </div>
     </div>
@@ -120,40 +132,37 @@
 
       <div class="auto-group-v2ve-F2n">
         <div class="item--mG2">‘<a th:text="${session.loginUser.userNm}"></a>’님의 장터 목록</div>
-        <div class="item--RbU">
-          <div class="rectangle-100-LyL">
-          </div>
-          <div class="btn-U3x">검색</div>
-        </div>
         <div class="list-WWS">
           <div class="frame-1134-rqC">
-            <div class="auto-group-8phl-yQ2">
-            <table id="myMarketTable">
-              <tr class="auto-group-f23u-h58">
-                <td class="item--qSE">번호</td>
-                <td class="item--k3Q">제목</td>
-                <td class="item--TTc">날짜</td>
+            <div>
+            <table id="myMarketTable" class="auto-group-8phl-yQ2">
+              <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>날짜</th>
               </tr>
-              <tr th:each="myMarket : ${myMarket}" class="auto-group-f23u-h58">
-              	<td th:text="${myMarket.marketNo}" class="item--qSE"></td>
-                <td th:text="${myMarket.prodNm}" class="item--k3Q"></td>
-                <td th:text="${myMarket.inputDtm}" class="item--TTc"></td>
+              <tr th:each="myMarket : ${myMarket}">
+              	<td th:text="${myMarket.marketNo}"></td>
+                <td th:text="${myMarket.prodNm}" th:onclick="|location.href='@{/market/selectMarket?marketNo={marketNo} (marketNo = ${myMarket.marketNo})}'|" style="cursor:pointer;" class="Title"></td>
+                <td th:text="${myMarket.inputDtm}"></td>
               </tr>
              </table>
-              <div class="auto-group-bhvj-dmQ">
-                <img class="btn1-kb8" th:src="@{/images/btn1-5LA.png}"/>
-                <div class="item-1-uD8">1</div>
-                <img class="btn1-2Ye" th:src="@{/images/btn1-mHp.png}"/>
-              </div>
             </div>
           </div>
+          
+          <!-- 페이지 버튼 -->
+          
+               <li class="auto-group-bhvj-dmQ">
+                <a th:href="@{/userPage/marketListPage?page={page}&userNo={userNo} (page = ${pagination.page}-1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
+                
+                <a th:href="@{/userPage/marketListPage?page={page}&userNo={userNo} (page = ${pagination.page}+1, userNo = ${session.loginUser.userNo})}">
+                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
+              </li>
+              
+          <!-- 페이지 버튼 -->
+          
         </div>
-		
-        <div class="item--Wii">
-          <div class="btn-S6a">취소</div>
-          <div class="btn-Hcz">삭제</div>
-        </div>
-
       </div>
     </div>
     <!-- 상세창 내부 -->
