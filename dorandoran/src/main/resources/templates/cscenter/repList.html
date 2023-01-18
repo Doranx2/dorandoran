@@ -29,11 +29,11 @@
 						window.location.href = "/cscenter/loginPage";
 						e.preventDefault;
 					} else if (loginUser != null) {
-						const loginUserNm = loginUser.userNm;
-						const userNm = $(this).attr("data-report-writer");
-						console.log(loginUserNm);
-						console.log(userNm);
-						if (loginUserNm != userNm) {
+						const loginUserId = loginUser.userId;
+						const userId = $(this).attr("data-report-writer");
+						console.log(loginUserId);
+						console.log(userId);
+						if (loginUserId != userId) {
 							alert("다른 회원의 글은 열람이 불가합니다.");
 							e.preventDefault;
 						} else {
@@ -59,12 +59,12 @@
 										<td>${obj.item.repList[i].repNo}</td>
 										<td>
 											<a name="repTitDet" id="'repTitDet' + ${obj.item.repList[i].repNo}" href="#" 
-											   data-report-writer="${obj.item.repList[i].userNm}" data-report-repno="${obj.item.repList[i].repNo}">
+											   data-report-writer="${obj.item.repList[i].userId}" data-report-repno="${obj.item.repList[i].repNo}">
 											   ${obj.item.repList[i].repTitle}
 											</a>
 											<img src="/images/lock.png" width="18px" height="18px;">
 										</td>
-										<td>${obj.item.repList[i].userNm}</td>
+										<td>${obj.item.repList[i].userNick}</td>
 										<td>
 											${obj.item.repList[i].inputDtm == null ? '' : obj.item.repList[i].inputDtm.substring(0, 10)}
 										</td>
@@ -179,11 +179,11 @@
 								<td th:text=${report.repNo}></td>
 								<td>
 									<a th:text="${report.repTitle}" name="repTitDet" th:id="'repTitDet' + ${report.repNo}" href="#" 
-									   th:data-report-writer="${report.userNm}" th:data-report-repno="${report.repNo}">
+									   th:data-report-writer="${report.userId}" th:data-report-repno="${report.repNo}">
 									</a>
 									<img th:src="@{/images/lock.png}" width="18px" height="18px;">
 								</td>
-								<td th:text="${report.userNm}"></td>
+								<td th:text="${report.userNick}"></td>
 								<td
 									th:text="${report.inputDtm eq null ? '' : #strings.substring(report.inputDtm, 0, 10)}">
 								</td>

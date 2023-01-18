@@ -18,4 +18,5 @@ public class RepDTO {
 	private String inputDtm;
 	private String compYn;
 	private String userNm;
+	private String userNick;
 }

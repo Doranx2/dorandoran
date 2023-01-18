@@ -29,11 +29,11 @@
 						window.location.href = "/cscenter/loginPage";
 						e.preventDefault;
 					} else if (loginUser != null) {
-						const loginUserNm = loginUser.userNm;
-						const userNm = $(this).attr("data-question-writer");
-						console.log(loginUserNm);
-						console.log(userNm);
-						if (loginUserNm != userNm) {
+						const loginUserId = loginUser.userId;
+						const userId = $(this).attr("data-question-writer");
+						console.log(loginUserId);
+						console.log(userId);
+						if (loginUserId != userId) {
 							alert("다른 회원의 글은 열람이 불가합니다.");
 							e.preventDefault;
 						} else {
@@ -59,12 +59,12 @@
 										<td>${obj.item.questionList[i].qno}</td>
 										<td>
 											<a name="qTitDet" id="'qTitDet' + ${obj.item.questionList[i].qno}" href="#" 
-											   data-question-writer="${obj.item.questionList[i].userNm}" data-question-qno="${obj.item.questionList[i].qno}">
+											   data-question-writer="${obj.item.questionList[i].userId}" data-question-qno="${obj.item.questionList[i].qno}">
 											   ${obj.item.questionList[i].qtitle}
 											</a>
 											<img src="/images/lock.png" width="18px" height="18px;">
 										</td>
-										<td>${obj.item.questionList[i].userNm}</td>
+										<td>${obj.item.questionList[i].userNick}</td>
 										<td>
 											${obj.item.questionList[i].inputDtm == null ? '' : obj.item.questionList[i].inputDtm.substring(0, 10)}
 										</td>
@@ -179,11 +179,11 @@
 								<td th:text=${question.qNo}></td>
 								<td>
 									<a th:text="${question.qTitle}" name="qTitDet" th:id="'qTitDet' + ${question.qNo}" href="#" 
-									   th:data-question-writer="${question.userNm}" th:data-question-qno="${question.qNo}">
+									   th:data-question-writer="${question.userId}" th:data-question-qno="${question.qNo}">
 									</a>
 									<img th:src="@{/images/lock.png}" width="18px" height="18px;">
 								</td>
-								<td th:text="${question.userNm}"></td>
+								<td th:text="${question.userNick}"></td>
 								<td
 									th:text="${question.inputDtm eq null ? '' : #strings.substring(question.inputDtm, 0, 10)}">
 								</td>
