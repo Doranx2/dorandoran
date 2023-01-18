@@ -26,8 +26,11 @@
 				//password가 형식에 맞게 작성됐는지(특수문자 + 영문자 + 숫자 8자리)
 				var pwValidation = false;
 
+				var telValidation = false;
+
 				$("#pwValidation").hide();
 				$("#pwCheckResult").hide();
+				$("#telValidation").hide();
 
 				//아이디 중복체크
 				$("#checkBtn").on("click", function () {
@@ -132,6 +135,22 @@
 					}
 				});
 
+				function validateTel(character) {
+					return /^[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}/.test(character);
+				}
+
+				$("#userTel").on("change", function () {
+					
+					if (!validateTel($("#userTel").val())) {
+						telValidation = false;
+						$("#telValidation").show();
+						$("#userTel").focus();
+					} else {
+						telValidation = true;
+						$("#telValidation").hide();
+					}
+				});
+
 				//id 중복체크 후 다시 id를 변경했을 때
 				$("#userId").on("change", function () {
 					checkId = false;
@@ -173,6 +192,7 @@
 						e.preventDefault();
 						return;
 					}
+
 					/*$.ajax({
 						url:'/user/join',
 						type: 'post',
@@ -287,6 +307,9 @@
 					<div class="auto-group-tel">
 						<p class="item-tel">전화번호</p>
 						<input type="text" id="userTel" name="userTel" class="rectangle-tel" required>
+						<p id="telValidation" style="color: red; font-size: 0.8rem;">
+							전화번호는 000-0000-0000 형식에 맞게 작성해주세요.
+						</p>
 					</div>
 					<div class="line-2-yEE">
 					</div>
@@ -296,8 +319,8 @@
 				</div>
 				<!--  <div class="auto-group-3qan-9f4"> <!--가입하기 버튼-->
 				<!--    <div class="rectangle-98-HmG">
-    </div>
-    <div class="item--qGz">가입하기</div>
+			    </div>
+			    <div class="item--qGz">가입하기</div>
   				</div>-->
 			</form>
 		</div>
