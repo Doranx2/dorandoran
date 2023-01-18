@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 
 <body>
@@ -8,7 +9,7 @@
 			<div class="v9_2" onclick="location.href='/'" style="cursor:pointer;"></div>
 			<div class="v9_3">
 				<a class="v9_4" th:href="@{/join/selectJoinList}">함께해요</a>
-				<a class="v9_5"  th:href="@{/share/selectShareList}">공유해요</a>
+				<a class="v9_5" th:href="@{/share/selectShareList}">공유해요</a>
 				<a class="v9_6" th:href="@{/help/selectHelpList}">도와줘요</a>
 			</div>
 			<div class="v9_7">
@@ -17,25 +18,32 @@
 				<a class="v9_10" th:href="@{/cscenter/noticeList}">고객센터</a>
 			</div>
 			<div class="v9_14">
-			
-			<div th:if="${session.loginUser eq null}" th:remove="tag">
-				<button class="headerBtn" id="login" onclick="location.href='/temp/loginPage'" style="color:#FFFFFF; font-size:13px;">LOGIN</button>
-				<button class="headerBtn" id="join" onclick="location.href='/user/join'" style="color:#FFFFFF; font-size:13px;">JOIN</button>
+
+				<div th:if="${session.loginUser eq null}" th:remove="tag">
+					<button class="headerBtn" id="login" onclick="location.href='/user/login'"
+						style="color:#FFFFFF; font-size:13px;">LOGIN</button>
+					<button class="headerBtn" id="join" onclick="location.href='/user/join'"
+						style="color:#FFFFFF; font-size:13px;">JOIN</button>
+				</div>
+
+				<div th:if="${session.loginUser ne null}" th:remove="tag">
+					<button th:if="${session.loginUser.userRole} == 'ADMIN'" class="headerBtn" id="adminpage"
+						onclick="location.href='/admin/getAdNoticeList'">
+						<a style="color:#FFFFFF; font-size:13px;">ADMIN PAGE</a>
+					</button>
+
+					<div th:if="${session.loginUser ne null}" th:remove="tag">
+						<button class="headerBtn" id="userName" onclick="location.href='/userPage/updateUserPage'"><a
+								th:text="${session.loginUser.userId}"
+								style="color:#FFFFFF; font-size:13px;"></a></button>
+						<button class="headerBtn" id="logout" onclick="location.href='/user/logout'"
+							style="color:#FFFFFF; font-size:13px;">LOGOUT</button>
+						<img class="likeIcon" th:src="@{/images/chat.png}"
+							th:onclick="|location.href='@{/chat/rooms?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" />
+					</div>
+				</div>
 			</div>
-			
-			<div th:if="${session.loginUser ne null}" th:remove="tag" >
-			<button th:if="${session.loginUser.userRole} == 'ADMIN'" class="headerBtn" id="adminpage" 
-					onclick="location.href='/admin/getAdNoticeList'">
-				<a style="color:#FFFFFF; font-size:13px;">ADMIN PAGE</a>
-			</button>
-			
-			<div th:if="${session.loginUser ne null}" th:remove="tag" >
-				<button class="headerBtn" id="userName" onclick="location.href='/userPage/updateUserPage'"><a th:text="${session.loginUser.userId}" style="color:#FFFFFF; font-size:13px;"></a></button>
-				<button class="headerBtn" id="logout" onclick="location.href='/temp/logout'" style="color:#FFFFFF; font-size:13px;">LOGOUT</button>
-				<img class="likeIcon" th:src="@{/images/chat.png}" th:onclick="|location.href='@{/chat/rooms?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" />
-			</div>
-			</div>
-		</div>
+
 	</header>
 </body>
 

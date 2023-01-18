@@ -19,7 +19,7 @@
 							console.log(obj);
 							if (obj.item.msg == "loginSuccess") {
 								alert("로그인되었습니다.");
-								window.location.href = "/";
+								window.location.href("/");
 
 							} else if (obj.item.msg == "idFail") {
 								alert("아이디가 존재하지 않습니다.");
@@ -68,8 +68,8 @@
 				<div class="v19_197">
 					<input class="userId" id="userId" name="userId" placeholder="아이디를 입력하세요."></input>
 				</div><span class="v19_196">
-					<a th:href="@{/user/findIdCheck}" style="text-decoration: none;">아이디 찾기 |</a>
-					<a th:href="@{/user/findPwCheck}" style="text-decoration: none;">비밀번호 찾기</a>
+					<a class="pwIdBtn" th:href="@{/user/findIdCheck}" style="text-decoration: none;">아이디 찾기 |</a>
+					<a class="pwIdBtn" th:href="@{/user/findPwCheck}" style="text-decoration: none;">비밀번호 찾기</a>
 				</span>
 				<div class="v118_223">
 					<button id="loginBtn" class="v19_194"><span class="v118_222">로그인</span></button>

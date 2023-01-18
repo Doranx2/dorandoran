@@ -1,13 +1,7 @@
 <!DOCTYPE html>
-<html lang="ko"
-	  xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
 <head>
-  <meta charset="utf-8">
-  <link rel="icon" href="/favicon.ico">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#000000">
-  <title>findId</title>
   <th:block layout:fragment="css">
   	<link rel="stylesheet" th:href="@{/css/findId.css}">
   </th:block>
@@ -21,16 +15,14 @@
 	<div layout:fragment="content">
 	<div class="findid-rPx">
 		<form id="idSuccessForm" action="/user/login" method="post">
-	  <img class="image-5-noQ" src="/assets/image-5.png">
+	  <img class="image-5-noQ" src="/images/findEtc.png">
 	  	<p class="item--KoL">아이디를 찾았습니다!</p>
 	  	<div class="rectangle-35-z8n"></div>
 	  	
 	  	<button type="button" name="successBtn" id="successBtn" onclick="location.href='/login'"class="rectangle-48-VrE">확 인</button>
 	  <p class="item--8PQ">회원님의 아이디</p>
 	  	<div class="dorandoran-2Dt" th:text="${userId}"></div>
-	  <img class="image-9-iMc" src="/assets/image-9.png">
-	  <img class="image-10-FMY" src="/assets/image-10.png">
-	  <img class="item-01-1-BFC" src="/assets/-Mu8.png">
+	  <img class="image-10-FMY" src="/images/findIcon.png">
 				</form>
 			</div>
 		</div>

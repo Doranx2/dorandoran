@@ -77,7 +77,7 @@ public class SecurityConfiguration {
 			//낚아챌 로그인 요청 url 지정
 			.loginProcessingUrl("/user/loginProc")
 			//로그인 성공 후 띄워줄 화면 url
-			.defaultSuccessUrl("/join/selectJoinList")
+			.defaultSuccessUrl("/")
 			.failureHandler(loginFailureHandler);
 			//OAuth기반 로그인 처리
 			/*.and()
@@ -92,7 +92,7 @@ public class SecurityConfiguration {
 		http.logout()
 			.logoutUrl("/user/logout")
 			.invalidateHttpSession(true)
-			.logoutSuccessUrl("/user/login");
+			.logoutSuccessUrl("/");
 		
 		//크로스도메인 이슈 방지 설정
 		//크로스도메인: 웹 생태계 원칙적으로 하나의 웹 어플리케이션에서 요청에 대한 주소가 변경이 되면 안된다.

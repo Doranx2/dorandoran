@@ -47,7 +47,7 @@ public class ChatRoomController {
 		Integer check = chatRoomService.checkRooms(chatRoomDTO);
 		if (check != null && check != 0) {
 			log.info("# 이미 존재하는 채팅방입니다. 해당 채팅방으로 이동합니다.");
-			return "redirect:/chat/room?roomNo=" + check;
+			return "redirect:/chat/room?roomNo=" + check + "&userNo=" + chatRoomDTO.getSlaveNo() ;
 		}
 
 		log.info("# Create Chat Room , name: " + chatRoomDTO.getRoomNm());
