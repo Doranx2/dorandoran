@@ -15,4 +15,5 @@ public class MarketDTO {
 	private String status;
 	
 	private String imageNm;
+	private String userNick;
 }

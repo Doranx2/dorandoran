@@ -102,7 +102,7 @@
 
 				<form id="insertForm" method="post" action="/join/insertJoin" onsubmit="insertSubmit();">
 					<div class="v89_463">
-						<input class="JoinInput" name="joinTitle" placeholder="제목을 입력하세요." maxlength="25">
+						<input class="JoinInput" name="joinTitle" placeholder="제목을 입력하세요." maxlength="25" required>
 					</div>
 					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
 					<span class="joinCd">모집 분야</span>
@@ -133,12 +133,12 @@
 					<input type="hidden" name="joinTypeCd" id="joinTypeCd">
 					<span class="joinCnt">인원</span>
 					<div class="joinCntInput">
-						<input type="number" class="JoinInput" name="joinCnt" placeholder="몇명?">
+						<input type="number" class="JoinInput" name="joinCnt" placeholder="몇명?" required>
 					</div>
 					<span class="v89_475">명</span>
 					<span class="v89_468">모집날짜</span>
 					<div class="joinDtmInput">
-						<input type="date" class="JoinInput" name="joinDtm" placeholder="모집기간을 입력하세요.">
+						<input type="date" class="JoinInput" name="joinDtm" placeholder="모집기간을 입력하세요." required>
 					</div>
 
 					<span class="doneYn">모집상태</span>
@@ -151,11 +151,11 @@
 
 					<div class="v89_462">
 						<textarea id="joinContentInput" class="joinContent" name="joinContent"
-							placeholder="내용을 입력하세요."></textarea>
+							placeholder="내용을 입력하세요." required></textarea>
 					</div>
 					<div class="joinPlaceInput">
 						<span class="joinPlace">상세 장소</span>
-						<input class="JoinInput" name="joinPlace" placeholder="상세 장소를 입력하세요.">
+						<input class="JoinInput" name="joinPlace" placeholder="상세 장소를 입력하세요." required>
 					</div>
 
 					<button class="insertBtn" onclick="submit">등록</button>
@@ -168,7 +168,7 @@
 				<form id="updateForm" method="post" action="/join/updateJoin" onsubmit="insertSubmit();">
 					<div class="v89_463">
 						<input id="joinTitle" class="JoinInput" name="joinTitle" placeholder="제목을 입력하세요."
-							maxlength="25">
+							maxlength="25" required>
 					</div>
 					<input type="hidden" name="userNo" th:value="${session.loginUser.userNo}">
 					<input type="hidden" name="joinNo">
@@ -200,12 +200,12 @@
 					<input type="hidden" name="joinTypeCd" id="joinTypeCd">
 					<span class="joinCnt">인원</span>
 					<div class="joinCntInput">
-						<input type="number" id="joinCnt" class="JoinInput" name="joinCnt" placeholder="몇명?">
+						<input type="number" id="joinCnt" class="JoinInput" name="joinCnt" placeholder="몇명?" required>
 					</div>
 					<span class="v89_475">명</span>
 					<span class="v89_468">모집날짜</span>
 					<div class="joinDtmInput">
-						<input type="date" id="joinDtm" class="JoinInput" name="joinDtm" placeholder="모집기간을 입력하세요.">
+						<input type="date" id="joinDtm" class="JoinInput" name="joinDtm" placeholder="모집기간을 입력하세요." required>
 					</div>
 
 					<span class="doneYn">모집상태</span>
@@ -218,11 +218,11 @@
 
 					<div class="v89_462">
 						<textarea id="joinContent" class="joinContent" name="joinContent"
-							placeholder="내용을 입력하세요."></textarea>
+							placeholder="내용을 입력하세요." required></textarea>
 					</div>
 					<div class="joinPlaceInput">
 						<span class="joinPlace">상세 장소</span>
-						<input id="joinPlace" class="JoinInput" name="joinPlace" placeholder="상세 장소를 입력하세요.">
+						<input id="joinPlace" class="JoinInput" name="joinPlace" placeholder="상세 장소를 입력하세요." required>
 					</div>
 
 					<button class="insertBtn" onclick="submit">등록</button>

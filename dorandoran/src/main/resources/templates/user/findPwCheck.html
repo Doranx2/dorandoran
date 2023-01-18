@@ -1,42 +1,74 @@
 <!DOCTYPE html>
-<html lang="ko"
-	  xmlns:th="http://www.thymeleaf.org"
-	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	  layout:decorate="~{layouts/layout}">
-	  
-	<!-- head 영역 시작 -->
-	<!-- 개별적으로 사용할 css, js 링크 걸기 위해 남겨둠 -->
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layouts/layout}">
+
 <head>
-		<th:block layout:fragment="script">
-			<script th:inline="javascript">
-				$(function() {
-					
-				});
-			</script>
-		</th:block>
-		
-		<th:block layout:frament="css">
-			<style>
-				body {
-					height: 100%;
-				}
-			</style>
-		</th:block>
-	</head>
-	<!-- head 영역 끝 -->
-	<body>
+	<meta charset="utf-8">
+	<link rel="icon" href="/favicon.ico">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#000000">
+	<title>FindPwCheck</title>
+	<th:block layout:fragment="css">
+		<link rel="stylesheet" th:href="@{/css/findPwCheck.css}">
+	</th:block>
+	<th:block layout:fragment="script">
+		<script th:inline="javascript">
+			$(function () {
+				$("#findPw_Check").on("click", function (e) {
+					var userId = $("#userId").val();
+					var userEmail = $("#userEmail").val();
+					var postData = {'userId': userId, 'userEmail': userEmail};
+
+					$.ajax({
+						url: "/user/pwfCheck",
+						type: "post",
+						data: postData,
+
+						success: function (obj) {
+							console.log(obj);
+							if (obj.item.msg == 'findPwSuccess') {
+								$("#findPw").val(obj.item.findPw);
+								$("#findPwCheckForm").submit();
+							} else if (obj.item.msg === 'idFail') {
+								alert("존재하지 않는 사용자 아이디입니다.");
+								return;
+							} else if (obj.item.msg === 'emailFail') {
+								alert("잘못된 이메일입니다.");
+								return;
+							}
+						}
+					})
+				})
+			})
+
+		</script>
+	</th:block>
+</head>
+
+<body>
+	<div layout:fragment="content">
 		<div class="findpwcheck-Myg">
-		  <img class="questions-pana-1-JP8" src="./assets/questions-pana-1.png">
-		  <img class="image-6-2K8" src="./assets/image-6.png">
-		  	<p class="item--xTg">비밀번호를 찾으시나요?</p>
-			  <div class="rectangle-49-2yL"></div>
-			  <div class="rectangle-50-waW"></div>
-			  <div class="rectangle-51-Fr6"></div>
-			  <div class="rectangle-52-y1Q"></div>
-		  <p class="item--JJa">확 인</p>
-		  <p class="item--Cuk">아이디</p>
-		  <p class="item--Jht">이메일</p>
-	  		<img class="item-01-1-1cJ" src="./assets/-yRY.png">
+			<form id="findPwCheckForm" action="/user/findPw" method="post">
+				<input type="hidden" id="findPw" name="userPw">
+				<img class="questions-pana-1-JP8" src="/assets/questions-pana-1.png">
+				<img class="image-6-2K8" src="/assets/image-6.png">
+				<p class="item--xTg">비밀번호를 찾으시나요?</p>
+				<div class="rectangle-49-2yL">
+				</div>
+				<input type="text" id="userId" name="userId" class="rectangle-50-waW">
+				<input type="text" id="userEmail" name="userEmail" class="rectangle-51-Fr6">
+				<!--        <div class="rectangle-52-y1Q">
+        </div>-->
+				<button type="button" id="findPw_Check" name="findPw_Check" class="btnF1">확인</button>
+
+				<!--        <a th:href="@{/user/findPw}" class="item--JJa">확 인</a>
+-->
+				<p class="item--Cuk">아이디</p>
+				<p class="item--Jht">이메일</p>
+				<img class="item-01-1-1cJ" src="/assets/-yRY.png">
+			</form>
 		</div>
-	</body>
+	</div>
+</body>
+
 </html>

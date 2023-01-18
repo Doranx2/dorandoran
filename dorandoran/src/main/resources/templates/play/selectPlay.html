@@ -159,7 +159,7 @@
 			<input id="playNo" type="hidden" th:value="${play.playNo}">
 			<span class="playTitle" id="playTitle" th:text="${play.playTitle}"></span>
 			<div class="playContentContainer">
-				<span class="playContent" id="playContent" th:text="${play.playContent}"></span>
+				<textarea class="playContent" id="playContent" th:text="${play.playContent}" disabled></textarea>
 			</div>
 			<span class="v112_672">댓글</span>
 			<!--<div class="replyListContainer">

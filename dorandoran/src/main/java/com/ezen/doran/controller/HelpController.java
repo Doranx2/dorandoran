@@ -207,4 +207,9 @@ public class HelpController {
 		helpService.deleteHelp(helpNo);
 		response.sendRedirect("/help/selectHelpList");
 	}
+	
+	@PostMapping("/updateDoneYn")
+	public void updateDoneYn(@RequestParam("helpNo") int helpNo) {
+		helpService.updateDoneYn(helpNo);
+	}
 }

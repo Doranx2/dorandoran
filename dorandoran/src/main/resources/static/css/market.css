@@ -145,11 +145,11 @@
 	
 	.v89_462 {
 		width: 70%;
-	    height: 408px;
+	    height: 390px;
 	    background: rgba(245, 245, 245, 1);
 	    opacity: 1;
 	    position: absolute;
-	    top: 1396px;
+	    top: 1416px;
 	    left: 327px;
 	    border-top-left-radius: 10px;
 	    border-top-right-radius: 10px;
@@ -287,18 +287,18 @@
 	}
 	
 	.filebox label {
-	  display: inline-block;
-	  padding: .5em .75em;
-	  color: #EEC400;
-	  font-size: 1.2em;
-	  font-weight: bold;
-	  line-height: normal;
-	  vertical-align: middle;
-	  background-color: #fdfdfd;
-	  cursor: pointer;
-	  border: 1px solid #ebebeb;
-	  border-bottom-color: #e2e2e2;
-	  border-radius: .25em;
+	display: inline-block;
+    padding: 0.5em 2.75em;
+    color: #EEC400;
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #fdfdfd;
+    cursor: pointer;
+    border: 2px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;
 	}
 	
 	.filebox input[type="file"] {  /* 파일 필드 숨기기 */
@@ -801,7 +801,7 @@
  .marketPrice{
 	color: #1761A0;
     position: absolute;
-    top: 888px;
+    top: 908px;
     left: 867px;
     font-family: Inter;
     font-weight: Bold;
@@ -810,3 +810,59 @@
     text-align: left;
     padding-bottom: 10px;
  }
+ .marketUser{
+	color: #7199bbd4;
+    position: absolute;
+    top: 833px;
+    left: 870px;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 25px;
+    opacity: 1;
+    text-align: left;
+    padding-bottom: 10px;
+ }
+ 
+ 
+.updateStatusBtnRe {
+	align-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    left: 5%;
+ }
+ 
+.updateStatusBtnRe button{
+	background: #1761A0;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    /* margin: 10px; */
+}
+ 
+ .updateStatusBtn{
+	align-content: flex-end;
+    display: grid;
+    justify-content: end;
+    align-items: center;
+ }
+ 
+ .updateStatusBtn button{
+	background: #1761A0;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    /* margin: 10px; */
+}
+
+.arrow{
+	width: 19px;
+    height: 15px;
+    margin-bottom: -2px;
+}

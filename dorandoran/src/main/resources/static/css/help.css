@@ -813,3 +813,57 @@
     text-align: left;
     padding-bottom: 10px;
  }
+ .helpUser{
+	color: #1761A0;
+    position: absolute;
+    top: 935px;
+    left: 735px;
+    font-family: Inter;
+    font-weight: Bold;
+    font-size: 2.2em;
+    text-align: left;
+    padding-bottom: 10px;
+ }
+ 
+.updateStatusBtnRe {
+	align-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    left: 5%;
+ }
+ 
+.updateStatusBtnRe button{
+	background: #EEC400;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    /* margin: 10px; */
+}
+ 
+ .updateStatusBtn{
+	align-content: flex-end;
+    display: grid;
+    justify-content: end;
+    align-items: center;
+ }
+ 
+ .updateStatusBtn button{
+	background: #EEC400;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    /* margin: 10px; */
+}
+
+.arrow{
+	width: 19px;
+    height: 15px;
+    margin-bottom: -2px;
+}
