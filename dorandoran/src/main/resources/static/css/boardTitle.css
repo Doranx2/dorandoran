@@ -166,3 +166,17 @@
 		background: #EEC400;
 		color : rgb(255, 251, 232) ;
 	}
+	
+	.joinListB{
+	top: 1033px;
+    left: 1512px;
+    width: 150px;
+    height: 50px;
+    font-size: 1.4em;
+    font-weight: bold;
+    border: 0px;
+    border-radius: 20px;
+    cursor: pointer;
+    background: #f44336;
+    color:#ffffff;
+ }

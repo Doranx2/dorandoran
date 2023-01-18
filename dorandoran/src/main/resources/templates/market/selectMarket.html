@@ -185,6 +185,18 @@
 			<span class="marketPrice" th:text="${market.price}+' 원'"></span>
 			<span class="marketUser" th:text="'판매자 : ' + ${market.userNick}+' 님'"></span>
 			
+				
+			<div th:if="${session.loginUser ne null and session.loginUser.userNo ne market.userNo}" th:remove="tag">
+				<!-- 로그인 정보가 있을 때 -->
+				<!-- 채팅방 개설하기 -->
+				<form class="chatRoominsert" action="/chat/room" method="post">
+					<input name="roomNm" type="hidden" th:value="${market.prodNm}">
+					<input name="masterNo" type="hidden" th:value="${market.userNo}">
+					<input name="slaveNo" type="hidden" th:value="${session.loginUser.userNo}">
+					<button class="joinListB" onclick="submit">채팅걸기</button>
+				</form>
+			</div>
+			
 			<div th:if="${market.imageNm ne null and market.imageNm.length > 0}" th:remove="tag">
 				<img th:src="@{'/upload/' + ${market.imageNm}}" class="selectImg">
 			</div>

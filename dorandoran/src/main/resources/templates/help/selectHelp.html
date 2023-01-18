@@ -184,6 +184,17 @@
 			<span class="helpTitle" id="helpTitle" th:text="${help.helpTitle}"></span>
 			<span class="helpPlace" th:text="'• 요청 주소 : '+${help.helpPlace}"></span>
 			<span class="helpUser" th:text="'• 요청자 : '+${help.userNick}+' 님'"></span>
+			
+			<div th:if="${session.loginUser ne null and session.loginUser.userNo ne help.userNo}" th:remove="tag">
+				<!-- 로그인 정보가 있을 때 -->
+				<!-- 채팅방 개설하기 -->
+				<form class="chatRoominsert" action="/chat/room" method="post">
+					<input name="roomNm" type="hidden" th:value="${help.helpTitle}">
+					<input name="masterNo" type="hidden" th:value="${help.userNo}">
+					<input name="slaveNo" type="hidden" th:value="${session.loginUser.userNo}">
+					<button class="joinListB" onclick="submit">채팅걸기</button>
+				</form>
+			</div>
 
 			<div th:if="${help.imageNm ne null and help.imageNm.length > 0}" th:remove="tag">
 				<img th:src="@{'/helpImg/' + ${help.imageNm}}" class="selectImg">

@@ -941,3 +941,11 @@
     font-weight: bold;
     color: #ffffff;
  }
+ 
+ .likeIcon{
+	width: 38px;
+    padding-left: 10px;
+    top: -5px;
+    position: absolute;
+    cursor: pointer; 
+ }
