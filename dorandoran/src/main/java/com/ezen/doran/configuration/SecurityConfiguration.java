@@ -92,7 +92,7 @@ public class SecurityConfiguration {
 		http.logout()
 			.logoutUrl("/user/logout")
 			.invalidateHttpSession(true)
-			.logoutSuccessUrl("/user/login");
+			.logoutSuccessUrl("/");
 		
 		//크로스도메인 이슈 방지 설정
 		//크로스도메인: 웹 생태계 원칙적으로 하나의 웹 어플리케이션에서 요청에 대한 주소가 변경이 되면 안된다.

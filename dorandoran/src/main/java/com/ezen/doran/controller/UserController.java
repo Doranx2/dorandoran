@@ -3,6 +3,7 @@ package com.ezen.doran.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -161,11 +162,12 @@ import com.ezen.doran.service.user.UserService;
                                         .userTel(checkedUser.getUserTel())
                                         .userNo(checkedUser.getUserNo())
                                         .userRole(checkedUser.getUserRole())
+                                        .inputDtm(checkedUser.getInputDtm())
                                        
                                         .build();
                  session.setAttribute("loginUser", loginUser);
                  
-                 System.out.println("session ? ==> "+session.getAttribute("loginUser"));
+                 System.out.println("[session : loginUser ] ==> "+session.getAttribute("loginUser"));
                  
                  returnMap.put("msg", "loginSuccess");
                  }
@@ -178,6 +180,12 @@ import com.ezen.doran.service.user.UserService;
         }
         }        
         
+//    @RequestMapping("/logout")
+// 	public void logout(HttpSession httpSession, HttpServletResponse response) throws Exception {
+// 		httpSession.invalidate();
+// 		
+// 		response.sendRedirect("/");
+// 	}
   
   
      //아이디 찾기 화면단

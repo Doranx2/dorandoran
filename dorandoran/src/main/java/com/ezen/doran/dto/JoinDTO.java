@@ -19,4 +19,5 @@ public class JoinDTO {
 	private String doneYn;
 	
 	private String userNm;
+	private String userNick;
 }

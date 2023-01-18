@@ -1,7 +1,7 @@
 package com.ezen.doran.entity;
 
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,6 +38,8 @@ public class User {
 	@ColumnDefault("USER_ROLE")
 	private String userRole;
 	private String userNm;
+	
+	private Date inputDtm;
 	//private LocalDateTime inputDtm = LocalDateTime.now();
 
 	

@@ -730,3 +730,65 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
     position: absolute;
     cursor : pointer;
 }
+
+.noticeTable{
+	width: 100%;
+    height: 100%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color : #1761a0;
+}
+
+.noticeTable a{
+	text-decoration: none;
+	color : #1761a0;
+}
+
+
+.noticeTable a:visited{
+	text-decoration: none;
+	color : #1761a0;
+}
+
+.noticeTable tr:hover a, .noticeTable tr:hover{
+	color : #eec400;
+}
+
+.bottomTable{
+	width: 100%;
+    height: 100%;
+    font-size: 15px;
+    text-align: left;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #1761a0;
+    border-collapse: collapse;
+}
+
+.bottomTable tr, .bottomTable td{
+	border-bottom: 2px dotted #1761a0;
+    padding: 10px;
+}
+
+ .bottomTable td {
+    background-color: #e3f2fd;
+  }
+
+.bottomTable a{
+	text-decoration: none;
+	color : #1761a0;
+}
+
+
+.bottomTable a:visited{
+	text-decoration: none;
+	color : #1761a0;
+}
+
+.bottomTable tr:hover a, .bottomTable tr:hover{
+	color : #eec400;
+}
+	

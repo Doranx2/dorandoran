@@ -15,4 +15,5 @@ public class PlayDTO {
 	private String userNm;
 	
 	private String searchKeyword;
+	private String userNick;
 }
