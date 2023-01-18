@@ -1,4 +1,9 @@
-
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
 html {
 	font-size:62.5%;
 }
@@ -11,6 +16,9 @@ ul, li {
 }
 input {
 	border: none;
+}
+#categ:hover {
+	color:#F2F5A9;
 }
 body {
   width: 192rem;

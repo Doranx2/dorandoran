@@ -45,5 +45,7 @@ public interface UserPageService {
 
 	public int selectMyJoinListCnt(int userNo);
 
+	public List<UserDTO> selectUser(int userNo);
+
 
 }

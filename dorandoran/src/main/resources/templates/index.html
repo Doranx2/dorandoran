@@ -63,7 +63,7 @@
 				<div class="auto-group-necz-LKx">
 					<img class="vector-3kA" src="./images/vector-9KU.png">
 				</div>
-				<p class="top--y82">도란도란 인기 TOP 게시글</p>
+				<p class="top--y82">도란도란 최신 HOT 게시글</p>
 			</div>
 			<div class="auto-group-udoy-gHL">
 				<div class="line-DYA">
@@ -81,7 +81,7 @@
 							<table class="bottomTable">
 								<tr th:each="play : ${play}">
 									<td>
-										<a th:text="${play.playTitle}"
+										<a id="Title" th:text="${play.playTitle}"
 											th:href="@{/play/selectPlay?playNo={playNo} (playNo = ${play.playNo})}"
 											style="font-size: 18px; width : 85%">
 										</a>
@@ -104,7 +104,7 @@
 							<table class="bottomTable">
 								<tr th:each="help : ${help}">
 									<td>
-										<a th:text="${help.helpTitle}"
+										<a id="Title" th:text="${help.helpTitle}"
 											th:href="@{/help/selectHelp?helpNo={helpNo} (helpNo = ${help.helpNo})}"
 											style="font-size: 18px; width : 85%">
 										</a>
@@ -127,9 +127,9 @@
 							<table class="bottomTable">
 								<tr th:each="join : ${join}">
 									<td>
-										<a th:text="${join.joinTitle}"
+										<a id="Title" th:text="${join.joinTitle}"
 											th:href="@{/join/selectJoin?joinNo={joinNo} (joinNo = ${join.joinNo})}"
-											style="font-size: 18px; width : 85%">
+											style="font-size: 18px; width : 85%;">
 										</a>
 									</td>
 									<td th:text=${join.userNick} ></td>

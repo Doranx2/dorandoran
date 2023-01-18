@@ -102,11 +102,11 @@
       </div>
 
       <div class="frame-1147-6gN">
-        <div class="item--Qwx" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인</div>
-        <div class="item--ihk" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
-        <div class="item--dJv" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
-        <div class="item--LDL" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
-        <div class="item--F5Q" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
+        <div id="categ" class="item--Qwx" th:onclick="|location.href='@{/userPage/updateUserPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">개인 정보 확인</div>
+        <div id="categ" class="item--ihk" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
+        <div id="categ" class="item--dJv" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
+        <div id="categ" class="item--LDL" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
+        <div id="categ" class="item--F5Q" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
 
       <div class="icon-media-play-5aE">
@@ -140,11 +140,13 @@
                 <th>번호</th>
                 <th>제목</th>
                 <th>날짜</th>
+                <th>상태</th>
               </tr>
               <tr th:each="myMarket : ${myMarket}">
               	<td th:text="${myMarket.marketNo}"></td>
                 <td th:text="${myMarket.prodNm}" th:onclick="|location.href='@{/market/selectMarket?marketNo={marketNo} (marketNo = ${myMarket.marketNo})}'|" style="cursor:pointer;" class="Title"></td>
                 <td th:text="${myMarket.inputDtm}"></td>
+                <td th:text="${myMarket.status}">
               </tr>
              </table>
             </div>

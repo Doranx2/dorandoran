@@ -114,4 +114,10 @@ public class UserPageServiceImpl implements UserPageService {
 		return mapper.selectMyJoinListCnt(userNo);
 	}
 
+	@Override
+	public List<UserDTO> selectUser(int userNo) {
+		// TODO Auto-generated method stub
+		return mapper.selectUser(userNo);
+	}
+
 }

@@ -31,9 +31,13 @@ public class UserPageController {
 	UserPageService UserPageService;
 	
 	@RequestMapping("/updateUserPage")
-	public ModelAndView updateUser() {
+	public ModelAndView updateUser(UserDTO UserDTO, @RequestParam("userNo") int userNo) {
 		ModelAndView mv = new ModelAndView();
 		
+		List<UserDTO> selectUser = UserPageService.selectUser(userNo);
+		
+		
+		mv.addObject("selectUser", selectUser);
 		mv.setViewName("/userPage/updateUserPage.html");
 		return mv;
 	}
@@ -44,10 +48,9 @@ public class UserPageController {
 	public void updateUser(UserDTO UserDTO, HttpServletResponse response) throws Exception {
 		UserPageService.updateUser(UserDTO);
 		
-		response.sendRedirect("/userPage/updateUserPage");
+		response.sendRedirect("/");
 	}
 	
-
 	
 	// selectMyMarketList(int, String)
 	@RequestMapping("/marketListPage")

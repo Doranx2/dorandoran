@@ -27,6 +27,11 @@
 		
 		</script>
 		-->
+		<script th:inline="javascript">
+				$("#updateUserBtn").on("click", function () {
+					alert("정보가 수정되었습니다.");
+				});
+		</script>
 	</th:block>
   
 </head>
@@ -98,11 +103,11 @@
       <div class="rectangle-87-sAN">
       </div>
       <div class="frame-1146-bMG">
-        <div class="item--uMx" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인</div>
-        <div class="item--1A6" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
-        <div class="item--hoc" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
-        <div class="item--zXp" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
-        <div class="item--GkE" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
+        <div id="categ" class="item--uMx" th:onclick="|location.href='@{/userPage/updateUserPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">개인 정보 확인</div>
+        <div id="categ" class="item--1A6" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
+        <div id="categ" class="item--hoc" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
+        <div id="categ" class="item--zXp" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
+        <div id="categ" class="item--GkE" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
       <div class="icon-media-play-yuY">
         <img class="icon-media-play-WPg" th:src="@{/images/mediaPlayIcon.png}"/>
@@ -138,21 +143,23 @@
           <div class="item--b34">성별</div>
           <input type="text" name="userGen" class="item--t2A" style="outline: none;" th:value="${session.loginUser.userGen}" readonly="readonly">
         </div>
+        <div th:each="selectUser : ${selectUser}">
         <div class="auto-group-2gm8-B1G">
           <div class="item--Hpz">이메일</div>
-          <input class="group-19-zzJ" name="userEmail" placeholder="이메일을 입력해주세요.">
+          <input class="group-19-zzJ" name="userEmail" th:placeholder="${selectUser.userEmail}">
         </div>
         <div class="auto-group-g9vc-YPY">
           <div class="item--G4e">전화번호</div>
-          <input class="group-20-7b4" name="userTel" placeholder="전화번호를 입력해주세요.">
+          <input class="group-20-7b4" name="userTel" th:placeholder="${selectUser.userTel}">
         </div>
         <div class="auto-group-9ehg-ajY">
           <div class="item--6xn">닉네임</div>
-          <input class="group-21-D1p" name="userNick" placeholder="닉네임을 입력해주세요.">
+          <input class="group-21-D1p" name="userNick" th:placeholder="${selectUser.userNick}">
         </div>
         <div class="auto-group-d9p8-65c">
           <div class="item--p1c">지역</div>
-          <input class="group-22-tGN" name="userLoc" placeholder="지역을 입력해주세요.">
+          <input class="group-22-tGN" name="userLoc" th:placeholder="${selectUser.userLoc}">
+        </div>
         </div>
         <button class="auto-group-8eqa-aoQ" id="updateUserBtn" type="submit" th:onclick="updateUser()" style="cursor:pointer;">정보 변경
         </div>

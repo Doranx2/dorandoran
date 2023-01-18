@@ -530,6 +530,11 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   flex-shrink: 0;
 }
 
+#Title {
+	white-space: no-wrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
 .nav, .nav li{
 	list-style: none;
     display: inline-block;

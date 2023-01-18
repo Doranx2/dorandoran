@@ -1,4 +1,9 @@
-
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
 html {
 	font-size:62.5%;
 }
@@ -88,6 +93,9 @@ body {
   border: solid 0.2rem #1761a0;
   background-color: #ffffff;
   flex-shrink: 0;
+}
+#categ:hover {
+	color:#F2F5A9;
 }
 .item--yEn .auto-group-9rl6-UxE .frame-1144-oDp .auto-group-sfce-i5t .auto-group-jkv6-4ox {
   width: 29.05rem;
