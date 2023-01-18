@@ -560,8 +560,8 @@ li {
   height: 22rem;
   overflow: hidden;
   position: relative;
-  border-top: solid 0.3rem #000000;
-  border-bottom: solid 0.3rem #000000;
+  border-radius: 10px;
+  border: solid 1px #F2F5A9;
   background-color: #f8f8f8;
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 .group-31-TQa .list-ezr .frame-1134-yXL .auto-group-ywae-WGN {
@@ -779,8 +779,8 @@ li {
   height: 22rem;
   overflow: hidden;
   position: relative;
-  border-top: solid 0.3rem #000000;
-  border-bottom: solid 0.3rem #000000;
+  border-radius: 10px;
+  border: solid 1px #F2F5A9;
   background-color: #f8f8f8;
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 .group-31-TQa .group-31-LkW .list-Z7U .frame-1134-H3U .auto-group-cpsz-cLe {

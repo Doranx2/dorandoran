@@ -139,39 +139,9 @@
           </div>
         </div>
 
-        <div class="group-32-c4e">
-          <div class="item--Mnv">‘<a th:text="${session.loginUser.userNm}"></a>’님의 모임 신청 목록</div>
-          <div class="list-DaE">
-            <div class="frame-1134-wWE">
-              <div class="auto-group-pgqx-UFG">
-                <table id="joinPlayTable">
-                <tr>
-                  <th>번호</th>
-                  <th>제목</th>
-                  <th>날짜</th>
-                  <th>상태</th>
-                </tr>
-				<tr th:each="myJoin : ${myJoin}">
-	              <td th:text="${myJoin.JoinNo}"></td>
-	              <td th:text="${myJoin.JoinTitle}"></td>
-	              <td th:text="${myJoin.inputDtm}"></td>
-	              <td th:text="${myJoin.doneYn}"></td>
-            	</tr>
-                </table>
-              </div>
-            </div>
-	            <li>
-	               <a th:href="@{/userPage/playListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}-1, userNo = ${session.loginUser.userNo})}">
-	                <img class="pageBtn" th:src="@{/images/btn1-5LA.png}"/></a>
-	              
-	              
-	              <a th:href="@{/userPage/playListPage?page1={page}&userNo={userNo} (page = ${pagination1.page}+1, userNo = ${session.loginUser.userNo})}">
-	                <img class="pageBtn" th:src="@{/images/btn1-mHp.png}"/></a>
-	            </li>
-          </div>
-
-
-        </div>
+        	
+        <div class="chat">내 채팅방 확인하기</div>
+        
       </div>
     </div>
     <!-- 상세창 내부 끝 -->

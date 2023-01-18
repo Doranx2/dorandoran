@@ -550,7 +550,7 @@ body {
   flex-shrink: 0;
 }
 .item--YUv .auto-group-dzia-7xa .auto-group-8guq-xxW .auto-group-nuxn-EHk .group-31-ABQ .item--hSE {
-    margin: 0rem 38rem 4.4rem 0rem;
+    margin: 0rem 43rem 4.4rem 0rem;
     text-align: right;
     display: flex;
     font-size: 3rem;
@@ -796,16 +796,33 @@ body {
   flex-shrink: 0;
 }
 .item--YUv .auto-group-dzia-7xa .auto-group-8guq-xxW .auto-group-nuxn-EHk .group-32-c4e .item--Mnv {
-    margin: 0rem 38rem 4.4rem 0rem;
-    text-align: right;
+    margin: 0rem 52rem 4.4rem 0rem;
     display: flex;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 900;
     line-height: 0.8333333333;
     letter-spacing: 0.165rem;
     color: #000000;
     font-family: Inter, 'Source Sans Pro';
     flex-shrink: 0;
+    background-color: #F2F5A9;
+    text-align: center;
+    width: 200px;
+}
+.chat {
+	font-size: 23px;
+    font-weight: 900;
+    color: gray;
+    background-color: #FFEB99;
+    border-radius: 5px;
+    height: 38px;
+    width: 250px;
+    text-align: center;
+    margin-left: 220px;
+}
+.chat:hover {
+	background-color:lightblue;
+	color: white;
 }
 .item--YUv .auto-group-dzia-7xa .auto-group-8guq-xxW .auto-group-nuxn-EHk .group-32-c4e .list-DaE .frame-1134-wWE {
   margin-bottom: 0.2735rem;
