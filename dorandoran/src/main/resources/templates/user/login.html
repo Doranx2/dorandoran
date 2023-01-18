@@ -12,26 +12,28 @@
 
 				$("#loginBtn").on("click", function () {
 					$.ajax({
-						url: "/temp/login",
-						type: "post",
+						url: '/user/login',
+						type: 'post',
 						data: $("#loginForm").serialize(),
 						success: function (obj) {
 							console.log(obj);
-							//id 체크
-							if (!obj) {
-								alert("존재하지 않는 아이디거나 올바르지 않은 비밀번호입니다.");
-								$("#userId").focus();
-								window.location.replace("/temp/loginPage");
-							}
-							else {
-								//로그인 처리
-								window.location.replace("/");
+							if (obj.item.msg == "loginSuccess") {
+								alert("로그인되었습니다.");
+								window.location.href = "/";
+
+							} else if (obj.item.msg == "idFail") {
+								alert("아이디가 존재하지 않습니다.");
+								return;
+							} else {
+								alert("비밀번호가 틀렸습니다.");
+								return;
 							}
 						},
 						error: function (e) {
 							console.log(e);
 						}
 					});
+
 				});
 
 			});
@@ -43,7 +45,7 @@
 <body>
 	<div layout:fragment="content">
 		<link rel="stylesheet" th:href="@{/css/temp.css}" />
-		<form id="loginForm" method="post" action="/temp/login">
+		<form id="loginForm" action="/user/loginProc" method="post">
 			<div class="v14_29" style="position: relative;">
 				<div class="v118_224">
 					<div class="v23_26"></div>
@@ -65,7 +67,10 @@
 				</div>
 				<div class="v19_197">
 					<input class="userId" id="userId" name="userId" placeholder="아이디를 입력하세요."></input>
-				</div><span class="v19_196">아이디 찾기 | 비밀번호 찾기 </span>
+				</div><span class="v19_196">
+					<a th:href="@{/user/findIdCheck}" style="text-decoration: none;">아이디 찾기 |</a>
+					<a th:href="@{/user/findPwCheck}" style="text-decoration: none;">비밀번호 찾기</a>
+				</span>
 				<div class="v118_223">
 					<button id="loginBtn" class="v19_194"><span class="v118_222">로그인</span></button>
 				</div>
