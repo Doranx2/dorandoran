@@ -32,6 +32,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.ezen.doran.entity.User;
+import com.ezen.doran.mapper.UserMapper;
 import com.ezen.doran.repository.UserRepository;
 import com.ezen.doran.service.mail.MailService;
 
@@ -46,6 +47,9 @@ public class UserServiceImpl implements com.ezen.doran.service.user.UserService 
 	
 	@Autowired
 	private MailService mailService;
+	
+	@Autowired
+	UserMapper mapper;
 	
 	//회원가입
 	@Override
@@ -132,6 +136,10 @@ public class UserServiceImpl implements com.ezen.doran.service.user.UserService 
 	      tempLoginPasswd = passwordEncoder.encode(tempLoginPasswd);
 	      // 데이터 베이스 값은 암호한 값으로 저장시킨다.
 	      userRepository.updateTempPw(user.getUserId(), tempLoginPasswd);
+	}
+	@Override
+	public void deleteUser(int userNo) {
+		mapper.deleteUser(userNo);
 	}
 
 }

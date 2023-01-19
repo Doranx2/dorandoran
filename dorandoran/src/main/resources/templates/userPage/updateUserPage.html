@@ -42,6 +42,25 @@
 						}
 					});
 				});
+				
+				function deleteUser(){
+					let userNo = [[${session.loginUser.userNo}]];
+					
+					$.ajax({
+						url: "/user/deleteUser",
+						type: "post",
+						data: {
+							userNo : userNo
+						},
+						success: function () {
+								alert("회원 탈퇴가 완료되었습니다.");
+								window.location.replace("/user/logout");
+						},
+						error: function (e) {
+							console.log(e);
+						}
+					});
+				}
 		</script>
 	</th:block>
   
@@ -120,6 +139,7 @@
       <div class="auto-group-wp8a-bxr">
         <div class="item--7wC">개인 정보 확인</div>
         <div class="item--c7G">개인 정보를 확인하고 수정할 수 있습니다.</div>
+        <button class="deleteBtn" th:onclick="deleteUser();">회원 탈퇴</button>
       </div>
       <div class="auto-group-u4yi-gN2">
         <div class="item--Bpa">‘<a th:text="${session.loginUser.userNm}"></a>’님의 개인 정보</div>
@@ -157,8 +177,9 @@
           <input class="group-22-tGN" name="userLoc" th:placeholder="${selectUser.userLoc}">
         </div>
         </div>
-        <button class="auto-group-8eqa-aoQ" id="updateUserBtn" type="submit" th:onclick="updateUser()" style="cursor:pointer;">정보 변경
+        <button class="auto-group-8eqa-aoQ" id="updateUserBtn" type="submit" th:onclick="updateUser()" style="cursor:pointer;">정보 변경</button>
         </div>
+        
       </div>
     </div>
     </form>

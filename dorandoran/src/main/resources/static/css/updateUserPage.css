@@ -476,10 +476,10 @@ body {
   flex-shrink: 0;
 }
 .item--yEn .auto-group-tkke-imL .auto-group-p7le-5zW .auto-group-wp8a-bxr {
-  margin: 0rem 83.1rem 2.15rem 1.8rem;
-  width: calc(100% - 84.9rem);
-  display: flex;
-  align-items: center;
+       margin: 0rem 83.1rem 2.15rem 1.8rem;
+    width: calc(100% - -168.1rem);
+    display: flex;
+    align-items: center;
 }
 .item--yEn .auto-group-tkke-imL .auto-group-p7le-5zW .auto-group-wp8a-bxr .item--7wC {
   margin-right: 3.1rem;
@@ -829,4 +829,14 @@ body {
   border-radius: 1rem;
   flex-shrink: 0;
   border-color: white;
+}
+
+.deleteBtn{
+	cursor: pointer;
+    background: rgb(238, 0, 0);
+    margin-left: 733px;
+    border: none;
+    padding: 10px;
+    border-radius: 14px;
+    color: white;
 }

@@ -2,6 +2,7 @@ package com.ezen.doran.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -50,6 +51,9 @@ public interface UserMapper {
 
     @Select("SELECT USER_NICK, USER_NM FROM TB_USER WHERE USER_NO = #{userNo}")
 	UserDTO getUserNm(int sendUserNo);
+    
+    @Delete("DELETE FROM TB_USER WHERE USER_NO = #{userNo}")
+    void deleteUser(int userNo);
 	
 
 /*

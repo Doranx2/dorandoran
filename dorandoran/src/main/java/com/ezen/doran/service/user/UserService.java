@@ -20,4 +20,6 @@ public interface UserService {
 	User editPw(User user);
 
 	void updateTempPw(User user);
+	
+	void deleteUser(int userNo);
 }

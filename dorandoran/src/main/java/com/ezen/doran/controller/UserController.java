@@ -283,4 +283,10 @@ public class UserController {
 		mv.addObject("userEmail", userDTO.getUserEmail());
 		return mv;
 	}
+	
+	// 회원탈퇴
+	@PostMapping("/deleteUser")
+	public void deleteUser(@RequestParam("userNo") int userNo) {
+		userService.deleteUser(userNo);
+	}
 }
