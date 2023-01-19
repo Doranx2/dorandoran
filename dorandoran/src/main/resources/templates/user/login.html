@@ -10,7 +10,7 @@
 		<script th:inline="javascript">
 			$(function () {
 
-				$("#loginBtn").on("click", function () {
+				/*$("#loginBtn").on("click", function () {
 					$.ajax({
 						url: '/user/login',
 						type: 'post',
@@ -34,7 +34,7 @@
 						}
 					});
 
-				});
+				});*/
 
 			});
 		</script>
@@ -72,7 +72,7 @@
 					<a class="pwIdBtn" th:href="@{/user/findPwCheck}" style="text-decoration: none;">비밀번호 찾기</a>
 				</span>
 				<div class="v118_223">
-					<button id="loginBtn" class="v19_194"><span class="v118_222">로그인</span></button>
+					<button type="submit" id="loginBtn" class="v19_194"><span class="v118_222">로그인</span></button>
 				</div>
 			</div>
 		</form>
