@@ -46,10 +46,14 @@ public class UserController {
 
 		// 회원가입 처리
 		// DTO로 받아온 사용자 입력 값들을 Entity로 변환
-		User user = User.builder().userId(userDTO.getUserId()).userAge(userDTO.getUserAge())
-				.userEmail(userDTO.getUserEmail()).userGen(userDTO.getUserGen()).userLoc(userDTO.getUserLoc())
-//                      .userPw(passwordEncoder.encode(userDTO.getUserPw()))
-				.userPw(userDTO.getUserPw()).userNick(userDTO.getUserNick()).userNm(userDTO.getUserNm())
+		User user = User.builder()
+				.userId(userDTO.getUserId())
+				.userAge(userDTO.getUserAge())
+				.userEmail(userDTO.getUserEmail())
+				.userGen(userDTO.getUserGen()).userLoc(userDTO.getUserLoc())
+                .userPw(passwordEncoder.encode(userDTO.getUserPw()))
+//				.userPw(userDTO.getUserPw())
+				.userNick(userDTO.getUserNick()).userNm(userDTO.getUserNm())
 				.userTel(userDTO.getUserTel()).build();
 
 		// 변환된 Entity 객체로 회원가입 처리

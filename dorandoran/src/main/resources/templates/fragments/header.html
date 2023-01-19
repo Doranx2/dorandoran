@@ -8,14 +8,14 @@
 		<div class="v4_7">
 			<div class="v9_2" onclick="location.href='/'" style="cursor:pointer;"></div>
 			<div class="v9_3">
-				<a class="v9_4" th:href="@{/join/selectJoinList}">함께해요</a>
-				<a class="v9_5" th:href="@{/share/selectShareList}">공유해요</a>
-				<a class="v9_6" th:href="@{/help/selectHelpList}">도와줘요</a>
+				<a id="menu" class="v9_4" th:href="@{/join/selectJoinList}">함께해요</a>
+				<a id="menu" class="v9_5" th:href="@{/share/selectShareList}">공유해요</a>
+				<a id="menu" class="v9_6" th:href="@{/help/selectHelpList}">도와줘요</a>
 			</div>
 			<div class="v9_7">
-				<a class="v9_8" th:href="@{/play/selectPlayList}">놀아줘요</a>
-				<a class="v9_9" th:href="@{/market/selectMarketList}">도란장터</a>
-				<a class="v9_10" th:href="@{/cscenter/noticeList}">고객센터</a>
+				<a id="menu" class="v9_8" th:href="@{/play/selectPlayList}">놀아줘요</a>
+				<a id="menu" class="v9_9" th:href="@{/market/selectMarketList}">도란장터</a>
+				<a id="menu" class="v9_10" th:href="@{/cscenter/noticeList}">고객센터</a>
 			</div>
 			<div class="v9_14">
 				<div th:if="${session.loginUser eq null}" th:remove="tag">
@@ -39,7 +39,9 @@
 					</button>
 
 					<div th:if="${session.loginUser ne null}" th:remove="tag">
-						<button class="headerBtn" id="userName" onclick="location.href='/userPage/updateUserPage'"><a
+						<button class="headerBtn" id="userPage" 
+								th:onclick="|location.href='@{/userPage/updateUserPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|">
+								<a
 								th:text="${session.loginUser.userId}"
 								style="color:#FFFFFF; font-size:13px;"></a></button>
 						<button class="headerBtn" id="logout" onclick="location.href='/temp/logout'"

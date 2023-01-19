@@ -1,4 +1,9 @@
-
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
 html {
 	font-size:62.5%;
 }
@@ -44,14 +49,13 @@ body {
   width: 34.8rem;
   height: 7rem;
   position: absolute;
-  left: 73rem;
+  left: 74rem;
   top: 33.3rem;
   text-align: center;
-  font-size: 4rem;
+  font-size: 4.2rem;
   font-weight: 600;
   line-height: 1.75;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
 .findidcheck-22r .rectangle-35-6gv {
@@ -60,7 +64,7 @@ body {
   position: absolute;
   left: 76rem;
   top: 44.4rem;
-  border: solid 0.1rem #000000;
+  border: solid 0.2rem #1761a0;
   box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 1rem;
@@ -99,7 +103,6 @@ body {
   font-weight: 600;
   line-height: 4.6666666667;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
 .findidcheck-22r .item--zZL {
@@ -113,7 +116,6 @@ body {
   font-weight: 600;
   line-height: 4.6666666667;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
 .findidcheck-22r .item-01-1-tuc {
@@ -128,16 +130,20 @@ body {
 .btnF{
   height: 4rem;
   position: absolute;
-  font-size: 1.5rem;
+  margin-top: 10px;
+  font-size: 1.7rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   left: 86rem;
   background-color: #1761a0;
   border-radius: 0.5rem;
+  border: none;
   width: 20rem;
   top: 60rem;
   text-align: center;
   font-weight: 600;
   color: #ffffff;
   white-space: nowrap;
+}
+.btnF:hover {
+	background-color: #eec400;
 }

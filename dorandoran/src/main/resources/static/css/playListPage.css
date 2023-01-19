@@ -1,4 +1,9 @@
-
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
 html {
 	font-size:62.5%;
 }
@@ -26,7 +31,7 @@ th {
     line-height: 1.0416666667;
     letter-spacing: 0.132rem;
     color: #000000;
-    font-family: Jua, 'Source Sans Pro';
+    font-family: 'Godo';
     white-space: nowrap;
     flex-shrink: 0;
     text-align: center;
@@ -39,7 +44,7 @@ td {
     line-height: 1.5625;
     letter-spacing: 0.088rem;
     color: #000000;
-    font-family: Jua, 'Source Sans Pro';
+    font-family: 'Godo';
     white-space: nowrap;
     flex-shrink: 0;
     text-align: center;
@@ -66,6 +71,9 @@ body {
 	width: 25px;
 	height: 25px;
 	cursor: pointer;
+}
+#categ:hover {
+	color:#F2F5A9;
 }
 .pageBtn:hover {
 	width: 27px;
@@ -119,7 +127,7 @@ body {
   font-weight: 600;
   line-height: 2.3333333333;
   color: rgba(23, 97, 160, 0.9399999976);
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   border: solid 0.2rem #1761a0;
   background-color: #ffffff;
@@ -142,7 +150,7 @@ body {
   font-weight: 600;
   line-height: 2.8;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   display: flex;
   align-items: baseline;
@@ -154,7 +162,7 @@ body {
   font-weight: 700;
   line-height: 2.5;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
 }
 .item--YUv .auto-group-slf4-4TG .frame-1144-Zup .auto-group-ddcn-gDk .auto-group-58us-doC .item--muQ .item--muQ-sub-2 {
 }
@@ -169,7 +177,7 @@ body {
   font-weight: 600;
   line-height: 2.8;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
 }
 .item--YUv .auto-group-slf4-4TG .frame-1144-Zup .auto-group-ddcn-gDk .auto-group-58us-doC .nnnn-nn-nn-iLn {
@@ -183,7 +191,7 @@ body {
   font-weight: 600;
   line-height: 3.5;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
 }
 .item--YUv .auto-group-slf4-4TG .frame-1144-Zup .auto-group-ezwe-QUW {
@@ -200,7 +208,7 @@ body {
   font-weight: 600;
   line-height: 1.6666666667;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
 }
 .item--YUv .auto-group-slf4-4TG .frame-1144-Zup .rectangle-104-ECe {
   width: 53.5rem;
@@ -238,7 +246,7 @@ body {
   font-weight: 600;
   line-height: 2.8;
   color: #707070;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -269,7 +277,7 @@ body {
   font-weight: 600;
   line-height: 3.1818181818;
   color: #f44336;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   text-decoration : none;
 }
@@ -285,7 +293,7 @@ body {
   line-height: 0.6944444444;
   letter-spacing: 0.198rem;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -374,7 +382,7 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -388,7 +396,7 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -402,7 +410,7 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -416,7 +424,7 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -430,7 +438,7 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -517,7 +525,7 @@ body {
   line-height: 0.625;
   letter-spacing: 0.22rem;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -529,7 +537,7 @@ body {
   line-height: 1.1363636364;
   letter-spacing: 0.121rem;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -558,7 +566,7 @@ body {
     line-height: 0.8333333333;
     letter-spacing: 0.165rem;
     color: #000000;
-    font-family: Inter, 'Source Sans Pro';
+    font-family: 'Godo';
     flex-shrink: 0;
 }
 .item--YUv .auto-group-dzia-7xa .auto-group-8guq-xxW .auto-group-nuxn-EHk .group-31-ABQ .list-kfQ .frame-1134-gox {
@@ -803,7 +811,7 @@ body {
     line-height: 0.8333333333;
     letter-spacing: 0.165rem;
     color: #000000;
-    font-family: Inter, 'Source Sans Pro';
+    font-family: 'Godo';
     flex-shrink: 0;
     background-color: #F2F5A9;
     text-align: center;

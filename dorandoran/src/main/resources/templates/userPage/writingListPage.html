@@ -77,11 +77,11 @@
       <div class="rectangle-87-zbx">
       </div>
       <div class="frame-1147-vkW">
-        <div class="item--eAi" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인      </div>
-        <div class="item--jhx" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
-        <div class="item--ScN" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
-        <div class="item--9Ft" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
-        <div class="item--Skn" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
+        <div id="categ" class="item--eAi" th:onclick="|location.href='@{/userPage/updateUserPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">개인 정보 확인</div>
+        <div id="categ" class="item--jhx" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
+        <div id="categ" class="item--ScN" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
+        <div id="categ" class="item--9Ft" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
+        <div id="categ" class="item--Skn" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
       <div class="icon-media-play-M74">
         <img class="icon-media-play-534" th:src="@{/images/mediaPlayIcon.png}"/>

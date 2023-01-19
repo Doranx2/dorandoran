@@ -1,6 +1,13 @@
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
 * {
 		box-sizing: border-box;
 		position: relative;
+		font-family: 'Godo';
 	}
 
 .v14_29 {
@@ -182,7 +189,7 @@
 		position: absolute;
 		top: 106px;
 		left: 392px;
-		border: 1px solid rgba(23, 97, 160, 1);
+		border: 2px solid rgba(23, 97, 160, 1);
 		border-top-left-radius: 10px;
 		border-top-right-radius: 10px;
 		border-bottom-left-radius: 10px;
@@ -206,7 +213,7 @@
 		position: absolute;
 		top: 98px;
 		left: 868px;
-		font-family: Inter;
+		font-family: 'Godo';
 		font-weight: Semi Bold;
 		font-size: 60px;
 		opacity: 1;
@@ -328,12 +335,10 @@
 		position: absolute;
 		top: 0px;
 		left: 0px;
-		border-top-left-radius: 5px;
-		border-top-right-radius: 5px;
-		border-bottom-left-radius: 5px;
-		border-bottom-right-radius: 5px;
+		border-radius: 5px;
 		overflow: hidden;
 		cursor : pointer;
+		border: none;
 	}
 
 	.v118_222 {
@@ -342,14 +347,19 @@
 		position: absolute;
 		top: 8px;
 		left: 72px;
-		font-family: Inter;
-		font-weight: Black;
 		font-size: 18px;
 		opacity: 1;
 		text-align: center;
+		margin-top: 5px;
+	}
+	.v19_194:hover {
+		background-color:#eec400;
 	}
 	
 	.pwIdBtn:visited{
 		color :rgba(23, 97, 160, 1);
 		font-size: bold;
+	}
+	.pwIdBtn:hover {
+		color: #eec400;
 	}

@@ -1,4 +1,9 @@
-
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
 html {
 	font-size:62.5%;
 }
@@ -83,11 +88,14 @@ body {
   font-weight: 600;
   line-height: 2.3333333333;
   color: rgba(23, 97, 160, 0.9399999976);
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   border: solid 0.2rem #1761a0;
   background-color: #ffffff;
   flex-shrink: 0;
+}
+#categ:hover {
+	color:#F2F5A9;
 }
 .item--yEn .auto-group-9rl6-UxE .frame-1144-oDp .auto-group-sfce-i5t .auto-group-jkv6-4ox {
   width: 29.05rem;
@@ -106,7 +114,7 @@ body {
   font-weight: 600;
   line-height: 2.8;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   display: flex;
   align-items: baseline;
@@ -118,7 +126,7 @@ body {
   font-weight: 700;
   line-height: 2.5;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
 }
 .item--yEn .auto-group-9rl6-UxE .frame-1144-oDp .auto-group-sfce-i5t .auto-group-jkv6-4ox .item--DB4 .item--DB4-sub-2 {
 }
@@ -133,7 +141,7 @@ body {
   font-weight: 600;
   line-height: 2.8;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
 }
 .item--yEn .auto-group-9rl6-UxE .frame-1144-oDp .auto-group-sfce-i5t .auto-group-jkv6-4ox .nnnn-nn-nn-7ZG {
@@ -147,7 +155,7 @@ body {
   font-weight: 600;
   line-height: 3.5;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
 }
 .item--yEn .auto-group-9rl6-UxE .frame-1144-oDp .auto-group-wdiz-ybU {
@@ -164,7 +172,7 @@ body {
   font-weight: 600;
   line-height: 1.6666666667;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
 }
 .item--yEn .auto-group-9rl6-UxE .auto-group-yssz-7r6 {
   width: 100%;
@@ -196,7 +204,7 @@ body {
   font-weight: 600;
   line-height: 2.8;
   color: #707070;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -227,7 +235,7 @@ body {
   font-weight: 600;
   line-height: 3.1818181818;
   color: #f44336;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   text-decoration : none
 }
@@ -240,7 +248,7 @@ body {
   line-height: 0.6944444444;
   letter-spacing: 0.198rem;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -328,7 +336,7 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -342,7 +350,7 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -356,7 +364,7 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -370,7 +378,7 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -384,7 +392,7 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -471,7 +479,7 @@ body {
   line-height: 0.625;
   letter-spacing: 0.22rem;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -483,7 +491,7 @@ body {
   line-height: 1.1363636364;
   letter-spacing: 0.121rem;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -508,7 +516,7 @@ body {
   line-height: 0.8333333333;
   letter-spacing: 0.165rem;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   flex-shrink: 0;
 }
 .item--yEn .auto-group-tkke-imL .auto-group-p7le-5zW .auto-group-u4yi-gN2 .auto-group-yafu-3Lz {
@@ -526,7 +534,7 @@ body {
     line-height: 0.9615384615;
     letter-spacing: 0.143rem;
     color: #000000;
-    font-family: Inter, 'Source Sans Pro';
+    font-family: 'Godo';
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -540,7 +548,7 @@ body {
   line-height: 0.8928571429;
   letter-spacing: 0.154rem;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -559,7 +567,7 @@ body {
   line-height: 0.9615384615;
   letter-spacing: 0.143rem;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -573,7 +581,7 @@ body {
   line-height: 0.8928571429;
   letter-spacing: 0.154rem;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -592,7 +600,7 @@ body {
     line-height: 0.9615384615;
     letter-spacing: 0.143rem;
     color: #000000;
-    font-family: Inter, 'Source Sans Pro';
+    font-family: 'Godo';
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -605,7 +613,7 @@ body {
   line-height: 0.8928571429;
   letter-spacing: 0.154rem;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -625,7 +633,7 @@ body {
   line-height: 0.9615384615;
   letter-spacing: 0.143rem;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -643,7 +651,7 @@ body {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: rgba(0, 0, 0, 0.7599999905);
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
 }
 .item--yEn .auto-group-tkke-imL .auto-group-p7le-5zW .auto-group-u4yi-gN2 .auto-group-2gm8-B1G .group-19-zzJ .dorandorannaverc-8ai {
@@ -654,7 +662,7 @@ body {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: rgba(0, 0, 0, 0.7599999905);
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -680,7 +688,7 @@ body {
   line-height: 0.9615384615;
   letter-spacing: 0.143rem;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -698,7 +706,7 @@ body {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: rgba(0, 0, 0, 0.7599999905);
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
 }
 .item--yEn .auto-group-tkke-imL .auto-group-p7le-5zW .auto-group-u4yi-gN2 .auto-group-9ehg-ajY {
@@ -717,7 +725,7 @@ body {
   line-height: 0.9615384615;
   letter-spacing: 0.143rem;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -735,7 +743,7 @@ body {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: rgba(0, 0, 0, 0.7599999905);
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
 }
 .item--yEn .auto-group-tkke-imL .auto-group-p7le-5zW .auto-group-u4yi-gN2 .auto-group-d9p8-65c {
@@ -754,7 +762,7 @@ body {
   line-height: 0.9615384615;
   letter-spacing: 0.143rem;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -772,7 +780,7 @@ body {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: rgba(0, 0, 0, 0.7599999905);
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
 }
 .item--yEn .auto-group-tkke-imL .auto-group-p7le-5zW .auto-group-u4yi-gN2 .group-23-Ybp {
@@ -787,7 +795,7 @@ body {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: rgba(0, 0, 0, 0.7599999905);
-  font-family: Inter, 'Source Sans Pro';
+  font-family: 'Godo';
   white-space: nowrap;
   background-color: #d9d9d9;
   border-radius: 0.5rem;

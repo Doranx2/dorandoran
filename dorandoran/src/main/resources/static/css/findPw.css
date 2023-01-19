@@ -1,10 +1,16 @@
-
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
 html {
 	font-size:62.5%;
 }
 * {
 	margin: 0;
 	padding: 0;
+	font-family: 'Godo';
 }
 ul, li {
 	list-style: none;
@@ -51,7 +57,7 @@ body {
   position: absolute;
   left: 76rem;
   top: 44.4rem;
-  border: solid 0.1rem #000000;
+  border: solid 0.2rem #1761a0;
   box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 1rem;
@@ -63,27 +69,28 @@ body {
   left: 88.5rem;
   background-color: #1761a0;
   border-radius: 0.5rem;
+  border:none;
   top: 59.7rem;
   text-align: center;
   font-size: 1.7rem;
   font-weight: 600;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
-
+.findpw-WaS .rectangle-50-obU:hover {
+	background-color: #eec400;
+}
 .findpw-WaS .item--2z2 {
   width: 27.4rem;
   height: 7rem;
   position: absolute;
-  left: 78.8rem;
+  left: 80.2rem;
   top: 47.4rem;
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
   line-height: 3.5;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
 .findpw-WaS .jaewonjkgmailcom-Vsc {
@@ -100,8 +107,8 @@ body {
   line-height: 0.8928571429;
   letter-spacing: 0.154rem;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
+  text-decoration: underline;
 }
 .findpw-WaS .image-11-d6e {
   width: 31.0388rem;

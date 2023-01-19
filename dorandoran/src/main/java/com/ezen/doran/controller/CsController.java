@@ -30,6 +30,7 @@ import com.ezen.doran.dto.QuestionDTO;
 import com.ezen.doran.dto.RepDTO;
 import com.ezen.doran.dto.ResponseDTO;
 import com.ezen.doran.dto.UserDTO;
+import com.ezen.doran.entity.User;
 import com.ezen.doran.service.cs.CsService;
 
 @RestController
@@ -120,7 +121,7 @@ public class CsController {
 	@GetMapping("/questionList")
 	public ModelAndView selectQuestionList(@RequestParam Map<String, String> paramMap, Criteria cri, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		List<QuestionDTO> questionList = csService.selectQuestionList(paramMap, cri);
 		mv.addObject("questionList", questionList);
 
@@ -182,7 +183,7 @@ public class CsController {
 		QuestionDTO qDetail = csService.selectQuestion(qNo);
 		AnswerDTO answer = csService.selectAnswer(qNo);
 		ModelAndView mv = new ModelAndView();
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/questionDetail.html");
 		mv.addObject("qDetail", qDetail);
@@ -195,7 +196,7 @@ public class CsController {
 	@GetMapping("/insertQuestion")
 	public ModelAndView insertQuestionView(HttpSession session) throws IOException {
 		ModelAndView mv = new ModelAndView();
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/insertQuestion.html");
 		return mv;
@@ -215,7 +216,7 @@ public class CsController {
 	public ModelAndView questionUdtView(@PathVariable int qNo, HttpSession session) throws IOException {
 		QuestionDTO qDetail = csService.selectQuestion(qNo);
 		ModelAndView mv = new ModelAndView();
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/questionUdt.html");
 		mv.addObject("qDetail", qDetail);
@@ -258,7 +259,7 @@ public class CsController {
 	@GetMapping("/repList")
 	public ModelAndView selectRepList(@RequestParam Map<String, String> paramMap, Criteria cri, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		List<RepDTO> repList = csService.selectRepList(paramMap, cri);
 		mv.addObject("repList", repList);
 
@@ -312,7 +313,7 @@ public class CsController {
 	public ModelAndView selectRep(@PathVariable int repNo, HttpSession session) {
 		RepDTO rDetail = csService.selectRep(repNo);
 		ModelAndView mv = new ModelAndView();
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/repDetail.html");
 		mv.addObject("rDetail", rDetail);
@@ -323,7 +324,7 @@ public class CsController {
 	@GetMapping("/insertReport")
 	public ModelAndView insertRepView(HttpSession session) throws IOException {
 		ModelAndView mv = new ModelAndView();
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/insertReport.html");
 		return mv;
@@ -342,7 +343,7 @@ public class CsController {
 	public ModelAndView repUdtView(@PathVariable int repNo, HttpSession session) {
 		RepDTO rDetail = csService.selectRep(repNo);
 		ModelAndView mv = new ModelAndView();
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		mv.addObject("loginUser", loginUser);
 		mv.setViewName("/cscenter/repUdt.html");
 		mv.addObject("rDetail", rDetail);

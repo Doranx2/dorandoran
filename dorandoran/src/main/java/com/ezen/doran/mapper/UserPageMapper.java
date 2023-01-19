@@ -21,8 +21,8 @@ import com.ezen.doran.dto.UserDTO;
 @Mapper
 public interface UserPageMapper {
 	
-	@Select("SELECT * FROM TB_USER WHERE USER_ID = #{userId}")
-	UserDTO selectUser(String userId);
+	@Select("SELECT * FROM TB_USER WHERE USER_NO = #{userNo}")
+	List<UserDTO> selectUser(int userNo);
 	
 	@Update("UPDATE tb_user "
 			+ "SET USER_EMAIL = #{userEmail},"
@@ -91,5 +91,6 @@ public interface UserPageMapper {
 
 	@Select("SELECT COUNT(*) FROM tb_join WHERE USER_NO = #{userNo}")
 	int selectMyJoinListCnt(int userNo);
+	
 	
 }

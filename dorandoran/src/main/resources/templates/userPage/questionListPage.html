@@ -77,11 +77,11 @@
       <div class="rectangle-87-RzN">
       </div>
       <div class="frame-1147-ASA">
-        <div class="item--sLa" onclick="location.href='/userPage/updateUserPage'" style="cursor:pointer;">개인 정보 확인</div>
-        <div class="item--aEz" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
-        <div class="item--szn" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
-        <div class="item--auC" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
-        <div class="item--hD8" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
+        <div id="categ" class="item--sLa" th:onclick="|location.href='@{/userPage/updateUserPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">개인 정보 확인</div>
+        <div id="categ" class="item--aEz" th:onclick="|location.href='@{/userPage/playListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">모임 목록</div>
+        <div id="categ" class="item--szn" th:onclick="|location.href='@{/userPage/marketListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">장터 목록</div>
+        <div id="categ" class="item--auC" th:onclick="|location.href='@{/userPage/writingListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">작성한 글 목록</div>
+        <div id="categ" class="item--hD8" th:onclick="|location.href='@{/userPage/questionListPage?userNo={userNo} (userNo = ${session.loginUser.userNo})}'|" style="cursor:pointer;">고객센터 글 목록</div>
       </div>
       <div class="icon-media-play-Pbk">
         <img class="icon-media-play-i8E" th:src="@{/images/mediaPlayIcon.png}"/>
