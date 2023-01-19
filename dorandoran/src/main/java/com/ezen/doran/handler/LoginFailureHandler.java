@@ -29,7 +29,7 @@ public class LoginFailureHandler extends SimpleUrlAuthenticationFailureHandler  
 		String errorMessage = getExceptionMessage(exception);
 		
 		errorMessage = URLEncoder.encode(errorMessage, "UTF-8");
-		
+				
 		setDefaultFailureUrl("/user/login?error=true&errorMsg=" + errorMessage);
 		
 		super.onAuthenticationFailure(request, response, exception);
@@ -53,5 +53,6 @@ public class LoginFailureHandler extends SimpleUrlAuthenticationFailureHandler  
 		} else {
 			return "확인되지 않은 에러 발생";
 		}
+		
 	}
 }

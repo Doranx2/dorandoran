@@ -62,7 +62,7 @@ public class SecurityConfiguration {
 									//권한을 가지고 있는 유저들만 접근할 수 있는 요청리소스 설정
 									//Authentication 객체를 만든 후에 가져올 수 권한들
 									//.antMatchers("/join/**").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-									.antMatchers("/admin/**").access("hasRole('ADMIN')")
+									.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
 									
 									//위에 설정하는 요청리소스 제외한 나머지 요청리소스는
 									//인증된 사용자만 접근 가능
@@ -80,6 +80,7 @@ public class SecurityConfiguration {
 			.passwordParameter("userPw")
 			//로그인 요청이 오면 시큐리티에서 낚아채서 처리
 			//낚아챌 로그인 요청 url 지정
+			
 			.loginProcessingUrl("/user/loginProc")
 			//로그인 성공 후 띄워줄 화면 url
 			.defaultSuccessUrl("/")
