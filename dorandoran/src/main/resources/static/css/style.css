@@ -1,4 +1,9 @@
-
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
 html {
 	font-size:62.5%;
 }
@@ -19,7 +24,9 @@ body {
 
 
 /* footer.css 영역 */
-
+.ment {
+	font-family: 'Godo';
+}
 footer {
   box-sizing: border-box;
   padding: 5.75rem 5.05rem 2.75rem 174.85rem;
@@ -34,7 +41,7 @@ footer {
   font-weight: 600;
   line-height: 1.2125;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
   background-color: #ffffff;
 }
@@ -66,7 +73,7 @@ footer {
   font-weight: 600;
   line-height: 1.2125;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -125,7 +132,7 @@ header .auto-group-1eug-1yG .frame-3-A5U .mainbtn-GPQ .login-imC {
   font-weight: 900;
   line-height: 1.2125;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
 }
 header .auto-group-1eug-1yG .frame-3-A5U .mainbtn-pJS {
@@ -157,7 +164,7 @@ header .auto-group-1eug-1yG .frame-3-A5U .mainbtn-pJS .login-5EN {
   font-weight: 900;
   line-height: 1.2125;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
 }
 header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
@@ -187,7 +194,7 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   font-weight: 600;
   line-height: 1.2125;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -199,7 +206,7 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   font-weight: 600;
   line-height: 1.2125;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -211,7 +218,7 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   font-weight: 600;
   line-height: 1.2125;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -223,7 +230,7 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   font-weight: 600;
   line-height: 1.2125;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -235,7 +242,7 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   font-weight: 600;
   line-height: 1.2125;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -247,13 +254,18 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   font-weight: 600;
   line-height: 1.2125;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
   flex-shrink: 0;
 }
 
 /* main.css 영역 */
-
+#menu {
+	font-family: 'Godo';
+}
+* {
+	font-family: 'Godo';
+}
 .main-R2e {
   box-sizing: border-box;
   padding: 4.9rem 0rem 0.7rem 0rem;
@@ -318,8 +330,8 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   font-weight: 600;
   line-height: 2.1875;
   letter-spacing: 0.176rem;
-  color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  color: white;
+  
   white-space: nowrap;
 }
 .main-R2e .auto-group-nqqz-YNA .notice-CBp .rectangle-49-sxA {
@@ -358,7 +370,7 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   line-height: 2.1875;
   letter-spacing: 0.176rem;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -423,8 +435,8 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   font-weight: 600;
   line-height: 2.1875;
   letter-spacing: 0.176rem;
-  color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  color: white;
+  
   white-space: nowrap;
 }
 .main-R2e .auto-group-udoy-gHL .topcontent-wyx .auto-group-y7yc-UU6 .rectangle-49-xXg {
@@ -471,8 +483,8 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   font-weight: 600;
   line-height: 2.1875;
   letter-spacing: 0.176rem;
-  color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  color: white;
+  
   white-space: nowrap;
 }
 .main-R2e .auto-group-udoy-gHL .topcontent-wyx .auto-group-rdbg-VGi .rectangle-50-ahU {
@@ -519,8 +531,8 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
   font-weight: 600;
   line-height: 2.1875;
   letter-spacing: 0.176rem;
-  color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
+  color: white;
+  
   white-space: nowrap;
 }
 .main-R2e .auto-group-udoy-gHL .topcontent-wyx .auto-group-u7s8-Kf4 .rectangle-51-Q4E {
@@ -797,5 +809,11 @@ header .auto-group-1eug-1yG .frame-3-A5U .flat-color-icons-like-BYJ {
 
 .bottomTable tr:hover a, .bottomTable tr:hover{
 	color : #eec400;
+}
+.sep {
+	font-family: 'Godo';
+}
+.headerBtn:hover {
+	background-color: #1761a0;
 }
 	

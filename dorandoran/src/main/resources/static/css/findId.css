@@ -1,10 +1,16 @@
-
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
 html {
 	font-size:62.5%;
 }
 * {
 	margin: 0;
 	padding: 0;
+	font-family: 'Godo';
 }
 ul, li {
 	list-style: none;
@@ -31,17 +37,16 @@ body {
   vertical-align: top;
 }
 .findid-rPx .item--KoL {
-  width: 29.1rem;
+  width: 29.5rem;
   height: 7rem;
   position: absolute;
-  left: 77rem;
+  left: 78.5rem;
   top: 33.3rem;
   text-align: center;
   font-size: 4rem;
   font-weight: 600;
   line-height: 1.75;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
 .findid-rPx .rectangle-35-z8n {
@@ -50,7 +55,7 @@ body {
   position: absolute;
   left: 76rem;
   top: 44.4rem;
-  border: solid 0.1rem #000000;
+  border: solid 0.2rem #1761a0;
   box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 1rem;
@@ -62,13 +67,16 @@ body {
   left: 89rem;
   background-color: #1761a0;
   border-radius: 0.5rem;
+  border: none;
   top: 59.7rem;
   text-align: center;
   font-size: 1.7rem;
   font-weight: 600;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
+}
+.findid-rPx .rectangle-48-VrE:hover {
+	background-color: #eec400;
 }
 .findid-rPx .item--2LN {
   width: 3.5rem;
@@ -81,7 +89,6 @@ body {
   font-weight: 600;
   line-height: 4.6666666667;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
 .findid-rPx .item--8PQ {
@@ -95,7 +102,6 @@ body {
   font-weight: 600;
   line-height: 3.5;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
 .findid-rPx .dorandoran-2Dt {
@@ -112,8 +118,8 @@ body {
   line-height: 0.8928571429;
   letter-spacing: 0.154rem;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
+  text-decoration: underline;
 }
 .findid-rPx .image-9-iMc {
   width: 31.0388rem;
