@@ -546,14 +546,15 @@
 	}
 	
 	.typeCd{
-	    width: 77px;
-	    height: 24px;
-	    text-align: center;
-	    color: #1761A0;
-	    font-weight: bold;
-	    border-radius: 10px;
-	    border: 1px solid;
-	    margin: 2px;
+	        width: 77px;
+    height: 24px;
+    text-align: center;
+    color: #1761A0;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 2px solid;
+    margin: 2px;
 	}
 
 
