@@ -115,7 +115,7 @@ public class UserPageServiceImpl implements UserPageService {
 	}
 
 	@Override
-	public List<UserDTO> selectUser(int userNo) {
+	public UserDTO selectUser(int userNo) {
 		// TODO Auto-generated method stub
 		return mapper.selectUser(userNo);
 	}
