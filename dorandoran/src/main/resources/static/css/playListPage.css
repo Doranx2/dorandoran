@@ -831,6 +831,7 @@ body {
 .chat:hover {
 	background-color:lightblue;
 	color: white;
+	transition: 0.5s;
 }
 .item--YUv .auto-group-dzia-7xa .auto-group-8guq-xxW .auto-group-nuxn-EHk .group-32-c4e .list-DaE .frame-1134-wWE {
   margin-bottom: 0.2735rem;

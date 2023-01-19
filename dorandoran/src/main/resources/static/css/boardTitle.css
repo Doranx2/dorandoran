@@ -198,3 +198,11 @@ label {
 	background-color: skyblue;
 	color: white;
 }
+#Title:hover {
+	color: skyblue;
+	transition: 0.5s;
+}
+#PTitle:hover {
+	color: #EEC400;
+	transition: 0.5s;
+}
