@@ -14,15 +14,17 @@
 		<script th:inline="javascript">
 			$(function () {
 				const loginUser = /*[[${loginUser}]]*/;
-				const userNm = /*[[${qDetail.userNm}]]*/;
+				const userId = /*[[${qDetail.userId}]]*/;
 				console.log(loginUser);
 
 				if (loginUser == null) {
 					alert("로그인이 필요한 기능입니다. 로그인 페이지로 이동합니다.");
 					window.location.href = "/cscenter/loginPage";
 				} else if (loginUser != null) {
-					const loginUserNm = loginUser.userNm;
-					if (loginUserNm != userNm) {
+					const loginUserId = loginUser.userId;
+					console.log(loginUserId);
+					console.log(userId);
+					if (loginUserId != userId) {
 						$("#updateBtn").hide();
 						$("#deleteBtn").hide();
 						alert("잘못된 접근방식입니다.");
@@ -98,7 +100,7 @@
 										작성자
 									</td>
 									<td id="ntcTag2">
-										[[${qDetail.userNm}]]
+										[[${qDetail.userNick}]]
 									</td>
 									<td id="ntcTag1">
 										답변여부

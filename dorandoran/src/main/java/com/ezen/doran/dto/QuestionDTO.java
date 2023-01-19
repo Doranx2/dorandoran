@@ -19,4 +19,5 @@ public class QuestionDTO {
 	private String inputDtm; 
 	private String aYn;
 	private String userId;
+	private String userNick;
 }
