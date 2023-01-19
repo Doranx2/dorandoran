@@ -4,6 +4,9 @@
   font-weight: 400;
   src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
 }
+* {
+	font-family: 'Godo';
+}
 html {
 	font-size:62.5%;
 }
@@ -134,7 +137,6 @@ li {
   font-weight: 600;
   line-height: 2.3333333333;
   color: rgba(23, 97, 160, 0.9399999976);
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   border: solid 0.2rem #1761a0;
   background-color: #ffffff;
@@ -157,21 +159,15 @@ li {
   font-weight: 600;
   line-height: 2.8;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   display: flex;
   align-items: baseline;
-}
-.item--nzi .auto-group-eusc-V8S .frame-1144-zL6 .auto-group-4xyt-hEW .auto-group-qetj-pyL .item--xpe .item--xpe-sub-0 {
 }
 .item--nzi .auto-group-eusc-V8S .frame-1144-zL6 .auto-group-4xyt-hEW .auto-group-qetj-pyL .item--xpe .item--xpe-sub-1 {
   font-size: 2.8rem;
   font-weight: 700;
   line-height: 2.5;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
-}
-.item--nzi .auto-group-eusc-V8S .frame-1144-zL6 .auto-group-4xyt-hEW .auto-group-qetj-pyL .item--xpe .item--xpe-sub-2 {
 }
 .item--nzi .auto-group-eusc-V8S .frame-1144-zL6 .auto-group-4xyt-hEW .auto-group-qetj-pyL .item--Qq4 {
   width: 8.8rem;
@@ -184,7 +180,6 @@ li {
   font-weight: 600;
   line-height: 2.8;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
 .item--nzi .auto-group-eusc-V8S .frame-1144-zL6 .auto-group-4xyt-hEW .auto-group-qetj-pyL .nnnn-nn-nn-uWv {
@@ -198,7 +193,6 @@ li {
   font-weight: 600;
   line-height: 3.5;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
 }
 .item--nzi .auto-group-eusc-V8S .frame-1144-zL6 .auto-group-7thx-cRL {
@@ -215,7 +209,6 @@ li {
   font-weight: 600;
   line-height: 1.6666666667;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
 }
 .item--nzi .auto-group-eusc-V8S .frame-1144-zL6 .rectangle-104-RNn {
   width: 53.5rem;
@@ -253,7 +246,6 @@ li {
   font-weight: 600;
   line-height: 2.8;
   color: #707070;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -284,8 +276,11 @@ li {
   font-weight: 600;
   line-height: 3.1818181818;
   color: #f44336;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
+  text-decoration: none;
+}
+.item--nzi .auto-group-eusc-V8S .auto-group-pmlw-mBk .frame-1143-Rn6 .group-33-21C .item--7HY:hover {
+	color:white;
 }
 .item--nzi .my-doran-AWi {
   margin-bottom: 1.65rem;
@@ -296,7 +291,6 @@ li {
   line-height: 0.6944444444;
   letter-spacing: 0.198rem;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -384,7 +378,6 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -398,7 +391,6 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -412,7 +404,6 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -426,7 +417,6 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -440,7 +430,6 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #ffffff;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -527,7 +516,6 @@ li {
   line-height: 0.625;
   letter-spacing: 0.22rem;
   color: #1761a0;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -539,7 +527,6 @@ li {
   line-height: 1.1363636364;
   letter-spacing: 0.121rem;
   color: #7e7e7e;
-  font-family: Inter, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -568,7 +555,6 @@ li {
   line-height: 0.8333333333;
   letter-spacing: 0.165rem;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
   flex-shrink: 0;
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 .group-31-TQa .list-ezr .frame-1134-yXL {
@@ -608,7 +594,6 @@ li {
     line-height: 1.0416666667;
     letter-spacing: 0.132rem;
     color: #000000;
-    font-family: Jua, 'Source Sans Pro';
     white-space: nowrap;
     flex-shrink: 0;
 }
@@ -622,7 +607,6 @@ li {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -635,7 +619,6 @@ li {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -655,7 +638,6 @@ li {
   line-height: 1.5625;
   letter-spacing: 0.088rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -669,7 +651,6 @@ li {
   line-height: 1.5625;
   letter-spacing: 0.088rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -682,7 +663,6 @@ li {
   line-height: 1.5625;
   letter-spacing: 0.088rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -711,7 +691,6 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -744,7 +723,6 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #eec400;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   border: solid 0.3rem #eec400;
   box-sizing: border-box;
@@ -763,7 +741,6 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #f44336;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   border: solid 0.3rem #f44336;
   box-sizing: border-box;
@@ -787,7 +764,6 @@ li {
   line-height: 0.8333333333;
   letter-spacing: 0.165rem;
   color: #000000;
-  font-family: Inter, 'Source Sans Pro';
   flex-shrink: 0;
 }
 .item--nzi .auto-group-63un-HLS .auto-group-smwz-tqL .auto-group-ugjn-L54 .group-31-TQa .group-31-LkW .list-Z7U .frame-1134-H3U {
@@ -827,7 +803,6 @@ li {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -841,7 +816,6 @@ li {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -854,7 +828,6 @@ li {
   line-height: 1.0416666667;
   letter-spacing: 0.132rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -874,7 +847,6 @@ li {
   line-height: 1.5625;
   letter-spacing: 0.088rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -888,7 +860,6 @@ li {
   line-height: 1.5625;
   letter-spacing: 0.088rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -901,7 +872,6 @@ li {
   line-height: 1.5625;
   letter-spacing: 0.088rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -930,7 +900,6 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #000000;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   flex-shrink: 0;
 }
@@ -963,7 +932,6 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #eec400;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   border: solid 0.3rem #eec400;
   box-sizing: border-box;
@@ -982,11 +950,21 @@ li {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #f44336;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   border: solid 0.3rem #f44336;
   box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 0.3rem;
   flex-shrink: 0;
+}
+.whoList {
+	font-size: 3rem;
+    font-weight: 900;
+    line-height: 0.8333333333;
+    letter-spacing: 0.165rem;
+    color: #000000;
+    display: inline-block;
+    width: 1250px;
+    text-align: center;
+    margin-bottom: 50px;
 }

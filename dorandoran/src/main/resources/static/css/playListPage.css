@@ -554,7 +554,7 @@ body {
 }
 .item--YUv .auto-group-dzia-7xa .auto-group-8guq-xxW .auto-group-nuxn-EHk {
    box-sizing: border-box;
-   padding: 8.2rem 20rem 5.3rem 37.7rem;
+   padding: 8.2rem 20rem 5.3rem 20rem;
    width: 100%;
    height: 87rem;
    border-top: double 6px #1761a0;
@@ -837,7 +837,7 @@ body {
     height: 38px;
     width: 250px;
     text-align: center;
-    margin-left: 220px;
+    margin-left: 395px;
 }
 .chat:hover {
 	background-color:lightblue;
@@ -1044,7 +1044,6 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #eec400;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   border: solid 0.3rem #eec400;
   box-sizing: border-box;
@@ -1063,11 +1062,21 @@ body {
   line-height: 1.25;
   letter-spacing: 0.11rem;
   color: #f44336;
-  font-family: Jua, 'Source Sans Pro';
   white-space: nowrap;
   border: solid 0.3rem #f44336;
   box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 0.3rem;
   flex-shrink: 0;
+}
+.whoList {
+	font-size: 3rem;
+    font-weight: 900;
+    line-height: 0.8333333333;
+    letter-spacing: 0.165rem;
+    color: #000000;
+    display: inline-block;
+    width: 1155px;
+    text-align: center;
+    margin-bottom: 35px;
 }

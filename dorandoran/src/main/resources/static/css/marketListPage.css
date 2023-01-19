@@ -7,6 +7,17 @@
 html {
 	font-size:62.5%;
 }
+.whoList {
+	font-size: 3rem;
+    font-weight: 900;
+    line-height: 0.8333333333;
+    letter-spacing: 0.165rem;
+    color: #000000;
+    display: inline-block;
+    width: 1155px;
+    text-align: center;
+    margin-bottom: 35px;
+}
 .sideB {
 	width: 20rem;
     height: 42rem;
