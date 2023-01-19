@@ -146,7 +146,7 @@ public class CsController {
 		ResponseDTO<Map<String, Object>> response = new ResponseDTO<>();
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		try {
-			UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+			User loginUser = (User)session.getAttribute("loginUser");
 			List<QuestionDTO> questionList = csService.selectQuestionList(paramMap, cri);
 			returnMap.put("questionList", questionList);
 
@@ -284,7 +284,7 @@ public class CsController {
 		ResponseDTO<Map<String, Object>> response = new ResponseDTO<>();
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		try {
-			UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+			User loginUser = (User)session.getAttribute("loginUser");
 			List<RepDTO> repList = csService.selectRepList(paramMap, cri);
 			returnMap.put("repList", repList);
 
