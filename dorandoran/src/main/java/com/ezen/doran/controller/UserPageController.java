@@ -34,8 +34,7 @@ public class UserPageController {
 	public ModelAndView updateUser(UserDTO UserDTO, @RequestParam("userNo") int userNo) {
 		ModelAndView mv = new ModelAndView();
 		
-		List<UserDTO> selectUser = UserPageService.selectUser(userNo);
-		
+		UserDTO selectUser = UserPageService.selectUser(userNo);
 		
 		mv.addObject("selectUser", selectUser);
 		mv.setViewName("/userPage/updateUserPage.html");

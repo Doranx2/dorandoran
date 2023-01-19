@@ -4,7 +4,9 @@
   font-weight: 400;
   src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
 }
-
+* {
+	font-family: 'Godo';
+}
 .v19_9 {
 	  width: 100%;
 	  height: 1317px;
@@ -106,11 +108,10 @@
 	}
 	.v21_81 {
 	  width: 530px;
-	  color: rgba(0,0,0,1);
+	  color: #585858;
 	  position: absolute;
 	  top: 103px;
 	  left: 0px;
-	  font-family: Inter;
 	  font-weight: 200;
 	  font-size: 20px;
 	  opacity: 1;
@@ -146,6 +147,7 @@
 	    border : 0px;
 	    font-size: 1.4em;
 	    font-weight: bolder;
+	    cursor: pointer;
 	}
 	
 	.insertPageBtn:hover {
@@ -167,6 +169,7 @@
 	    border : 0px;
 	    font-size: 1.4em;
 	    font-weight: bolder;
+	    cursor: pointer;
 	}
 	
 	.insertPageBtn_b:hover {
@@ -187,3 +190,19 @@
     background: #f44336;
     color:#ffffff;
  }
+ 
+label {
+	 cursor: pointer;
+}
+.selectBtns input[type=radio]+label:hover{
+	background-color: skyblue;
+	color: white;
+}
+#Title:hover {
+	color: skyblue;
+	transition: 0.5s;
+}
+#PTitle:hover {
+	color: #EEC400;
+	transition: 0.5s;
+}

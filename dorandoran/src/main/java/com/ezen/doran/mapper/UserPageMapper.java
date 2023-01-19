@@ -22,10 +22,11 @@ import com.ezen.doran.dto.UserDTO;
 public interface UserPageMapper {
 	
 	@Select("SELECT * FROM TB_USER WHERE USER_NO = #{userNo}")
-	List<UserDTO> selectUser(int userNo);
+	UserDTO selectUser(int userNo);
 	
 	@Update("UPDATE tb_user "
-			+ "SET USER_EMAIL = #{userEmail},"
+			+ "SET USER_PW = #{userPw},"
+			+ "	   USER_EMAIL = #{userEmail},"
 			+ "	   USER_TEL = #{userTel},"
 			+ "	   USER_NICK = #{userNick},"
 			+ "    USER_LOC = #{userLoc} "

@@ -75,7 +75,7 @@
 					<tr th:each="share : ${selectShareList}">
 						<td th:text=${share.shareNo}></td>
 						<td>
-							<a th:text="${share.shareTitle}"
+							<a id="Title" th:text="${share.shareTitle}"
 								th:href="@{/share/selectShare?shareNo={shareNo} (shareNo = ${share.shareNo})}">
 							</a>
 						</td>

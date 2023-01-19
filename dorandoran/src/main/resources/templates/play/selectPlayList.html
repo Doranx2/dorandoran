@@ -57,7 +57,7 @@
 					<tr th:each="play : ${selectPlayList}">
 						<td th:text=${play.playNo}></td>
 						<td>
-							<a th:text="${play.playTitle}"
+							<a id="PTitle" th:text="${play.playTitle}"
 								th:href="@{/play/updatePlayCnt?playNo={playNo} (playNo = ${play.playNo})}">
 							</a>
 						</td>
