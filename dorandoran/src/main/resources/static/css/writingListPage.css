@@ -7,6 +7,16 @@
 html {
 	font-size:62.5%;
 }
+.sideB {
+	width: 20rem;
+    height: 42rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    box-sizing: border-box;
+    background-color: #1761a0;
+    border-radius: 5px;
+}
 * {
 	margin: 0;
 	padding: 0;
@@ -19,6 +29,7 @@ input {
 }
 #categ:hover {
 	color:#F2F5A9;
+	transition: 1s
 }
 body {
   width: 192rem;

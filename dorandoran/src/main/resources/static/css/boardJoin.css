@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Godo';
+  font-style: normal;
+  font-weight: 400;
+  src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/godo/Godo/GodoM.woff') format('woff');
+}
+* {
+	font-family: 'Godo';
+}
 .container{
 	  width: 100%;
 	  height: 1317px;
@@ -73,7 +82,6 @@
 		position: absolute;
 		top: 620px;
 		left: 330px;
-		font-family: EF_AONE;
 		font-weight: lighter;
 		font-size: 50px;
 		opacity: 1;
@@ -87,7 +95,6 @@
 	    position: absolute;
 	    top: 772px;
 	    left: 327px;
-	    font-family: Inter;
 	    font-weight: Regular;
 	    font-size: 30px;
 	    opacity: 1;
@@ -135,7 +142,6 @@
 	    position: absolute;
 	    top: 998px;
 	    left: 705px;
-	    font-family: Inter;
 	    font-weight: Regular;
 	    font-size: 30px;
 	    opacity: 1;
@@ -178,7 +184,6 @@
 	    position: absolute;
 	    top: 1115px;
 	    left: 327px;
-	    font-family: Inter;
 	    font-weight: Regular;
 	    font-size: 30px;
 	    opacity: 1;
@@ -191,7 +196,6 @@
 	    position: absolute;
 	    top: 722px;
 	    left: 327px;
-	    font-family: Inter;
 	    font-weight: Regular;
 	    font-size: 30px;
 	    opacity: 1;
@@ -203,7 +207,6 @@
 	    position: absolute;
 		top: 884px;
 		left: 327px;
-		font-family: Inter;
 		font-weight: Regular;
 		font-size: 30px;
 		opacity: 1;
@@ -215,7 +218,6 @@
 	    position: absolute;
 	    top: 1050px;
 	    left: 824px;
-	    font-family: Inter;
 	    font-weight: Regular;
 	    font-size: 30px;
 	    opacity: 1;
@@ -227,7 +229,6 @@
 	    position: absolute;
 		top: 998px;
 		left: 327px;
-		font-family: Inter;
 		font-weight: Regular;
 		font-size: 30px;
 		opacity: 1;
@@ -240,7 +241,6 @@
 	    position: absolute;
 	    top: 1123px;
 	    left: 327px;
-	    font-family: Inter;
 	    font-weight: Regular;
 	    font-size: 30px;
 	    opacity: 1;
@@ -794,7 +794,6 @@
     position: absolute;
     top: 1480px;
     left: 327px;
-    font-family: Inter;
     font-weight: Bold;
     font-size: 30px;
     opacity: 1;
@@ -848,7 +847,6 @@
     position: absolute;
     top: 761px;
     left: 728px;
-    font-family: Inter;
     font-weight: Bold;
     font-size: 40px;
     opacity: 1;
@@ -858,7 +856,6 @@
 
   .joinContent {
     width: 100%;
-    font-family: Inter;
     font-weight: Bold;
     font-size: 30px;
     text-align: left;
@@ -1017,7 +1014,6 @@
     position: absolute;
     top: 702px;
     left: 728px;
-    font-family: Inter;
     font-weight: Bold;
     font-size: 20px;
     opacity: 1;
@@ -1032,7 +1028,6 @@
     position: absolute;
     top: 856px;
     left: 728px;
-    font-family: Inter;
     font-weight: Bold;
     font-size: 25px;
     opacity: 1;
