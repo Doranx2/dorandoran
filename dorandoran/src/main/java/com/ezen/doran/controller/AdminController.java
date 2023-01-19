@@ -21,6 +21,7 @@ import com.ezen.doran.dto.Pagination;
 import com.ezen.doran.dto.QuestionDTO;
 import com.ezen.doran.dto.RepDTO;
 import com.ezen.doran.dto.UserDTO;
+import com.ezen.doran.entity.User;
 import com.ezen.doran.service.admin.AdminService;
 
 @Controller
@@ -39,9 +40,10 @@ public class AdminController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
+		System.out.println(loginUser.toString());
 		
-		if(loginUser == null) {
+		if(loginUser.getUserRole().equals(null)) {
 			mv.addObject("msg", "로그인 해주세요");
 			mv.addObject("url", "/temp/loginPage");
 			mv.setViewName("admin/messageAlert.html");
@@ -51,7 +53,7 @@ public class AdminController {
 		
 		System.out.println(loginUser.getUserRole());
 		
-		if(!loginUser.getUserRole().equals("ADMIN")) {
+		if(!loginUser.getUserRole().equals("ROLE_ADMIN")) {
 			mv.addObject("msg", "관리자 계정으로 접속해주세요");
 			mv.addObject("url", "/");
 			mv.setViewName("admin/messageAlert.html");
@@ -104,7 +106,7 @@ public class AdminController {
 			 * 기본값 true 로 사용을 하는 경우 => 보통 줄여서 @RequestParam("num")
 			 */
 		
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
 			model.addAttribute("msg", "로그인 해주세요");
@@ -113,7 +115,7 @@ public class AdminController {
 			return "admin/messageAlert";
 		}
 		
-		if(!loginUser.getUserRole().equals("ADMIN")) {
+		if(!loginUser.getUserRole().equals("ROLE_ADMIN")) {
 			model.addAttribute("msg", "관리자 계정으로 로그인 해주세요");
 			model.addAttribute("url", "/");
 			
@@ -234,7 +236,7 @@ public class AdminController {
 	public String AdNoticeDelete(HttpSession session, @RequestParam(value="noticeNo", required = false)
 								Integer noticeNo, Model model) {
 		
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
 			model.addAttribute("msg", "로그인 해주세요");
@@ -243,7 +245,7 @@ public class AdminController {
 			return "admin/messageAlert";
 		}
 		
-		if(!loginUser.getUserRole().equals("ADMIN")) {
+		if(!loginUser.getUserRole().equals("ROLE_ADMIN")) {
 			model.addAttribute("msg", "관리자 계정으로 로그인 해주세요");
 			model.addAttribute("url", "/");
 			
@@ -305,7 +307,7 @@ public class AdminController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
 			mv.addObject("msg", "로그인 해주세요");
@@ -315,7 +317,7 @@ public class AdminController {
 			return mv;
 		}
 		
-		if(!loginUser.getUserRole().equals("ADMIN")) {
+		if(!loginUser.getUserRole().equals("ROLE_ADMIN")) {
 			mv.addObject("msg", "관리자 계정으로 접속해주세요");
 			mv.addObject("url", "/");
 			mv.setViewName("admin/messageAlert.html");
@@ -352,7 +354,7 @@ public class AdminController {
 	public String insertAdQna(HttpSession session, Model model,
 								@RequestParam(value = "qNo", required = false) Integer qNo) {
 
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
 			model.addAttribute("msg", "로그인 해주세요");
@@ -361,7 +363,7 @@ public class AdminController {
 			return "admin/messageAlert";
 		}
 		
-		if(!loginUser.getUserRole().equals("ADMIN")) {
+		if(!loginUser.getUserRole().equals("ROLE_ADMIN")) {
 			model.addAttribute("msg", "관리자 계정으로 로그인 해주세요");
 			model.addAttribute("url", "/");
 			
@@ -459,7 +461,7 @@ public class AdminController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
 			mv.addObject("msg", "로그인 해주세요");
@@ -469,7 +471,7 @@ public class AdminController {
 			return mv;
 		}
 		
-		if(!loginUser.getUserRole().equals("ADMIN")) {
+		if(!loginUser.getUserRole().equals("ROLE_ADMIN")) {
 			mv.addObject("msg", "관리자 계정으로 접속해주세요");
 			mv.addObject("url", "/");
 			mv.setViewName("admin/messageAlert.html");
@@ -506,7 +508,7 @@ public class AdminController {
 	public String insertAdReport(HttpSession session, Model model,
 								@RequestParam(value = "repNo", required = false) Integer repNo) {
 
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
 			model.addAttribute("msg", "로그인 해주세요");
@@ -515,7 +517,7 @@ public class AdminController {
 			return "admin/messageAlert";
 		}
 		
-		if(!loginUser.getUserRole().equals("ADMIN")) {
+		if(!loginUser.getUserRole().equals("ROLE_ADMIN")) {
 			model.addAttribute("msg", "관리자 계정으로 로그인 해주세요");
 			model.addAttribute("url", "/");
 			
@@ -585,7 +587,7 @@ public class AdminController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
 			mv.addObject("msg", "로그인 해주세요");
@@ -595,7 +597,7 @@ public class AdminController {
 			return mv;
 		}
 		
-		if(!loginUser.getUserRole().equals("ADMIN")) {
+		if(!loginUser.getUserRole().equals("ROLE_ADMIN")) {
 			mv.addObject("msg", "관리자 계정으로 접속해주세요");
 			mv.addObject("url", "/");
 			mv.setViewName("admin/messageAlert.html");
@@ -632,7 +634,7 @@ public class AdminController {
 	public String insertAdUser(HttpSession session, Model model,
 								@RequestParam(value = "userNo", required = false) Integer userNo) {
 
-		UserDTO loginUser = (UserDTO)session.getAttribute("loginUser");
+		User loginUser = (User)session.getAttribute("loginUser");
 		
 		if(loginUser == null) {
 			model.addAttribute("msg", "로그인 해주세요");
@@ -641,7 +643,7 @@ public class AdminController {
 			return "admin/messageAlert";
 		}
 		
-		if(!loginUser.getUserRole().equals("ADMIN")) {
+		if(!loginUser.getUserRole().equals("ROLE_ADMIN")) {
 			model.addAttribute("msg", "관리자 계정으로 로그인 해주세요");
 			model.addAttribute("url", "/");
 			
