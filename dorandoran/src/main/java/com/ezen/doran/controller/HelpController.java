@@ -162,7 +162,7 @@ public class HelpController {
 		mv.setViewName("help/insertHelp.html");
 
 		return mv;
-	}
+	}  
 
 	@PostMapping("/updateHelp")
 	public void updateHelp(HelpDTO helpDTO, @RequestParam("file") MultipartFile file, HttpServletRequest request,
